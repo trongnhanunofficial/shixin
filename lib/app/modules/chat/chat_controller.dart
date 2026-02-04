@@ -36,7 +36,6 @@ class ChatController extends GetxController {
   void _loadMessages() {
     _chatService.getChatMessages(chatId).listen((messageList) {
       messages.value = messageList;
-      _scrollToBottom();
       _markMessagesAsRead();
     });
   }
@@ -61,20 +60,6 @@ class ChatController extends GetxController {
       senderId: currentUserId,
       content: content,
     );
-
-    _scrollToBottom();
-  }
-
-  void _scrollToBottom() {
-    if (scrollController.hasClients) {
-      Future.delayed(const Duration(milliseconds: 100), () {
-        scrollController.animateTo(
-          scrollController.position.maxScrollExtent,
-          duration: const Duration(milliseconds: 300),
-          curve: Curves.easeOut,
-        );
-      });
-    }
   }
 
   void _markMessagesAsRead() {

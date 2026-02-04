@@ -65,7 +65,7 @@ class ChatService extends GetxService {
     return _chatsRef
         .doc(chatId)
         .collection(FirebaseConstants.messagesCollection)
-        .orderBy(FirebaseConstants.fieldTimestamp, descending: false)
+        .orderBy(FirebaseConstants.fieldTimestamp, descending: true)
         .snapshots()
         .map((snapshot) {
           return snapshot.docs

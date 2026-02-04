@@ -91,6 +91,7 @@ class ChatView extends GetView<ChatController> {
               }
 
               return ListView.builder(
+                reverse: true,
                 controller: controller.scrollController,
                 padding: const EdgeInsets.symmetric(
                   horizontal: 16,
@@ -103,10 +104,10 @@ class ChatView extends GetView<ChatController> {
 
                   // Check if we should show time separator
                   bool showTimeSeparator = false;
-                  if (index == 0) {
+                  if (index == controller.messages.length - 1) {
                     showTimeSeparator = true;
                   } else {
-                    final prevMessage = controller.messages[index - 1];
+                    final prevMessage = controller.messages[index + 1];
                     if (message.timestamp
                             .difference(prevMessage.timestamp)
                             .inMinutes >
