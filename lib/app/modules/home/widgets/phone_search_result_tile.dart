@@ -68,28 +68,28 @@ class PhoneSearchResultTile extends StatelessWidget {
           children: [
             Chip(
               visualDensity: VisualDensity.compact,
-              label: const Text('Bạn bè'),
+              label: const Text('Friends'),
               backgroundColor: AppColors.success.withValues(alpha: 0.15),
               side: BorderSide.none,
             ),
-            TextButton(onPressed: onChat, child: const Text('Nhắn tin')),
+            TextButton(onPressed: onChat, child: const Text('Message')),
           ],
         );
       case SearchFriendState.requestSent:
         return OutlinedButton(
           onPressed: onWithdraw,
-          child: const Text('Thu hồi'),
+          child: const Text('Withdraw'),
         );
       case SearchFriendState.requestReceived:
         return Wrap(
           spacing: 8,
           children: [
-            OutlinedButton(onPressed: onReject, child: const Text('Từ chối')),
-            FilledButton(onPressed: onAccept, child: const Text('Đồng ý')),
+            OutlinedButton(onPressed: onReject, child: const Text('Decline')),
+            FilledButton(onPressed: onAccept, child: const Text('Accept')),
           ],
         );
       case SearchFriendState.canAdd:
-        return FilledButton(onPressed: onAdd, child: const Text('Kết bạn'));
+        return FilledButton(onPressed: onAdd, child: const Text('Add friend'));
     }
   }
 }

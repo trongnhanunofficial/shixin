@@ -31,7 +31,7 @@ class ProfileController extends GetxController {
 
   Future<void> updateProfile() async {
     if (nameController.text.trim().isEmpty) {
-      SnackbarUtils.showError('Tên không được để trống');
+      SnackbarUtils.showError('Name cannot be empty');
       return;
     }
 
@@ -42,15 +42,15 @@ class ProfileController extends GetxController {
         name: nameController.text.trim(),
       );
 
-      // Cập nhật local state
+      // Update local state
       _authService.currentUser.value = currentUser!.copyWith(
         name: nameController.text.trim(),
       );
 
-      SnackbarUtils.showSuccess('Cập nhật thành công!');
+      SnackbarUtils.showSuccess('Profile updated successfully!');
       isEditing.value = false;
     } catch (e) {
-      SnackbarUtils.showError('Có lỗi xảy ra');
+      SnackbarUtils.showError('Something went wrong');
     } finally {
       isLoading.value = false;
     }

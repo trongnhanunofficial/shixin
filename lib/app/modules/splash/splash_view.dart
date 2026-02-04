@@ -41,7 +41,7 @@ class SplashView extends GetView<SplashController> {
             ),
             const SizedBox(height: 8),
             const Text(
-              'Kết nối mọi lúc, mọi nơi',
+              'Connect anytime, anywhere',
               style: TextStyle(fontSize: 16, color: Colors.white70),
             ),
             const SizedBox(height: 48),

@@ -61,15 +61,15 @@ class FriendRequestTile extends StatelessWidget {
     if (type == FriendRequestType.sent) {
       return OutlinedButton(
         onPressed: onWithdraw,
-        child: const Text('Thu hồi'),
+        child: const Text('Withdraw'),
       );
     }
 
     return Wrap(
       spacing: 8,
       children: [
-        OutlinedButton(onPressed: onReject, child: const Text('Từ chối')),
-        FilledButton(onPressed: onAccept, child: const Text('Đồng ý')),
+        OutlinedButton(onPressed: onReject, child: const Text('Decline')),
+        FilledButton(onPressed: onAccept, child: const Text('Accept')),
       ],
     );
   }

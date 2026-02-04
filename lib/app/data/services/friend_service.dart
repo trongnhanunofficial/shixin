@@ -41,7 +41,7 @@ class FriendService extends GetxService {
 
   Future<void> sendRequest(String fromUid, String toUid) async {
     if (fromUid == toUid) {
-      throw Exception('Không thể kết bạn với chính bạn.');
+      throw Exception("You can't add yourself as a friend.");
     }
 
     final relationId = getRelationId(fromUid, toUid);
@@ -58,15 +58,15 @@ class FriendService extends GetxService {
             data[FirebaseConstants.fieldFriendRequesterId] as String?;
 
         if (status == FriendRelationStatus.accepted.name) {
-          throw Exception('Hai người đã là bạn bè.');
+          throw Exception('You are already friends.');
         }
 
         if (status == FriendRelationStatus.pending.name) {
           if (requesterId == fromUid) {
-            throw Exception('Bạn đã gửi lời mời kết bạn.');
+            throw Exception('You already sent a friend request.');
           }
           if (requesterId == toUid) {
-            throw Exception('Người này đã gửi lời mời cho bạn.');
+            throw Exception('This user has already sent you a friend request.');
           }
         }
       }
@@ -88,7 +88,7 @@ class FriendService extends GetxService {
     await _firestore.runTransaction((transaction) async {
       final snapshot = await transaction.get(relationRef);
       if (!snapshot.exists || snapshot.data() == null) {
-        throw Exception('Lời mời không tồn tại.');
+        throw Exception('Friend request does not exist.');
       }
 
       final data = snapshot.data()!;
@@ -100,13 +100,13 @@ class FriendService extends GetxService {
       );
 
       if (!participants.contains(currentUid)) {
-        throw Exception('Không có quyền xử lý lời mời này.');
+        throw Exception("You don't have permission to handle this request.");
       }
       if (status != FriendRelationStatus.pending.name) {
-        throw Exception('Lời mời không còn hiệu lực.');
+        throw Exception('This request is no longer valid.');
       }
       if (requesterId == currentUid) {
-        throw Exception('Không thể tự chấp nhận lời mời đã gửi.');
+        throw Exception("You can't accept your own request.");
       }
 
       transaction.update(relationRef, {
@@ -134,13 +134,13 @@ class FriendService extends GetxService {
       );
 
       if (!participants.contains(currentUid)) {
-        throw Exception('Không có quyền từ chối lời mời này.');
+        throw Exception("You don't have permission to decline this request.");
       }
       if (status != FriendRelationStatus.pending.name) {
-        throw Exception('Lời mời không còn hiệu lực.');
+        throw Exception('This request is no longer valid.');
       }
       if (requesterId == currentUid) {
-        throw Exception('Không thể từ chối lời mời do chính bạn gửi.');
+        throw Exception("You can't decline a request you sent.");
       }
 
       transaction.delete(relationRef);
@@ -165,13 +165,13 @@ class FriendService extends GetxService {
       );
 
       if (!participants.contains(currentUid)) {
-        throw Exception('Không có quyền thu hồi lời mời này.');
+        throw Exception("You don't have permission to withdraw this request.");
       }
       if (status != FriendRelationStatus.pending.name) {
-        throw Exception('Không thể thu hồi lời mời này.');
+        throw Exception('Unable to withdraw this request.');
       }
       if (requesterId != currentUid) {
-        throw Exception('Chỉ người gửi mới được thu hồi lời mời.');
+        throw Exception('Only the sender can withdraw this request.');
       }
 
       transaction.delete(relationRef);
@@ -194,10 +194,10 @@ class FriendService extends GetxService {
       );
 
       if (!participants.contains(currentUid)) {
-        throw Exception('Không có quyền hủy kết bạn.');
+        throw Exception("You don't have permission to unfriend.");
       }
       if (status != FriendRelationStatus.accepted.name) {
-        throw Exception('Hai người chưa là bạn bè.');
+        throw Exception('You are not friends yet.');
       }
 
       transaction.delete(relationRef);

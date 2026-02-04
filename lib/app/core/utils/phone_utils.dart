@@ -8,7 +8,7 @@ class PhoneUtils {
   static String normalizeLocalInput(String value) {
     final digits = digitsOnly(value.trim());
     if (digits.isEmpty) {
-      throw const FormatException('Số điện thoại không hợp lệ.');
+      throw const FormatException('Invalid phone number.');
     }
     return digits;
   }

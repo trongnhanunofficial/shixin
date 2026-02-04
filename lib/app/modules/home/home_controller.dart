@@ -134,7 +134,7 @@ class HomeController extends GetxController {
     if (!RegExp(r'^\d+$').hasMatch(keyword)) {
       searchResults.clear();
       hasSearchedPhone.value = true;
-      searchMessage.value = 'Vui lòng nhập số điện thoại chỉ gồm chữ số.';
+      searchMessage.value = 'Please enter a phone number with digits only.';
       return;
     }
 
@@ -149,7 +149,7 @@ class HomeController extends GetxController {
       );
       searchResults.value = users;
       if (users.isEmpty) {
-        searchMessage.value = 'Không tìm thấy người dùng.';
+        searchMessage.value = 'User not found.';
       }
     } catch (error) {
       searchResults.clear();
@@ -169,7 +169,7 @@ class HomeController extends GetxController {
   Future<void> sendFriendRequest(UserModel otherUser) async {
     await _runAction('send:${otherUser.uid}', () async {
       await _friendService.sendRequest(_currentUserId, otherUser.uid);
-      SnackbarUtils.showSuccess('Đã gửi lời mời kết bạn.');
+      SnackbarUtils.showSuccess('Friend request sent.');
     });
   }
 
@@ -178,28 +178,28 @@ class HomeController extends GetxController {
     await _runAction('accept:${relation.id}', () async {
       await _friendService.acceptRequest(_currentUserId, relation.id);
       await _chatService.getOrCreateChat(_currentUserId, otherUserId);
-      SnackbarUtils.showSuccess('Đã chấp nhận lời mời kết bạn.');
+      SnackbarUtils.showSuccess('Friend request accepted.');
     });
   }
 
   Future<void> rejectRequest(FriendRelationModel relation) async {
     await _runAction('reject:${relation.id}', () async {
       await _friendService.rejectRequest(_currentUserId, relation.id);
-      SnackbarUtils.showInfo('Đã từ chối lời mời kết bạn.');
+      SnackbarUtils.showInfo('Friend request declined.');
     });
   }
 
   Future<void> withdrawRequest(FriendRelationModel relation) async {
     await _runAction('withdraw:${relation.id}', () async {
       await _friendService.withdrawRequest(_currentUserId, relation.id);
-      SnackbarUtils.showInfo('Đã thu hồi lời mời kết bạn.');
+      SnackbarUtils.showInfo('Friend request withdrawn.');
     });
   }
 
   Future<void> openChat(ChatModel chat) async {
     final otherUserId = chat.getOtherUserId(_currentUserId);
     if (!_acceptedFriendIds.contains(otherUserId)) {
-      SnackbarUtils.showError('Chỉ có thể nhắn tin với bạn bè.');
+      SnackbarUtils.showError('You can only message friends.');
       return;
     }
 
@@ -207,7 +207,7 @@ class HomeController extends GetxController {
     otherUser ??= await _userService.getUserById(otherUserId);
 
     if (otherUser == null) {
-      SnackbarUtils.showError('Không thể tải thông tin người dùng.');
+      SnackbarUtils.showError('Unable to load user information.');
       return;
     }
 
@@ -219,7 +219,7 @@ class HomeController extends GetxController {
 
   Future<void> openChatWithFriend(UserModel otherUser) async {
     if (!_acceptedFriendIds.contains(otherUser.uid)) {
-      SnackbarUtils.showError('Chỉ có thể nhắn tin với bạn bè.');
+      SnackbarUtils.showError('You can only message friends.');
       return;
     }
 
@@ -237,16 +237,16 @@ class HomeController extends GetxController {
   Future<void> unfriend(UserModel user) async {
     final confirmed = await Get.dialog<bool>(
       AlertDialog(
-        title: const Text('Hủy kết bạn'),
-        content: Text('Bạn có chắc muốn hủy kết bạn với ${user.name}?'),
+        title: const Text('Unfriend'),
+        content: Text('Are you sure you want to unfriend ${user.name}?'),
         actions: [
           TextButton(
             onPressed: () => Get.back(result: false),
-            child: const Text('Hủy'),
+            child: const Text('Cancel'),
           ),
           TextButton(
             onPressed: () => Get.back(result: true),
-            child: const Text('Xác nhận'),
+            child: const Text('Confirm'),
           ),
         ],
       ),
@@ -259,7 +259,7 @@ class HomeController extends GetxController {
     await _runAction('unfriend:${user.uid}', () async {
       await _friendService.unfriend(_currentUserId, user.uid);
       await _chatService.deleteChatBetweenUsers(_currentUserId, user.uid);
-      SnackbarUtils.showInfo('Đã hủy kết bạn.');
+      SnackbarUtils.showInfo('Unfriended.');
     });
   }
 

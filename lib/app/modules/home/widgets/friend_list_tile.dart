@@ -50,9 +50,9 @@ class FriendListTile extends StatelessWidget {
           : Wrap(
               spacing: 8,
               children: [
-                TextButton(onPressed: onChat, child: const Text('Nhắn tin')),
+                TextButton(onPressed: onChat, child: const Text('Message')),
                 IconButton(
-                  tooltip: 'Hủy kết bạn',
+                  tooltip: 'Unfriend',
                   onPressed: onUnfriend,
                   icon: const Icon(Icons.person_remove_outlined),
                 ),

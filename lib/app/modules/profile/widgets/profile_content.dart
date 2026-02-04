@@ -68,7 +68,7 @@ class ProfileContent extends StatelessWidget {
             const SizedBox(height: 32),
             _buildInfoCard(
               icon: Icons.person,
-              label: 'Họ và tên',
+              label: 'Full name',
               child: controller.isEditing.value
                   ? TextField(
                       controller: controller.nameController,
@@ -100,7 +100,7 @@ class ProfileContent extends StatelessWidget {
             const SizedBox(height: 16),
             _buildInfoCard(
               icon: Icons.calendar_today,
-              label: 'Ngày tham gia',
+              label: 'Joined date',
               child: Text(
                 _formatDate(user.createdAt),
                 style: const TextStyle(
@@ -113,9 +113,9 @@ class ProfileContent extends StatelessWidget {
             _buildInfoCard(
               icon: Icons.circle,
               iconColor: user.isOnline ? AppColors.online : AppColors.offline,
-              label: 'Trạng thái',
+              label: 'Status',
               child: Text(
-                user.isOnline ? 'Đang hoạt động' : 'Offline',
+                user.isOnline ? 'Active' : 'Offline',
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w500,

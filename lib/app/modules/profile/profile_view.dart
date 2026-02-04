@@ -11,7 +11,7 @@ class ProfileView extends GetView<ProfileController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Hồ sơ'),
+        title: const Text('Profile'),
         actions: [
           Obx(
             () => TextButton(
@@ -19,7 +19,7 @@ class ProfileView extends GetView<ProfileController> {
                   ? controller.updateProfile
                   : controller.toggleEdit,
               child: Text(
-                controller.isEditing.value ? 'Lưu' : 'Sửa',
+                controller.isEditing.value ? 'Save' : 'Edit',
                 style: const TextStyle(color: Colors.white),
               ),
             ),

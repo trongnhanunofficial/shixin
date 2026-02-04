@@ -50,7 +50,7 @@ class ChatController extends GetxController {
       otherUser.uid,
     );
     if (!isFriend) {
-      SnackbarUtils.showError('Chỉ có thể nhắn tin với bạn bè.');
+      SnackbarUtils.showError('You can only message friends.');
       return;
     }
 

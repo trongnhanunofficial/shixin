@@ -68,13 +68,11 @@ class ChatListTile extends StatelessWidget {
             ],
           ),
           title: Text(
-            user?.name ?? 'Đang tải...',
+            user?.name ?? 'Loading...',
             style: const TextStyle(fontWeight: FontWeight.w600),
           ),
           subtitle: Text(
-            chat.lastMessage.isNotEmpty
-                ? chat.lastMessage
-                : 'Bắt đầu trò chuyện',
+            chat.lastMessage.isNotEmpty ? chat.lastMessage : 'Start a chat',
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: TextStyle(color: Colors.grey[600]),
@@ -93,13 +91,13 @@ class ChatListTile extends StatelessWidget {
     final diff = now.difference(time);
 
     if (diff.inMinutes < 1) {
-      return 'Vừa xong';
+      return 'Just now';
     } else if (diff.inHours < 1) {
-      return '${diff.inMinutes} phút';
+      return '${diff.inMinutes} mins';
     } else if (diff.inDays < 1) {
-      return '${diff.inHours} giờ';
+      return '${diff.inHours} hrs';
     } else if (diff.inDays < 7) {
-      return '${diff.inDays} ngày';
+      return '${diff.inDays} days';
     } else {
       return '${time.day}/${time.month}';
     }

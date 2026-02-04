@@ -48,9 +48,7 @@ class ChatView extends GetView<ChatController> {
                     ),
                   ),
                   Text(
-                    controller.otherUser.isOnline
-                        ? 'Đang hoạt động'
-                        : 'Offline',
+                    controller.otherUser.isOnline ? 'Active' : 'Offline',
                     style: TextStyle(
                       fontSize: 12,
                       color: controller.otherUser.isOnline
@@ -84,7 +82,7 @@ class ChatView extends GetView<ChatController> {
                       ),
                       const SizedBox(height: 16),
                       Text(
-                        'Hãy bắt đầu cuộc trò chuyện!',
+                        'Start the conversation!',
                         style: TextStyle(color: Colors.grey[500], fontSize: 16),
                       ),
                     ],
@@ -165,7 +163,7 @@ class ChatView extends GetView<ChatController> {
                     child: TextField(
                       controller: controller.messageController,
                       decoration: InputDecoration(
-                        hintText: 'Nhập tin nhắn...',
+                        hintText: 'Type a message...',
                         filled: true,
                         fillColor: Colors.grey[100],
                         border: OutlineInputBorder(
@@ -210,9 +208,9 @@ class ChatView extends GetView<ChatController> {
 
     String dateStr;
     if (messageDate == today) {
-      dateStr = 'Hôm nay';
+      dateStr = 'Today';
     } else if (messageDate == today.subtract(const Duration(days: 1))) {
-      dateStr = 'Hôm qua';
+      dateStr = 'Yesterday';
     } else {
       dateStr = '${dateTime.day}/${dateTime.month}/${dateTime.year}';
     }

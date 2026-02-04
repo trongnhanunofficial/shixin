@@ -78,13 +78,13 @@ class HomeView extends GetView<HomeController> {
                   ? profileController.updateProfile
                   : profileController.toggleEdit,
               child: Text(
-                profileController.isEditing.value ? 'Lưu' : 'Sửa',
+                profileController.isEditing.value ? 'Save' : 'Edit',
                 style: const TextStyle(color: Colors.white),
               ),
             ),
           ),
         IconButton(
-          tooltip: 'Đăng xuất',
+          tooltip: 'Log out',
           onPressed: controller.logout,
           icon: const Icon(Icons.logout),
         ),
@@ -102,8 +102,8 @@ class HomeView extends GetView<HomeController> {
       if (controller.chats.isEmpty) {
         return _buildEmptyState(
           icon: Icons.chat_bubble_outline,
-          title: 'Chưa có cuộc trò chuyện',
-          subtitle: 'Chỉ hiển thị cuộc trò chuyện với bạn bè.',
+          title: 'No conversations yet',
+          subtitle: 'Only conversations with friends are shown.',
         );
       }
 
@@ -130,9 +130,9 @@ class HomeView extends GetView<HomeController> {
             color: Colors.transparent,
             child: const TabBar(
               tabs: [
-                Tab(text: 'Bạn bè'),
-                Tab(text: 'Lời mời'),
-                Tab(text: 'Thêm bạn'),
+                Tab(text: 'Friends'),
+                Tab(text: 'Requests'),
+                Tab(text: 'Add friend'),
               ],
             ),
           ),
@@ -156,8 +156,8 @@ class HomeView extends GetView<HomeController> {
       if (friends.isEmpty) {
         return _buildEmptyState(
           icon: Icons.people_outline,
-          title: 'Chưa có bạn bè',
-          subtitle: 'Hãy sang tab Thêm bạn để kết nối.',
+          title: 'No friends yet',
+          subtitle: 'Go to the Add Friend tab to connect.',
         );
       }
 
@@ -184,19 +184,19 @@ class HomeView extends GetView<HomeController> {
       if (received.isEmpty && sent.isEmpty) {
         return _buildEmptyState(
           icon: Icons.mark_email_unread_outlined,
-          title: 'Không có lời mời',
-          subtitle: 'Lời mời kết bạn sẽ xuất hiện tại đây.',
+          title: 'No requests',
+          subtitle: 'Friend requests will appear here.',
         );
       }
 
       return ListView(
         children: [
           if (received.isNotEmpty) ...[
-            _buildSectionTitle('Đã nhận'),
+            _buildSectionTitle('Received'),
             ...received.map((relation) {
               final user = controller.relationUser(relation);
               if (user == null) {
-                return const ListTile(title: Text('Đang tải...'));
+                return const ListTile(title: Text('Loading...'));
               }
               final isLoading =
                   controller.isActionLoading('accept:${relation.id}') ||
@@ -212,11 +212,11 @@ class HomeView extends GetView<HomeController> {
             }),
           ],
           if (sent.isNotEmpty) ...[
-            _buildSectionTitle('Đã gửi'),
+            _buildSectionTitle('Sent'),
             ...sent.map((relation) {
               final user = controller.relationUser(relation);
               if (user == null) {
-                return const ListTile(title: Text('Đang tải...'));
+                return const ListTile(title: Text('Loading...'));
               }
 
               return FriendRequestTile(
@@ -250,7 +250,7 @@ class HomeView extends GetView<HomeController> {
                   textInputAction: TextInputAction.search,
                   onSubmitted: (_) => controller.searchByLocalPhone(),
                   decoration: InputDecoration(
-                    hintText: 'Nhập số điện thoại nội địa',
+                    hintText: 'Enter a local phone number',
                     prefixIcon: const Icon(Icons.phone),
                     suffixIcon: IconButton(
                       onPressed: controller.clearSearch,
@@ -262,7 +262,7 @@ class HomeView extends GetView<HomeController> {
               const SizedBox(width: 8),
               FilledButton(
                 onPressed: controller.searchByLocalPhone,
-                child: const Text('Tìm'),
+                child: const Text('Search'),
               ),
             ],
           ),
@@ -272,7 +272,7 @@ class HomeView extends GetView<HomeController> {
           child: Align(
             alignment: Alignment.centerLeft,
             child: Text(
-              'Nhập số không cần dấu +. Ví dụ: 12312312312',
+              'Enter the number without the + sign. Example: 12312312312',
               style: TextStyle(fontSize: 12, color: Colors.grey[600]),
             ),
           ),
@@ -287,18 +287,16 @@ class HomeView extends GetView<HomeController> {
             if (!controller.hasSearchedPhone.value) {
               return _buildEmptyState(
                 icon: Icons.person_search,
-                title: 'Tìm bạn bằng số điện thoại',
-                subtitle: 'Kết quả sẽ hiển thị trạng thái kết bạn chi tiết.',
+                title: 'Find friends by phone number',
+                subtitle: 'Results will show detailed friendship status.',
               );
             }
 
             if (controller.searchResults.isEmpty) {
               return _buildEmptyState(
                 icon: Icons.search_off,
-                title: 'Không có kết quả',
-                subtitle:
-                    controller.searchMessage.value ??
-                    'Không tìm thấy người dùng.',
+                title: 'No results',
+                subtitle: controller.searchMessage.value ?? 'User not found.',
               );
             }
 
