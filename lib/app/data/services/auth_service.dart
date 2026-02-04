@@ -8,6 +8,7 @@ import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../core/constants/firebase_constants.dart';
+import '../../core/utils/phone_utils.dart';
 import '../models/user_model.dart';
 
 class AuthService extends GetxService {
@@ -59,6 +60,8 @@ class AuthService extends GetxService {
     }
 
     final normalizedPhone = normalizePhoneNumber(phoneNumber);
+    final phoneDigits = PhoneUtils.digitsOnly(normalizedPhone);
+    final phoneLocal = PhoneUtils.extractLocalPhone(normalizedPhone);
     final phoneKey = _createPhoneKey(normalizedPhone);
     final passwordSalt = _generateSalt();
     final passwordHash = _hashPassword(
@@ -84,6 +87,8 @@ class AuthService extends GetxService {
           FirebaseConstants.fieldUid: userDocRef.id,
           FirebaseConstants.fieldName: normalizedName,
           FirebaseConstants.fieldPhoneNumber: normalizedPhone,
+          FirebaseConstants.fieldPhoneLocal: phoneLocal,
+          FirebaseConstants.fieldPhoneDigits: phoneDigits,
           FirebaseConstants.fieldAvatar: null,
           FirebaseConstants.fieldCreatedAt: nowTimestamp,
           FirebaseConstants.fieldLastSeen: nowTimestamp,
@@ -102,6 +107,8 @@ class AuthService extends GetxService {
       final userModel = UserModel(
         uid: userDocRef.id,
         phoneNumber: normalizedPhone,
+        phoneLocal: phoneLocal,
+        phoneDigits: phoneDigits,
         name: normalizedName,
         createdAt: now,
         lastSeen: now,

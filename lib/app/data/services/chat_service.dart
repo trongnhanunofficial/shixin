@@ -1,34 +1,36 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 
+import '../../core/constants/firebase_constants.dart';
 import '../models/chat_model.dart';
 import '../models/message_model.dart';
-import '../../core/constants/firebase_constants.dart';
 
 class ChatService extends GetxService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  CollectionReference get _chatsRef =>
+  CollectionReference<Map<String, dynamic>> get _chatsRef =>
       _firestore.collection(FirebaseConstants.chatsCollection);
 
-  /// Lấy hoặc tạo chat giữa 2 users
   Future<ChatModel> getOrCreateChat(
     String currentUserId,
     String otherUserId,
   ) async {
-    // Tìm chat đã tồn tại
     final existingChat = await _chatsRef
-        .where('participants', arrayContains: currentUserId)
+        .where(
+          FirebaseConstants.fieldParticipants,
+          arrayContains: currentUserId,
+        )
         .get();
 
     for (final doc in existingChat.docs) {
-      final participants = List<String>.from(doc['participants']);
+      final participants = List<String>.from(
+        doc.data()[FirebaseConstants.fieldParticipants] ?? [],
+      );
       if (participants.contains(otherUserId)) {
-        return ChatModel.fromJson(doc.data() as Map<String, dynamic>, doc.id);
+        return ChatModel.fromJson(doc.data(), doc.id);
       }
     }
 
-    // Tạo chat mới nếu chưa có
     final newChat = ChatModel(
       id: '',
       participants: [currentUserId, otherUserId],
@@ -45,19 +47,13 @@ class ChatService extends GetxService {
     );
   }
 
-  /// Lấy danh sách chats của user
   Stream<List<ChatModel>> getUserChats(String userId) {
     return _chatsRef
-        .where('participants', arrayContains: userId)
+        .where(FirebaseConstants.fieldParticipants, arrayContains: userId)
         .snapshots()
         .map((snapshot) {
           final chats = snapshot.docs
-              .map(
-                (doc) => ChatModel.fromJson(
-                  doc.data() as Map<String, dynamic>,
-                  doc.id,
-                ),
-              )
+              .map((doc) => ChatModel.fromJson(doc.data(), doc.id))
               .toList();
 
           chats.sort((a, b) => b.lastMessageTime.compareTo(a.lastMessageTime));
@@ -65,12 +61,11 @@ class ChatService extends GetxService {
         });
   }
 
-  /// Lấy messages của chat
   Stream<List<MessageModel>> getChatMessages(String chatId) {
     return _chatsRef
         .doc(chatId)
         .collection(FirebaseConstants.messagesCollection)
-        .orderBy('timestamp', descending: false)
+        .orderBy(FirebaseConstants.fieldTimestamp, descending: false)
         .snapshots()
         .map((snapshot) {
           return snapshot.docs
@@ -79,7 +74,6 @@ class ChatService extends GetxService {
         });
   }
 
-  /// Gửi tin nhắn
   Future<void> sendMessage({
     required String chatId,
     required String senderId,
@@ -94,41 +88,76 @@ class ChatService extends GetxService {
       type: type,
     );
 
-    // Thêm message
     await _chatsRef
         .doc(chatId)
         .collection(FirebaseConstants.messagesCollection)
         .add(message.toJson());
 
-    // Cập nhật last message của chat
     await _chatsRef.doc(chatId).update({
-      'lastMessage': content,
-      'lastMessageTime': Timestamp.now(),
+      FirebaseConstants.fieldLastMessage: content,
+      FirebaseConstants.fieldLastMessageTime: Timestamp.now(),
     });
   }
 
-  /// Đánh dấu đã đọc
   Future<void> markAsRead(String chatId, String messageId) async {
     await _chatsRef
         .doc(chatId)
         .collection(FirebaseConstants.messagesCollection)
         .doc(messageId)
-        .update({'isRead': true});
+        .update({FirebaseConstants.fieldIsRead: true});
   }
 
-  /// Đánh dấu tất cả tin nhắn đã đọc
   Future<void> markAllAsRead(String chatId, String currentUserId) async {
     final unreadMessages = await _chatsRef
         .doc(chatId)
         .collection(FirebaseConstants.messagesCollection)
-        .where('senderId', isNotEqualTo: currentUserId)
-        .where('isRead', isEqualTo: false)
+        .where(FirebaseConstants.fieldSenderId, isNotEqualTo: currentUserId)
+        .where(FirebaseConstants.fieldIsRead, isEqualTo: false)
         .get();
 
     final batch = _firestore.batch();
     for (final doc in unreadMessages.docs) {
-      batch.update(doc.reference, {'isRead': true});
+      batch.update(doc.reference, {FirebaseConstants.fieldIsRead: true});
     }
     await batch.commit();
+  }
+
+  Future<void> deleteChatBetweenUsers(String uidA, String uidB) async {
+    final snapshot = await _chatsRef
+        .where(FirebaseConstants.fieldParticipants, arrayContains: uidA)
+        .get();
+
+    for (final doc in snapshot.docs) {
+      final participants = List<String>.from(
+        doc.data()[FirebaseConstants.fieldParticipants] ?? [],
+      );
+      if (!participants.contains(uidB)) {
+        continue;
+      }
+
+      await _deleteMessages(doc.reference);
+      await doc.reference.delete();
+    }
+  }
+
+  Future<void> _deleteMessages(
+    DocumentReference<Map<String, dynamic>> chatRef,
+  ) async {
+    while (true) {
+      final messages = await chatRef
+          .collection(FirebaseConstants.messagesCollection)
+          .limit(200)
+          .get();
+
+      if (messages.docs.isEmpty) {
+        break;
+      }
+
+      final batch = _firestore.batch();
+      for (final messageDoc in messages.docs) {
+        batch.delete(messageDoc.reference);
+      }
+      await batch.commit();
+    }
   }
 }

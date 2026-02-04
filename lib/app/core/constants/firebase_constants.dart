@@ -4,10 +4,13 @@ class FirebaseConstants {
   static const String authAccountsCollection = 'auth_accounts';
   static const String chatsCollection = 'chats';
   static const String messagesCollection = 'messages';
+  static const String friendRelationsCollection = 'friend_relations';
 
   // User fields
   static const String fieldUid = 'uid';
   static const String fieldPhoneNumber = 'phoneNumber';
+  static const String fieldPhoneLocal = 'phoneLocal';
+  static const String fieldPhoneDigits = 'phoneDigits';
   static const String fieldName = 'name';
   static const String fieldAvatar = 'avatar';
   static const String fieldCreatedAt = 'createdAt';
@@ -23,6 +26,12 @@ class FirebaseConstants {
   static const String fieldParticipants = 'participants';
   static const String fieldLastMessage = 'lastMessage';
   static const String fieldLastMessageTime = 'lastMessageTime';
+
+  // Friend relation fields
+  static const String fieldFriendParticipants = 'participants';
+  static const String fieldFriendStatus = 'status';
+  static const String fieldFriendRequesterId = 'requesterId';
+  static const String fieldFriendUpdatedAt = 'updatedAt';
 
   // Message fields
   static const String fieldSenderId = 'senderId';

@@ -1,0 +1,33 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // WARNING:
+    // The app currently does not use Firebase Authentication, so request.auth
+    // is always null. These open rules are required for the current architecture.
+    // Migrate to Firebase Auth for production-grade security.
+
+    match /users/{userId} {
+      allow read, write: if true;
+    }
+
+    match /auth_accounts/{accountId} {
+      allow read, write: if true;
+    }
+
+    match /chats/{chatId} {
+      allow read, write: if true;
+
+      match /messages/{messageId} {
+        allow read, write: if true;
+      }
+    }
+
+    match /friend_relations/{relationId} {
+      allow read, write: if true;
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

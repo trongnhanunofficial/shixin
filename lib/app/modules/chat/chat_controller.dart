@@ -5,10 +5,13 @@ import '../../data/models/message_model.dart';
 import '../../data/models/user_model.dart';
 import '../../data/services/auth_service.dart';
 import '../../data/services/chat_service.dart';
+import '../../data/services/friend_service.dart';
+import '../../core/utils/snackbar_utils.dart';
 
 class ChatController extends GetxController {
   final AuthService _authService = Get.find<AuthService>();
   final ChatService _chatService = Get.find<ChatService>();
+  final FriendService _friendService = Get.find<FriendService>();
 
   final messageController = TextEditingController();
   final scrollController = ScrollController();
@@ -41,6 +44,15 @@ class ChatController extends GetxController {
   Future<void> sendMessage() async {
     final content = messageController.text.trim();
     if (content.isEmpty) return;
+
+    final isFriend = await _friendService.areFriends(
+      currentUserId,
+      otherUser.uid,
+    );
+    if (!isFriend) {
+      SnackbarUtils.showError('Chỉ có thể nhắn tin với bạn bè.');
+      return;
+    }
 
     messageController.clear();
 
