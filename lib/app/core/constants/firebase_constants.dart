@@ -32,6 +32,7 @@ class FirebaseConstants {
   static const String fieldFriendStatus = 'status';
   static const String fieldFriendRequesterId = 'requesterId';
   static const String fieldFriendUpdatedAt = 'updatedAt';
+  static const String fieldFriendNicknames = 'nicknames';
 
   // Message fields
   static const String fieldSenderId = 'senderId';

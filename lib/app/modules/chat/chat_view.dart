@@ -14,54 +14,56 @@ class ChatView extends GetView<ChatController> {
     return Scaffold(
       appBar: AppBar(
         leadingWidth: 30,
-        title: Row(
-          children: [
-            // Avatar
-            CircleAvatar(
-              radius: 20,
-              backgroundColor: Colors.white.withValues(alpha: 0.2),
-              backgroundImage: controller.otherUser.avatar != null
-                  ? NetworkImage(controller.otherUser.avatar!)
-                  : null,
-              child: controller.otherUser.avatar == null
-                  ? Text(
-                      controller.otherUser.name.isNotEmpty
-                          ? controller.otherUser.name[0].toUpperCase()
-                          : '?',
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    )
-                  : null,
-            ),
-            const SizedBox(width: 12),
-            // Name and status
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    controller.otherUser.name,
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  Text(
-                    controller.otherUser.isOnline ? 'Active' : 'Offline',
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: controller.otherUser.isOnline
-                          ? Colors.greenAccent
-                          : Colors.white70,
-                    ),
-                  ),
-                ],
+        title: Obx(() {
+          final resolvedName = controller.displayName.value;
+
+          return Row(
+            children: [
+              CircleAvatar(
+                radius: 20,
+                backgroundColor: Colors.white.withValues(alpha: 0.2),
+                backgroundImage: controller.otherUser.avatar != null
+                    ? NetworkImage(controller.otherUser.avatar!)
+                    : null,
+                child: controller.otherUser.avatar == null
+                    ? Text(
+                        resolvedName.isNotEmpty
+                            ? resolvedName[0].toUpperCase()
+                            : '?',
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      )
+                    : null,
               ),
-            ),
-          ],
-        ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      resolvedName,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    Text(
+                      controller.otherUser.isOnline ? 'Active' : 'Offline',
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: controller.otherUser.isOnline
+                            ? Colors.greenAccent
+                            : Colors.white70,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          );
+        }),
         actions: [
           IconButton(icon: const Icon(Icons.more_vert), onPressed: () {}),
         ],

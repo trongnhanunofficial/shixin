@@ -5,6 +5,8 @@ import '../../../data/models/user_model.dart';
 
 class FriendListTile extends StatelessWidget {
   final UserModel user;
+  final String? displayName;
+  final VoidCallback? onTap;
   final VoidCallback onChat;
   final VoidCallback onUnfriend;
   final bool isLoading;
@@ -12,6 +14,8 @@ class FriendListTile extends StatelessWidget {
   const FriendListTile({
     super.key,
     required this.user,
+    this.displayName,
+    this.onTap,
     required this.onChat,
     required this.onUnfriend,
     this.isLoading = false,
@@ -19,7 +23,10 @@ class FriendListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final resolvedDisplayName = displayName ?? user.name;
+
     return ListTile(
+      onTap: onTap,
       leading: CircleAvatar(
         radius: 24,
         backgroundColor: AppColors.primary.withValues(alpha: 0.2),
@@ -28,7 +35,9 @@ class FriendListTile extends StatelessWidget {
             : null,
         child: user.avatar == null
             ? Text(
-                user.name.isNotEmpty ? user.name[0].toUpperCase() : '?',
+                resolvedDisplayName.isNotEmpty
+                    ? resolvedDisplayName[0].toUpperCase()
+                    : '?',
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   color: AppColors.primary,
@@ -37,10 +46,14 @@ class FriendListTile extends StatelessWidget {
             : null,
       ),
       title: Text(
-        user.name,
+        resolvedDisplayName,
         style: const TextStyle(fontWeight: FontWeight.w600),
       ),
-      subtitle: Text(user.phoneNumber),
+      subtitle: Text(
+        user.phoneNumber,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+      ),
       trailing: isLoading
           ? const SizedBox(
               width: 24,

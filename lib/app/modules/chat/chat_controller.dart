@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -5,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../core/utils/snackbar_utils.dart';
+import '../../data/models/friend_relation_model.dart';
 import '../../data/models/message_model.dart';
 import '../../data/models/user_model.dart';
 import '../../data/services/auth_service.dart';
@@ -28,9 +30,11 @@ class ChatController extends GetxController {
 
   final messages = <MessageModel>[].obs;
   final isLoading = false.obs;
+  final displayName = ''.obs;
 
   late String chatId;
   late UserModel otherUser;
+  StreamSubscription<FriendRelationModel?>? _relationSubscription;
 
   String get currentUserId => _authService.currentUser.value!.uid;
 
@@ -40,7 +44,29 @@ class ChatController extends GetxController {
     final args = Get.arguments as Map<String, dynamic>;
     chatId = args['chatId'];
     otherUser = args['otherUser'];
+    final initialDisplayName = (args['displayName'] as String?)?.trim();
+    displayName.value = initialDisplayName?.isNotEmpty == true
+        ? initialDisplayName!
+        : otherUser.name;
+    _listenDisplayName();
     _loadMessages();
+  }
+
+  void _listenDisplayName() {
+    _relationSubscription?.cancel();
+    _relationSubscription = _friendService
+        .getRelationBetweenUsers(currentUserId, otherUser.uid)
+        .listen(
+          (relation) {
+            final nickname = relation?.nicknameFor(currentUserId);
+            displayName.value = nickname?.isNotEmpty == true
+                ? nickname!
+                : otherUser.name;
+          },
+          onError: (_) {
+            displayName.value = otherUser.name;
+          },
+        );
   }
 
   void _loadMessages() {
@@ -152,6 +178,7 @@ class ChatController extends GetxController {
 
   @override
   void onClose() {
+    _relationSubscription?.cancel();
     messageController.dispose();
     messageFocusNode.dispose();
     scrollController.dispose();

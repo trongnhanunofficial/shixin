@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import '../profile/profile_controller.dart';
 import '../profile/widgets/profile_content.dart';
+import 'contact_card_view.dart';
 import 'friend_requests_view.dart';
 import 'home_controller.dart';
 import 'widgets/chat_list_tile.dart';
@@ -123,6 +124,15 @@ class HomeView extends GetView<HomeController> {
         return const Center(child: CircularProgressIndicator());
       }
 
+      final nicknameByUserId = <String, String>{};
+      for (final relation in controller.relations) {
+        final otherUserId = relation.getOtherUserId(currentUserId);
+        final nickname = relation.nicknameFor(currentUserId);
+        if (otherUserId.isNotEmpty && nickname != null) {
+          nicknameByUserId[otherUserId] = nickname;
+        }
+      }
+
       if (controller.chats.isEmpty) {
         return _buildEmptyState(
           icon: Icons.chat_bubble_outline,
@@ -135,9 +145,13 @@ class HomeView extends GetView<HomeController> {
         itemCount: controller.chats.length,
         itemBuilder: (context, index) {
           final chat = controller.chats[index];
+          final otherUserId = chat.getOtherUserId(currentUserId);
           return ChatListTile(
             chat: chat,
             currentUserId: currentUserId,
+            displayName:
+                nicknameByUserId[otherUserId] ??
+                controller.relationUsers[otherUserId]?.name,
             onTap: () => controller.openChat(chat),
           );
         },
@@ -162,6 +176,8 @@ class HomeView extends GetView<HomeController> {
           final user = friends[index];
           return FriendListTile(
             user: user,
+            displayName: controller.getDisplayName(user),
+            onTap: () => Get.to(() => ContactCardView(user: user)),
             onChat: () => controller.openChatWithFriend(user),
             onUnfriend: () => controller.unfriend(user),
             isLoading: controller.isActionLoading('unfriend:${user.uid}'),

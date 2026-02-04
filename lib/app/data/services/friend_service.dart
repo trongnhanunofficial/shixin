@@ -29,6 +29,19 @@ class FriendService extends GetxService {
         });
   }
 
+  Stream<FriendRelationModel?> getRelationBetweenUsers(
+    String uidA,
+    String uidB,
+  ) {
+    final relationId = getRelationId(uidA, uidB);
+    return _relationsRef.doc(relationId).snapshots().map((snapshot) {
+      if (!snapshot.exists || snapshot.data() == null) {
+        return null;
+      }
+      return FriendRelationModel.fromJson(snapshot.data()!, snapshot.id);
+    });
+  }
+
   Future<bool> areFriends(String uidA, String uidB) async {
     final relation = await _relationsRef.doc(getRelationId(uidA, uidB)).get();
     if (!relation.exists || relation.data() == null) {
@@ -201,6 +214,46 @@ class FriendService extends GetxService {
       }
 
       transaction.delete(relationRef);
+    });
+  }
+
+  Future<void> updateNickname({
+    required String currentUid,
+    required String otherUid,
+    required String nickname,
+  }) async {
+    final relationRef = _relationsRef.doc(getRelationId(currentUid, otherUid));
+    final trimmedNickname = nickname.trim();
+    final now = Timestamp.now();
+
+    await _firestore.runTransaction((transaction) async {
+      final snapshot = await transaction.get(relationRef);
+      if (!snapshot.exists || snapshot.data() == null) {
+        throw Exception('Friend relation does not exist.');
+      }
+
+      final data = snapshot.data()!;
+      final status = data[FirebaseConstants.fieldFriendStatus] as String?;
+      final participants = List<String>.from(
+        data[FirebaseConstants.fieldFriendParticipants] ?? [],
+      );
+
+      if (!participants.contains(currentUid)) {
+        throw Exception("You don't have permission to update this nickname.");
+      }
+      if (status != FriendRelationStatus.accepted.name) {
+        throw Exception('You can only set nickname for a friend.');
+      }
+
+      final updateField =
+          '${FirebaseConstants.fieldFriendNicknames}.$currentUid';
+
+      transaction.update(relationRef, {
+        updateField: trimmedNickname.isEmpty
+            ? FieldValue.delete()
+            : trimmedNickname,
+        FirebaseConstants.fieldFriendUpdatedAt: now,
+      });
     });
   }
 }

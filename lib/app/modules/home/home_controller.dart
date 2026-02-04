@@ -69,7 +69,11 @@ class HomeController extends GetxController {
       }
     }
 
-    users.sort((a, b) => a.name.toLowerCase().compareTo(b.name.toLowerCase()));
+    users.sort((a, b) {
+      final left = getDisplayName(a).toLowerCase();
+      final right = getDisplayName(b).toLowerCase();
+      return left.compareTo(right);
+    });
     return users;
   }
 
@@ -100,6 +104,22 @@ class HomeController extends GetxController {
       }
     }
     return null;
+  }
+
+  String? getNickname(String otherUserId) {
+    return relationWithUser(otherUserId)?.nicknameFor(_currentUserId);
+  }
+
+  String? getDisplayNameByUserId(String otherUserId) {
+    final nickname = getNickname(otherUserId);
+    if (nickname != null) {
+      return nickname;
+    }
+    return relationUsers[otherUserId]?.name;
+  }
+
+  String getDisplayName(UserModel user) {
+    return getDisplayNameByUserId(user.uid) ?? user.name;
   }
 
   SearchFriendState getSearchState(UserModel user) {
@@ -215,7 +235,11 @@ class HomeController extends GetxController {
 
     Get.toNamed(
       AppRoutes.chat,
-      arguments: {'chatId': chat.id, 'otherUser': otherUser},
+      arguments: {
+        'chatId': chat.id,
+        'otherUser': otherUser,
+        'displayName': getDisplayNameByUserId(otherUserId) ?? otherUser.name,
+      },
     );
   }
 
@@ -232,15 +256,72 @@ class HomeController extends GetxController {
 
     Get.toNamed(
       AppRoutes.chat,
-      arguments: {'chatId': chat.id, 'otherUser': otherUser},
+      arguments: {
+        'chatId': chat.id,
+        'otherUser': otherUser,
+        'displayName': getDisplayName(otherUser),
+      },
     );
   }
 
-  Future<void> unfriend(UserModel user) async {
+  Future<void> updateFriendNickname(UserModel user) async {
+    final initialNickname = getNickname(user.uid) ?? '';
+    var pendingNickname = initialNickname;
+
+    final nickname = await Get.dialog<String>(
+      AlertDialog(
+        title: const Text('Change nickname'),
+        content: TextFormField(
+          initialValue: initialNickname,
+          autofocus: true,
+          maxLength: 30,
+          textInputAction: TextInputAction.done,
+          onChanged: (value) => pendingNickname = value,
+          decoration: const InputDecoration(
+            hintText: 'Enter a nickname',
+            helperText: 'Leave empty to remove nickname.',
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Get.back(result: null),
+            child: const Text('Cancel'),
+          ),
+          TextButton(
+            onPressed: () => Get.back(result: pendingNickname.trim()),
+            child: const Text('Save'),
+          ),
+        ],
+      ),
+    );
+
+    if (nickname == null) {
+      return;
+    }
+
+    await _runAction('nickname:${user.uid}', () async {
+      await _friendService.updateNickname(
+        currentUid: _currentUserId,
+        otherUid: user.uid,
+        nickname: nickname,
+      );
+
+      if (nickname.isEmpty) {
+        SnackbarUtils.showInfo('Nickname removed.');
+        return;
+      }
+
+      SnackbarUtils.showSuccess('Nickname updated.');
+    });
+  }
+
+  Future<bool> unfriend(UserModel user) async {
     final confirmed = await Get.dialog<bool>(
       AlertDialog(
         title: const Text('Unfriend'),
-        content: Text('Are you sure you want to unfriend ${user.name}?'),
+        content: Text(
+          'Are you sure you want to unfriend ${getDisplayName(user)}?',
+        ),
         actions: [
           TextButton(
             onPressed: () => Get.back(result: false),
@@ -255,14 +336,18 @@ class HomeController extends GetxController {
     );
 
     if (confirmed != true) {
-      return;
+      return false;
     }
 
+    var unfriended = false;
     await _runAction('unfriend:${user.uid}', () async {
       await _friendService.unfriend(_currentUserId, user.uid);
       await _chatService.deleteChatBetweenUsers(_currentUserId, user.uid);
+      unfriended = true;
       SnackbarUtils.showInfo('Unfriended.');
     });
+
+    return unfriended;
   }
 
   Future<void> logout() async {

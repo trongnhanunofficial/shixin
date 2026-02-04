@@ -9,12 +9,14 @@ import '../../../data/services/user_service.dart';
 class ChatListTile extends StatelessWidget {
   final ChatModel chat;
   final String currentUserId;
+  final String? displayName;
   final VoidCallback onTap;
 
   const ChatListTile({
     super.key,
     required this.chat,
     required this.currentUserId,
+    this.displayName,
     required this.onTap,
   });
 
@@ -27,6 +29,7 @@ class ChatListTile extends StatelessWidget {
       stream: userService.getUserStream(otherUserId),
       builder: (context, snapshot) {
         final user = snapshot.data;
+        final resolvedName = displayName ?? user?.name ?? 'Loading...';
 
         return ListTile(
           onTap: onTap,
@@ -40,8 +43,8 @@ class ChatListTile extends StatelessWidget {
                     : null,
                 child: user?.avatar == null
                     ? Text(
-                        user?.name.isNotEmpty == true
-                            ? user!.name[0].toUpperCase()
+                        resolvedName.isNotEmpty
+                            ? resolvedName[0].toUpperCase()
                             : '?',
                         style: const TextStyle(
                           fontSize: 20,
@@ -68,7 +71,7 @@ class ChatListTile extends StatelessWidget {
             ],
           ),
           title: Text(
-            user?.name ?? 'Loading...',
+            resolvedName,
             style: const TextStyle(fontWeight: FontWeight.w600),
           ),
           subtitle: Text(
