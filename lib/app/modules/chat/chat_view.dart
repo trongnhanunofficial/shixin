@@ -151,50 +151,59 @@ class ChatView extends GetView<ChatController> {
               ],
             ),
             child: SafeArea(
-              child: Row(
-                children: [
-                  // Attachment button
-                  IconButton(
-                    icon: const Icon(Icons.attach_file),
-                    color: AppColors.primary,
-                    onPressed: () {},
-                  ),
-                  // Text field
-                  Expanded(
-                    child: TextField(
-                      controller: controller.messageController,
-                      decoration: InputDecoration(
-                        hintText: 'Type a message...',
-                        filled: true,
-                        fillColor: Colors.grey[100],
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(24),
-                          borderSide: BorderSide.none,
-                        ),
-                        contentPadding: const EdgeInsets.symmetric(
-                          horizontal: 16,
-                          vertical: 10,
-                        ),
-                      ),
-                      maxLines: null,
-                      textInputAction: TextInputAction.send,
-                      onSubmitted: (_) => controller.sendMessage(),
-                    ),
-                  ),
-                  const SizedBox(width: 8),
-                  // Send button
-                  Container(
-                    decoration: const BoxDecoration(
+              child: Obx(() {
+                final isUploading = controller.isImageUploading.value;
+
+                return Row(
+                  children: [
+                    IconButton(
+                      icon: isUploading
+                          ? const SizedBox(
+                              width: 22,
+                              height: 22,
+                              child: CircularProgressIndicator(strokeWidth: 2),
+                            )
+                          : const Icon(Icons.image_outlined),
                       color: AppColors.primary,
-                      shape: BoxShape.circle,
+                      onPressed: isUploading
+                          ? null
+                          : controller.pickAndSendImage,
                     ),
-                    child: IconButton(
-                      icon: const Icon(Icons.send, color: Colors.white),
-                      onPressed: controller.sendMessage,
+                    Expanded(
+                      child: TextField(
+                        controller: controller.messageController,
+                        decoration: InputDecoration(
+                          hintText: 'Type a message...',
+                          filled: true,
+                          fillColor: Colors.grey[100],
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(24),
+                            borderSide: BorderSide.none,
+                          ),
+                          contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 16,
+                            vertical: 10,
+                          ),
+                        ),
+                        maxLines: null,
+                        textInputAction: TextInputAction.send,
+                        onSubmitted: (_) => controller.sendMessage(),
+                      ),
                     ),
-                  ),
-                ],
-              ),
+                    const SizedBox(width: 8),
+                    Container(
+                      decoration: const BoxDecoration(
+                        color: AppColors.primary,
+                        shape: BoxShape.circle,
+                      ),
+                      child: IconButton(
+                        icon: const Icon(Icons.send, color: Colors.white),
+                        onPressed: controller.sendMessage,
+                      ),
+                    ),
+                  ],
+                );
+              }),
             ),
           ),
         ],

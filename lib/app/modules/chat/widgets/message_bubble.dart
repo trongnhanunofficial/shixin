@@ -12,6 +12,7 @@ class MessageBubble extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
+    final isImageMessage = message.type == MessageType.image;
 
     return Align(
       alignment: isMe ? Alignment.centerRight : Alignment.centerLeft,
@@ -22,7 +23,9 @@ class MessageBubble extends StatelessWidget {
           left: isMe ? 60 : 0,
           right: isMe ? 0 : 60,
         ),
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+        padding: isImageMessage
+            ? const EdgeInsets.all(4)
+            : const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
         decoration: BoxDecoration(
           color: isMe
               ? (isDark
@@ -41,15 +44,39 @@ class MessageBubble extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            Text(
-              message.content,
-              style: TextStyle(
-                color: isMe
-                    ? Colors.white
-                    : (isDark ? Colors.white : AppColors.textPrimary),
-                fontSize: 15,
+            if (isImageMessage)
+              ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(
+                    maxWidth: 220,
+                    maxHeight: 300,
+                  ),
+                  child: Image.network(
+                    message.content,
+                    fit: BoxFit.cover,
+                    errorBuilder: (context, error, stackTrace) {
+                      return Container(
+                        width: 220,
+                        height: 140,
+                        color: Colors.black12,
+                        alignment: Alignment.center,
+                        child: const Icon(Icons.broken_image_outlined),
+                      );
+                    },
+                  ),
+                ),
               ),
-            ),
+            if (!isImageMessage)
+              Text(
+                message.content,
+                style: TextStyle(
+                  color: isMe
+                      ? Colors.white
+                      : (isDark ? Colors.white : AppColors.textPrimary),
+                  fontSize: 15,
+                ),
+              ),
             const SizedBox(height: 4),
             Row(
               mainAxisSize: MainAxisSize.min,

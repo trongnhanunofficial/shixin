@@ -93,10 +93,23 @@ class ChatService extends GetxService {
         .collection(FirebaseConstants.messagesCollection)
         .add(message.toJson());
 
+    final lastMessagePreview = _buildLastMessagePreview(content, type);
+
     await _chatsRef.doc(chatId).update({
-      FirebaseConstants.fieldLastMessage: content,
+      FirebaseConstants.fieldLastMessage: lastMessagePreview,
       FirebaseConstants.fieldLastMessageTime: Timestamp.now(),
     });
+  }
+
+  String _buildLastMessagePreview(String content, MessageType type) {
+    switch (type) {
+      case MessageType.image:
+        return 'Photo';
+      case MessageType.file:
+        return 'File';
+      case MessageType.text:
+        return content;
+    }
   }
 
   Future<void> markAsRead(String chatId, String messageId) async {
@@ -111,15 +124,30 @@ class ChatService extends GetxService {
     final unreadMessages = await _chatsRef
         .doc(chatId)
         .collection(FirebaseConstants.messagesCollection)
-        .where(FirebaseConstants.fieldSenderId, isNotEqualTo: currentUserId)
         .where(FirebaseConstants.fieldIsRead, isEqualTo: false)
         .get();
 
-    final batch = _firestore.batch();
-    for (final doc in unreadMessages.docs) {
-      batch.update(doc.reference, {FirebaseConstants.fieldIsRead: true});
+    final unreadFromOthers = unreadMessages.docs.where((doc) {
+      final senderId = doc.data()[FirebaseConstants.fieldSenderId] as String?;
+      return senderId != currentUserId;
+    }).toList();
+
+    if (unreadFromOthers.isEmpty) {
+      return;
     }
-    await batch.commit();
+
+    for (var i = 0; i < unreadFromOthers.length; i += 500) {
+      final batch = _firestore.batch();
+      final end = (i + 500 < unreadFromOthers.length)
+          ? i + 500
+          : unreadFromOthers.length;
+
+      for (final doc in unreadFromOthers.sublist(i, end)) {
+        batch.update(doc.reference, {FirebaseConstants.fieldIsRead: true});
+      }
+
+      await batch.commit();
+    }
   }
 
   Future<void> deleteChatBetweenUsers(String uidA, String uidB) async {
