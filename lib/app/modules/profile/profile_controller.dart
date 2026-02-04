@@ -72,7 +72,8 @@ class ProfileController extends GetxController {
         isAvatarUploading.value = true;
         try {
           final file = File(pickedFile.path);
-          final imageUrl = await _uploadToCloudinary(file);
+          final publicId = 'avatar_${currentUser!.uid}';
+          final imageUrl = await _uploadToCloudinary(file, publicId: publicId);
 
           if (imageUrl != null) {
             await _userService.updateProfile(
@@ -99,14 +100,21 @@ class ProfileController extends GetxController {
     }
   }
 
-  Future<String?> _uploadToCloudinary(File file) async {
+  Future<String?> _uploadToCloudinary(File file, {String? publicId}) async {
     const cloudName = 'dcofembwa';
     const apiKey = '847787478394784';
     const apiSecret = '6v_6vmfxrBYpCy-58lpX1Jp8Ufk';
 
     final timestamp = DateTime.now().millisecondsSinceEpoch ~/ 1000;
 
-    final paramsToSign = 'timestamp=$timestamp$apiSecret';
+    String paramsToSign;
+    if (publicId != null) {
+      // Parameters must be sorted alphabetically: public_id, then timestamp
+      paramsToSign = 'public_id=$publicId&timestamp=$timestamp$apiSecret';
+    } else {
+      paramsToSign = 'timestamp=$timestamp$apiSecret';
+    }
+
     final signature = sha1.convert(utf8.encode(paramsToSign)).toString();
 
     final uri = Uri.parse(
@@ -116,6 +124,9 @@ class ProfileController extends GetxController {
 
     request.fields['api_key'] = apiKey;
     request.fields['timestamp'] = timestamp.toString();
+    if (publicId != null) {
+      request.fields['public_id'] = publicId;
+    }
     request.fields['signature'] = signature;
 
     request.files.add(await http.MultipartFile.fromPath('file', file.path));

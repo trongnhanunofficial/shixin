@@ -32,7 +32,7 @@ class ProfileContent extends StatelessWidget {
                   radius: 60,
                   backgroundColor: AppColors.primary.withValues(alpha: 0.2),
                   backgroundImage: user.avatar != null
-                      ? NetworkImage(user.avatar!)
+                      ? NetworkImage(_getOptimizedUrl(user.avatar!))
                       : null,
                   child: user.avatar == null
                       ? Text(
@@ -187,5 +187,13 @@ class ProfileContent extends StatelessWidget {
 
   String _formatDate(DateTime date) {
     return '${date.day}/${date.month}/${date.year}';
+  }
+
+  String _getOptimizedUrl(String originalUrl) {
+    if (!originalUrl.contains('cloudinary.com')) return originalUrl;
+    return originalUrl.replaceFirst(
+      '/upload/',
+      '/upload/w_200,h_200,c_fill,q_auto/',
+    );
   }
 }
