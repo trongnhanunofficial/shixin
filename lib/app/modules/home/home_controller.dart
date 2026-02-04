@@ -91,6 +91,8 @@ class HomeController extends GetxController {
         .toList();
   }
 
+  int get pendingRequestCount => receivedRequests.length;
+
   FriendRelationModel? relationWithUser(String otherUserId) {
     for (final relation in relations) {
       if (relation.getOtherUserId(_currentUserId) == otherUserId) {

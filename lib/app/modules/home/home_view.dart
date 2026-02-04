@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
-import '../../core/theme/app_colors.dart';
 import '../profile/profile_controller.dart';
 import '../profile/widgets/profile_content.dart';
+import 'friend_requests_view.dart';
 import 'home_controller.dart';
 import 'widgets/chat_list_tile.dart';
 import 'widgets/friend_list_tile.dart';
-import 'widgets/friend_request_tile.dart';
-import 'widgets/phone_search_result_tile.dart';
 
 class HomeView extends GetView<HomeController> {
   const HomeView({super.key});
@@ -31,27 +28,54 @@ class HomeView extends GetView<HomeController> {
             ProfileContent(controller: profileController),
           ],
         ),
-        bottomNavigationBar: NavigationBar(
-          selectedIndex: tabIndex,
-          onDestinationSelected: controller.setBottomTab,
-          destinations: const [
-            NavigationDestination(
-              icon: Icon(Icons.chat_bubble_outline),
-              selectedIcon: Icon(Icons.chat_bubble),
-              label: 'Chat',
-            ),
-            NavigationDestination(
-              icon: Icon(Icons.people_outline),
-              selectedIcon: Icon(Icons.people),
-              label: 'Contacts',
-            ),
-            NavigationDestination(
-              icon: Icon(Icons.person_outline),
-              selectedIcon: Icon(Icons.person),
-              label: 'Me',
-            ),
-          ],
-        ),
+        floatingActionButton: tabIndex == HomeBottomTab.contacts.index
+            ? Obx(() {
+                final count = controller.pendingRequestCount;
+                return Badge(
+                  isLabelVisible: count > 0,
+                  label: Text(count.toString()),
+                  child: FloatingActionButton.extended(
+                    onPressed: () {
+                      Get.to(() => const FriendRequestsView());
+                    },
+                    icon: const Icon(Icons.person_add),
+                    label: const Text('Add Friend'),
+                  ),
+                );
+              })
+            : null,
+        bottomNavigationBar: Obx(() {
+          final count = controller.pendingRequestCount;
+          return NavigationBar(
+            selectedIndex: tabIndex,
+            onDestinationSelected: controller.setBottomTab,
+            destinations: [
+              const NavigationDestination(
+                icon: Icon(Icons.chat_bubble_outline),
+                selectedIcon: Icon(Icons.chat_bubble),
+                label: 'Chat',
+              ),
+              NavigationDestination(
+                icon: Badge(
+                  isLabelVisible: count > 0,
+                  label: Text(count.toString()),
+                  child: const Icon(Icons.people_outline),
+                ),
+                selectedIcon: Badge(
+                  isLabelVisible: count > 0,
+                  label: Text(count.toString()),
+                  child: const Icon(Icons.people),
+                ),
+                label: 'Contacts',
+              ),
+              const NavigationDestination(
+                icon: Icon(Icons.person_outline),
+                selectedIcon: Icon(Icons.person),
+                label: 'Me',
+              ),
+            ],
+          );
+        }),
       );
     });
   }
@@ -122,42 +146,13 @@ class HomeView extends GetView<HomeController> {
   }
 
   Widget _buildContactsTab() {
-    return DefaultTabController(
-      length: 3,
-      child: Column(
-        children: [
-          Material(
-            color: Colors.transparent,
-            child: const TabBar(
-              tabs: [
-                Tab(text: 'Friends'),
-                Tab(text: 'Requests'),
-                Tab(text: 'Add friend'),
-              ],
-            ),
-          ),
-          Expanded(
-            child: TabBarView(
-              children: [
-                _buildFriendsTab(),
-                _buildRequestsTab(),
-                _buildAddFriendTab(),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildFriendsTab() {
     return Obx(() {
       final friends = controller.acceptedFriends;
       if (friends.isEmpty) {
         return _buildEmptyState(
           icon: Icons.people_outline,
           title: 'No friends yet',
-          subtitle: 'Go to the Add Friend tab to connect.',
+          subtitle: 'Tap the Add Friend button to connect.',
         );
       }
 
@@ -174,184 +169,6 @@ class HomeView extends GetView<HomeController> {
         },
       );
     });
-  }
-
-  Widget _buildRequestsTab() {
-    return Obx(() {
-      final received = controller.receivedRequests;
-      final sent = controller.sentRequests;
-
-      if (received.isEmpty && sent.isEmpty) {
-        return _buildEmptyState(
-          icon: Icons.mark_email_unread_outlined,
-          title: 'No requests',
-          subtitle: 'Friend requests will appear here.',
-        );
-      }
-
-      return ListView(
-        children: [
-          if (received.isNotEmpty) ...[
-            _buildSectionTitle('Received'),
-            ...received.map((relation) {
-              final user = controller.relationUser(relation);
-              if (user == null) {
-                return const ListTile(title: Text('Loading...'));
-              }
-              final isLoading =
-                  controller.isActionLoading('accept:${relation.id}') ||
-                  controller.isActionLoading('reject:${relation.id}');
-
-              return FriendRequestTile(
-                user: user,
-                type: FriendRequestType.received,
-                isLoading: isLoading,
-                onAccept: () => controller.acceptRequest(relation),
-                onReject: () => controller.rejectRequest(relation),
-              );
-            }),
-          ],
-          if (sent.isNotEmpty) ...[
-            _buildSectionTitle('Sent'),
-            ...sent.map((relation) {
-              final user = controller.relationUser(relation);
-              if (user == null) {
-                return const ListTile(title: Text('Loading...'));
-              }
-
-              return FriendRequestTile(
-                user: user,
-                type: FriendRequestType.sent,
-                isLoading: controller.isActionLoading(
-                  'withdraw:${relation.id}',
-                ),
-                onWithdraw: () => controller.withdrawRequest(relation),
-              );
-            }),
-          ],
-          const SizedBox(height: 12),
-        ],
-      );
-    });
-  }
-
-  Widget _buildAddFriendTab() {
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
-          child: Row(
-            children: [
-              Expanded(
-                child: TextField(
-                  controller: controller.addFriendPhoneController,
-                  keyboardType: TextInputType.phone,
-                  inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                  textInputAction: TextInputAction.search,
-                  onSubmitted: (_) => controller.searchByLocalPhone(),
-                  decoration: InputDecoration(
-                    hintText: 'Enter a local phone number',
-                    prefixIcon: const Icon(Icons.phone),
-                    suffixIcon: IconButton(
-                      onPressed: controller.clearSearch,
-                      icon: const Icon(Icons.close),
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(width: 8),
-              FilledButton(
-                onPressed: controller.searchByLocalPhone,
-                child: const Text('Search'),
-              ),
-            ],
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Align(
-            alignment: Alignment.centerLeft,
-            child: Text(
-              'Enter the number without the + sign. Example: 12312312312',
-              style: TextStyle(fontSize: 12, color: Colors.grey[600]),
-            ),
-          ),
-        ),
-        const SizedBox(height: 8),
-        Expanded(
-          child: Obx(() {
-            if (controller.isSearchingPhone.value) {
-              return const Center(child: CircularProgressIndicator());
-            }
-
-            if (!controller.hasSearchedPhone.value) {
-              return _buildEmptyState(
-                icon: Icons.person_search,
-                title: 'Find friends by phone number',
-                subtitle: 'Results will show detailed friendship status.',
-              );
-            }
-
-            if (controller.searchResults.isEmpty) {
-              return _buildEmptyState(
-                icon: Icons.search_off,
-                title: 'No results',
-                subtitle: controller.searchMessage.value ?? 'User not found.',
-              );
-            }
-
-            return ListView.builder(
-              itemCount: controller.searchResults.length,
-              itemBuilder: (context, index) {
-                final user = controller.searchResults[index];
-                final state = controller.getSearchState(user);
-                final relation = controller.relationWithUser(user.uid);
-
-                final loadingKeys = <String>[
-                  'send:${user.uid}',
-                  if (relation != null) 'accept:${relation.id}',
-                  if (relation != null) 'reject:${relation.id}',
-                  if (relation != null) 'withdraw:${relation.id}',
-                ];
-
-                final isLoading = loadingKeys.any(controller.isActionLoading);
-
-                return PhoneSearchResultTile(
-                  user: user,
-                  state: state,
-                  isLoading: isLoading,
-                  onAdd: () => controller.sendFriendRequest(user),
-                  onAccept: relation == null
-                      ? null
-                      : () => controller.acceptRequest(relation),
-                  onReject: relation == null
-                      ? null
-                      : () => controller.rejectRequest(relation),
-                  onWithdraw: relation == null
-                      ? null
-                      : () => controller.withdrawRequest(relation),
-                  onChat: () => controller.openChatWithFriend(user),
-                );
-              },
-            );
-          }),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildSectionTitle(String title) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
-      child: Text(
-        title,
-        style: const TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.w700,
-          color: AppColors.textPrimary,
-        ),
-      ),
-    );
   }
 
   Widget _buildEmptyState({
