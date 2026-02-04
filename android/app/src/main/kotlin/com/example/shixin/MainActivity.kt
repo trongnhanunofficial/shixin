@@ -1,4 +1,4 @@
-package com.example.shixin
+package com.shixincrmor.litechat
 
 import io.flutter.embedding.android.FlutterActivity
 
