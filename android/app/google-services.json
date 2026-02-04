@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "167574698591",
+    "project_id": "shixin-18e28",
+    "storage_bucket": "shixin-18e28.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:167574698591:android:93f654a47ea1f9f953b9ea",
+        "android_client_info": {
+          "package_name": "com.example.shixin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOWhv_Wwc93FSYJ1XpDyjJ7baROFF1D-Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:167574698591:android:83deaaf95b7f3e5d53b9ea",
+        "android_client_info": {
+          "package_name": "com.shixincrmor.litechat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOWhv_Wwc93FSYJ1XpDyjJ7baROFF1D-Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
