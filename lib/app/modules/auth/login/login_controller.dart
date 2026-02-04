@@ -8,7 +8,9 @@ import '../../../core/utils/snackbar_utils.dart';
 class LoginController extends GetxController {
   final AuthService _authService = Get.find<AuthService>();
 
-  final emailController = TextEditingController();
+  final countryCodes = const ['+86', '+84', '+1'];
+  final countryCode = '+86'.obs;
+  final phoneController = TextEditingController();
   final passwordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
 
@@ -19,22 +21,26 @@ class LoginController extends GetxController {
     isPasswordVisible.toggle();
   }
 
-  String? validateEmail(String? value) {
+  void setCountryCode(String value) {
+    countryCode.value = value;
+  }
+
+  String? validatePhoneNumber(String? value) {
     if (value == null || value.isEmpty) {
-      return 'Vui lòng nhập email';
+      return 'Please enter your phone number.';
     }
-    if (!GetUtils.isEmail(value)) {
-      return 'Email không hợp lệ';
+    if (!RegExp(r'^\d{1,11}$').hasMatch(value)) {
+      return 'Phone number must be digits only (max 11).';
     }
     return null;
   }
 
   String? validatePassword(String? value) {
     if (value == null || value.isEmpty) {
-      return 'Vui lòng nhập mật khẩu';
+      return 'Please enter your password.';
     }
     if (value.length < 6) {
-      return 'Mật khẩu phải có ít nhất 6 ký tự';
+      return 'Password must be at least 6 characters.';
     }
     return null;
   }
@@ -45,12 +51,12 @@ class LoginController extends GetxController {
     isLoading.value = true;
     try {
       await _authService.login(
-        email: emailController.text.trim(),
+        phoneNumber: '${countryCode.value}${phoneController.text.trim()}',
         password: passwordController.text,
       );
       Get.offAllNamed(AppRoutes.home);
     } catch (e) {
-      SnackbarUtils.showError(e.toString());
+      SnackbarUtils.showError(_getErrorMessage(e));
     } finally {
       isLoading.value = false;
     }
@@ -62,8 +68,17 @@ class LoginController extends GetxController {
 
   @override
   void onClose() {
-    emailController.dispose();
+    phoneController.dispose();
     passwordController.dispose();
     super.onClose();
+  }
+
+  String _getErrorMessage(Object error) {
+    final message = error.toString();
+    const prefix = 'Exception: ';
+    if (message.startsWith(prefix)) {
+      return message.substring(prefix.length);
+    }
+    return message;
   }
 }

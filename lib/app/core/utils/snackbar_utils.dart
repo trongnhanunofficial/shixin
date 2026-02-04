@@ -6,7 +6,7 @@ import '../theme/app_colors.dart';
 class SnackbarUtils {
   static void showSuccess(String message) {
     Get.snackbar(
-      'Thành công',
+      'Success',
       message,
       snackPosition: SnackPosition.TOP,
       backgroundColor: AppColors.success,
@@ -19,7 +19,7 @@ class SnackbarUtils {
 
   static void showError(String message) {
     Get.snackbar(
-      'Lỗi',
+      'Error',
       message,
       snackPosition: SnackPosition.TOP,
       backgroundColor: AppColors.error,
@@ -32,7 +32,7 @@ class SnackbarUtils {
 
   static void showInfo(String message) {
     Get.snackbar(
-      'Thông báo',
+      'Info',
       message,
       snackPosition: SnackPosition.TOP,
       backgroundColor: AppColors.primary,

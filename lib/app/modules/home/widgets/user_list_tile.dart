@@ -52,7 +52,10 @@ class UserListTile extends StatelessWidget {
         user.name,
         style: const TextStyle(fontWeight: FontWeight.w600),
       ),
-      subtitle: Text(user.email, style: TextStyle(color: Colors.grey[600])),
+      subtitle: Text(
+        user.phoneNumber,
+        style: TextStyle(color: Colors.grey[600]),
+      ),
       trailing: Icon(
         Icons.chat_bubble_outline,
         color: AppColors.primary.withValues(alpha: 0.7),

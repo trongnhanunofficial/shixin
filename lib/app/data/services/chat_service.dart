@@ -49,10 +49,9 @@ class ChatService extends GetxService {
   Stream<List<ChatModel>> getUserChats(String userId) {
     return _chatsRef
         .where('participants', arrayContains: userId)
-        .orderBy('lastMessageTime', descending: true)
         .snapshots()
         .map((snapshot) {
-          return snapshot.docs
+          final chats = snapshot.docs
               .map(
                 (doc) => ChatModel.fromJson(
                   doc.data() as Map<String, dynamic>,
@@ -60,6 +59,9 @@ class ChatService extends GetxService {
                 ),
               )
               .toList();
+
+          chats.sort((a, b) => b.lastMessageTime.compareTo(a.lastMessageTime));
+          return chats;
         });
   }
 

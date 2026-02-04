@@ -40,7 +40,7 @@ class UserService extends GetxService {
     });
   }
 
-  /// Tìm kiếm users theo tên hoặc email
+  /// Tìm kiếm users theo tên hoặc số điện thoại
   Future<List<UserModel>> searchUsers(
     String query,
     String currentUserId,
@@ -55,7 +55,7 @@ class UserService extends GetxService {
           (user) =>
               user.uid != currentUserId &&
               (user.name.toLowerCase().contains(queryLower) ||
-                  user.email.toLowerCase().contains(queryLower)),
+                  user.phoneNumber.toLowerCase().contains(queryLower)),
         )
         .toList();
   }

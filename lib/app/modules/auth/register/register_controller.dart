@@ -8,60 +8,50 @@ import '../../../core/utils/snackbar_utils.dart';
 class RegisterController extends GetxController {
   final AuthService _authService = Get.find<AuthService>();
 
+  final countryCodes = const ['+86', '+84', '+1'];
+  final countryCode = '+86'.obs;
   final nameController = TextEditingController();
-  final emailController = TextEditingController();
+  final phoneController = TextEditingController();
   final passwordController = TextEditingController();
-  final confirmPasswordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
 
   final isLoading = false.obs;
   final isPasswordVisible = false.obs;
-  final isConfirmPasswordVisible = false.obs;
 
   void togglePasswordVisibility() {
     isPasswordVisible.toggle();
   }
 
-  void toggleConfirmPasswordVisibility() {
-    isConfirmPasswordVisible.toggle();
+  void setCountryCode(String value) {
+    countryCode.value = value;
   }
 
   String? validateName(String? value) {
     if (value == null || value.isEmpty) {
-      return 'Vui lòng nhập tên';
+      return 'Please enter your name.';
     }
     if (value.length < 2) {
-      return 'Tên phải có ít nhất 2 ký tự';
+      return 'Name must be at least 2 characters.';
     }
     return null;
   }
 
-  String? validateEmail(String? value) {
+  String? validatePhoneNumber(String? value) {
     if (value == null || value.isEmpty) {
-      return 'Vui lòng nhập email';
+      return 'Please enter your phone number.';
     }
-    if (!GetUtils.isEmail(value)) {
-      return 'Email không hợp lệ';
+    if (!RegExp(r'^\d{1,11}$').hasMatch(value)) {
+      return 'Phone number must be digits only (max 11).';
     }
     return null;
   }
 
   String? validatePassword(String? value) {
     if (value == null || value.isEmpty) {
-      return 'Vui lòng nhập mật khẩu';
+      return 'Please enter your password.';
     }
     if (value.length < 6) {
-      return 'Mật khẩu phải có ít nhất 6 ký tự';
-    }
-    return null;
-  }
-
-  String? validateConfirmPassword(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'Vui lòng xác nhận mật khẩu';
-    }
-    if (value != passwordController.text) {
-      return 'Mật khẩu không khớp';
+      return 'Password must be at least 6 characters.';
     }
     return null;
   }
@@ -72,14 +62,14 @@ class RegisterController extends GetxController {
     isLoading.value = true;
     try {
       await _authService.register(
-        email: emailController.text.trim(),
+        phoneNumber: '${countryCode.value}${phoneController.text.trim()}',
         password: passwordController.text,
         name: nameController.text.trim(),
       );
-      SnackbarUtils.showSuccess('Đăng ký thành công!');
+      SnackbarUtils.showSuccess('Registration successful.');
       Get.offAllNamed(AppRoutes.home);
     } catch (e) {
-      SnackbarUtils.showError(e.toString());
+      SnackbarUtils.showError(_getErrorMessage(e));
     } finally {
       isLoading.value = false;
     }
@@ -92,9 +82,17 @@ class RegisterController extends GetxController {
   @override
   void onClose() {
     nameController.dispose();
-    emailController.dispose();
+    phoneController.dispose();
     passwordController.dispose();
-    confirmPasswordController.dispose();
     super.onClose();
+  }
+
+  String _getErrorMessage(Object error) {
+    final message = error.toString();
+    const prefix = 'Exception: ';
+    if (message.startsWith(prefix)) {
+      return message.substring(prefix.length);
+    }
+    return message;
   }
 }

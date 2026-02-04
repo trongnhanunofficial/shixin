@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 import '../../../core/theme/app_colors.dart';
@@ -27,27 +28,66 @@ class LoginView extends GetView<LoginController> {
                 ),
                 const SizedBox(height: 24),
                 const Text(
-                  'Chào mừng trở lại!',
+                  'Welcome back!',
                   style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'Đăng nhập để tiếp tục',
+                  'Sign in to continue',
                   style: TextStyle(fontSize: 16, color: Colors.grey[600]),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 48),
 
-                // Email field
-                TextFormField(
-                  controller: controller.emailController,
-                  keyboardType: TextInputType.emailAddress,
-                  validator: controller.validateEmail,
-                  decoration: const InputDecoration(
-                    labelText: 'Email',
-                    prefixIcon: Icon(Icons.email_outlined),
-                  ),
+                // Phone field
+                Row(
+                  children: [
+                    SizedBox(
+                      width: 120,
+                      child: Obx(
+                        () => DropdownButtonFormField<String>(
+                          value: controller.countryCode.value,
+                          decoration: const InputDecoration(
+                            labelText: 'Code',
+                            prefixIcon: Icon(Icons.flag_outlined),
+                          ),
+                          items: controller.countryCodes
+                              .map(
+                                (code) => DropdownMenuItem<String>(
+                                  value: code,
+                                  child: Text(code),
+                                ),
+                              )
+                              .toList(),
+                          onChanged: (value) {
+                            if (value != null) {
+                              controller.setCountryCode(value);
+                            }
+                          },
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: TextFormField(
+                        controller: controller.phoneController,
+                        keyboardType: TextInputType.phone,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.digitsOnly,
+                          LengthLimitingTextInputFormatter(11),
+                        ],
+                        validator: controller.validatePhoneNumber,
+                        decoration: const InputDecoration(
+                          labelText: 'Phone Number',
+                          hintText: 'Up to 11 digits',
+                          prefixIcon: Icon(Icons.phone_outlined),
+                          counterText: '',
+                        ),
+                        maxLength: 11,
+                      ),
+                    ),
+                  ],
                 ),
                 const SizedBox(height: 16),
 
@@ -58,7 +98,7 @@ class LoginView extends GetView<LoginController> {
                     obscureText: !controller.isPasswordVisible.value,
                     validator: controller.validatePassword,
                     decoration: InputDecoration(
-                      labelText: 'Mật khẩu',
+                      labelText: 'Password',
                       prefixIcon: const Icon(Icons.lock_outlined),
                       suffixIcon: IconButton(
                         icon: Icon(
@@ -88,10 +128,7 @@ class LoginView extends GetView<LoginController> {
                               color: Colors.white,
                             ),
                           )
-                        : const Text(
-                            'Đăng nhập',
-                            style: TextStyle(fontSize: 16),
-                          ),
+                        : const Text('Login', style: TextStyle(fontSize: 16)),
                   ),
                 ),
                 const SizedBox(height: 16),
@@ -101,13 +138,13 @@ class LoginView extends GetView<LoginController> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Chưa có tài khoản? ',
+                      "Don't have an account? ",
                       style: TextStyle(color: Colors.grey[600]),
                     ),
                     GestureDetector(
                       onTap: controller.goToRegister,
                       child: const Text(
-                        'Đăng ký ngay',
+                        'Register',
                         style: TextStyle(
                           color: AppColors.primary,
                           fontWeight: FontWeight.bold,

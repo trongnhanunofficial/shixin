@@ -6,6 +6,7 @@ import '../../data/services/auth_service.dart';
 import '../../data/services/chat_service.dart';
 import '../../data/services/user_service.dart';
 import '../../routes/app_routes.dart';
+import '../../core/utils/snackbar_utils.dart';
 
 class HomeController extends GetxController {
   final AuthService _authService = Get.find<AuthService>();
@@ -28,17 +29,31 @@ class HomeController extends GetxController {
 
   void _loadChats() {
     if (currentUser != null) {
-      _chatService.getUserChats(currentUser!.uid).listen((chatList) {
-        chats.value = chatList;
-      });
+      _chatService
+          .getUserChats(currentUser!.uid)
+          .listen(
+            (chatList) {
+              chats.value = chatList;
+            },
+            onError: (_) {
+              SnackbarUtils.showError('Unable to load chats.');
+            },
+          );
     }
   }
 
   void _loadUsers() {
     if (currentUser != null) {
-      _userService.getAllUsers(currentUser!.uid).listen((userList) {
-        users.value = userList;
-      });
+      _userService
+          .getAllUsers(currentUser!.uid)
+          .listen(
+            (userList) {
+              users.value = userList;
+            },
+            onError: (_) {
+              SnackbarUtils.showError('Unable to load users.');
+            },
+          );
     }
   }
 

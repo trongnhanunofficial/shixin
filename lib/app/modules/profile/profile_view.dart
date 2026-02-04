@@ -100,12 +100,12 @@ class ProfileView extends GetView<ProfileController> {
               ),
               const SizedBox(height: 16),
 
-              // Email field (không thể sửa)
+              // Phone number field
               _buildInfoCard(
-                icon: Icons.email,
-                label: 'Email',
+                icon: Icons.phone,
+                label: 'Phone Number',
                 child: Text(
-                  user.email,
+                  user.phoneNumber,
                   style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
