@@ -27,6 +27,7 @@ class MyApp extends StatelessWidget {
       initialBinding: InitialBinding(),
       initialRoute: AppRoutes.splash,
       getPages: AppPages.pages,
+      defaultTransition: Transition.cupertino,
     );
   }
 }
