@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
 
 import '../../core/theme/app_colors.dart';
 import 'chat_controller.dart';
@@ -157,6 +158,15 @@ class ChatView extends GetView<ChatController> {
                 return Row(
                   children: [
                     IconButton(
+                      icon: Icon(
+                        controller.isEmojiPickerVisible.value
+                            ? Icons.keyboard_outlined
+                            : Icons.emoji_emotions_outlined,
+                      ),
+                      color: AppColors.primary,
+                      onPressed: controller.toggleEmojiPicker,
+                    ),
+                    IconButton(
                       icon: isUploading
                           ? const SizedBox(
                               width: 22,
@@ -167,11 +177,15 @@ class ChatView extends GetView<ChatController> {
                       color: AppColors.primary,
                       onPressed: isUploading
                           ? null
-                          : controller.pickAndSendImage,
+                          : () {
+                              controller.hideEmojiPicker();
+                              controller.pickAndSendImage();
+                            },
                     ),
                     Expanded(
                       child: TextField(
                         controller: controller.messageController,
+                        focusNode: controller.messageFocusNode,
                         decoration: InputDecoration(
                           hintText: 'Type a message...',
                           filled: true,
@@ -187,6 +201,7 @@ class ChatView extends GetView<ChatController> {
                         ),
                         maxLines: null,
                         textInputAction: TextInputAction.send,
+                        onTap: controller.hideEmojiPicker,
                         onSubmitted: (_) => controller.sendMessage(),
                       ),
                     ),
@@ -206,6 +221,30 @@ class ChatView extends GetView<ChatController> {
               }),
             ),
           ),
+          Obx(() {
+            if (!controller.isEmojiPickerVisible.value) {
+              return const SizedBox.shrink();
+            }
+
+            return SizedBox(
+              height: 300,
+              child: EmojiPicker(
+                textEditingController: controller.messageController,
+                config: const Config(
+                  height: 300,
+                  emojiViewConfig: EmojiViewConfig(
+                    columns: 8,
+                    emojiSizeMax: 28,
+                  ),
+                  categoryViewConfig: CategoryViewConfig(
+                    iconColorSelected: AppColors.primary,
+                    indicatorColor: AppColors.primary,
+                    backspaceColor: AppColors.primary,
+                  ),
+                ),
+              ),
+            );
+          }),
         ],
       ),
     );

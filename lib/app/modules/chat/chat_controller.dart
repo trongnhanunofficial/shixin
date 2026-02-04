@@ -19,8 +19,10 @@ class ChatController extends GetxController {
   final CloudinaryService _cloudinaryService = Get.find<CloudinaryService>();
 
   final messageController = TextEditingController();
+  final messageFocusNode = FocusNode();
   final scrollController = ScrollController();
   final isImageUploading = false.obs;
+  final isEmojiPickerVisible = false.obs;
 
   final ImagePicker _imagePicker = ImagePicker();
 
@@ -63,6 +65,24 @@ class ChatController extends GetxController {
       senderId: currentUserId,
       content: content,
     );
+  }
+
+  void toggleEmojiPicker() {
+    if (isEmojiPickerVisible.value) {
+      isEmojiPickerVisible.value = false;
+      messageFocusNode.requestFocus();
+      return;
+    }
+
+    messageFocusNode.unfocus();
+    isEmojiPickerVisible.value = true;
+  }
+
+  void hideEmojiPicker() {
+    if (!isEmojiPickerVisible.value) {
+      return;
+    }
+    isEmojiPickerVisible.value = false;
   }
 
   Future<void> pickAndSendImage() async {
@@ -133,6 +153,7 @@ class ChatController extends GetxController {
   @override
   void onClose() {
     messageController.dispose();
+    messageFocusNode.dispose();
     scrollController.dispose();
     super.onClose();
   }
