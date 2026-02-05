@@ -18,11 +18,15 @@ class AppColors {
   static const Color textSecondary = Color(0xFF757575);
   static const Color textLight = Color(0xFFFFFFFF);
 
-  // Chat bubble colors
-  static const Color myMessageBubble = Color(0xFF6C63FF);
-  static const Color otherMessageBubble = Color(0xFFE8E8E8);
-  static const Color myMessageBubbleDark = Color(0xFF5B52E0);
-  static const Color otherMessageBubbleDark = Color(0xFF2D2D2D);
+  // Chat bubble colors (iMessage style)
+  static const Color myMessageBubble = Color(0xFF007AFF); // iMessage blue
+  static const Color otherMessageBubble = Color(0xFFE9E9EB); // iMessage gray
+  static const Color myMessageBubbleDark = Color(
+    0xFF0A84FF,
+  ); // iMessage blue dark
+  static const Color otherMessageBubbleDark = Color(
+    0xFF3A3A3C,
+  ); // iMessage gray dark
 
   // Status colors
   static const Color online = Color(0xFF4CAF50);
