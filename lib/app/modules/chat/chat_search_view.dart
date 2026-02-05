@@ -69,7 +69,7 @@ class ChatSearchView extends GetView<ChatSearchController> {
   }
 
   Widget _buildResultTile(MessageModel message) {
-    final isMe = message.senderId == controller.currentUserId;
+    final senderName = controller.senderName(message.senderId);
 
     return ListTile(
       title: Text(
@@ -78,7 +78,7 @@ class ChatSearchView extends GetView<ChatSearchController> {
         overflow: TextOverflow.ellipsis,
       ),
       subtitle: Text(
-        isMe ? 'You' : controller.displayName,
+        senderName,
         style: TextStyle(color: Colors.grey[600]),
       ),
       trailing: Text(

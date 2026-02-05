@@ -16,7 +16,67 @@ class ChatView extends GetView<ChatController> {
       appBar: AppBar(
         leadingWidth: 30,
         title: Obx(() {
+          final chat = controller.chat.value;
+          if (chat?.isGroup == true) {
+            final title = controller.groupName;
+            final avatar = chat?.avatar;
+            return InkWell(
+              borderRadius: BorderRadius.circular(24),
+              onTap: () {
+                Get.toNamed(
+                  AppRoutes.groupInfo,
+                  arguments: {'chatId': controller.chatId},
+                );
+              },
+              child: Row(
+                children: [
+                  CircleAvatar(
+                    radius: 20,
+                    backgroundColor: Colors.white.withValues(alpha: 0.2),
+                    backgroundImage:
+                        avatar != null ? NetworkImage(avatar) : null,
+                    child: avatar == null
+                        ? Text(
+                            title.isNotEmpty ? title[0].toUpperCase() : '?',
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          )
+                        : null,
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          title,
+                          style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        Text(
+                          '${controller.participantCount} members',
+                          style: const TextStyle(
+                            fontSize: 12,
+                            color: Colors.white70,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            );
+          }
+
           final resolvedName = controller.displayName.value;
+          final otherUser = controller.otherUser;
+          if (otherUser == null) {
+            return const Text('Chat');
+          }
 
           return InkWell(
             borderRadius: BorderRadius.circular(24),
@@ -25,10 +85,10 @@ class ChatView extends GetView<ChatController> {
                 AppRoutes.chatInfo,
                 arguments: {
                   'chatId': controller.chatId,
-                  'otherUser': controller.otherUser,
+                  'otherUser': otherUser,
                   'displayName': resolvedName.isNotEmpty
                       ? resolvedName
-                      : controller.otherUser.name,
+                      : otherUser.name,
                 },
               );
             },
@@ -37,10 +97,10 @@ class ChatView extends GetView<ChatController> {
                 CircleAvatar(
                   radius: 20,
                   backgroundColor: Colors.white.withValues(alpha: 0.2),
-                  backgroundImage: controller.otherUser.avatar != null
-                      ? NetworkImage(controller.otherUser.avatar!)
+                  backgroundImage: otherUser.avatar != null
+                      ? NetworkImage(otherUser.avatar!)
                       : null,
-                  child: controller.otherUser.avatar == null
+                  child: otherUser.avatar == null
                       ? Text(
                           resolvedName.isNotEmpty
                               ? resolvedName[0].toUpperCase()
@@ -65,10 +125,10 @@ class ChatView extends GetView<ChatController> {
                         ),
                       ),
                       Text(
-                        controller.otherUser.isOnline ? 'Active' : 'Offline',
+                        otherUser.isOnline ? 'Active' : 'Offline',
                         style: TextStyle(
                           fontSize: 12,
-                          color: controller.otherUser.isOnline
+                          color: otherUser.isOnline
                               ? Colors.greenAccent
                               : Colors.white70,
                         ),
@@ -84,15 +144,28 @@ class ChatView extends GetView<ChatController> {
           IconButton(
             icon: const Icon(Icons.info_outline),
             onPressed: () {
+              final chat = controller.chat.value;
+              if (chat?.isGroup == true) {
+                Get.toNamed(
+                  AppRoutes.groupInfo,
+                  arguments: {'chatId': controller.chatId},
+                );
+                return;
+              }
+
               final resolvedName = controller.displayName.value;
+              final otherUser = controller.otherUser;
+              if (otherUser == null) {
+                return;
+              }
               Get.toNamed(
                 AppRoutes.chatInfo,
                 arguments: {
                   'chatId': controller.chatId,
-                  'otherUser': controller.otherUser,
+                  'otherUser': otherUser,
                   'displayName': resolvedName.isNotEmpty
                       ? resolvedName
-                      : controller.otherUser.name,
+                      : otherUser.name,
                 },
               );
             },
@@ -163,7 +236,17 @@ class ChatView extends GetView<ChatController> {
                             ),
                           ),
                         ),
-                      MessageBubble(message: message, isMe: isMe),
+                      MessageBubble(
+                        message: message,
+                        isMe: isMe,
+                        senderName: controller.isGroup
+                            ? controller.senderName(message.senderId)
+                            : null,
+                        senderAvatar: controller.isGroup
+                            ? controller.senderAvatar(message.senderId)
+                            : null,
+                        showReadStatus: !controller.isGroup,
+                      ),
                     ],
                   );
                 },

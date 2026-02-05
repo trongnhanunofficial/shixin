@@ -30,6 +30,13 @@ class FirebaseConstants {
   static const String fieldMutedBy = 'mutedBy';
   static const String fieldPinnedBy = 'pinnedBy';
   static const String fieldLockedBy = 'lockedBy';
+  static const String fieldChatType = 'type';
+  static const String fieldChatName = 'name';
+  static const String fieldChatAvatar = 'avatar';
+  static const String fieldChatIsAutoName = 'isAutoName';
+  static const String fieldChatCreatedBy = 'createdBy';
+  static const String fieldChatCreatedAt = 'createdAt';
+  static const String fieldChatLastMessageSenderId = 'lastMessageSenderId';
 
   // Friend relation fields
   static const String fieldFriendParticipants = 'participants';

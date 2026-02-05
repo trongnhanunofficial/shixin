@@ -6,5 +6,7 @@ abstract class AppRoutes {
   static const chat = '/chat';
   static const chatInfo = '/chat-info';
   static const chatSearch = '/chat-search';
+  static const groupCreate = '/group-create';
+  static const groupInfo = '/group-info';
   static const profile = '/profile';
 }

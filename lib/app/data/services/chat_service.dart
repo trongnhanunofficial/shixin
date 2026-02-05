@@ -26,6 +26,10 @@ class ChatService extends GetxService {
       final participants = List<String>.from(
         doc.data()[FirebaseConstants.fieldParticipants] ?? [],
       );
+      final type = doc.data()[FirebaseConstants.fieldChatType] as String?;
+      if (type != null && type != ChatType.direct.name) {
+        continue;
+      }
       if (participants.contains(otherUserId)) {
         return ChatModel.fromJson(doc.data(), doc.id);
       }
@@ -34,6 +38,7 @@ class ChatService extends GetxService {
     final newChat = ChatModel(
       id: '',
       participants: [currentUserId, otherUserId],
+      type: ChatType.direct,
       lastMessage: '',
       lastMessageTime: DateTime.now(),
     );
@@ -42,9 +47,84 @@ class ChatService extends GetxService {
     return ChatModel(
       id: docRef.id,
       participants: newChat.participants,
+      type: newChat.type,
       lastMessage: newChat.lastMessage,
       lastMessageTime: newChat.lastMessageTime,
     );
+  }
+
+  Future<ChatModel> createGroupChat({
+    required String currentUserId,
+    required List<String> memberIds,
+    required String name,
+    String? avatar,
+    required bool isAutoName,
+  }) async {
+    final participants = {currentUserId, ...memberIds}.toList();
+    final now = DateTime.now();
+    final newChat = ChatModel(
+      id: '',
+      participants: participants,
+      type: ChatType.group,
+      name: name,
+      avatar: avatar,
+      isAutoName: isAutoName,
+      createdBy: currentUserId,
+      createdAt: now,
+      lastMessage: '',
+      lastMessageTime: now,
+    );
+
+    final docRef = await _chatsRef.add(newChat.toJson());
+    return ChatModel(
+      id: docRef.id,
+      participants: participants,
+      type: ChatType.group,
+      name: name,
+      avatar: avatar,
+      isAutoName: isAutoName,
+      createdBy: currentUserId,
+      createdAt: now,
+      lastMessage: '',
+      lastMessageTime: now,
+    );
+  }
+
+  Future<void> updateGroupInfo({
+    required String chatId,
+    String? name,
+    String? avatar,
+    bool? isAutoName,
+  }) async {
+    final updates = <String, dynamic>{};
+    if (name != null) {
+      updates[FirebaseConstants.fieldChatName] = name;
+    }
+    if (avatar != null) {
+      updates[FirebaseConstants.fieldChatAvatar] = avatar;
+    }
+    if (isAutoName != null) {
+      updates[FirebaseConstants.fieldChatIsAutoName] = isAutoName;
+    }
+
+    if (updates.isNotEmpty) {
+      await _chatsRef.doc(chatId).update(updates);
+    }
+  }
+
+  Future<void> addMembers(String chatId, List<String> memberIds) async {
+    if (memberIds.isEmpty) {
+      return;
+    }
+    await _chatsRef.doc(chatId).update({
+      FirebaseConstants.fieldParticipants: FieldValue.arrayUnion(memberIds),
+    });
+  }
+
+  Future<void> removeMember(String chatId, String memberId) async {
+    await _chatsRef.doc(chatId).update({
+      FirebaseConstants.fieldParticipants: FieldValue.arrayRemove([memberId]),
+    });
   }
 
   Stream<List<ChatModel>> getUserChats(String userId) {
@@ -108,6 +188,7 @@ class ChatService extends GetxService {
     await _chatsRef.doc(chatId).update({
       FirebaseConstants.fieldLastMessage: lastMessagePreview,
       FirebaseConstants.fieldLastMessageTime: Timestamp.now(),
+      FirebaseConstants.fieldChatLastMessageSenderId: senderId,
     });
   }
 
@@ -205,6 +286,10 @@ class ChatService extends GetxService {
       final participants = List<String>.from(
         doc.data()[FirebaseConstants.fieldParticipants] ?? [],
       );
+      final type = doc.data()[FirebaseConstants.fieldChatType] as String?;
+      if (type != null && type != ChatType.direct.name) {
+        continue;
+      }
       if (!participants.contains(uidB)) {
         continue;
       }
@@ -212,6 +297,12 @@ class ChatService extends GetxService {
       await _deleteMessages(doc.reference);
       await doc.reference.delete();
     }
+  }
+
+  Future<void> deleteChat(String chatId) async {
+    final chatRef = _chatsRef.doc(chatId);
+    await _deleteMessages(chatRef);
+    await chatRef.delete();
   }
 
   Future<void> _deleteMessages(

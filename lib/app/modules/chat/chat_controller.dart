@@ -7,18 +7,21 @@ import 'package:image_picker/image_picker.dart';
 
 import '../../core/utils/snackbar_utils.dart';
 import '../../data/models/friend_relation_model.dart';
+import '../../data/models/chat_model.dart';
 import '../../data/models/message_model.dart';
 import '../../data/models/user_model.dart';
 import '../../data/services/auth_service.dart';
 import '../../data/services/chat_service.dart';
 import '../../data/services/cloudinary_service.dart';
 import '../../data/services/friend_service.dart';
+import '../../data/services/user_service.dart';
 
 class ChatController extends GetxController {
   final AuthService _authService = Get.find<AuthService>();
   final ChatService _chatService = Get.find<ChatService>();
   final FriendService _friendService = Get.find<FriendService>();
   final CloudinaryService _cloudinaryService = Get.find<CloudinaryService>();
+  final UserService _userService = Get.find<UserService>();
 
   final messageController = TextEditingController();
   final messageFocusNode = FocusNode();
@@ -31,10 +34,13 @@ class ChatController extends GetxController {
   final messages = <MessageModel>[].obs;
   final isLoading = false.obs;
   final displayName = ''.obs;
+  final chat = Rxn<ChatModel>();
+  final participantUsers = <String, UserModel>{}.obs;
 
   late String chatId;
-  late UserModel otherUser;
+  UserModel? otherUser;
   StreamSubscription<FriendRelationModel?>? _relationSubscription;
+  StreamSubscription<ChatModel?>? _chatSubscription;
 
   String get currentUserId => _authService.currentUser.value!.uid;
 
@@ -43,28 +49,81 @@ class ChatController extends GetxController {
     super.onInit();
     final args = Get.arguments as Map<String, dynamic>;
     chatId = args['chatId'];
-    otherUser = args['otherUser'];
+    otherUser = args['otherUser'] as UserModel?;
     final initialDisplayName = (args['displayName'] as String?)?.trim();
-    displayName.value = initialDisplayName?.isNotEmpty == true
-        ? initialDisplayName!
-        : otherUser.name;
-    _listenDisplayName();
+    if (otherUser != null) {
+      displayName.value = initialDisplayName?.isNotEmpty == true
+          ? initialDisplayName!
+          : otherUser!.name;
+      _listenDisplayName();
+    }
+    _listenChat();
     _loadMessages();
+  }
+
+  bool get isGroup => chat.value?.isGroup == true || otherUser == null;
+
+  int get participantCount => chat.value?.participants.length ?? 0;
+
+  String get groupName {
+    final name = chat.value?.name ?? '';
+    if (name.isNotEmpty) {
+      return name;
+    }
+    return 'Group chat';
+  }
+
+  void _listenChat() {
+    _chatSubscription?.cancel();
+    _chatSubscription = _chatService.getChatStream(chatId).listen(
+      (chatModel) async {
+        chat.value = chatModel;
+        if (chatModel == null) {
+          return;
+        }
+        if (chatModel.isGroup) {
+          await _loadParticipantUsers(chatModel.participants);
+          return;
+        }
+
+        if (otherUser == null) {
+          final otherId = chatModel.getOtherUserId(currentUserId);
+          if (otherId.isNotEmpty) {
+            otherUser = await _userService.getUserById(otherId);
+            displayName.value = otherUser?.name ?? '';
+            _listenDisplayName();
+          }
+        }
+      },
+      onError: (_) {
+        SnackbarUtils.showError('Unable to load chat info.');
+      },
+    );
+  }
+
+  Future<void> _loadParticipantUsers(List<String> participantIds) async {
+    final unique = participantIds.toSet().toList();
+    final users = await _userService.getUsersByIds(unique);
+    final map = <String, UserModel>{};
+    for (final user in users) {
+      map[user.uid] = user;
+    }
+    participantUsers.assignAll(map);
   }
 
   void _listenDisplayName() {
     _relationSubscription?.cancel();
     _relationSubscription = _friendService
-        .getRelationBetweenUsers(currentUserId, otherUser.uid)
+        .getRelationBetweenUsers(currentUserId, otherUser!.uid)
         .listen(
           (relation) {
             final nickname = relation?.nicknameFor(currentUserId);
             displayName.value = nickname?.isNotEmpty == true
                 ? nickname!
-                : otherUser.name;
+                : otherUser!.name;
           },
           onError: (_) {
-            displayName.value = otherUser.name;
+            displayName.value = otherUser!.name;
           },
         );
   }
@@ -155,9 +214,28 @@ class ChatController extends GetxController {
   }
 
   Future<bool> _ensureCanMessage() async {
+    if (isGroup) {
+      final participants = chat.value?.participants;
+      if (participants == null || participants.isEmpty) {
+        return true;
+      }
+      final members = participants;
+      if (!members.contains(currentUserId)) {
+        SnackbarUtils.showError('You are no longer in this group.');
+        return false;
+      }
+      return true;
+    }
+
+    final target = otherUser;
+    if (target == null) {
+      SnackbarUtils.showError('Unable to send message.');
+      return false;
+    }
+
     final isFriend = await _friendService.areFriends(
       currentUserId,
-      otherUser.uid,
+      target.uid,
     );
     if (!isFriend) {
       SnackbarUtils.showError('You can only message friends.');
@@ -176,9 +254,27 @@ class ChatController extends GetxController {
     return message.senderId == currentUserId;
   }
 
+  String senderName(String senderId) {
+    if (senderId == currentUserId) {
+      return 'You';
+    }
+    if (!isGroup) {
+      return displayName.value;
+    }
+    return participantUsers[senderId]?.name ?? 'Member';
+  }
+
+  String? senderAvatar(String senderId) {
+    if (!isGroup) {
+      return otherUser?.avatar;
+    }
+    return participantUsers[senderId]?.avatar;
+  }
+
   @override
   void onClose() {
     _relationSubscription?.cancel();
+    _chatSubscription?.cancel();
     messageController.dispose();
     messageFocusNode.dispose();
     scrollController.dispose();

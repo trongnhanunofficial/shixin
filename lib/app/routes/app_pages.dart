@@ -15,6 +15,10 @@ import '../modules/chat/chat_info_binding.dart';
 import '../modules/chat/chat_info_view.dart';
 import '../modules/chat/chat_search_binding.dart';
 import '../modules/chat/chat_search_view.dart';
+import '../modules/group_create/group_create_binding.dart';
+import '../modules/group_create/group_create_view.dart';
+import '../modules/group_info/group_info_binding.dart';
+import '../modules/group_info/group_info_view.dart';
 import '../modules/profile/profile_binding.dart';
 import '../modules/profile/profile_view.dart';
 
@@ -54,6 +58,16 @@ class AppPages {
       name: AppRoutes.chatSearch,
       page: () => const ChatSearchView(),
       binding: ChatSearchBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.groupCreate,
+      page: () => const GroupCreateView(),
+      binding: GroupCreateBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.groupInfo,
+      page: () => const GroupInfoView(),
+      binding: GroupInfoBinding(),
     ),
     GetPage(
       name: AppRoutes.profile,

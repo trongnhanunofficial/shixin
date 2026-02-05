@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../core/theme/app_colors.dart';
+import '../../routes/app_routes.dart';
 import '../profile/profile_controller.dart';
 import '../profile/widgets/profile_content.dart';
 import 'contact_card_view.dart';
@@ -52,6 +53,13 @@ class HomeView extends GetView<HomeController> {
                   ),
                 );
               })
+            : tabIndex == HomeBottomTab.chat.index
+            ? FloatingActionButton(
+                onPressed: () {
+                  Get.toNamed(AppRoutes.groupCreate);
+                },
+                child: const Icon(Icons.group_add),
+              )
             : null,
         bottomNavigationBar: Obx(() {
           final count = controller.pendingRequestCount;
@@ -191,7 +199,7 @@ class HomeView extends GetView<HomeController> {
                 nicknameByUserId[otherUserId] ??
                 controller.relationUsers[otherUserId]?.name,
             onTap: () => controller.openChat(chat),
-            onDelete: () => controller.deleteChat(chat),
+            onDelete: chat.isGroup ? null : () => controller.deleteChat(chat),
             onTogglePin: () => controller.togglePinChat(chat),
             onToggleMute: () => controller.toggleMuteChat(chat),
           );
@@ -225,7 +233,7 @@ class HomeView extends GetView<HomeController> {
               currentUserId: controller.currentUser?.uid ?? '',
               displayName: controller.getDisplayNameByUserId(otherUserId),
               onTap: () => controller.openChat(chat),
-              onDelete: () => controller.deleteChat(chat),
+              onDelete: chat.isGroup ? null : () => controller.deleteChat(chat),
               onTogglePin: () => controller.togglePinChat(chat),
               onToggleMute: () => controller.toggleMuteChat(chat),
             );
@@ -253,26 +261,47 @@ class HomeView extends GetView<HomeController> {
     return Obx(() {
       final friends = controller.acceptedFriends;
       if (friends.isEmpty) {
-        return _buildEmptyState(
-          icon: Icons.people_outline,
-          title: 'No friends yet',
-          subtitle: 'Tap the Add Friend button to connect.',
+        return ListView(
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
+              child: FilledButton.icon(
+                onPressed: () => Get.toNamed(AppRoutes.groupCreate),
+                icon: const Icon(Icons.group_add),
+                label: const Text('Create Group'),
+              ),
+            ),
+            _buildEmptyState(
+              icon: Icons.people_outline,
+              title: 'No friends yet',
+              subtitle: 'Tap the Add Friend button to connect.',
+            ),
+          ],
         );
       }
 
-      return ListView.builder(
-        itemCount: friends.length,
-        itemBuilder: (context, index) {
-          final user = friends[index];
-          return FriendListTile(
-            user: user,
-            displayName: controller.getDisplayName(user),
-            onTap: () => Get.to(() => ContactCardView(user: user)),
-            onChat: () => controller.openChatWithFriend(user),
-            onUnfriend: () => controller.unfriend(user),
-            isLoading: controller.isActionLoading('unfriend:${user.uid}'),
-          );
-        },
+      return ListView(
+        children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
+            child: FilledButton.icon(
+              onPressed: () => Get.toNamed(AppRoutes.groupCreate),
+              icon: const Icon(Icons.group_add),
+              label: const Text('Create Group'),
+            ),
+          ),
+          ...friends.map((user) {
+            return FriendListTile(
+              user: user,
+              displayName: controller.getDisplayName(user),
+              onTap: () => Get.to(() => ContactCardView(user: user)),
+              onChat: () => controller.openChatWithFriend(user),
+              onUnfriend: () => controller.unfriend(user),
+              isLoading: controller.isActionLoading('unfriend:${user.uid}'),
+            );
+          }),
+          const SizedBox(height: 12),
+        ],
       );
     });
   }

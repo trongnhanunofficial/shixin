@@ -4,11 +4,20 @@ import 'dart:math';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:crypto/crypto.dart';
 
+enum ChatType { direct, group }
+
 class ChatModel {
   final String id;
   final List<String> participants;
+  final ChatType type;
+  final String name;
+  final String? avatar;
+  final bool isAutoName;
+  final String createdBy;
+  final DateTime createdAt;
   final String lastMessage;
   final DateTime lastMessageTime;
+  final String? lastMessageSenderId;
   final Map<String, int> unreadCount;
   final Map<String, bool> mutedBy;
   final Map<String, DateTime> pinnedBy;
@@ -17,13 +26,20 @@ class ChatModel {
   ChatModel({
     required this.id,
     required this.participants,
+    this.type = ChatType.direct,
+    this.name = '',
+    this.avatar,
+    this.isAutoName = false,
+    this.createdBy = '',
+    DateTime? createdAt,
     required this.lastMessage,
     required this.lastMessageTime,
+    this.lastMessageSenderId,
     this.unreadCount = const {},
     this.mutedBy = const {},
     this.pinnedBy = const {},
     this.lockedBy = const {},
-  });
+  }) : createdAt = createdAt ?? DateTime.now();
 
   factory ChatModel.fromJson(Map<String, dynamic> json, String id) {
     final mutedBy = _parseBoolMap(json['mutedBy']);
@@ -32,9 +48,16 @@ class ChatModel {
     return ChatModel(
       id: id,
       participants: List<String>.from(json['participants'] ?? []),
+      type: _parseChatType(json['type']),
+      name: json['name'] ?? '',
+      avatar: json['avatar'],
+      isAutoName: json['isAutoName'] == true,
+      createdBy: json['createdBy'] ?? '',
+      createdAt: (json['createdAt'] as Timestamp?)?.toDate() ?? DateTime.now(),
       lastMessage: json['lastMessage'] ?? '',
       lastMessageTime:
           (json['lastMessageTime'] as Timestamp?)?.toDate() ?? DateTime.now(),
+      lastMessageSenderId: json['lastMessageSenderId'],
       unreadCount: Map<String, int>.from(json['unreadCount'] ?? {}),
       mutedBy: mutedBy,
       pinnedBy: pinnedBy,
@@ -55,8 +78,15 @@ class ChatModel {
 
     return {
       'participants': participants,
+      'type': type.name,
+      'name': name,
+      'avatar': avatar,
+      'isAutoName': isAutoName,
+      'createdBy': createdBy,
+      'createdAt': Timestamp.fromDate(createdAt),
       'lastMessage': lastMessage,
       'lastMessageTime': Timestamp.fromDate(lastMessageTime),
+      'lastMessageSenderId': lastMessageSenderId,
       'unreadCount': unreadCount,
       'mutedBy': mutedBy,
       'pinnedBy': pinnedPayload,
@@ -75,6 +105,8 @@ class ChatModel {
   bool isMuted(String userId) {
     return mutedBy[userId] == true;
   }
+
+  bool get isGroup => type == ChatType.group;
 
   bool isPinned(String userId) {
     return pinnedBy.containsKey(userId);
@@ -111,6 +143,17 @@ class ChatModel {
       }
     });
     return result;
+  }
+
+  static ChatType _parseChatType(dynamic raw) {
+    if (raw is String) {
+      for (final value in ChatType.values) {
+        if (value.name == raw) {
+          return value;
+        }
+      }
+    }
+    return ChatType.direct;
   }
 
   static Map<String, DateTime> _parsePinnedMap(dynamic raw) {

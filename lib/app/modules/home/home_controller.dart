@@ -90,6 +90,14 @@ class HomeController extends GetxController {
 
     final results = <ChatModel>[];
     for (final chat in chats) {
+      if (chat.isGroup) {
+        if (_matches(chat.name, query) ||
+            _matches(chat.lastMessage, query)) {
+          results.add(chat);
+        }
+        continue;
+      }
+
       final otherUserId = chat.getOtherUserId(_currentUserId);
       final displayName = getDisplayNameByUserId(otherUserId) ?? '';
       if (_matches(displayName, query) || _matches(chat.lastMessage, query)) {
@@ -268,6 +276,16 @@ class HomeController extends GetxController {
   }
 
   Future<void> openChat(ChatModel chat) async {
+    if (chat.isGroup) {
+      Get.toNamed(
+        AppRoutes.chat,
+        arguments: {
+          'chatId': chat.id,
+        },
+      );
+      return;
+    }
+
     final otherUserId = chat.getOtherUserId(_currentUserId);
     if (!_acceptedFriendIds.contains(otherUserId)) {
       SnackbarUtils.showError('You can only message friends.');
@@ -553,6 +571,9 @@ class HomeController extends GetxController {
   void _applyChatFilter() {
     final friendIds = _acceptedFriendIds;
     final filtered = _allChats.where((chat) {
+      if (chat.isGroup) {
+        return true;
+      }
       final otherUserId = chat.getOtherUserId(_currentUserId);
       return friendIds.contains(otherUserId);
     }).toList();
