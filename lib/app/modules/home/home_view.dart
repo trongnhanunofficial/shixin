@@ -191,6 +191,9 @@ class HomeView extends GetView<HomeController> {
                 nicknameByUserId[otherUserId] ??
                 controller.relationUsers[otherUserId]?.name,
             onTap: () => controller.openChat(chat),
+            onDelete: () => controller.deleteChat(chat),
+            onTogglePin: () => controller.togglePinChat(chat),
+            onToggleMute: () => controller.toggleMuteChat(chat),
           );
         },
       );
@@ -222,6 +225,9 @@ class HomeView extends GetView<HomeController> {
               currentUserId: controller.currentUser?.uid ?? '',
               displayName: controller.getDisplayNameByUserId(otherUserId),
               onTap: () => controller.openChat(chat),
+              onDelete: () => controller.deleteChat(chat),
+              onTogglePin: () => controller.togglePinChat(chat),
+              onToggleMute: () => controller.toggleMuteChat(chat),
             );
           }),
         ],

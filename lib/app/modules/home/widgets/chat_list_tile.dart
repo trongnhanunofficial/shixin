@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:get/get.dart';
 
 import '../../../core/theme/app_colors.dart';
@@ -11,6 +12,9 @@ class ChatListTile extends StatelessWidget {
   final String currentUserId;
   final String? displayName;
   final VoidCallback onTap;
+  final VoidCallback? onDelete;
+  final VoidCallback? onTogglePin;
+  final VoidCallback? onToggleMute;
 
   const ChatListTile({
     super.key,
@@ -18,6 +22,9 @@ class ChatListTile extends StatelessWidget {
     required this.currentUserId,
     this.displayName,
     required this.onTap,
+    this.onDelete,
+    this.onTogglePin,
+    this.onToggleMute,
   });
 
   @override
@@ -30,59 +37,115 @@ class ChatListTile extends StatelessWidget {
       builder: (context, snapshot) {
         final user = snapshot.data;
         final resolvedName = displayName ?? user?.name ?? 'Loading...';
+        final isPinned = chat.isPinned(currentUserId);
+        final isMuted = chat.isMuted(currentUserId);
+        final isLocked = chat.isLocked(currentUserId);
+        final hasStatusIcon = isPinned || isMuted || isLocked;
+        final subtitleText = isLocked
+            ? 'Locked chat'
+            : chat.lastMessage.isNotEmpty
+            ? chat.lastMessage
+            : 'Start a chat';
 
-        return ListTile(
-          onTap: onTap,
-          leading: Stack(
+        return Slidable(
+          key: ValueKey(chat.id),
+          endActionPane: ActionPane(
+            motion: const DrawerMotion(),
             children: [
-              CircleAvatar(
-                radius: 28,
-                backgroundColor: AppColors.primary.withValues(alpha: 0.2),
-                backgroundImage: user?.avatar != null
-                    ? NetworkImage(user!.avatar!)
-                    : null,
-                child: user?.avatar == null
-                    ? Text(
-                        resolvedName.isNotEmpty
-                            ? resolvedName[0].toUpperCase()
-                            : '?',
-                        style: const TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: AppColors.primary,
-                        ),
-                      )
-                    : null,
+              SlidableAction(
+                onPressed: onTogglePin != null ? (_) => onTogglePin!() : null,
+                backgroundColor: AppColors.primary,
+                foregroundColor: Colors.white,
+                icon: isPinned ? Icons.push_pin : Icons.push_pin_outlined,
+                spacing: 0,
               ),
-              if (user?.isOnline == true)
-                Positioned(
-                  right: 0,
-                  bottom: 0,
-                  child: Container(
-                    width: 14,
-                    height: 14,
-                    decoration: BoxDecoration(
-                      color: AppColors.online,
-                      shape: BoxShape.circle,
-                      border: Border.all(color: Colors.white, width: 2),
-                    ),
-                  ),
-                ),
+              SlidableAction(
+                onPressed: onToggleMute != null ? (_) => onToggleMute!() : null,
+                backgroundColor: Colors.grey.shade600,
+                foregroundColor: Colors.white,
+                icon: isMuted ? Icons.volume_up : Icons.volume_off,
+
+                spacing: 0,
+              ),
+              SlidableAction(
+                onPressed: onDelete != null ? (_) => onDelete!() : null,
+                backgroundColor: AppColors.error,
+                foregroundColor: Colors.white,
+                icon: Icons.delete_outline,
+
+                spacing: 0,
+              ),
             ],
           ),
-          title: Text(
-            resolvedName,
-            style: const TextStyle(fontWeight: FontWeight.w600),
-          ),
-          subtitle: Text(
-            chat.lastMessage.isNotEmpty ? chat.lastMessage : 'Start a chat',
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style: TextStyle(color: Colors.grey[600]),
-          ),
-          trailing: Text(
-            _formatTime(chat.lastMessageTime),
-            style: TextStyle(fontSize: 12, color: Colors.grey[500]),
+          child: ListTile(
+            onTap: onTap,
+            leading: Stack(
+              children: [
+                CircleAvatar(
+                  radius: 28,
+                  backgroundColor: AppColors.primary.withValues(alpha: 0.2),
+                  backgroundImage: user?.avatar != null
+                      ? NetworkImage(user!.avatar!)
+                      : null,
+                  child: user?.avatar == null
+                      ? Text(
+                          resolvedName.isNotEmpty
+                              ? resolvedName[0].toUpperCase()
+                              : '?',
+                          style: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: AppColors.primary,
+                          ),
+                        )
+                      : null,
+                ),
+                if (user?.isOnline == true)
+                  Positioned(
+                    right: 0,
+                    bottom: 0,
+                    child: Container(
+                      width: 14,
+                      height: 14,
+                      decoration: BoxDecoration(
+                        color: AppColors.online,
+                        shape: BoxShape.circle,
+                        border: Border.all(color: Colors.white, width: 2),
+                      ),
+                    ),
+                  ),
+              ],
+            ),
+            title: Text(
+              resolvedName,
+              style: const TextStyle(fontWeight: FontWeight.w600),
+            ),
+            subtitle: Text(
+              subtitleText,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(color: Colors.grey[600]),
+            ),
+            trailing: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                if (isPinned)
+                  const Icon(
+                    Icons.push_pin,
+                    size: 16,
+                    color: AppColors.primary,
+                  ),
+                if (isMuted)
+                  Icon(Icons.volume_off, size: 16, color: Colors.grey[500]),
+                if (isLocked)
+                  Icon(Icons.lock, size: 16, color: Colors.grey[500]),
+                if (hasStatusIcon) const SizedBox(width: 6),
+                Text(
+                  _formatTime(chat.lastMessageTime),
+                  style: TextStyle(fontSize: 12, color: Colors.grey[500]),
+                ),
+              ],
+            ),
           ),
         );
       },

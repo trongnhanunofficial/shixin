@@ -11,6 +11,10 @@ import '../modules/home/home_binding.dart';
 import '../modules/home/home_view.dart';
 import '../modules/chat/chat_binding.dart';
 import '../modules/chat/chat_view.dart';
+import '../modules/chat/chat_info_binding.dart';
+import '../modules/chat/chat_info_view.dart';
+import '../modules/chat/chat_search_binding.dart';
+import '../modules/chat/chat_search_view.dart';
 import '../modules/profile/profile_binding.dart';
 import '../modules/profile/profile_view.dart';
 
@@ -40,6 +44,16 @@ class AppPages {
       name: AppRoutes.chat,
       page: () => const ChatView(),
       binding: ChatBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.chatInfo,
+      page: () => const ChatInfoView(),
+      binding: ChatInfoBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.chatSearch,
+      page: () => const ChatSearchView(),
+      binding: ChatSearchBinding(),
     ),
     GetPage(
       name: AppRoutes.profile,

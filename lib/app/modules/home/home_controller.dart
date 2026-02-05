@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 import '../../core/utils/snackbar_utils.dart';
@@ -281,6 +282,11 @@ class HomeController extends GetxController {
       return;
     }
 
+    final canOpen = await _ensureChatUnlocked(chat);
+    if (!canOpen) {
+      return;
+    }
+
     Get.toNamed(
       AppRoutes.chat,
       arguments: {
@@ -301,6 +307,11 @@ class HomeController extends GetxController {
       _currentUserId,
       otherUser.uid,
     );
+
+    final canOpen = await _ensureChatUnlocked(chat);
+    if (!canOpen) {
+      return;
+    }
 
     Get.toNamed(
       AppRoutes.chat,
@@ -396,6 +407,51 @@ class HomeController extends GetxController {
     });
 
     return unfriended;
+  }
+
+  Future<void> togglePinChat(ChatModel chat) async {
+    final shouldPin = !chat.isPinned(_currentUserId);
+    await _runAction('pin:${chat.id}', () async {
+      await _chatService.setChatPinned(chat.id, _currentUserId, shouldPin);
+      SnackbarUtils.showInfo(shouldPin ? 'Chat pinned.' : 'Chat unpinned.');
+    });
+  }
+
+  Future<void> toggleMuteChat(ChatModel chat) async {
+    final shouldMute = !chat.isMuted(_currentUserId);
+    await _runAction('mute:${chat.id}', () async {
+      await _chatService.setChatMuted(chat.id, _currentUserId, shouldMute);
+      SnackbarUtils.showInfo(shouldMute ? 'Chat muted.' : 'Chat unmuted.');
+    });
+  }
+
+  Future<void> deleteChat(ChatModel chat) async {
+    final confirmed = await Get.dialog<bool>(
+      AlertDialog(
+        title: const Text('Delete chat'),
+        content: const Text('Are you sure you want to delete this chat?'),
+        actions: [
+          TextButton(
+            onPressed: () => Get.back(result: false),
+            child: const Text('Cancel'),
+          ),
+          TextButton(
+            onPressed: () => Get.back(result: true),
+            child: const Text('Delete'),
+          ),
+        ],
+      ),
+    );
+
+    if (confirmed != true) {
+      return;
+    }
+
+    final otherUserId = chat.getOtherUserId(_currentUserId);
+    await _runAction('delete:${chat.id}', () async {
+      await _chatService.deleteChatBetweenUsers(_currentUserId, otherUserId);
+      SnackbarUtils.showInfo('Chat deleted.');
+    });
   }
 
   Future<void> logout() async {
@@ -501,7 +557,106 @@ class HomeController extends GetxController {
       return friendIds.contains(otherUserId);
     }).toList();
 
-    chats.value = filtered;
+    final pinnedChats = <ChatModel>[];
+    final unpinnedChats = <ChatModel>[];
+    for (final chat in filtered) {
+      if (chat.isPinned(_currentUserId)) {
+        pinnedChats.add(chat);
+      } else {
+        unpinnedChats.add(chat);
+      }
+    }
+
+    pinnedChats.sort((a, b) {
+      final aTime =
+          a.pinnedAt(_currentUserId) ?? DateTime.fromMillisecondsSinceEpoch(0);
+      final bTime =
+          b.pinnedAt(_currentUserId) ?? DateTime.fromMillisecondsSinceEpoch(0);
+      return bTime.compareTo(aTime);
+    });
+
+    final mutedChats = <ChatModel>[];
+    final normalChats = <ChatModel>[];
+    for (final chat in unpinnedChats) {
+      if (chat.isMuted(_currentUserId)) {
+        mutedChats.add(chat);
+      } else {
+        normalChats.add(chat);
+      }
+    }
+
+    normalChats.sort((a, b) => b.lastMessageTime.compareTo(a.lastMessageTime));
+    mutedChats.sort((a, b) => b.lastMessageTime.compareTo(a.lastMessageTime));
+
+    chats.value = [...pinnedChats, ...normalChats, ...mutedChats];
+  }
+
+  Future<bool> _ensureChatUnlocked(ChatModel chat) async {
+    if (!chat.isLocked(_currentUserId)) {
+      return true;
+    }
+
+    final pin = await _promptPin(
+      title: 'Enter lock code',
+      helperText: 'This chat is locked. Enter the PIN to continue.',
+    );
+    if (pin == null) {
+      return false;
+    }
+
+    final isValid = chat.verifyLock(_currentUserId, pin);
+    if (!isValid) {
+      SnackbarUtils.showError('Incorrect lock code.');
+    }
+    return isValid;
+  }
+
+  Future<String?> _promptPin({
+    required String title,
+    String? helperText,
+  }) async {
+    final pinController = TextEditingController();
+    final result = await Get.dialog<String>(
+      AlertDialog(
+        title: Text(title),
+        content: TextField(
+          controller: pinController,
+          keyboardType: TextInputType.number,
+          obscureText: true,
+          maxLength: 6,
+          inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+          decoration: InputDecoration(
+            hintText: 'Enter PIN',
+            helperText: helperText,
+            counterText: '',
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Get.back(result: null),
+            child: const Text('Cancel'),
+          ),
+          TextButton(
+            onPressed: () {
+              final pin = pinController.text.trim();
+              if (!_isValidPin(pin)) {
+                SnackbarUtils.showError('PIN must be 4-6 digits.');
+                return;
+              }
+              Get.back(result: pin);
+            },
+            child: const Text('Confirm'),
+          ),
+        ],
+      ),
+    );
+
+    pinController.dispose();
+    return result;
+  }
+
+  bool _isValidPin(String pin) {
+    return RegExp(r'^\d{4,6}$').hasMatch(pin);
   }
 
   String _normalize(String input) {

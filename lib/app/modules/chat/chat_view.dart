@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
 
 import '../../core/theme/app_colors.dart';
+import '../../routes/app_routes.dart';
 import 'chat_controller.dart';
 import 'widgets/message_bubble.dart';
 
@@ -17,55 +18,85 @@ class ChatView extends GetView<ChatController> {
         title: Obx(() {
           final resolvedName = controller.displayName.value;
 
-          return Row(
-            children: [
-              CircleAvatar(
-                radius: 20,
-                backgroundColor: Colors.white.withValues(alpha: 0.2),
-                backgroundImage: controller.otherUser.avatar != null
-                    ? NetworkImage(controller.otherUser.avatar!)
-                    : null,
-                child: controller.otherUser.avatar == null
-                    ? Text(
-                        resolvedName.isNotEmpty
-                            ? resolvedName[0].toUpperCase()
-                            : '?',
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      )
-                    : null,
-              ),
-              const SizedBox(width: 12),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      resolvedName,
-                      style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    Text(
-                      controller.otherUser.isOnline ? 'Active' : 'Offline',
-                      style: TextStyle(
-                        fontSize: 12,
-                        color: controller.otherUser.isOnline
-                            ? Colors.greenAccent
-                            : Colors.white70,
-                      ),
-                    ),
-                  ],
+          return InkWell(
+            borderRadius: BorderRadius.circular(24),
+            onTap: () {
+              Get.toNamed(
+                AppRoutes.chatInfo,
+                arguments: {
+                  'chatId': controller.chatId,
+                  'otherUser': controller.otherUser,
+                  'displayName': resolvedName.isNotEmpty
+                      ? resolvedName
+                      : controller.otherUser.name,
+                },
+              );
+            },
+            child: Row(
+              children: [
+                CircleAvatar(
+                  radius: 20,
+                  backgroundColor: Colors.white.withValues(alpha: 0.2),
+                  backgroundImage: controller.otherUser.avatar != null
+                      ? NetworkImage(controller.otherUser.avatar!)
+                      : null,
+                  child: controller.otherUser.avatar == null
+                      ? Text(
+                          resolvedName.isNotEmpty
+                              ? resolvedName[0].toUpperCase()
+                              : '?',
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        )
+                      : null,
                 ),
-              ),
-            ],
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        resolvedName,
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      Text(
+                        controller.otherUser.isOnline ? 'Active' : 'Offline',
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: controller.otherUser.isOnline
+                              ? Colors.greenAccent
+                              : Colors.white70,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           );
         }),
         actions: [
-          IconButton(icon: const Icon(Icons.more_vert), onPressed: () {}),
+          IconButton(
+            icon: const Icon(Icons.info_outline),
+            onPressed: () {
+              final resolvedName = controller.displayName.value;
+              Get.toNamed(
+                AppRoutes.chatInfo,
+                arguments: {
+                  'chatId': controller.chatId,
+                  'otherUser': controller.otherUser,
+                  'displayName': resolvedName.isNotEmpty
+                      ? resolvedName
+                      : controller.otherUser.name,
+                },
+              );
+            },
+          ),
         ],
       ),
       body: Column(

@@ -61,6 +61,16 @@ class ChatService extends GetxService {
         });
   }
 
+  Stream<ChatModel?> getChatStream(String chatId) {
+    return _chatsRef.doc(chatId).snapshots().map((snapshot) {
+      final data = snapshot.data();
+      if (data == null) {
+        return null;
+      }
+      return ChatModel.fromJson(data, snapshot.id);
+    });
+  }
+
   Stream<List<MessageModel>> getChatMessages(String chatId) {
     return _chatsRef
         .doc(chatId)
@@ -148,6 +158,42 @@ class ChatService extends GetxService {
 
       await batch.commit();
     }
+  }
+
+  Future<void> setChatMuted(
+    String chatId,
+    String userId,
+    bool muted,
+  ) async {
+    final field = '${FirebaseConstants.fieldMutedBy}.$userId';
+    await _chatsRef.doc(chatId).update({
+      field: muted ? true : FieldValue.delete(),
+    });
+  }
+
+  Future<void> setChatPinned(
+    String chatId,
+    String userId,
+    bool pinned,
+  ) async {
+    final field = '${FirebaseConstants.fieldPinnedBy}.$userId';
+    await _chatsRef.doc(chatId).update({
+      field: pinned ? Timestamp.now() : FieldValue.delete(),
+    });
+  }
+
+  Future<void> setChatLock(
+    String chatId,
+    String userId,
+    Map<String, dynamic> lockPayload,
+  ) async {
+    final field = '${FirebaseConstants.fieldLockedBy}.$userId';
+    await _chatsRef.doc(chatId).update({field: lockPayload});
+  }
+
+  Future<void> clearChatLock(String chatId, String userId) async {
+    final field = '${FirebaseConstants.fieldLockedBy}.$userId';
+    await _chatsRef.doc(chatId).update({field: FieldValue.delete()});
   }
 
   Future<void> deleteChatBetweenUsers(String uidA, String uidB) async {

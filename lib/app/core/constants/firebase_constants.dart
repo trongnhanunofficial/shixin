@@ -27,6 +27,9 @@ class FirebaseConstants {
   static const String fieldParticipants = 'participants';
   static const String fieldLastMessage = 'lastMessage';
   static const String fieldLastMessageTime = 'lastMessageTime';
+  static const String fieldMutedBy = 'mutedBy';
+  static const String fieldPinnedBy = 'pinnedBy';
+  static const String fieldLockedBy = 'lockedBy';
 
   // Friend relation fields
   static const String fieldFriendParticipants = 'participants';
