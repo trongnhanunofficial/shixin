@@ -204,19 +204,25 @@ class HomeView extends GetView<HomeController> {
                 stops: [0.0, 0.5, 1.0],
               ),
               border: Border(
-                top: BorderSide(color: Color(0xFF38006B), width: 2),
+                top: BorderSide(color: Color(0xFF38006B), width: 2.5),
               ),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.5),
+                  color: Colors.black.withOpacity(0.6),
                   offset: Offset(0, -4),
+                  blurRadius: 12,
+                  spreadRadius: 1,
+                ),
+                BoxShadow(
+                  color: Color(0xFFBA68C8).withOpacity(0.2),
+                  offset: Offset(0, -2),
                   blurRadius: 8,
                 ),
               ],
             ),
             child: SafeArea(
               child: SizedBox(
-                height: 60,
+                height: 72,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
@@ -775,93 +781,167 @@ class HomeView extends GetView<HomeController> {
         color: Colors.transparent,
         child: InkWell(
           onTap: onTap,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Stack(
-                clipBehavior: Clip.none,
-                children: [
-                  Icon(
-                    isSelected ? selectedIcon : icon,
-                    color: isSelected
-                        ? Color(0xFFBA68C8)
-                        : Colors.white.withOpacity(0.7),
-                    size: 24,
-                    shadows: [
-                      Shadow(
-                        color: Colors.black45,
-                        offset: Offset(0, 1),
-                        blurRadius: 2,
-                      ),
-                    ],
-                  ),
-                  if (badgeCount > 0)
-                    Positioned(
-                      right: -6,
-                      top: -6,
-                      child: Container(
-                        padding: EdgeInsets.all(4),
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [Color(0xFFE53935), Color(0xFFC62828)],
-                          ),
-                          shape: BoxShape.circle,
-                          border: Border.all(
-                            color: Color(0xFF4A148C),
-                            width: 1.5,
-                          ),
-                          boxShadow: [
+          splashColor: Color(0xFFBA68C8).withOpacity(0.3),
+          highlightColor: Color(0xFFBA68C8).withOpacity(0.1),
+          child: Container(
+            padding: EdgeInsets.symmetric(vertical: 8),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // Active indicator bar
+                AnimatedContainer(
+                  duration: Duration(milliseconds: 300),
+                  curve: Curves.easeOutCubic,
+                  height: 3,
+                  width: isSelected ? 32 : 0,
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        Color(0xFFE1BEE7),
+                        Color(0xFFBA68C8),
+                        Color(0xFFE1BEE7),
+                      ],
+                    ),
+                    borderRadius: BorderRadius.circular(2),
+                    boxShadow: isSelected
+                        ? [
                             BoxShadow(
-                              color: Colors.black.withOpacity(0.4),
+                              color: Color(0xFFBA68C8).withOpacity(0.6),
+                              blurRadius: 8,
+                              spreadRadius: 1,
+                            ),
+                          ]
+                        : [],
+                  ),
+                ),
+                SizedBox(height: 6),
+                // Icon with glow effect
+                AnimatedContainer(
+                  duration: Duration(milliseconds: 300),
+                  curve: Curves.easeOutCubic,
+                  transform: Matrix4.identity()..scale(isSelected ? 1.15 : 1.0),
+                  child: Container(
+                    decoration: isSelected
+                        ? BoxDecoration(
+                            shape: BoxShape.circle,
+                            boxShadow: [
+                              BoxShadow(
+                                color: Color(0xFFBA68C8).withOpacity(0.5),
+                                blurRadius: 16,
+                                spreadRadius: 2,
+                              ),
+                              BoxShadow(
+                                color: Color(0xFFE1BEE7).withOpacity(0.3),
+                                blurRadius: 24,
+                                spreadRadius: 4,
+                              ),
+                            ],
+                          )
+                        : null,
+                    child: Stack(
+                      clipBehavior: Clip.none,
+                      children: [
+                        Icon(
+                          isSelected ? selectedIcon : icon,
+                          color: isSelected
+                              ? Colors.white
+                              : Colors.white.withOpacity(0.65),
+                          size: 26,
+                          shadows: [
+                            Shadow(
+                              color: Colors.black.withOpacity(0.5),
                               offset: Offset(0, 2),
                               blurRadius: 3,
                             ),
+                            if (isSelected)
+                              Shadow(color: Color(0xFFBA68C8), blurRadius: 8),
                           ],
                         ),
-                        constraints: BoxConstraints(
-                          minWidth: 18,
-                          minHeight: 18,
-                        ),
-                        child: Center(
-                          child: Text(
-                            badgeCount.toString(),
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 10,
-                              fontWeight: FontWeight.w700,
-                              shadows: [
-                                Shadow(
-                                  color: Colors.black54,
-                                  offset: Offset(0, 1),
-                                  blurRadius: 1,
+                        if (badgeCount > 0)
+                          Positioned(
+                            right: -8,
+                            top: -8,
+                            child: Container(
+                              padding: EdgeInsets.all(4),
+                              decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                  colors: [
+                                    Color(0xFFE53935),
+                                    Color(0xFFC62828),
+                                  ],
                                 ),
-                              ],
+                                shape: BoxShape.circle,
+                                border: Border.all(
+                                  color: Color(0xFF4A148C),
+                                  width: 1.5,
+                                ),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black.withOpacity(0.5),
+                                    offset: Offset(0, 2),
+                                    blurRadius: 4,
+                                  ),
+                                  BoxShadow(
+                                    color: Color(0xFFE53935).withOpacity(0.5),
+                                    blurRadius: 8,
+                                  ),
+                                ],
+                              ),
+                              constraints: BoxConstraints(
+                                minWidth: 18,
+                                minHeight: 18,
+                              ),
+                              child: Center(
+                                child: Text(
+                                  badgeCount.toString(),
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 10,
+                                    fontWeight: FontWeight.w700,
+                                    shadows: [
+                                      Shadow(
+                                        color: Colors.black54,
+                                        offset: Offset(0, 1),
+                                        blurRadius: 1,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
                             ),
                           ),
-                        ),
-                      ),
+                      ],
                     ),
-                ],
-              ),
-              SizedBox(height: 4),
-              Text(
-                label,
-                style: TextStyle(
-                  fontSize: 11,
-                  fontWeight: isSelected ? FontWeight.w700 : FontWeight.w500,
-                  color: isSelected
-                      ? Color(0xFFBA68C8)
-                      : Colors.white.withOpacity(0.85),
-                  shadows: [
-                    Shadow(
-                      color: Colors.black45,
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                    ),
-                  ],
+                  ),
                 ),
-              ),
-            ],
+                SizedBox(height: 5),
+                // Label with animation
+                AnimatedDefaultTextStyle(
+                  duration: Duration(milliseconds: 300),
+                  curve: Curves.easeOutCubic,
+                  style: TextStyle(
+                    fontSize: isSelected ? 12 : 11,
+                    fontWeight: isSelected ? FontWeight.w800 : FontWeight.w500,
+                    color: isSelected
+                        ? Colors.white
+                        : Colors.white.withOpacity(0.75),
+                    shadows: [
+                      Shadow(
+                        color: Colors.black.withOpacity(0.5),
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                      ),
+                      if (isSelected)
+                        Shadow(
+                          color: Color(0xFFBA68C8).withOpacity(0.5),
+                          blurRadius: 4,
+                        ),
+                    ],
+                  ),
+                  child: Text(label),
+                ),
+              ],
+            ),
           ),
         ),
       ),
