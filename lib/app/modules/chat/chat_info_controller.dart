@@ -188,8 +188,7 @@ class ChatInfoController extends GetxController {
       ),
     );
 
-    pinController.dispose();
-    confirmController.dispose();
+    await _disposeDialogControllers([pinController, confirmController]);
     return result;
   }
 
@@ -233,8 +232,17 @@ class ChatInfoController extends GetxController {
       ),
     );
 
-    pinController.dispose();
+    await _disposeDialogControllers([pinController]);
     return result;
+  }
+
+  Future<void> _disposeDialogControllers(
+    List<TextEditingController> controllers,
+  ) async {
+    await Future<void>.delayed(const Duration(milliseconds: 200));
+    for (final controller in controllers) {
+      controller.dispose();
+    }
   }
 
   bool _isValidPin(String pin) {
