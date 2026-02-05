@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../../core/utils/phone_utils.dart';
+import 'company_model.dart';
 
 class UserModel {
   final String uid;
@@ -12,6 +13,7 @@ class UserModel {
   final DateTime createdAt;
   final DateTime lastSeen;
   final bool isOnline;
+  final List<CompanyModel> companies;
 
   UserModel({
     required this.uid,
@@ -23,10 +25,22 @@ class UserModel {
     required this.createdAt,
     required this.lastSeen,
     this.isOnline = false,
+    this.companies = const [],
   });
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
     final phoneNumber = json['phoneNumber'] ?? '';
+    final rawCompanies = json['companies'];
+    final companies = <CompanyModel>[];
+    if (rawCompanies is List) {
+      for (final entry in rawCompanies) {
+        if (entry is Map<String, dynamic>) {
+          companies.add(CompanyModel.fromJson(entry));
+        } else if (entry is Map) {
+          companies.add(CompanyModel.fromJson(Map<String, dynamic>.from(entry)));
+        }
+      }
+    }
     return UserModel(
       uid: json['uid'] ?? '',
       phoneNumber: phoneNumber,
@@ -38,6 +52,7 @@ class UserModel {
       createdAt: (json['createdAt'] as Timestamp?)?.toDate() ?? DateTime.now(),
       lastSeen: (json['lastSeen'] as Timestamp?)?.toDate() ?? DateTime.now(),
       isOnline: json['isOnline'] ?? false,
+      companies: companies,
     );
   }
 
@@ -52,6 +67,7 @@ class UserModel {
       'createdAt': Timestamp.fromDate(createdAt),
       'lastSeen': Timestamp.fromDate(lastSeen),
       'isOnline': isOnline,
+      'companies': companies.map((company) => company.toJson()).toList(),
     };
   }
 
@@ -65,6 +81,7 @@ class UserModel {
     DateTime? createdAt,
     DateTime? lastSeen,
     bool? isOnline,
+    List<CompanyModel>? companies,
   }) {
     return UserModel(
       uid: uid ?? this.uid,
@@ -76,6 +93,7 @@ class UserModel {
       createdAt: createdAt ?? this.createdAt,
       lastSeen: lastSeen ?? this.lastSeen,
       isOnline: isOnline ?? this.isOnline,
+      companies: companies ?? this.companies,
     );
   }
 }

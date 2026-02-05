@@ -16,6 +16,7 @@ class FirebaseConstants {
   static const String fieldCreatedAt = 'createdAt';
   static const String fieldLastSeen = 'lastSeen';
   static const String fieldIsOnline = 'isOnline';
+  static const String fieldCompanies = 'companies';
 
   // Auth account fields
   static const String fieldPhoneNumberNormalized = 'phoneNumberNormalized';

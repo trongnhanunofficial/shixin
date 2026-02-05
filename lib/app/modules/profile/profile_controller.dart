@@ -5,6 +5,8 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../core/utils/snackbar_utils.dart';
+import '../../data/company_catalog.dart';
+import '../../data/models/company_model.dart';
 import '../../data/models/user_model.dart';
 import '../../data/services/auth_service.dart';
 import '../../data/services/cloudinary_service.dart';
@@ -16,9 +18,15 @@ class ProfileController extends GetxController {
   final CloudinaryService _cloudinaryService = Get.find<CloudinaryService>();
 
   final nameController = TextEditingController();
+  final companySearchController = TextEditingController();
   final isEditing = false.obs;
   final isLoading = false.obs;
   final isAvatarUploading = false.obs;
+  final hasSearchedCompany = false.obs;
+  final isJoiningCompany = false.obs;
+
+  final companySearchResult = Rxn<CompanyModel>();
+  final companySearchMessage = RxnString();
 
   UserModel? get currentUser => _authService.currentUser.value;
 
@@ -100,9 +108,70 @@ class ProfileController extends GetxController {
     }
   }
 
+  void searchCompany() {
+    final keyword = companySearchController.text.trim();
+    if (keyword.isEmpty) {
+      companySearchResult.value = null;
+      companySearchMessage.value = null;
+      hasSearchedCompany.value = false;
+      return;
+    }
+
+    final company = companyForCode(keyword);
+    hasSearchedCompany.value = true;
+    if (company == null) {
+      companySearchResult.value = null;
+      companySearchMessage.value = 'Company code not found.';
+    } else {
+      companySearchResult.value = company;
+      companySearchMessage.value = null;
+    }
+  }
+
+  Future<void> joinSearchedCompany() async {
+    final user = currentUser;
+    final company = companySearchResult.value;
+    if (user == null) {
+      SnackbarUtils.showError('User not available.');
+      return;
+    }
+    if (company == null) {
+      SnackbarUtils.showError('Please search for a company code first.');
+      return;
+    }
+
+    final alreadyJoined = user.companies.any(
+      (item) => item.code.toUpperCase() == company.code.toUpperCase(),
+    );
+    if (alreadyJoined) {
+      SnackbarUtils.showError('You already joined this company.');
+      return;
+    }
+
+    isJoiningCompany.value = true;
+    try {
+      final updatedCompanies = [...user.companies, company];
+      await _userService.updateCompanies(
+        uid: user.uid,
+        companies: updatedCompanies,
+      );
+
+      _authService.currentUser.value = user.copyWith(
+        companies: updatedCompanies,
+      );
+
+      SnackbarUtils.showSuccess('Company joined successfully.');
+    } catch (e) {
+      SnackbarUtils.showError('Failed to join company.');
+    } finally {
+      isJoiningCompany.value = false;
+    }
+  }
+
   @override
   void onClose() {
     nameController.dispose();
+    companySearchController.dispose();
     super.onClose();
   }
 }

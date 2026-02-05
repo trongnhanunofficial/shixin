@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../data/company_catalog.dart';
 import '../../../data/services/auth_service.dart';
 import '../../../routes/app_routes.dart';
 import '../../../core/utils/snackbar_utils.dart';
@@ -13,6 +14,7 @@ class RegisterController extends GetxController {
   final nameController = TextEditingController();
   final phoneController = TextEditingController();
   final passwordController = TextEditingController();
+  final companyCodeController = TextEditingController();
   final formKey = GlobalKey<FormState>();
 
   final isLoading = false.obs;
@@ -56,15 +58,28 @@ class RegisterController extends GetxController {
     return null;
   }
 
+  String? validateCompanyCode(String? value) {
+    final trimmed = value?.trim() ?? '';
+    if (trimmed.isEmpty) {
+      return null;
+    }
+    if (companyForCode(trimmed) == null) {
+      return 'Invalid company code.';
+    }
+    return null;
+  }
+
   Future<void> register() async {
     if (!formKey.currentState!.validate()) return;
 
     isLoading.value = true;
     try {
+      final company = companyForCode(companyCodeController.text);
       await _authService.register(
         phoneNumber: '${countryCode.value}${phoneController.text.trim()}',
         password: passwordController.text,
         name: nameController.text.trim(),
+        company: company,
       );
       SnackbarUtils.showSuccess('Registration successful.');
       Get.offAllNamed(AppRoutes.home);
@@ -84,6 +99,7 @@ class RegisterController extends GetxController {
     nameController.dispose();
     phoneController.dispose();
     passwordController.dispose();
+    companyCodeController.dispose();
     super.onClose();
   }
 

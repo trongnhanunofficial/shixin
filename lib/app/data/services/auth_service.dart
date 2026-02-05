@@ -9,6 +9,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../core/constants/firebase_constants.dart';
 import '../../core/utils/phone_utils.dart';
+import '../models/company_model.dart';
 import '../models/user_model.dart';
 
 class AuthService extends GetxService {
@@ -49,6 +50,7 @@ class AuthService extends GetxService {
     required String name,
     required String phoneNumber,
     required String password,
+    CompanyModel? company,
   }) async {
     final normalizedName = name.trim();
     if (normalizedName.length < 2) {
@@ -83,7 +85,7 @@ class AuthService extends GetxService {
           throw _AuthException('Phone number is already registered.');
         }
 
-        transaction.set(userDocRef, {
+        final userPayload = <String, dynamic>{
           FirebaseConstants.fieldUid: userDocRef.id,
           FirebaseConstants.fieldName: normalizedName,
           FirebaseConstants.fieldPhoneNumber: normalizedPhone,
@@ -93,7 +95,12 @@ class AuthService extends GetxService {
           FirebaseConstants.fieldCreatedAt: nowTimestamp,
           FirebaseConstants.fieldLastSeen: nowTimestamp,
           FirebaseConstants.fieldIsOnline: true,
-        });
+        };
+        if (company != null) {
+          userPayload[FirebaseConstants.fieldCompanies] = [company.toJson()];
+        }
+
+        transaction.set(userDocRef, userPayload);
 
         transaction.set(authDocRef, {
           FirebaseConstants.fieldUid: userDocRef.id,
@@ -113,6 +120,7 @@ class AuthService extends GetxService {
         createdAt: now,
         lastSeen: now,
         isOnline: true,
+        companies: company == null ? [] : [company],
       );
 
       currentUser.value = userModel;

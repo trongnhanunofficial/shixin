@@ -123,6 +123,18 @@ class RegisterView extends GetView<RegisterController> {
                     ),
                   ),
                 ),
+                const SizedBox(height: 16),
+
+                // Company code field
+                TextFormField(
+                  controller: controller.companyCodeController,
+                  validator: controller.validateCompanyCode,
+                  textCapitalization: TextCapitalization.characters,
+                  decoration: const InputDecoration(
+                    labelText: 'Company Code (optional)',
+                    prefixIcon: Icon(Icons.business_outlined),
+                  ),
+                ),
                 const SizedBox(height: 24),
 
                 // Register button

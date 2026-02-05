@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import '../../core/constants/firebase_constants.dart';
 import '../../core/utils/phone_utils.dart';
+import '../models/company_model.dart';
 import '../models/user_model.dart';
 
 class UserService extends GetxService {
@@ -165,6 +166,16 @@ class UserService extends GetxService {
     if (updates.isNotEmpty) {
       await _usersRef.doc(uid).update(updates);
     }
+  }
+
+  Future<void> updateCompanies({
+    required String uid,
+    required List<CompanyModel> companies,
+  }) async {
+    await _usersRef.doc(uid).update({
+      FirebaseConstants.fieldCompanies:
+          companies.map((company) => company.toJson()).toList(),
+    });
   }
 
   List<List<String>> _chunkList(List<String> source, int chunkSize) {

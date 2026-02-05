@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import '../../../core/theme/app_colors.dart';
 import '../profile_controller.dart';
+import '../company_view.dart';
 
 class ProfileContent extends StatelessWidget {
   final ProfileController controller;
@@ -140,6 +141,28 @@ class ProfileContent extends StatelessWidget {
                 ),
               ),
             ),
+            const SizedBox(height: 16),
+            GestureDetector(
+              onTap: () => Get.to(() => const CompanyView()),
+              child: _buildInfoCard(
+                icon: Icons.business,
+                label: 'Company',
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        _companySummary(user.companies.length),
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                    Icon(Icons.chevron_right, color: Colors.grey[400]),
+                  ],
+                ),
+              ),
+            ),
             if (onLogout != null) ...[
               const SizedBox(height: 32),
               SizedBox(
@@ -163,6 +186,16 @@ class ProfileContent extends StatelessWidget {
         ),
       );
     });
+  }
+
+  String _companySummary(int count) {
+    if (count == 0) {
+      return 'No company joined';
+    }
+    if (count == 1) {
+      return '1 company joined';
+    }
+    return '$count companies joined';
   }
 
   Widget _buildInfoCard({
