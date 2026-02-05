@@ -9,4 +9,5 @@ abstract class AppRoutes {
   static const groupCreate = '/group-create';
   static const groupInfo = '/group-info';
   static const profile = '/profile';
+  static const settings = '/settings';
 }

@@ -21,6 +21,8 @@ import '../modules/group_info/group_info_binding.dart';
 import '../modules/group_info/group_info_view.dart';
 import '../modules/profile/profile_binding.dart';
 import '../modules/profile/profile_view.dart';
+import '../modules/settings/settings_binding.dart';
+import '../modules/settings/settings_view.dart';
 
 class AppPages {
   static final pages = [
@@ -73,6 +75,11 @@ class AppPages {
       name: AppRoutes.profile,
       page: () => const ProfileView(),
       binding: ProfileBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.settings,
+      page: () => const SettingsView(),
+      binding: SettingsBinding(),
     ),
   ];
 }
