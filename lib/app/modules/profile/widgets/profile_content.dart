@@ -7,11 +7,13 @@ import '../profile_controller.dart';
 class ProfileContent extends StatelessWidget {
   final ProfileController controller;
   final EdgeInsetsGeometry padding;
+  final VoidCallback? onLogout;
 
   const ProfileContent({
     super.key,
     required this.controller,
     this.padding = const EdgeInsets.all(24),
+    this.onLogout,
   });
 
   @override
@@ -138,6 +140,25 @@ class ProfileContent extends StatelessWidget {
                 ),
               ),
             ),
+            if (onLogout != null) ...[
+              const SizedBox(height: 32),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton.icon(
+                  onPressed: onLogout,
+                  icon: const Icon(Icons.logout),
+                  label: const Text('Logout'),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.red,
+                    foregroundColor: Colors.white,
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ],
         ),
       );

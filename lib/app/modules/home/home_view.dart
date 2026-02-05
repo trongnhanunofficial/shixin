@@ -26,7 +26,10 @@ class HomeView extends GetView<HomeController> {
           children: [
             _buildChatsTab(),
             _buildContactsTab(),
-            ProfileContent(controller: profileController),
+            ProfileContent(
+              controller: profileController,
+              onLogout: controller.logout,
+            ),
           ],
         ),
         floatingActionButton: tabIndex == HomeBottomTab.contacts.index
@@ -108,11 +111,6 @@ class HomeView extends GetView<HomeController> {
               ),
             ),
           ),
-        IconButton(
-          tooltip: 'Log out',
-          onPressed: controller.logout,
-          icon: const Icon(Icons.logout),
-        ),
       ],
     );
   }
