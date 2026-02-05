@@ -1,12 +1,104 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:slider_captcha/slider_captcha.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../core/theme/app_colors.dart';
 import 'login_controller.dart';
 
 class LoginView extends GetView<LoginController> {
   const LoginView({super.key});
+
+  Future<void> _openUrl(String url) async {
+    final uri = Uri.parse(url);
+    await launchUrl(uri, mode: LaunchMode.externalApplication);
+  }
+
+  Future<bool?> _showCaptchaDialog(BuildContext context) {
+    controller.setCaptchaVerified(false);
+    return showDialog<bool>(
+      context: context,
+      barrierDismissible: false,
+      builder: (dialogContext) {
+        return AlertDialog(
+          title: const Text('Captcha verification'),
+          content: SizedBox(
+            width: 320,
+            child: SliderCaptcha(
+              controller: controller.sliderController,
+              title: 'Slide to verify',
+              colorBar: AppColors.primary,
+              colorCaptChar: AppColors.primary,
+              image: Image.asset(
+                'assets/images/captcha_bg.jpg',
+                width: 320,
+                height: 160,
+                fit: BoxFit.cover,
+              ),
+              onConfirm: (value) async {
+                controller.setCaptchaVerified(value);
+                if (value) {
+                  Navigator.of(dialogContext).pop(true);
+                } else {
+                  await Future.delayed(const Duration(milliseconds: 350));
+                  controller.sliderController.create();
+                }
+              },
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                controller.setCaptchaVerified(false);
+                Navigator.of(dialogContext).pop(false);
+              },
+              child: const Text('Cancel'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Widget _buildTermsRow() {
+    const linkStyle = TextStyle(
+      color: AppColors.primary,
+      fontWeight: FontWeight.w600,
+      decoration: TextDecoration.underline,
+    );
+    return Obx(
+      () => Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Checkbox(
+            value: controller.isTermsAccepted.value,
+            onChanged: controller.setTermsAccepted,
+          ),
+          const SizedBox(width: 8),
+          Expanded(
+            child: Wrap(
+              children: [
+                const Text('I agree to the '),
+                GestureDetector(
+                  onTap: () =>
+                      _openUrl('https://www.shixinari.com/service.html'),
+                  child: const Text('Terms of Service', style: linkStyle),
+                ),
+                const Text(' and '),
+                GestureDetector(
+                  onTap: () =>
+                      _openUrl('https://www.shixinari.com/privacy.html'),
+                  child: const Text('Privacy Policy', style: linkStyle),
+                ),
+                const Text('.'),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -113,12 +205,27 @@ class LoginView extends GetView<LoginController> {
                 ),
                 const SizedBox(height: 24),
 
+                _buildTermsRow(),
+                const SizedBox(height: 24),
+
                 // Login button
                 Obx(
                   () => ElevatedButton(
                     onPressed: controller.isLoading.value
                         ? null
-                        : controller.login,
+                        : controller.isTermsAccepted.value
+                            ? () async {
+                                if (!controller.formKey.currentState!
+                                    .validate()) {
+                                  return;
+                                }
+                                final verified =
+                                    await _showCaptchaDialog(context);
+                                if (verified == true) {
+                                  await controller.login();
+                                }
+                              }
+                            : null,
                     child: controller.isLoading.value
                         ? const SizedBox(
                             height: 20,

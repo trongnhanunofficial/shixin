@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:slider_captcha/slider_captcha.dart';
 
 import '../../../data/company_catalog.dart';
 import '../../../data/services/auth_service.dart';
@@ -19,6 +20,9 @@ class RegisterController extends GetxController {
 
   final isLoading = false.obs;
   final isPasswordVisible = false.obs;
+  final isTermsAccepted = false.obs;
+  final isCaptchaVerified = false.obs;
+  final SliderController sliderController = SliderController();
 
   void togglePasswordVisibility() {
     isPasswordVisible.toggle();
@@ -26,6 +30,14 @@ class RegisterController extends GetxController {
 
   void setCountryCode(String value) {
     countryCode.value = value;
+  }
+
+  void setTermsAccepted(bool? value) {
+    isTermsAccepted.value = value ?? false;
+  }
+
+  void setCaptchaVerified(bool value) {
+    isCaptchaVerified.value = value;
   }
 
   String? validateName(String? value) {
@@ -70,6 +82,16 @@ class RegisterController extends GetxController {
   }
 
   Future<void> register() async {
+    if (!isTermsAccepted.value) {
+      SnackbarUtils.showError(
+        'Please accept the Terms of Service and Privacy Policy.',
+      );
+      return;
+    }
+    if (!isCaptchaVerified.value) {
+      SnackbarUtils.showError('Please complete the captcha verification.');
+      return;
+    }
     if (!formKey.currentState!.validate()) return;
 
     isLoading.value = true;

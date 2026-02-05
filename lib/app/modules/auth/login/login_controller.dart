@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:slider_captcha/slider_captcha.dart';
 
 import '../../../data/services/auth_service.dart';
 import '../../../routes/app_routes.dart';
@@ -16,6 +17,9 @@ class LoginController extends GetxController {
 
   final isLoading = false.obs;
   final isPasswordVisible = false.obs;
+  final isTermsAccepted = false.obs;
+  final isCaptchaVerified = false.obs;
+  final SliderController sliderController = SliderController();
 
   void togglePasswordVisibility() {
     isPasswordVisible.toggle();
@@ -23,6 +27,14 @@ class LoginController extends GetxController {
 
   void setCountryCode(String value) {
     countryCode.value = value;
+  }
+
+  void setTermsAccepted(bool? value) {
+    isTermsAccepted.value = value ?? false;
+  }
+
+  void setCaptchaVerified(bool value) {
+    isCaptchaVerified.value = value;
   }
 
   String? validatePhoneNumber(String? value) {
@@ -46,6 +58,16 @@ class LoginController extends GetxController {
   }
 
   Future<void> login() async {
+    if (!isTermsAccepted.value) {
+      SnackbarUtils.showError(
+        'Please accept the Terms of Service and Privacy Policy.',
+      );
+      return;
+    }
+    if (!isCaptchaVerified.value) {
+      SnackbarUtils.showError('Please complete the captcha verification.');
+      return;
+    }
     if (!formKey.currentState!.validate()) return;
 
     isLoading.value = true;
