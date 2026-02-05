@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:get/get.dart';
 
-import '../../core/theme/app_colors.dart';
 import '../../routes/app_routes.dart';
 import '../profile/profile_controller.dart';
 import '../profile/widgets/profile_content.dart';
@@ -25,72 +25,227 @@ class HomeView extends GetView<HomeController> {
 
       return Scaffold(
         appBar: _buildAppBar(context, tabIndex, profileController),
-        body: showSearch
-            ? _buildSearchResults()
-            : IndexedStack(
-                index: tabIndex,
-                children: [
-                  _buildChatsTab(),
-                  _buildContactsTab(),
-                  ProfileContent(
-                    controller: profileController,
-                    onLogout: controller.logout,
-                  ),
-                ],
-              ),
+        body: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Color(0xFFD0D5CC), Color(0xFFC5CAC0), Color(0xFFB8BDB3)],
+            ),
+          ),
+          child: showSearch
+              ? _buildSearchResults()
+              : IndexedStack(
+                  index: tabIndex,
+                  children: [
+                    _buildChatsTab(),
+                    _buildContactsTab(),
+                    ProfileContent(
+                      controller: profileController,
+                      onLogout: controller.logout,
+                    ),
+                  ],
+                ),
+        ),
         floatingActionButton: tabIndex == HomeBottomTab.contacts.index
             ? Obx(() {
                 final count = controller.pendingRequestCount;
                 return Badge(
                   isLabelVisible: count > 0,
                   label: Text(count.toString()),
-                  child: FloatingActionButton.extended(
-                    onPressed: () {
-                      Get.to(() => const FriendRequestsView());
-                    },
-                    icon: const Icon(Icons.person_add),
-                    label: const Text('Add Friend'),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          Color(0xFFAB47BC),
+                          Color(0xFF8E24AA),
+                          Color(0xFF6A1B9A),
+                          Color(0xFF4A148C),
+                        ],
+                        stops: [0.0, 0.3, 0.7, 1.0],
+                      ),
+                      borderRadius: BorderRadius.circular(24),
+                      border: Border.all(color: Color(0xFF38006B), width: 1.5),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.5),
+                          offset: Offset(0, 4),
+                          blurRadius: 8,
+                        ),
+                        BoxShadow(
+                          color: Color(0xFFBA68C8).withOpacity(0.5),
+                          offset: Offset(0, -2),
+                          blurRadius: 0,
+                          spreadRadius: 0,
+                        ),
+                      ],
+                    ),
+                    child: Material(
+                      color: Colors.transparent,
+                      child: InkWell(
+                        borderRadius: BorderRadius.circular(24),
+                        onTap: () {
+                          Get.to(() => const FriendRequestsView());
+                        },
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 20,
+                            vertical: 14,
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(
+                                FluentIcons.person_add_24_filled,
+                                color: Colors.white,
+                                shadows: [
+                                  Shadow(
+                                    color: Colors.black45,
+                                    offset: Offset(0, 1),
+                                    blurRadius: 2,
+                                  ),
+                                ],
+                              ),
+                              SizedBox(width: 8),
+                              Text(
+                                'Add Friend',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 16,
+                                  shadows: [
+                                    Shadow(
+                                      offset: Offset(0, 1),
+                                      blurRadius: 2,
+                                      color: Colors.black45,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
                 );
               })
             : tabIndex == HomeBottomTab.chat.index
-            ? FloatingActionButton(
-                onPressed: () {
-                  Get.toNamed(AppRoutes.groupCreate);
-                },
-                child: const Icon(Icons.group_add),
+            ? Container(
+                width: 56,
+                height: 56,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      Color(0xFFAB47BC),
+                      Color(0xFF8E24AA),
+                      Color(0xFF6A1B9A),
+                      Color(0xFF4A148C),
+                    ],
+                    stops: [0.0, 0.3, 0.7, 1.0],
+                  ),
+                  shape: BoxShape.circle,
+                  border: Border.all(color: Color(0xFF38006B), width: 1.5),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.5),
+                      offset: Offset(0, 4),
+                      blurRadius: 8,
+                    ),
+                    BoxShadow(
+                      color: Color(0xFFBA68C8).withOpacity(0.5),
+                      offset: Offset(0, -2),
+                      blurRadius: 0,
+                      spreadRadius: 0,
+                    ),
+                  ],
+                ),
+                child: Material(
+                  color: Colors.transparent,
+                  shape: CircleBorder(),
+                  child: InkWell(
+                    customBorder: CircleBorder(),
+                    onTap: () {
+                      Get.toNamed(AppRoutes.groupCreate);
+                    },
+                    child: Center(
+                      child: Icon(
+                        FluentIcons.people_add_24_filled,
+                        color: Colors.white,
+                        shadows: [
+                          Shadow(
+                            color: Colors.black45,
+                            offset: Offset(0, 1),
+                            blurRadius: 2,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
               )
             : null,
         bottomNavigationBar: Obx(() {
           final count = controller.pendingRequestCount;
-          return NavigationBar(
-            selectedIndex: tabIndex,
-            onDestinationSelected: controller.setBottomTab,
-            destinations: [
-              const NavigationDestination(
-                icon: Icon(Icons.chat_bubble_outline),
-                selectedIcon: Icon(Icons.chat_bubble),
-                label: 'Chat',
+          return Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Color(0xFF9C27B0),
+                  Color(0xFF6A1B9A),
+                  Color(0xFF4A148C),
+                ],
+                stops: [0.0, 0.5, 1.0],
               ),
-              NavigationDestination(
-                icon: Badge(
-                  isLabelVisible: count > 0,
-                  label: Text(count.toString()),
-                  child: const Icon(Icons.people_outline),
+              border: Border(
+                top: BorderSide(color: Color(0xFF38006B), width: 2),
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.5),
+                  offset: Offset(0, -4),
+                  blurRadius: 8,
                 ),
-                selectedIcon: Badge(
-                  isLabelVisible: count > 0,
-                  label: Text(count.toString()),
-                  child: const Icon(Icons.people),
+              ],
+            ),
+            child: SafeArea(
+              child: SizedBox(
+                height: 60,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    _buildNavItem(
+                      icon: FluentIcons.chat_24_regular,
+                      selectedIcon: FluentIcons.chat_24_filled,
+                      label: 'Chat',
+                      isSelected: tabIndex == 0,
+                      onTap: () => controller.setBottomTab(0),
+                    ),
+                    _buildNavItem(
+                      icon: FluentIcons.people_24_regular,
+                      selectedIcon: FluentIcons.people_24_filled,
+                      label: 'Contacts',
+                      isSelected: tabIndex == 1,
+                      onTap: () => controller.setBottomTab(1),
+                      badgeCount: count,
+                    ),
+                    _buildNavItem(
+                      icon: FluentIcons.person_24_regular,
+                      selectedIcon: FluentIcons.person_24_filled,
+                      label: 'Me',
+                      isSelected: tabIndex == 2,
+                      onTap: () => controller.setBottomTab(2),
+                    ),
+                  ],
                 ),
-                label: 'Contacts',
               ),
-              const NavigationDestination(
-                icon: Icon(Icons.person_outline),
-                selectedIcon: Icon(Icons.person),
-                label: 'Me',
-              ),
-            ],
+            ),
           );
         }),
       );
@@ -108,58 +263,177 @@ class HomeView extends GetView<HomeController> {
       _ => 'Me',
     };
 
-    return AppBar(
-      title: Text(title),
-      actions: [
-        if (tabIndex == HomeBottomTab.me.index)
-          Obx(
-            () => TextButton(
-              onPressed: profileController.isLoading.value
-                  ? null
-                  : profileController.isEditing.value
-                  ? profileController.updateProfile
-                  : profileController.toggleEdit,
-              child: Text(
-                profileController.isEditing.value ? 'Save' : 'Edit',
-                style: const TextStyle(color: Colors.white),
-              ),
+    return PreferredSize(
+      preferredSize: Size.fromHeight(
+        kToolbarHeight + (tabIndex != HomeBottomTab.me.index ? 76 : 0),
+      ),
+      child: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Color(0xFF9C27B0), Color(0xFF6A1B9A), Color(0xFF4A148C)],
+            stops: [0.0, 0.5, 1.0],
+          ),
+          border: Border(
+            bottom: BorderSide(color: Color(0xFF38006B), width: 2),
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.5),
+              offset: Offset(0, 4),
+              blurRadius: 8,
+            ),
+          ],
+        ),
+        child: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          title: Text(
+            title,
+            style: TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.w800,
+              color: Colors.white,
+              shadows: [
+                Shadow(
+                  offset: Offset(0, 1),
+                  blurRadius: 3,
+                  color: Colors.black54,
+                ),
+              ],
             ),
           ),
-      ],
-      bottom: tabIndex != HomeBottomTab.me.index
-          ? PreferredSize(
-              preferredSize: const Size.fromHeight(64),
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(16, 0, 16, 12),
-                child: TextField(
-                  controller: controller.searchController,
-                  onChanged: controller.updateSearchQuery,
-                  textInputAction: TextInputAction.search,
-                  decoration: InputDecoration(
-                    hintText: 'Search messages, friends',
-                    prefixIcon: const Icon(Icons.search),
-                    suffixIcon: controller.searchQuery.value.trim().isNotEmpty
-                        ? IconButton(
-                            onPressed: controller.clearSearchQuery,
-                            icon: const Icon(Icons.close),
-                          )
-                        : null,
-                    filled: true,
-                    fillColor: Theme.of(context).colorScheme.surface,
-                    isDense: true,
-                    contentPadding: const EdgeInsets.symmetric(
-                      horizontal: 16,
-                      vertical: 12,
+          actions: [
+            if (tabIndex == HomeBottomTab.me.index)
+              Obx(
+                () => Padding(
+                  padding: const EdgeInsets.only(right: 8),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          Color(0xFFBA68C8).withOpacity(0.8),
+                          Color(0xFF9C27B0).withOpacity(0.8),
+                          Color(0xFF6A1B9A).withOpacity(0.8),
+                        ],
+                      ),
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(color: Color(0xFF38006B), width: 1),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.4),
+                          offset: Offset(0, 2),
+                          blurRadius: 4,
+                        ),
+                      ],
                     ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(24),
-                      borderSide: BorderSide.none,
+                    child: Material(
+                      color: Colors.transparent,
+                      child: InkWell(
+                        borderRadius: BorderRadius.circular(8),
+                        onTap: profileController.isLoading.value
+                            ? null
+                            : profileController.isEditing.value
+                            ? profileController.updateProfile
+                            : profileController.toggleEdit,
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 16,
+                            vertical: 8,
+                          ),
+                          child: Text(
+                            profileController.isEditing.value ? 'Save' : 'Edit',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w700,
+                              shadows: [
+                                Shadow(
+                                  offset: Offset(0, 1),
+                                  blurRadius: 2,
+                                  color: Colors.black45,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                 ),
               ),
-            )
-          : null,
+          ],
+          bottom: tabIndex != HomeBottomTab.me.index
+              ? PreferredSize(
+                  preferredSize: const Size.fromHeight(64),
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(16, 0, 16, 12),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(24),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.15),
+                            offset: Offset(0, 2),
+                            blurRadius: 4,
+                          ),
+                        ],
+                      ),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: [
+                              Color(0xFFD8D8D8),
+                              Color(0xFFF0F0F0),
+                              Color(0xFFFFFFFF),
+                            ],
+                          ),
+                          borderRadius: BorderRadius.circular(24),
+                        ),
+                        child: TextField(
+                          controller: controller.searchController,
+                          onChanged: controller.updateSearchQuery,
+                          textInputAction: TextInputAction.search,
+                          decoration: InputDecoration(
+                            hintText: 'Search messages, friends',
+                            hintStyle: TextStyle(color: Color(0xFF808080)),
+                            prefixIcon: Icon(
+                              FluentIcons.search_24_regular,
+                              color: Color(0xFF606060),
+                            ),
+                            suffixIcon:
+                                controller.searchQuery.value.trim().isNotEmpty
+                                ? IconButton(
+                                    onPressed: controller.clearSearchQuery,
+                                    icon: Icon(
+                                      FluentIcons.dismiss_24_regular,
+                                      color: Color(0xFF606060),
+                                    ),
+                                  )
+                                : null,
+                            border: InputBorder.none,
+                            enabledBorder: InputBorder.none,
+                            focusedBorder: InputBorder.none,
+                            errorBorder: InputBorder.none,
+                            disabledBorder: InputBorder.none,
+                            isDense: true,
+                            contentPadding: const EdgeInsets.symmetric(
+                              horizontal: 16,
+                              vertical: 12,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                )
+              : null,
+        ),
+      ),
     );
   }
 
@@ -284,10 +558,77 @@ class HomeView extends GetView<HomeController> {
         children: [
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
-            child: FilledButton.icon(
-              onPressed: () => Get.toNamed(AppRoutes.groupCreate),
-              icon: const Icon(Icons.group_add),
-              label: const Text('Create Group'),
+            child: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    Color(0xFFAB47BC),
+                    Color(0xFF8E24AA),
+                    Color(0xFF6A1B9A),
+                    Color(0xFF4A148C),
+                  ],
+                  stops: [0.0, 0.3, 0.7, 1.0],
+                ),
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(color: Color(0xFF38006B), width: 1.5),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.5),
+                    offset: Offset(0, 4),
+                    blurRadius: 8,
+                  ),
+                  BoxShadow(
+                    color: Color(0xFFBA68C8).withOpacity(0.5),
+                    offset: Offset(0, -2),
+                    blurRadius: 0,
+                    spreadRadius: 0,
+                  ),
+                ],
+              ),
+              child: Material(
+                color: Colors.transparent,
+                child: InkWell(
+                  borderRadius: BorderRadius.circular(10),
+                  onTap: () => Get.toNamed(AppRoutes.groupCreate),
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          FluentIcons.people_add_24_filled,
+                          color: Colors.white,
+                          shadows: [
+                            Shadow(
+                              offset: Offset(0, 1),
+                              blurRadius: 2,
+                              color: Colors.black45,
+                            ),
+                          ],
+                        ),
+                        SizedBox(width: 8),
+                        Text(
+                          'Create Group',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w700,
+                            fontSize: 16,
+                            shadows: [
+                              Shadow(
+                                offset: Offset(0, 1),
+                                blurRadius: 2,
+                                color: Colors.black45,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
             ),
           ),
           ...friends.map((user) {
@@ -314,41 +655,214 @@ class HomeView extends GetView<HomeController> {
     return Center(
       child: Padding(
         padding: const EdgeInsets.all(24),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(icon, size: 72, color: Colors.grey[400]),
-            const SizedBox(height: 16),
-            Text(
-              title,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: Colors.grey[700],
+        child: Container(
+          padding: EdgeInsets.all(32),
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Colors.white, Color(0xFFF5F5F5), Color(0xFFE8E8E8)],
+            ),
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(color: Color(0xFFB0B0B0), width: 1),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.2),
+                offset: Offset(0, 4),
+                blurRadius: 8,
               ),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              subtitle,
-              textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.grey[600]),
-            ),
-          ],
+              BoxShadow(
+                color: Colors.white,
+                offset: Offset(0, -1),
+                blurRadius: 0,
+              ),
+            ],
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                padding: EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      Color(0xFF9C27B0).withOpacity(0.3),
+                      Color(0xFF6A1B9A).withOpacity(0.3),
+                    ],
+                  ),
+                  shape: BoxShape.circle,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.15),
+                      offset: Offset(0, 3),
+                      blurRadius: 6,
+                    ),
+                  ],
+                ),
+                child: Icon(
+                  icon,
+                  size: 72,
+                  color: Color(0xFF6A1B9A),
+                  shadows: [
+                    Shadow(
+                      color: Colors.black26,
+                      offset: Offset(0, 2),
+                      blurRadius: 4,
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 16),
+              Text(
+                title,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFF505050),
+                  shadows: [
+                    Shadow(
+                      color: Colors.white.withOpacity(0.8),
+                      offset: Offset(0, 1),
+                      blurRadius: 0,
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                subtitle,
+                textAlign: TextAlign.center,
+                style: TextStyle(color: Color(0xFF707070), fontSize: 14),
+              ),
+            ],
+          ),
         ),
       ),
     );
   }
 
   Widget _buildSectionTitle(String title) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: Text(
-        title,
-        style: const TextStyle(
-          fontSize: 16,
+        title.toUpperCase(),
+        style: TextStyle(
+          fontSize: 14,
           fontWeight: FontWeight.w700,
-          color: AppColors.textPrimary,
+          color: Color(0xFF505050),
+          letterSpacing: 1.2,
+          shadows: [
+            Shadow(offset: Offset(0, 1), blurRadius: 0, color: Colors.white),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildNavItem({
+    required IconData icon,
+    required IconData selectedIcon,
+    required String label,
+    required bool isSelected,
+    required VoidCallback onTap,
+    int badgeCount = 0,
+  }) {
+    return Expanded(
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: onTap,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Stack(
+                clipBehavior: Clip.none,
+                children: [
+                  Icon(
+                    isSelected ? selectedIcon : icon,
+                    color: isSelected
+                        ? Color(0xFFBA68C8)
+                        : Colors.white.withOpacity(0.7),
+                    size: 24,
+                    shadows: [
+                      Shadow(
+                        color: Colors.black45,
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                      ),
+                    ],
+                  ),
+                  if (badgeCount > 0)
+                    Positioned(
+                      right: -6,
+                      top: -6,
+                      child: Container(
+                        padding: EdgeInsets.all(4),
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [Color(0xFFE53935), Color(0xFFC62828)],
+                          ),
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                            color: Color(0xFF4A148C),
+                            width: 1.5,
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.4),
+                              offset: Offset(0, 2),
+                              blurRadius: 3,
+                            ),
+                          ],
+                        ),
+                        constraints: BoxConstraints(
+                          minWidth: 18,
+                          minHeight: 18,
+                        ),
+                        child: Center(
+                          child: Text(
+                            badgeCount.toString(),
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 10,
+                              fontWeight: FontWeight.w700,
+                              shadows: [
+                                Shadow(
+                                  color: Colors.black54,
+                                  offset: Offset(0, 1),
+                                  blurRadius: 1,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                ],
+              ),
+              SizedBox(height: 4),
+              Text(
+                label,
+                style: TextStyle(
+                  fontSize: 11,
+                  fontWeight: isSelected ? FontWeight.w700 : FontWeight.w500,
+                  color: isSelected
+                      ? Color(0xFFBA68C8)
+                      : Colors.white.withOpacity(0.85),
+                  shadows: [
+                    Shadow(
+                      color: Colors.black45,
+                      offset: Offset(0, 1),
+                      blurRadius: 2,
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
