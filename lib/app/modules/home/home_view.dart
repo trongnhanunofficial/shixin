@@ -444,48 +444,194 @@ class HomeView extends GetView<HomeController> {
   }
 
   Widget _buildChatsTab() {
+    return Column(
+      children: [
+        _buildChatFilterTabs(),
+        Expanded(
+          child: Obx(() {
+            final currentUserId = controller.currentUser?.uid;
+            if (currentUserId == null) {
+              return const Center(child: CircularProgressIndicator());
+            }
+
+            final nicknameByUserId = <String, String>{};
+            for (final relation in controller.relations) {
+              final otherUserId = relation.getOtherUserId(currentUserId);
+              final nickname = relation.nicknameFor(currentUserId);
+              if (otherUserId.isNotEmpty && nickname != null) {
+                nicknameByUserId[otherUserId] = nickname;
+              }
+            }
+
+            if (controller.chats.isEmpty) {
+              final filter = controller.chatFilter.value;
+              String title;
+              String subtitle;
+
+              switch (filter) {
+                case ChatFilter.unread:
+                  title = 'No unread messages';
+                  subtitle = 'All caught up!';
+                  break;
+                case ChatFilter.groups:
+                  title = 'No group chats';
+                  subtitle = 'Create a group to get started.';
+                  break;
+                case ChatFilter.oneOnOne:
+                  title = 'No 1:1 chats';
+                  subtitle = 'Start a conversation with a friend.';
+                  break;
+                case ChatFilter.all:
+                  title = 'No conversations yet';
+                  subtitle = 'Only conversations with friends are shown.';
+                  break;
+              }
+
+              return _buildEmptyState(
+                icon: Icons.chat_bubble_outline,
+                title: title,
+                subtitle: subtitle,
+              );
+            }
+
+            return ListView.builder(
+              itemCount: controller.chats.length,
+              itemBuilder: (context, index) {
+                final chat = controller.chats[index];
+                final otherUserId = chat.getOtherUserId(currentUserId);
+                return ChatListTile(
+                  chat: chat,
+                  currentUserId: currentUserId,
+                  displayName:
+                      nicknameByUserId[otherUserId] ??
+                      controller.relationUsers[otherUserId]?.name,
+                  onTap: () => controller.openChat(chat),
+                  onDelete: chat.isGroup
+                      ? null
+                      : () => controller.deleteChat(chat),
+                  onTogglePin: () => controller.togglePinChat(chat),
+                  onToggleMute: () => controller.toggleMuteChat(chat),
+                );
+              },
+            );
+          }),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildChatFilterTabs() {
     return Obx(() {
-      final currentUserId = controller.currentUser?.uid;
-      if (currentUserId == null) {
-        return const Center(child: CircularProgressIndicator());
-      }
-
-      final nicknameByUserId = <String, String>{};
-      for (final relation in controller.relations) {
-        final otherUserId = relation.getOtherUserId(currentUserId);
-        final nickname = relation.nicknameFor(currentUserId);
-        if (otherUserId.isNotEmpty && nickname != null) {
-          nicknameByUserId[otherUserId] = nickname;
-        }
-      }
-
-      if (controller.chats.isEmpty) {
-        return _buildEmptyState(
-          icon: Icons.chat_bubble_outline,
-          title: 'No conversations yet',
-          subtitle: 'Only conversations with friends are shown.',
-        );
-      }
-
-      return ListView.builder(
-        itemCount: controller.chats.length,
-        itemBuilder: (context, index) {
-          final chat = controller.chats[index];
-          final otherUserId = chat.getOtherUserId(currentUserId);
-          return ChatListTile(
-            chat: chat,
-            currentUserId: currentUserId,
-            displayName:
-                nicknameByUserId[otherUserId] ??
-                controller.relationUsers[otherUserId]?.name,
-            onTap: () => controller.openChat(chat),
-            onDelete: chat.isGroup ? null : () => controller.deleteChat(chat),
-            onTogglePin: () => controller.togglePinChat(chat),
-            onToggleMute: () => controller.toggleMuteChat(chat),
-          );
-        },
+      final currentFilter = controller.chatFilter.value;
+      return Container(
+        margin: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        padding: EdgeInsets.all(4),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Colors.white, Color(0xFFF5F5F5), Color(0xFFE8E8E8)],
+          ),
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(color: Color(0xFFB0B0B0), width: 1),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.15),
+              offset: Offset(0, 2),
+              blurRadius: 4,
+            ),
+            BoxShadow(
+              color: Colors.white.withOpacity(0.7),
+              offset: Offset(0, -1),
+              blurRadius: 0,
+            ),
+          ],
+        ),
+        child: Row(
+          children: [
+            _buildFilterTab(
+              label: 'All',
+              filter: ChatFilter.all,
+              isSelected: currentFilter == ChatFilter.all,
+            ),
+            SizedBox(width: 4),
+            _buildFilterTab(
+              label: 'Unread',
+              filter: ChatFilter.unread,
+              isSelected: currentFilter == ChatFilter.unread,
+            ),
+            SizedBox(width: 4),
+            _buildFilterTab(
+              label: 'Groups',
+              filter: ChatFilter.groups,
+              isSelected: currentFilter == ChatFilter.groups,
+            ),
+            SizedBox(width: 4),
+            _buildFilterTab(
+              label: '1:1',
+              filter: ChatFilter.oneOnOne,
+              isSelected: currentFilter == ChatFilter.oneOnOne,
+            ),
+          ],
+        ),
       );
     });
+  }
+
+  Widget _buildFilterTab({
+    required String label,
+    required ChatFilter filter,
+    required bool isSelected,
+  }) {
+    return Expanded(
+      child: GestureDetector(
+        onTap: () => controller.setChatFilter(filter),
+        child: Container(
+          padding: EdgeInsets.symmetric(vertical: 8),
+          decoration: BoxDecoration(
+            gradient: isSelected
+                ? LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      Color(0xFFAB47BC),
+                      Color(0xFF8E24AA),
+                      Color(0xFF6A1B9A),
+                    ],
+                  )
+                : null,
+            borderRadius: BorderRadius.circular(8),
+            boxShadow: isSelected
+                ? [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.2),
+                      offset: Offset(0, 2),
+                      blurRadius: 3,
+                    ),
+                  ]
+                : null,
+          ),
+          child: Text(
+            label,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 13,
+              fontWeight: isSelected ? FontWeight.w600 : FontWeight.w500,
+              color: isSelected ? Colors.white : Color(0xFF606060),
+              shadows: isSelected
+                  ? [
+                      Shadow(
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        color: Colors.black45,
+                      ),
+                    ]
+                  : null,
+            ),
+          ),
+        ),
+      ),
+    );
   }
 
   Widget _buildSearchResults() {

@@ -20,6 +20,8 @@ enum HomeBottomTab { chat, contacts, me }
 
 enum SearchFriendState { friend, requestSent, requestReceived, canAdd }
 
+enum ChatFilter { all, unread, groups, oneOnOne }
+
 class HomeController extends GetxController {
   final AuthService _authService = Get.find<AuthService>();
   final ChatService _chatService = Get.find<ChatService>();
@@ -27,6 +29,7 @@ class HomeController extends GetxController {
   final FriendService _friendService = Get.find<FriendService>();
 
   final bottomTabIndex = HomeBottomTab.chat.index.obs;
+  final chatFilter = ChatFilter.all.obs;
   final addFriendPhoneController = TextEditingController();
   final searchController = TextEditingController();
   final searchQuery = ''.obs;
@@ -61,6 +64,11 @@ class HomeController extends GetxController {
 
   void setBottomTab(int index) {
     bottomTabIndex.value = index;
+  }
+
+  void setChatFilter(ChatFilter filter) {
+    chatFilter.value = filter;
+    _applyChatFilter();
   }
 
   List<UserModel> get acceptedFriends {
@@ -574,13 +582,31 @@ class HomeController extends GetxController {
 
   void _applyChatFilter() {
     final friendIds = _acceptedFriendIds;
-    final filtered = _allChats.where((chat) {
+    var filtered = _allChats.where((chat) {
       if (chat.isGroup) {
         return true;
       }
       final otherUserId = chat.getOtherUserId(_currentUserId);
       return friendIds.contains(otherUserId);
     }).toList();
+
+    // Apply chat filter
+    switch (chatFilter.value) {
+      case ChatFilter.unread:
+        filtered = filtered
+            .where((chat) => chat.hasUnreadFor(_currentUserId))
+            .toList();
+        break;
+      case ChatFilter.groups:
+        filtered = filtered.where((chat) => chat.isGroup).toList();
+        break;
+      case ChatFilter.oneOnOne:
+        filtered = filtered.where((chat) => !chat.isGroup).toList();
+        break;
+      case ChatFilter.all:
+        // No additional filtering
+        break;
+    }
 
     final pinnedChats = <ChatModel>[];
     final unpinnedChats = <ChatModel>[];

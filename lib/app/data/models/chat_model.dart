@@ -132,6 +132,11 @@ class ChatModel {
     return lock.verifyPin(pin);
   }
 
+  bool hasUnreadFor(String userId) {
+    final count = unreadCount[userId];
+    return count != null && count > 0;
+  }
+
   static Map<String, bool> _parseBoolMap(dynamic raw) {
     if (raw is! Map) {
       return {};
@@ -203,11 +208,7 @@ class ChatLock {
   final String salt;
   final DateTime updatedAt;
 
-  ChatLock({
-    required this.hash,
-    required this.salt,
-    required this.updatedAt,
-  });
+  ChatLock({required this.hash, required this.salt, required this.updatedAt});
 
   factory ChatLock.fromJson(Map<String, dynamic> json) {
     final updatedRaw = json['updatedAt'];
