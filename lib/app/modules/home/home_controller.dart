@@ -91,8 +91,7 @@ class HomeController extends GetxController {
     final results = <ChatModel>[];
     for (final chat in chats) {
       if (chat.isGroup) {
-        if (_matches(chat.name, query) ||
-            _matches(chat.lastMessage, query)) {
+        if (_matches(chat.name, query) || _matches(chat.lastMessage, query)) {
           results.add(chat);
         }
         continue;
@@ -277,12 +276,11 @@ class HomeController extends GetxController {
 
   Future<void> openChat(ChatModel chat) async {
     if (chat.isGroup) {
-      Get.toNamed(
-        AppRoutes.chat,
-        arguments: {
-          'chatId': chat.id,
-        },
-      );
+      final canOpen = await _ensureChatUnlocked(chat);
+      if (!canOpen) {
+        return;
+      }
+      Get.toNamed(AppRoutes.chat, arguments: {'chatId': chat.id});
       return;
     }
 
@@ -672,6 +670,7 @@ class HomeController extends GetxController {
       ),
     );
 
+    await Future<void>.delayed(const Duration(milliseconds: 200));
     pinController.dispose();
     return result;
   }
