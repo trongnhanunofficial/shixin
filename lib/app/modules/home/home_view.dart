@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../core/theme/app_colors.dart';
 import '../profile/profile_controller.dart';
 import '../profile/widgets/profile_content.dart';
 import 'contact_card_view.dart';
@@ -18,20 +19,24 @@ class HomeView extends GetView<HomeController> {
 
     return Obx(() {
       final tabIndex = controller.bottomTabIndex.value;
+      final showSearch =
+          controller.isSearchActive && tabIndex != HomeBottomTab.me.index;
 
       return Scaffold(
-        appBar: _buildAppBar(tabIndex, profileController),
-        body: IndexedStack(
-          index: tabIndex,
-          children: [
-            _buildChatsTab(),
-            _buildContactsTab(),
-            ProfileContent(
-              controller: profileController,
-              onLogout: controller.logout,
-            ),
-          ],
-        ),
+        appBar: _buildAppBar(context, tabIndex, profileController),
+        body: showSearch
+            ? _buildSearchResults()
+            : IndexedStack(
+                index: tabIndex,
+                children: [
+                  _buildChatsTab(),
+                  _buildContactsTab(),
+                  ProfileContent(
+                    controller: profileController,
+                    onLogout: controller.logout,
+                  ),
+                ],
+              ),
         floatingActionButton: tabIndex == HomeBottomTab.contacts.index
             ? Obx(() {
                 final count = controller.pendingRequestCount;
@@ -85,6 +90,7 @@ class HomeView extends GetView<HomeController> {
   }
 
   PreferredSizeWidget _buildAppBar(
+    BuildContext context,
     int tabIndex,
     ProfileController profileController,
   ) {
@@ -112,6 +118,40 @@ class HomeView extends GetView<HomeController> {
             ),
           ),
       ],
+      bottom: tabIndex != HomeBottomTab.me.index
+          ? PreferredSize(
+              preferredSize: const Size.fromHeight(64),
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(16, 0, 16, 12),
+                child: TextField(
+                  controller: controller.searchController,
+                  onChanged: controller.updateSearchQuery,
+                  textInputAction: TextInputAction.search,
+                  decoration: InputDecoration(
+                    hintText: 'Search messages, friends',
+                    prefixIcon: const Icon(Icons.search),
+                    suffixIcon: controller.searchQuery.value.trim().isNotEmpty
+                        ? IconButton(
+                            onPressed: controller.clearSearchQuery,
+                            icon: const Icon(Icons.close),
+                          )
+                        : null,
+                    filled: true,
+                    fillColor: Theme.of(context).colorScheme.surface,
+                    isDense: true,
+                    contentPadding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 12,
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(24),
+                      borderSide: BorderSide.none,
+                    ),
+                  ),
+                ),
+              ),
+            )
+          : null,
     );
   }
 
@@ -155,6 +195,52 @@ class HomeView extends GetView<HomeController> {
         },
       );
     });
+  }
+
+  Widget _buildSearchResults() {
+    final chatResults = controller.searchChatResults;
+    final friendResults = controller.searchFriendResults;
+
+    if (chatResults.isEmpty && friendResults.isEmpty) {
+      return _buildEmptyState(
+        icon: Icons.search_off,
+        title: 'No results',
+        subtitle: 'Try a different keyword.',
+      );
+    }
+
+    return ListView(
+      children: [
+        if (chatResults.isNotEmpty) ...[
+          _buildSectionTitle('Chats'),
+          ...chatResults.map((chat) {
+            final otherUserId = chat.getOtherUserId(
+              controller.currentUser?.uid ?? '',
+            );
+            return ChatListTile(
+              chat: chat,
+              currentUserId: controller.currentUser?.uid ?? '',
+              displayName: controller.getDisplayNameByUserId(otherUserId),
+              onTap: () => controller.openChat(chat),
+            );
+          }),
+        ],
+        if (friendResults.isNotEmpty) ...[
+          _buildSectionTitle('Friends'),
+          ...friendResults.map((user) {
+            return FriendListTile(
+              user: user,
+              displayName: controller.getDisplayName(user),
+              onTap: () => Get.to(() => ContactCardView(user: user)),
+              onChat: () => controller.openChatWithFriend(user),
+              onUnfriend: () => controller.unfriend(user),
+              isLoading: controller.isActionLoading('unfriend:${user.uid}'),
+            );
+          }),
+        ],
+        const SizedBox(height: 12),
+      ],
+    );
   }
 
   Widget _buildContactsTab() {
@@ -214,6 +300,20 @@ class HomeView extends GetView<HomeController> {
               style: TextStyle(color: Colors.grey[600]),
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildSectionTitle(String title) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
+      child: Text(
+        title,
+        style: const TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.w700,
+          color: AppColors.textPrimary,
         ),
       ),
     );

@@ -25,6 +25,8 @@ class HomeController extends GetxController {
 
   final bottomTabIndex = HomeBottomTab.chat.index.obs;
   final addFriendPhoneController = TextEditingController();
+  final searchController = TextEditingController();
+  final searchQuery = ''.obs;
 
   final chats = <ChatModel>[].obs;
   final relations = <FriendRelationModel>[].obs;
@@ -44,6 +46,8 @@ class HomeController extends GetxController {
   UserModel? get currentUser => _authService.currentUser.value;
 
   String get _currentUserId => currentUser?.uid ?? '';
+
+  bool get isSearchActive => searchQuery.value.trim().isNotEmpty;
 
   @override
   void onInit() {
@@ -75,6 +79,41 @@ class HomeController extends GetxController {
       return left.compareTo(right);
     });
     return users;
+  }
+
+  List<ChatModel> get searchChatResults {
+    final query = _normalize(searchQuery.value);
+    if (query.isEmpty) {
+      return const [];
+    }
+
+    final results = <ChatModel>[];
+    for (final chat in chats) {
+      final otherUserId = chat.getOtherUserId(_currentUserId);
+      final displayName = getDisplayNameByUserId(otherUserId) ?? '';
+      if (_matches(displayName, query) || _matches(chat.lastMessage, query)) {
+        results.add(chat);
+      }
+    }
+    return results;
+  }
+
+  List<UserModel> get searchFriendResults {
+    final query = _normalize(searchQuery.value);
+    if (query.isEmpty) {
+      return const [];
+    }
+
+    final results = <UserModel>[];
+    for (final user in acceptedFriends) {
+      if (_matches(getDisplayName(user), query) ||
+          _matches(user.phoneNumber, query) ||
+          _matches(user.phoneLocal, query) ||
+          _matches(user.phoneDigits, query)) {
+        results.add(user);
+      }
+    }
+    return results;
   }
 
   List<FriendRelationModel> get receivedRequests {
@@ -179,6 +218,15 @@ class HomeController extends GetxController {
     } finally {
       isSearchingPhone.value = false;
     }
+  }
+
+  void updateSearchQuery(String value) {
+    searchQuery.value = value;
+  }
+
+  void clearSearchQuery() {
+    searchController.clear();
+    searchQuery.value = '';
   }
 
   Future<void> clearSearch() async {
@@ -456,6 +504,17 @@ class HomeController extends GetxController {
     chats.value = filtered;
   }
 
+  String _normalize(String input) {
+    return input.trim().toLowerCase();
+  }
+
+  bool _matches(String? value, String query) {
+    if (value == null || value.isEmpty) {
+      return false;
+    }
+    return _normalize(value).contains(query);
+  }
+
   String _errorMessage(Object error) {
     final message = error.toString();
     const prefix = 'Exception: ';
@@ -470,6 +529,7 @@ class HomeController extends GetxController {
     _chatSubscription?.cancel();
     _relationSubscription?.cancel();
     addFriendPhoneController.dispose();
+    searchController.dispose();
     super.onClose();
   }
 }
