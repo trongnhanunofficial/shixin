@@ -20,6 +20,7 @@ dependencies:
   flutter_slidable: ^3.1.1
   url_launcher: ^6.3.2
   slider_captcha: ^1.0.2
+  fluentui_system_icons: ^1.1.255
 
 dev_dependencies:
   flutter_test:
