@@ -215,6 +215,24 @@ class AuthService extends GetxService {
     currentUser.value = null;
   }
 
+  Future<void> deleteAccount() async {
+    final user = currentUser.value;
+    if (user == null) {
+      return;
+    }
+
+    final uid = user.uid;
+    final phoneKey = _createPhoneKey(user.phoneNumber);
+
+    await _deleteFriendRelations(uid);
+    await _deleteChats(uid);
+    await _usersRef.doc(uid).delete();
+    await _authAccountsRef.doc(phoneKey).delete();
+
+    await _clearSession();
+    currentUser.value = null;
+  }
+
   bool isValidPhoneNumber(String value) {
     try {
       normalizePhoneNumber(value);
@@ -287,6 +305,50 @@ class AuthService extends GetxService {
   Future<void> _clearSession() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.remove(_sessionUidKey);
+  }
+
+  Future<void> _deleteFriendRelations(String uid) async {
+    final relationsSnapshot = await _firestore
+        .collection(FirebaseConstants.friendRelationsCollection)
+        .where(FirebaseConstants.fieldFriendParticipants, arrayContains: uid)
+        .get();
+
+    for (final doc in relationsSnapshot.docs) {
+      await doc.reference.delete();
+    }
+  }
+
+  Future<void> _deleteChats(String uid) async {
+    final chatsSnapshot = await _firestore
+        .collection(FirebaseConstants.chatsCollection)
+        .where(FirebaseConstants.fieldParticipants, arrayContains: uid)
+        .get();
+
+    for (final doc in chatsSnapshot.docs) {
+      await _deleteMessages(doc.reference);
+      await doc.reference.delete();
+    }
+  }
+
+  Future<void> _deleteMessages(
+    DocumentReference<Map<String, dynamic>> chatRef,
+  ) async {
+    while (true) {
+      final messages = await chatRef
+          .collection(FirebaseConstants.messagesCollection)
+          .limit(200)
+          .get();
+
+      if (messages.docs.isEmpty) {
+        break;
+      }
+
+      final batch = _firestore.batch();
+      for (final messageDoc in messages.docs) {
+        batch.delete(messageDoc.reference);
+      }
+      await batch.commit();
+    }
   }
 
   Future<void> _updateOnlineStatus(String uid, bool isOnline) async {

@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../core/utils/snackbar_utils.dart';
 import '../../data/company_catalog.dart';
@@ -10,12 +11,15 @@ import '../../data/models/company_model.dart';
 import '../../data/models/user_model.dart';
 import '../../data/services/auth_service.dart';
 import '../../data/services/cloudinary_service.dart';
+import '../../data/services/settings_service.dart';
 import '../../data/services/user_service.dart';
+import '../../routes/app_routes.dart';
 
 class ProfileController extends GetxController {
   final AuthService _authService = Get.find<AuthService>();
   final UserService _userService = Get.find<UserService>();
   final CloudinaryService _cloudinaryService = Get.find<CloudinaryService>();
+  final SettingsService _settingsService = Get.find<SettingsService>();
 
   final nameController = TextEditingController();
   final companySearchController = TextEditingController();
@@ -24,11 +28,15 @@ class ProfileController extends GetxController {
   final isAvatarUploading = false.obs;
   final hasSearchedCompany = false.obs;
   final isJoiningCompany = false.obs;
+  final isClearingCache = false.obs;
+  final isDeletingAccount = false.obs;
 
   final companySearchResult = Rxn<CompanyModel>();
   final companySearchMessage = RxnString();
 
   UserModel? get currentUser => _authService.currentUser.value;
+  RxInt get fontScaleIndex => _settingsService.fontScaleIndex;
+  List<double> get fontScales => SettingsService.fontScales;
 
   @override
   void onInit() {
@@ -105,6 +113,147 @@ class ProfileController extends GetxController {
     } catch (e) {
       SnackbarUtils.showError('Failed to pick image');
       debugPrint('Pick error: $e');
+    }
+  }
+
+  Future<void> setFontScaleIndex(int index) async {
+    await _settingsService.setFontScaleIndex(index);
+  }
+
+  Future<void> showAbout() async {
+    await Get.dialog<void>(
+      AlertDialog(
+        title: const Text('About Shixin'),
+        content: const Text(
+          'Shixin is a chat app for messaging with friends and colleagues.\n'
+          'Contact: dotienmanh647@gmail.com',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Get.back(),
+            child: const Text('OK'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Future<void> checkForUpdate() async {
+    await Get.dialog<void>(
+      AlertDialog(
+        title: const Text("You're up to date"),
+        content: const Text('You already have the latest version.'),
+        actions: [
+          TextButton(
+            onPressed: () => Get.back(),
+            child: const Text('OK'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Future<void> openExternalLink(String url) async {
+    final uri = Uri.tryParse(url);
+    if (uri == null) {
+      SnackbarUtils.showError('Invalid link.');
+      return;
+    }
+
+    try {
+      final launched = await launchUrl(
+        uri,
+        mode: LaunchMode.externalApplication,
+      );
+      if (!launched) {
+        SnackbarUtils.showError('Unable to open link.');
+      }
+    } catch (_) {
+      SnackbarUtils.showError('Unable to open link.');
+    }
+  }
+
+  Future<void> clearCache() async {
+    if (isClearingCache.value) {
+      return;
+    }
+
+    final confirmed = await Get.dialog<bool>(
+      AlertDialog(
+        title: const Text('Clear cache'),
+        content: const Text(
+          'This will clear local data and log you out. Continue?',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Get.back(result: false),
+            child: const Text('Cancel'),
+          ),
+          TextButton(
+            onPressed: () => Get.back(result: true),
+            child: const Text('Clear'),
+          ),
+        ],
+      ),
+    );
+
+    if (confirmed != true) {
+      return;
+    }
+
+    isClearingCache.value = true;
+    try {
+      await _authService.logout();
+      await _settingsService.clearLocalData();
+      PaintingBinding.instance.imageCache.clear();
+      PaintingBinding.instance.imageCache.clearLiveImages();
+      Get.offAllNamed(AppRoutes.login);
+      SnackbarUtils.showSuccess('Cache cleared.');
+    } catch (_) {
+      SnackbarUtils.showError('Failed to clear cache.');
+    } finally {
+      isClearingCache.value = false;
+    }
+  }
+
+  Future<void> deleteAccount() async {
+    if (isDeletingAccount.value) {
+      return;
+    }
+
+    final confirmed = await Get.dialog<bool>(
+      AlertDialog(
+        title: const Text('Delete account'),
+        content: const Text(
+          'This will permanently delete your account and all related data. '
+          'This cannot be undone.',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Get.back(result: false),
+            child: const Text('Cancel'),
+          ),
+          TextButton(
+            onPressed: () => Get.back(result: true),
+            child: const Text('Delete'),
+          ),
+        ],
+      ),
+    );
+
+    if (confirmed != true) {
+      return;
+    }
+
+    isDeletingAccount.value = true;
+    try {
+      await _authService.deleteAccount();
+      Get.offAllNamed(AppRoutes.login);
+      SnackbarUtils.showSuccess('Account deleted.');
+    } catch (_) {
+      SnackbarUtils.showError('Failed to delete account.');
+    } finally {
+      isDeletingAccount.value = false;
     }
   }
 
