@@ -10,6 +10,8 @@ import '../../data/models/user_model.dart';
 import '../../data/services/auth_service.dart';
 import '../../data/services/chat_service.dart';
 import '../../routes/app_routes.dart';
+import '../../widgets/skeuomorphic_dialog.dart';
+import '../../widgets/skeuomorphic_input_dialog.dart';
 
 class ChatInfoController extends GetxController {
   final ChatService _chatService = Get.find<ChatService>();
@@ -39,14 +41,16 @@ class ChatInfoController extends GetxController {
 
   void _listenChat() {
     _chatSubscription?.cancel();
-    _chatSubscription = _chatService.getChatStream(chatId).listen(
-      (chatModel) {
-        chat.value = chatModel;
-      },
-      onError: (_) {
-        SnackbarUtils.showError('Unable to load chat info.');
-      },
-    );
+    _chatSubscription = _chatService
+        .getChatStream(chatId)
+        .listen(
+          (chatModel) {
+            chat.value = chatModel;
+          },
+          onError: (_) {
+            SnackbarUtils.showError('Unable to load chat info.');
+          },
+        );
   }
 
   void openSearch() {
@@ -133,42 +137,33 @@ class ChatInfoController extends GetxController {
     final confirmController = TextEditingController();
 
     final result = await Get.dialog<String>(
-      AlertDialog(
-        title: const Text('Set lock code'),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            TextField(
-              controller: pinController,
-              keyboardType: TextInputType.number,
-              obscureText: true,
-              maxLength: 6,
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-              decoration: const InputDecoration(
-                hintText: 'Enter PIN',
-                counterText: '',
-              ),
-            ),
-            const SizedBox(height: 12),
-            TextField(
-              controller: confirmController,
-              keyboardType: TextInputType.number,
-              obscureText: true,
-              maxLength: 6,
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-              decoration: const InputDecoration(
-                hintText: 'Confirm PIN',
-                counterText: '',
-              ),
-            ),
-          ],
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Get.back(result: null),
-            child: const Text('Cancel'),
+      SkeuomorphicInputDialog(
+        title: 'Set lock code',
+        textFields: [
+          SkeuomorphicTextField(
+            controller: pinController,
+            hintText: 'Enter PIN',
+            keyboardType: TextInputType.number,
+            obscureText: true,
+            maxLength: 6,
+            inputFormatters: [FilteringTextInputFormatter.digitsOnly],
           ),
-          TextButton(
+          SkeuomorphicTextField(
+            controller: confirmController,
+            hintText: 'Confirm PIN',
+            keyboardType: TextInputType.number,
+            obscureText: true,
+            maxLength: 6,
+            inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+          ),
+        ],
+        actions: [
+          SkeuomorphicDialogAction(
+            text: 'Cancel',
+            onPressed: () => Get.back(result: null),
+          ),
+          SkeuomorphicDialogAction(
+            text: 'Save',
             onPressed: () {
               final pin = pinController.text.trim();
               final confirm = confirmController.text.trim();
@@ -182,7 +177,7 @@ class ChatInfoController extends GetxController {
               }
               Get.back(result: pin);
             },
-            child: const Text('Save'),
+            isPrimary: true,
           ),
         ],
       ),
@@ -198,26 +193,26 @@ class ChatInfoController extends GetxController {
   }) async {
     final pinController = TextEditingController();
     final result = await Get.dialog<String>(
-      AlertDialog(
-        title: Text(title),
-        content: TextField(
-          controller: pinController,
-          keyboardType: TextInputType.number,
-          obscureText: true,
-          maxLength: 6,
-          inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-          decoration: InputDecoration(
+      SkeuomorphicInputDialog(
+        title: title,
+        helperText: helperText,
+        textFields: [
+          SkeuomorphicTextField(
+            controller: pinController,
             hintText: 'Enter PIN',
-            helperText: helperText,
-            counterText: '',
+            keyboardType: TextInputType.number,
+            obscureText: true,
+            maxLength: 6,
+            inputFormatters: [FilteringTextInputFormatter.digitsOnly],
           ),
-        ),
+        ],
         actions: [
-          TextButton(
+          SkeuomorphicDialogAction(
+            text: 'Cancel',
             onPressed: () => Get.back(result: null),
-            child: const Text('Cancel'),
           ),
-          TextButton(
+          SkeuomorphicDialogAction(
+            text: 'Confirm',
             onPressed: () {
               final pin = pinController.text.trim();
               if (!_isValidPin(pin)) {
@@ -226,7 +221,7 @@ class ChatInfoController extends GetxController {
               }
               Get.back(result: pin);
             },
-            child: const Text('Confirm'),
+            isPrimary: true,
           ),
         ],
       ),

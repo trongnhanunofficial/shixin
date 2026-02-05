@@ -14,6 +14,8 @@ import '../../data/services/chat_service.dart';
 import '../../data/services/cloudinary_service.dart';
 import '../../data/services/user_service.dart';
 import '../../routes/app_routes.dart';
+import '../../widgets/skeuomorphic_dialog.dart';
+import '../../widgets/skeuomorphic_input_dialog.dart';
 
 class GroupInfoController extends GetxController {
   final ChatService _chatService = Get.find<ChatService>();
@@ -43,61 +45,68 @@ class GroupInfoController extends GetxController {
 
   void _listenChat() {
     _chatSubscription?.cancel();
-    _chatSubscription = _chatService.getChatStream(chatId).listen(
-      (chatModel) async {
-        chat.value = chatModel;
-        if (chatModel == null) {
-          return;
-        }
+    _chatSubscription = _chatService
+        .getChatStream(chatId)
+        .listen(
+          (chatModel) async {
+            chat.value = chatModel;
+            if (chatModel == null) {
+              return;
+            }
 
-        final users = await _userService.getUsersByIds(chatModel.participants);
-        users.sort((a, b) => a.name.toLowerCase().compareTo(b.name.toLowerCase()));
-        members.assignAll(users);
-      },
-      onError: (_) {
-        SnackbarUtils.showError('Unable to load group info.');
-      },
-    );
+            final users = await _userService.getUsersByIds(
+              chatModel.participants,
+            );
+            users.sort(
+              (a, b) => a.name.toLowerCase().compareTo(b.name.toLowerCase()),
+            );
+            members.assignAll(users);
+          },
+          onError: (_) {
+            SnackbarUtils.showError('Unable to load group info.');
+          },
+        );
   }
 
   Future<void> openAddMembers() async {
     await Get.toNamed(
       AppRoutes.groupCreate,
-      arguments: {
-        'mode': 'add',
-        'chatId': chatId,
-      },
+      arguments: {'mode': 'add', 'chatId': chatId},
     );
   }
 
   Future<void> renameGroup() async {
     final currentName = chat.value?.name ?? '';
     var pendingName = currentName;
+    final nameController = TextEditingController(text: currentName);
 
     final newName = await Get.dialog<String>(
-      AlertDialog(
-        title: const Text('Rename group'),
-        content: TextFormField(
-          initialValue: currentName,
-          autofocus: true,
-          maxLength: 40,
-          onChanged: (value) => pendingName = value,
-          decoration: const InputDecoration(
+      SkeuomorphicInputDialog(
+        title: 'Rename group',
+        textFields: [
+          SkeuomorphicTextField(
+            controller: nameController,
             hintText: 'Enter a group name',
+            autofocus: true,
+            maxLength: 40,
+            onChanged: (value) => pendingName = value,
           ),
-        ),
+        ],
         actions: [
-          TextButton(
+          SkeuomorphicDialogAction(
+            text: 'Cancel',
             onPressed: () => Get.back(result: null),
-            child: const Text('Cancel'),
           ),
-          TextButton(
+          SkeuomorphicDialogAction(
+            text: 'Save',
             onPressed: () => Get.back(result: pendingName.trim()),
-            child: const Text('Save'),
+            isPrimary: true,
           ),
         ],
       ),
     );
+
+    nameController.dispose();
 
     if (newName == null) {
       return;
@@ -131,12 +140,12 @@ class GroupInfoController extends GetxController {
       final file = File(picked.path);
       final publicId =
           'group_${DateTime.now().millisecondsSinceEpoch}_$currentUserId';
-      final url = await _cloudinaryService.uploadImage(file, publicId: publicId);
-
-      await _chatService.updateGroupInfo(
-        chatId: chatId,
-        avatar: url,
+      final url = await _cloudinaryService.uploadImage(
+        file,
+        publicId: publicId,
       );
+
+      await _chatService.updateGroupInfo(chatId: chatId, avatar: url);
       SnackbarUtils.showSuccess('Group avatar updated.');
     } catch (error) {
       SnackbarUtils.showError('Unable to update group avatar.');
@@ -147,17 +156,18 @@ class GroupInfoController extends GetxController {
 
   Future<void> removeMember(UserModel user) async {
     final confirmed = await Get.dialog<bool>(
-      AlertDialog(
-        title: const Text('Remove member'),
-        content: Text('Remove ${user.name} from the group?'),
+      SkeuomorphicDialog(
+        title: 'Remove member',
+        content: 'Remove ${user.name} from the group?',
         actions: [
-          TextButton(
+          SkeuomorphicDialogAction(
+            text: 'Cancel',
             onPressed: () => Get.back(result: false),
-            child: const Text('Cancel'),
           ),
-          TextButton(
+          SkeuomorphicDialogAction(
+            text: 'Remove',
             onPressed: () => Get.back(result: true),
-            child: const Text('Remove'),
+            isDestructive: true,
           ),
         ],
       ),
@@ -176,17 +186,18 @@ class GroupInfoController extends GetxController {
 
   Future<void> leaveGroup() async {
     final confirmed = await Get.dialog<bool>(
-      AlertDialog(
-        title: const Text('Leave group'),
-        content: const Text('Are you sure you want to leave this group?'),
+      SkeuomorphicDialog(
+        title: 'Leave group',
+        content: 'Are you sure you want to leave this group?',
         actions: [
-          TextButton(
+          SkeuomorphicDialogAction(
+            text: 'Cancel',
             onPressed: () => Get.back(result: false),
-            child: const Text('Cancel'),
           ),
-          TextButton(
+          SkeuomorphicDialogAction(
+            text: 'Leave',
             onPressed: () => Get.back(result: true),
-            child: const Text('Leave'),
+            isDestructive: true,
           ),
         ],
       ),
@@ -324,42 +335,33 @@ class GroupInfoController extends GetxController {
     final confirmController = TextEditingController();
 
     final result = await Get.dialog<String>(
-      AlertDialog(
-        title: const Text('Set lock code'),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            TextField(
-              controller: pinController,
-              keyboardType: TextInputType.number,
-              obscureText: true,
-              maxLength: 6,
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-              decoration: const InputDecoration(
-                hintText: 'Enter PIN',
-                counterText: '',
-              ),
-            ),
-            const SizedBox(height: 12),
-            TextField(
-              controller: confirmController,
-              keyboardType: TextInputType.number,
-              obscureText: true,
-              maxLength: 6,
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-              decoration: const InputDecoration(
-                hintText: 'Confirm PIN',
-                counterText: '',
-              ),
-            ),
-          ],
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Get.back(result: null),
-            child: const Text('Cancel'),
+      SkeuomorphicInputDialog(
+        title: 'Set lock code',
+        textFields: [
+          SkeuomorphicTextField(
+            controller: pinController,
+            hintText: 'Enter PIN',
+            keyboardType: TextInputType.number,
+            obscureText: true,
+            maxLength: 6,
+            inputFormatters: [FilteringTextInputFormatter.digitsOnly],
           ),
-          TextButton(
+          SkeuomorphicTextField(
+            controller: confirmController,
+            hintText: 'Confirm PIN',
+            keyboardType: TextInputType.number,
+            obscureText: true,
+            maxLength: 6,
+            inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+          ),
+        ],
+        actions: [
+          SkeuomorphicDialogAction(
+            text: 'Cancel',
+            onPressed: () => Get.back(result: null),
+          ),
+          SkeuomorphicDialogAction(
+            text: 'Save',
             onPressed: () {
               final pin = pinController.text.trim();
               final confirm = confirmController.text.trim();
@@ -373,7 +375,7 @@ class GroupInfoController extends GetxController {
               }
               Get.back(result: pin);
             },
-            child: const Text('Save'),
+            isPrimary: true,
           ),
         ],
       ),
@@ -389,26 +391,26 @@ class GroupInfoController extends GetxController {
   }) async {
     final pinController = TextEditingController();
     final result = await Get.dialog<String>(
-      AlertDialog(
-        title: Text(title),
-        content: TextField(
-          controller: pinController,
-          keyboardType: TextInputType.number,
-          obscureText: true,
-          maxLength: 6,
-          inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-          decoration: InputDecoration(
+      SkeuomorphicInputDialog(
+        title: title,
+        helperText: helperText,
+        textFields: [
+          SkeuomorphicTextField(
+            controller: pinController,
             hintText: 'Enter PIN',
-            helperText: helperText,
-            counterText: '',
+            keyboardType: TextInputType.number,
+            obscureText: true,
+            maxLength: 6,
+            inputFormatters: [FilteringTextInputFormatter.digitsOnly],
           ),
-        ),
+        ],
         actions: [
-          TextButton(
+          SkeuomorphicDialogAction(
+            text: 'Cancel',
             onPressed: () => Get.back(result: null),
-            child: const Text('Cancel'),
           ),
-          TextButton(
+          SkeuomorphicDialogAction(
+            text: 'Confirm',
             onPressed: () {
               final pin = pinController.text.trim();
               if (!_isValidPin(pin)) {
@@ -417,7 +419,7 @@ class GroupInfoController extends GetxController {
               }
               Get.back(result: pin);
             },
-            child: const Text('Confirm'),
+            isPrimary: true,
           ),
         ],
       ),

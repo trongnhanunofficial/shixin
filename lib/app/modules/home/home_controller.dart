@@ -13,6 +13,8 @@ import '../../data/services/chat_service.dart';
 import '../../data/services/friend_service.dart';
 import '../../data/services/user_service.dart';
 import '../../routes/app_routes.dart';
+import '../../widgets/skeuomorphic_dialog.dart';
+import '../../widgets/skeuomorphic_input_dialog.dart';
 
 enum HomeBottomTab { chat, contacts, me }
 
@@ -342,33 +344,37 @@ class HomeController extends GetxController {
   Future<void> updateFriendNickname(UserModel user) async {
     final initialNickname = getNickname(user.uid) ?? '';
     var pendingNickname = initialNickname;
+    final nicknameController = TextEditingController(text: initialNickname);
 
     final nickname = await Get.dialog<String>(
-      AlertDialog(
-        title: const Text('Change nickname'),
-        content: TextFormField(
-          initialValue: initialNickname,
-          autofocus: true,
-          maxLength: 30,
-          textInputAction: TextInputAction.done,
-          onChanged: (value) => pendingNickname = value,
-          decoration: const InputDecoration(
+      SkeuomorphicInputDialog(
+        title: 'Change nickname',
+        helperText: 'Leave empty to remove nickname.',
+        textFields: [
+          SkeuomorphicTextField(
+            controller: nicknameController,
             hintText: 'Enter a nickname',
-            helperText: 'Leave empty to remove nickname.',
+            autofocus: true,
+            maxLength: 30,
+            textInputAction: TextInputAction.done,
+            onChanged: (value) => pendingNickname = value,
           ),
-        ),
+        ],
         actions: [
-          TextButton(
+          SkeuomorphicDialogAction(
+            text: 'Cancel',
             onPressed: () => Get.back(result: null),
-            child: const Text('Cancel'),
           ),
-          TextButton(
+          SkeuomorphicDialogAction(
+            text: 'Save',
             onPressed: () => Get.back(result: pendingNickname.trim()),
-            child: const Text('Save'),
+            isPrimary: true,
           ),
         ],
       ),
     );
+
+    nicknameController.dispose();
 
     if (nickname == null) {
       return;
@@ -392,19 +398,18 @@ class HomeController extends GetxController {
 
   Future<bool> unfriend(UserModel user) async {
     final confirmed = await Get.dialog<bool>(
-      AlertDialog(
-        title: const Text('Unfriend'),
-        content: Text(
-          'Are you sure you want to unfriend ${getDisplayName(user)}?',
-        ),
+      SkeuomorphicDialog(
+        title: 'Unfriend',
+        content: 'Are you sure you want to unfriend ${getDisplayName(user)}?',
         actions: [
-          TextButton(
+          SkeuomorphicDialogAction(
+            text: 'Cancel',
             onPressed: () => Get.back(result: false),
-            child: const Text('Cancel'),
           ),
-          TextButton(
+          SkeuomorphicDialogAction(
+            text: 'Confirm',
             onPressed: () => Get.back(result: true),
-            child: const Text('Confirm'),
+            isDestructive: true,
           ),
         ],
       ),
@@ -443,17 +448,18 @@ class HomeController extends GetxController {
 
   Future<void> deleteChat(ChatModel chat) async {
     final confirmed = await Get.dialog<bool>(
-      AlertDialog(
-        title: const Text('Delete chat'),
-        content: const Text('Are you sure you want to delete this chat?'),
+      SkeuomorphicDialog(
+        title: 'Delete chat',
+        content: 'Are you sure you want to delete this chat?',
         actions: [
-          TextButton(
+          SkeuomorphicDialogAction(
+            text: 'Cancel',
             onPressed: () => Get.back(result: false),
-            child: const Text('Cancel'),
           ),
-          TextButton(
+          SkeuomorphicDialogAction(
+            text: 'Delete',
             onPressed: () => Get.back(result: true),
-            child: const Text('Delete'),
+            isDestructive: true,
           ),
         ],
       ),
@@ -636,26 +642,26 @@ class HomeController extends GetxController {
   }) async {
     final pinController = TextEditingController();
     final result = await Get.dialog<String>(
-      AlertDialog(
-        title: Text(title),
-        content: TextField(
-          controller: pinController,
-          keyboardType: TextInputType.number,
-          obscureText: true,
-          maxLength: 6,
-          inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-          decoration: InputDecoration(
+      SkeuomorphicInputDialog(
+        title: title,
+        helperText: helperText,
+        textFields: [
+          SkeuomorphicTextField(
+            controller: pinController,
             hintText: 'Enter PIN',
-            helperText: helperText,
-            counterText: '',
+            keyboardType: TextInputType.number,
+            obscureText: true,
+            maxLength: 6,
+            inputFormatters: [FilteringTextInputFormatter.digitsOnly],
           ),
-        ),
+        ],
         actions: [
-          TextButton(
+          SkeuomorphicDialogAction(
+            text: 'Cancel',
             onPressed: () => Get.back(result: null),
-            child: const Text('Cancel'),
           ),
-          TextButton(
+          SkeuomorphicDialogAction(
+            text: 'Confirm',
             onPressed: () {
               final pin = pinController.text.trim();
               if (!_isValidPin(pin)) {
@@ -664,7 +670,7 @@ class HomeController extends GetxController {
               }
               Get.back(result: pin);
             },
-            child: const Text('Confirm'),
+            isPrimary: true,
           ),
         ],
       ),

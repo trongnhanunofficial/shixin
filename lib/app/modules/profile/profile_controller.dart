@@ -14,6 +14,7 @@ import '../../data/services/cloudinary_service.dart';
 import '../../data/services/settings_service.dart';
 import '../../data/services/user_service.dart';
 import '../../routes/app_routes.dart';
+import '../../widgets/skeuomorphic_dialog.dart';
 
 class ProfileController extends GetxController {
   final AuthService _authService = Get.find<AuthService>();
@@ -122,16 +123,16 @@ class ProfileController extends GetxController {
 
   Future<void> showAbout() async {
     await Get.dialog<void>(
-      AlertDialog(
-        title: const Text('About Shixin'),
-        content: const Text(
-          'Shixin is a chat app for messaging with friends and colleagues.\n'
-          'Contact: dotienmanh647@gmail.com',
-        ),
+      SkeuomorphicDialog(
+        title: 'About Shixin',
+        content:
+            'Shixin is a chat app for messaging with friends and colleagues.\n'
+            'Contact: dotienmanh647@gmail.com',
         actions: [
-          TextButton(
+          SkeuomorphicDialogAction(
+            text: 'OK',
             onPressed: () => Get.back(),
-            child: const Text('OK'),
+            isPrimary: true,
           ),
         ],
       ),
@@ -140,13 +141,14 @@ class ProfileController extends GetxController {
 
   Future<void> checkForUpdate() async {
     await Get.dialog<void>(
-      AlertDialog(
-        title: const Text("You're up to date"),
-        content: const Text('You already have the latest version.'),
+      SkeuomorphicDialog(
+        title: "You're up to date",
+        content: 'You already have the latest version.',
         actions: [
-          TextButton(
+          SkeuomorphicDialogAction(
+            text: 'OK',
             onPressed: () => Get.back(),
-            child: const Text('OK'),
+            isPrimary: true,
           ),
         ],
       ),
@@ -179,19 +181,18 @@ class ProfileController extends GetxController {
     }
 
     final confirmed = await Get.dialog<bool>(
-      AlertDialog(
-        title: const Text('Clear cache'),
-        content: const Text(
-          'This will clear local data and log you out. Continue?',
-        ),
+      SkeuomorphicDialog(
+        title: 'Clear cache',
+        content: 'This will clear local data and log you out. Continue?',
         actions: [
-          TextButton(
+          SkeuomorphicDialogAction(
+            text: 'Cancel',
             onPressed: () => Get.back(result: false),
-            child: const Text('Cancel'),
           ),
-          TextButton(
+          SkeuomorphicDialogAction(
+            text: 'Clear',
             onPressed: () => Get.back(result: true),
-            child: const Text('Clear'),
+            isDestructive: true,
           ),
         ],
       ),
@@ -222,20 +223,20 @@ class ProfileController extends GetxController {
     }
 
     final confirmed = await Get.dialog<bool>(
-      AlertDialog(
-        title: const Text('Delete account'),
-        content: const Text(
-          'This will permanently delete your account and all related data. '
-          'This cannot be undone.',
-        ),
+      SkeuomorphicDialog(
+        title: 'Delete account',
+        content:
+            'This will permanently delete your account and all related data. '
+            'This cannot be undone.',
         actions: [
-          TextButton(
+          SkeuomorphicDialogAction(
+            text: 'Cancel',
             onPressed: () => Get.back(result: false),
-            child: const Text('Cancel'),
           ),
-          TextButton(
+          SkeuomorphicDialogAction(
+            text: 'Delete',
             onPressed: () => Get.back(result: true),
-            child: const Text('Delete'),
+            isDestructive: true,
           ),
         ],
       ),
