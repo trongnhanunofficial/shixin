@@ -12,8 +12,6 @@ class MessageBubble extends StatelessWidget {
 
   // iMessage colors
   static const Color _iMessageBlue = Color(0xFF007AFF);
-  static const Color _iMessageGray = Color(0xFFE9E9EB);
-  static const Color _iMessageGrayDark = Color(0xFF3A3A3C);
 
   const MessageBubble({
     super.key,
@@ -31,10 +29,34 @@ class MessageBubble extends StatelessWidget {
     final isImageMessage = message.type == MessageType.image;
     final showSenderHeader = !isMe && senderName != null;
 
-    // iMessage style colors
-    final bubbleColor = isMe
-        ? _iMessageBlue
-        : (isDark ? _iMessageGrayDark : _iMessageGray);
+    // Skeuomorphism iOS 6 style colors with gradient
+    final bubbleGradient = isMe
+        ? const LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Color(0xFFAB47BC),
+              Color(0xFF8E24AA),
+              Color(0xFF6A1B9A),
+              Color(0xFF4A148C),
+            ],
+            stops: [0.0, 0.3, 0.7, 1.0],
+          )
+        : LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: isDark
+                ? [
+                    const Color(0xFF4A4A4C),
+                    const Color(0xFF3A3A3C),
+                    const Color(0xFF2A2A2C),
+                  ]
+                : [
+                    const Color(0xFFF5F5F5),
+                    const Color(0xFFE9E9EB),
+                    const Color(0xFFDDDDDF),
+                  ],
+          );
 
     final textColor = isMe
         ? Colors.white
@@ -55,24 +77,48 @@ class MessageBubble extends StatelessWidget {
         children: [
           // Avatar for other users (like group chat)
           if (!isMe && showSenderHeader) ...[
-            CircleAvatar(
-              radius: 14,
-              backgroundColor: _iMessageBlue.withOpacity(0.2),
-              backgroundImage: senderAvatar != null
-                  ? NetworkImage(senderAvatar!)
-                  : null,
-              child: senderAvatar == null
-                  ? Text(
-                      senderName!.isNotEmpty
-                          ? senderName![0].toUpperCase()
-                          : '?',
-                      style: const TextStyle(
-                        fontSize: 11,
-                        fontWeight: FontWeight.w600,
-                        color: _iMessageBlue,
-                      ),
-                    )
-                  : null,
+            Container(
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                gradient: const LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [Color(0xFF9C27B0), Color(0xFF6A1B9A)],
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.3),
+                    offset: const Offset(0, 2),
+                    blurRadius: 4,
+                  ),
+                ],
+              ),
+              child: CircleAvatar(
+                radius: 14,
+                backgroundColor: Colors.transparent,
+                backgroundImage: senderAvatar != null
+                    ? NetworkImage(senderAvatar!)
+                    : null,
+                child: senderAvatar == null
+                    ? Text(
+                        senderName!.isNotEmpty
+                            ? senderName![0].toUpperCase()
+                            : '?',
+                        style: const TextStyle(
+                          fontSize: 11,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white,
+                          shadows: [
+                            Shadow(
+                              offset: Offset(0, 1),
+                              blurRadius: 2,
+                              color: Colors.black45,
+                            ),
+                          ],
+                        ),
+                      )
+                    : null,
+              ),
             ),
             const SizedBox(width: 6),
           ],
@@ -91,14 +137,21 @@ class MessageBubble extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 11,
                         fontWeight: FontWeight.w500,
-                        color: isDark ? Colors.grey[400] : Colors.grey[600],
+                        color: isDark ? Colors.grey[400] : Colors.grey[700],
+                        shadows: const [
+                          Shadow(
+                            offset: Offset(0, 1),
+                            blurRadius: 0,
+                            color: Colors.white54,
+                          ),
+                        ],
                       ),
                     ),
                   ),
                 // Message bubble with iMessage style
                 CustomPaint(
                   painter: showTail
-                      ? _BubbleTailPainter(color: bubbleColor, isMe: isMe)
+                      ? _BubbleTailPainter(gradient: bubbleGradient, isMe: isMe)
                       : null,
                   child: Container(
                     margin: EdgeInsets.only(
@@ -115,8 +168,29 @@ class MessageBubble extends StatelessWidget {
                             vertical: 8,
                           ),
                     decoration: BoxDecoration(
-                      color: bubbleColor,
+                      gradient: bubbleGradient,
                       borderRadius: _getBorderRadius(),
+                      border: Border.all(
+                        color: isMe
+                            ? const Color(0xFF38006B)
+                            : (isDark
+                                  ? const Color(0xFF505050)
+                                  : const Color(0xFFB0B0B0)),
+                        width: isMe ? 1.5 : 1,
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(isMe ? 0.4 : 0.25),
+                          offset: const Offset(0, 3),
+                          blurRadius: 6,
+                        ),
+                        if (isMe)
+                          BoxShadow(
+                            color: const Color(0xFFBA68C8).withOpacity(0.3),
+                            offset: const Offset(0, -1),
+                            blurRadius: 0,
+                          ),
+                      ],
                     ),
                     child: Column(
                       crossAxisAlignment: isMe
@@ -201,6 +275,15 @@ class MessageBubble extends StatelessWidget {
                               color: textColor,
                               fontSize: 16,
                               height: 1.3,
+                              shadows: isMe
+                                  ? [
+                                      const Shadow(
+                                        offset: Offset(0, 1),
+                                        blurRadius: 2,
+                                        color: Colors.black26,
+                                      ),
+                                    ]
+                                  : null,
                             ),
                           ),
                       ],
@@ -221,19 +304,33 @@ class MessageBubble extends StatelessWidget {
                         _formatTime(message.timestamp),
                         style: TextStyle(
                           fontSize: 10,
-                          color: isDark ? Colors.grey[500] : Colors.grey[500],
-                          fontWeight: FontWeight.w400,
+                          color: isDark ? Colors.grey[500] : Colors.grey[600],
+                          fontWeight: FontWeight.w500,
+                          shadows: const [
+                            Shadow(
+                              offset: Offset(0, 0.5),
+                              blurRadius: 0,
+                              color: Colors.white38,
+                            ),
+                          ],
                         ),
                       ),
                       if (isMe && showReadStatus) ...[
                         const SizedBox(width: 3),
                         if (message.isRead)
-                          Text(
+                          const Text(
                             'Read',
                             style: TextStyle(
                               fontSize: 10,
-                              color: _iMessageBlue,
-                              fontWeight: FontWeight.w500,
+                              color: Color(0xFF4A148C),
+                              fontWeight: FontWeight.w600,
+                              shadows: [
+                                Shadow(
+                                  offset: Offset(0, 0.5),
+                                  blurRadius: 0,
+                                  color: Colors.white38,
+                                ),
+                              ],
                             ),
                           )
                         else
@@ -241,8 +338,15 @@ class MessageBubble extends StatelessWidget {
                             'Delivered',
                             style: TextStyle(
                               fontSize: 10,
-                              color: Colors.grey[500],
-                              fontWeight: FontWeight.w400,
+                              color: Colors.grey[600],
+                              fontWeight: FontWeight.w500,
+                              shadows: const [
+                                Shadow(
+                                  offset: Offset(0, 0.5),
+                                  blurRadius: 0,
+                                  color: Colors.white38,
+                                ),
+                              ],
                             ),
                           ),
                       ],
@@ -284,15 +388,16 @@ class MessageBubble extends StatelessWidget {
 
 /// Custom painter for iMessage-style bubble tail
 class _BubbleTailPainter extends CustomPainter {
-  final Color color;
+  final LinearGradient gradient;
   final bool isMe;
 
-  _BubbleTailPainter({required this.color, required this.isMe});
+  _BubbleTailPainter({required this.gradient, required this.isMe});
 
   @override
   void paint(Canvas canvas, Size size) {
+    final rect = Rect.fromLTWH(0, 0, size.width, size.height);
     final paint = Paint()
-      ..color = color
+      ..shader = gradient.createShader(rect)
       ..style = PaintingStyle.fill;
 
     final path = Path();
@@ -326,6 +431,6 @@ class _BubbleTailPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(covariant _BubbleTailPainter oldDelegate) {
-    return oldDelegate.color != color || oldDelegate.isMe != isMe;
+    return oldDelegate.gradient != gradient || oldDelegate.isMe != isMe;
   }
 }
