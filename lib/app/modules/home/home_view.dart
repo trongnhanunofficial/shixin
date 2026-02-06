@@ -488,7 +488,7 @@ class HomeView extends GetView<HomeController> {
               }
 
               return _buildEmptyState(
-                icon: Icons.chat_bubble_outline,
+                icon: FluentIcons.chat_24_regular,
                 title: title,
                 subtitle: subtitle,
               );
@@ -640,7 +640,7 @@ class HomeView extends GetView<HomeController> {
 
     if (chatResults.isEmpty && friendResults.isEmpty) {
       return _buildEmptyState(
-        icon: Icons.search_off,
+        icon: FluentIcons.search_24_regular,
         title: 'No results',
         subtitle: 'Try a different keyword.',
       );
@@ -691,14 +691,87 @@ class HomeView extends GetView<HomeController> {
           children: [
             Padding(
               padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
-              child: FilledButton.icon(
-                onPressed: () => Get.toNamed(AppRoutes.groupCreate),
-                icon: const Icon(Icons.group_add),
-                label: const Text('Create Group'),
+              child: Container(
+                decoration: BoxDecoration(
+                  gradient: const LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      Color(0xFFAB47BC),
+                      Color(0xFF8E24AA),
+                      Color(0xFF6A1B9A),
+                      Color(0xFF4A148C),
+                    ],
+                    stops: [0.0, 0.3, 0.7, 1.0],
+                  ),
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(
+                    color: const Color(0xFF38006B),
+                    width: 1.5,
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.5),
+                      offset: const Offset(0, 4),
+                      blurRadius: 8,
+                    ),
+                    BoxShadow(
+                      color: const Color(0xFFBA68C8).withOpacity(0.5),
+                      offset: const Offset(0, -2),
+                      blurRadius: 0,
+                      spreadRadius: 0,
+                    ),
+                  ],
+                ),
+                child: Material(
+                  color: Colors.transparent,
+                  child: InkWell(
+                    borderRadius: BorderRadius.circular(10),
+                    onTap: () => Get.toNamed(AppRoutes.groupCreate),
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 24,
+                        vertical: 14,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            FluentIcons.people_add_24_filled,
+                            color: Colors.white,
+                            shadows: [
+                              Shadow(
+                                offset: Offset(0, 1),
+                                blurRadius: 2,
+                                color: Colors.black45,
+                              ),
+                            ],
+                          ),
+                          SizedBox(width: 8),
+                          Text(
+                            'Create Group',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w700,
+                              fontSize: 16,
+                              shadows: [
+                                Shadow(
+                                  offset: Offset(0, 1),
+                                  blurRadius: 2,
+                                  color: Colors.black45,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
               ),
             ),
             _buildEmptyState(
-              icon: Icons.people_outline,
+              icon: FluentIcons.people_24_regular,
               title: 'No friends yet',
               subtitle: 'Tap the Add Friend button to connect.',
             ),
