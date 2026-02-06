@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'skeuomorphic_dialog.dart';
 
 /// Skeuomorphic iOS 6-style dialog with text input fields
-class SkeuomorphicInputDialog extends StatelessWidget {
+class SkeuomorphicInputDialog extends StatefulWidget {
   final String title;
   final List<SkeuomorphicTextField> textFields;
   final List<SkeuomorphicDialogAction> actions;
@@ -17,6 +17,12 @@ class SkeuomorphicInputDialog extends StatelessWidget {
     this.helperText,
   });
 
+  @override
+  State<SkeuomorphicInputDialog> createState() =>
+      _SkeuomorphicInputDialogState();
+}
+
+class _SkeuomorphicInputDialogState extends State<SkeuomorphicInputDialog> {
   @override
   Widget build(BuildContext context) {
     return Dialog(
@@ -39,93 +45,99 @@ class SkeuomorphicInputDialog extends StatelessWidget {
             ),
           ],
         ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            // Glossy header
-            Container(
-              width: double.infinity,
-              padding: const EdgeInsets.all(20),
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                    Color(0xFF9C27B0),
-                    Color(0xFF6A1B9A),
-                    Color(0xFF4A148C),
-                  ],
-                ),
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(12),
-                  topRight: Radius.circular(12),
-                ),
-                border: Border(
-                  bottom: BorderSide(color: Color(0xFF38006B), width: 2),
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black26,
-                    offset: Offset(0, 2),
-                    blurRadius: 4,
-                  ),
-                ],
-              ),
-              child: Text(
-                title,
-                style: const TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w800,
-                  color: Colors.white,
-                  shadows: [
-                    Shadow(
-                      offset: Offset(0, 1),
-                      blurRadius: 2,
-                      color: Colors.black45,
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            // Content area with text fields
-            Padding(
-              padding: const EdgeInsets.all(20),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  if (helperText != null) ...[
-                    Text(
-                      helperText!,
-                      style: const TextStyle(
-                        fontSize: 14,
-                        color: Color(0xFF666666),
-                        height: 1.4,
-                      ),
-                    ),
-                    const SizedBox(height: 16),
-                  ],
-                  ...textFields.map((field) => _buildTextField(field)),
-                ],
-              ),
-            ),
-            // Actions
-            if (actions.isNotEmpty)
-              Padding(
-                padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
-                child: Row(
-                  mainAxisAlignment: actions.length > 1
-                      ? MainAxisAlignment.end
-                      : MainAxisAlignment.center,
-                  children: [
-                    for (var i = 0; i < actions.length; i++) ...[
-                      if (i > 0) const SizedBox(width: 12),
-                      Expanded(child: _buildActionButton(actions[i])),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              // Glossy header
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(20),
+                decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      Color(0xFF9C27B0),
+                      Color(0xFF6A1B9A),
+                      Color(0xFF4A148C),
                     ],
+                  ),
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(12),
+                    topRight: Radius.circular(12),
+                  ),
+                  border: Border(
+                    bottom: BorderSide(color: Color(0xFF38006B), width: 2),
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black26,
+                      offset: Offset(0, 2),
+                      blurRadius: 4,
+                    ),
+                  ],
+                ),
+                child: Text(
+                  widget.title,
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w800,
+                    color: Colors.white,
+                    shadows: [
+                      Shadow(
+                        offset: Offset(0, 1),
+                        blurRadius: 2,
+                        color: Colors.black45,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              // Content area with text fields
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    if (widget.helperText != null) ...[
+                      Text(
+                        widget.helperText!,
+                        style: const TextStyle(
+                          fontSize: 14,
+                          color: Color(0xFF666666),
+                          height: 1.4,
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                    ],
+                    ...widget.textFields.map((field) => _buildTextField(field)),
                   ],
                 ),
               ),
-          ],
+              // Actions
+              if (widget.actions.isNotEmpty)
+                Padding(
+                  padding: const EdgeInsets.only(
+                    left: 20,
+                    right: 20,
+                    bottom: 20,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: widget.actions.length > 1
+                        ? MainAxisAlignment.end
+                        : MainAxisAlignment.center,
+                    children: [
+                      for (var i = 0; i < widget.actions.length; i++) ...[
+                        if (i > 0) const SizedBox(width: 12),
+                        Expanded(child: _buildActionButton(widget.actions[i])),
+                      ],
+                    ],
+                  ),
+                ),
+            ],
+          ),
         ),
       ),
     );

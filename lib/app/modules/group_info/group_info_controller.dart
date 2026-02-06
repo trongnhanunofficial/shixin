@@ -106,6 +106,7 @@ class GroupInfoController extends GetxController {
       ),
     );
 
+    await Future<void>.delayed(const Duration(milliseconds: 200));
     nameController.dispose();
 
     if (newName == null) {

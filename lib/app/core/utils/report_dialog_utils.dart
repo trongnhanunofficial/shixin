@@ -135,6 +135,7 @@ class ReportDialogUtils {
           ],
         ),
       );
+      await Future<void>.delayed(const Duration(milliseconds: 200));
       detailController.dispose();
       if (entered == null || entered.trim().isEmpty) {
         return null;
@@ -154,10 +155,7 @@ class ReportDialogUtils {
             'Report ID: $reportId\n'
             'Our team usually responds within 48 hours.',
         actions: [
-          SkeuomorphicDialogAction(
-            text: 'Close',
-            onPressed: () => Get.back(),
-          ),
+          SkeuomorphicDialogAction(text: 'Close', onPressed: () => Get.back()),
           SkeuomorphicDialogAction(
             text: 'Contact Support',
             onPressed: () async {

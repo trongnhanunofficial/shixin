@@ -423,6 +423,8 @@ class HomeController extends GetxController {
       ),
     );
 
+    // Delay disposal to prevent race condition during dialog close animation
+    await Future<void>.delayed(const Duration(milliseconds: 200));
     nicknameController.dispose();
 
     if (nickname == null) {
