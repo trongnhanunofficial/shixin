@@ -19,6 +19,11 @@ class ContactCardView extends GetView<HomeController> {
         'nickname:${user.uid}',
       );
       final isUnfriending = controller.isActionLoading('unfriend:${user.uid}');
+      final isBlocked = controller.isUserBlocked(user.uid);
+      final isBlocking =
+          controller.isActionLoading('block:${user.uid}') ||
+          controller.isActionLoading('unblock:${user.uid}');
+      final isReporting = controller.isActionLoading('report:${user.uid}');
 
       return Scaffold(
         appBar: AppBar(title: const Text('Contact Card')),
@@ -117,6 +122,44 @@ class ContactCardView extends GetView<HomeController> {
                       )
                     : const Icon(Icons.person_remove_outlined),
                 label: const Text('Unfriend'),
+              ),
+              const SizedBox(height: 12),
+              OutlinedButton.icon(
+                onPressed: isBlocking
+                    ? null
+                    : () => controller.toggleBlockUser(user),
+                style: OutlinedButton.styleFrom(
+                  foregroundColor: isBlocked
+                      ? Colors.blueGrey
+                      : AppColors.error,
+                  side: BorderSide(
+                    color: isBlocked ? Colors.blueGrey : AppColors.error,
+                  ),
+                ),
+                icon: isBlocking
+                    ? const SizedBox(
+                        width: 18,
+                        height: 18,
+                        child: CircularProgressIndicator(strokeWidth: 2),
+                      )
+                    : Icon(
+                        isBlocked
+                            ? Icons.lock_open_outlined
+                            : Icons.block_outlined,
+                      ),
+                label: Text(isBlocked ? 'Unblock' : 'Block'),
+              ),
+              const SizedBox(height: 12),
+              OutlinedButton.icon(
+                onPressed: isReporting ? null : () => controller.reportUser(user),
+                icon: isReporting
+                    ? const SizedBox(
+                        width: 18,
+                        height: 18,
+                        child: CircularProgressIndicator(strokeWidth: 2),
+                      )
+                    : const Icon(Icons.flag_outlined),
+                label: const Text('Report'),
               ),
             ],
           ),

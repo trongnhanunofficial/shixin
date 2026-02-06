@@ -23,6 +23,8 @@ import '../modules/profile/profile_binding.dart';
 import '../modules/profile/profile_view.dart';
 import '../modules/settings/settings_binding.dart';
 import '../modules/settings/settings_view.dart';
+import '../modules/safety_center/safety_center_binding.dart';
+import '../modules/safety_center/safety_center_view.dart';
 
 class AppPages {
   static final pages = [
@@ -80,6 +82,11 @@ class AppPages {
       name: AppRoutes.settings,
       page: () => const SettingsView(),
       binding: SettingsBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.safetyCenter,
+      page: () => const SafetyCenterView(),
+      binding: SafetyCenterBinding(),
     ),
   ];
 }

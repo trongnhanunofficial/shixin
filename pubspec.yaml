@@ -32,6 +32,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/captcha_bg.jpg
+    - assets/moderation/bad_words.txt
 
 flutter_launcher_icons:
   android: true

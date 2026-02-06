@@ -4,13 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
+import '../../core/utils/report_dialog_utils.dart';
 import '../../core/utils/snackbar_utils.dart';
 import '../../data/models/chat_model.dart';
 import '../../data/models/friend_relation_model.dart';
 import '../../data/models/user_model.dart';
 import '../../data/services/auth_service.dart';
+import '../../data/services/block_service.dart';
 import '../../data/services/chat_service.dart';
 import '../../data/services/friend_service.dart';
+import '../../data/services/report_service.dart';
 import '../../data/services/user_service.dart';
 import '../../routes/app_routes.dart';
 import '../../widgets/skeuomorphic_dialog.dart';
@@ -27,6 +30,8 @@ class HomeController extends GetxController {
   final ChatService _chatService = Get.find<ChatService>();
   final UserService _userService = Get.find<UserService>();
   final FriendService _friendService = Get.find<FriendService>();
+  final BlockService _blockService = Get.find<BlockService>();
+  final ReportService _reportService = Get.find<ReportService>();
 
   final bottomTabIndex = HomeBottomTab.chat.index.obs;
   final chatFilter = ChatFilter.all.obs;
@@ -43,9 +48,11 @@ class HomeController extends GetxController {
   final hasSearchedPhone = false.obs;
   final searchMessage = RxnString();
   final actionLoadingKeys = <String>{}.obs;
+  final blockedUserIds = <String>{}.obs;
 
   StreamSubscription<List<ChatModel>>? _chatSubscription;
   StreamSubscription<List<FriendRelationModel>>? _relationSubscription;
+  StreamSubscription<Set<String>>? _blockedUsersSubscription;
 
   List<ChatModel> _allChats = [];
 
@@ -58,6 +65,7 @@ class HomeController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+    _listenBlockedUsers();
     _listenChats();
     _listenRelations();
   }
@@ -78,6 +86,9 @@ class HomeController extends GetxController {
         continue;
       }
       final otherId = relation.getOtherUserId(_currentUserId);
+      if (blockedUserIds.contains(otherId)) {
+        continue;
+      }
       final user = relationUsers[otherId];
       if (user != null) {
         users.add(user);
@@ -108,6 +119,9 @@ class HomeController extends GetxController {
       }
 
       final otherUserId = chat.getOtherUserId(_currentUserId);
+      if (blockedUserIds.contains(otherUserId)) {
+        continue;
+      }
       final displayName = getDisplayNameByUserId(otherUserId) ?? '';
       if (_matches(displayName, query) || _matches(chat.lastMessage, query)) {
         results.add(chat);
@@ -137,8 +151,13 @@ class HomeController extends GetxController {
   List<FriendRelationModel> get receivedRequests {
     return relations
         .where(
-          (relation) =>
-              relation.isPending && relation.requesterId != _currentUserId,
+          (relation) {
+            if (!relation.isPending || relation.requesterId == _currentUserId) {
+              return false;
+            }
+            final otherId = relation.getOtherUserId(_currentUserId);
+            return !blockedUserIds.contains(otherId);
+          },
         )
         .toList();
   }
@@ -146,8 +165,13 @@ class HomeController extends GetxController {
   List<FriendRelationModel> get sentRequests {
     return relations
         .where(
-          (relation) =>
-              relation.isPending && relation.requesterId == _currentUserId,
+          (relation) {
+            if (!relation.isPending || relation.requesterId != _currentUserId) {
+              return false;
+            }
+            final otherId = relation.getOtherUserId(_currentUserId);
+            return !blockedUserIds.contains(otherId);
+          },
         )
         .toList();
   }
@@ -197,8 +221,16 @@ class HomeController extends GetxController {
     return actionLoadingKeys.contains(key);
   }
 
+  bool isUserBlocked(String uid) {
+    return blockedUserIds.contains(uid);
+  }
+
   UserModel? relationUser(FriendRelationModel relation) {
-    return relationUsers[relation.getOtherUserId(_currentUserId)];
+    final otherId = relation.getOtherUserId(_currentUserId);
+    if (blockedUserIds.contains(otherId)) {
+      return null;
+    }
+    return relationUsers[otherId];
   }
 
   Future<void> searchByLocalPhone() async {
@@ -225,6 +257,7 @@ class HomeController extends GetxController {
       final users = await _userService.searchByLocalPhone(
         keyword,
         _currentUserId,
+        excludedUserIds: blockedUserIds.toSet(),
       );
       searchResults.value = users;
       if (users.isEmpty) {
@@ -295,6 +328,10 @@ class HomeController extends GetxController {
     }
 
     final otherUserId = chat.getOtherUserId(_currentUserId);
+    if (blockedUserIds.contains(otherUserId)) {
+      SnackbarUtils.showError('You cannot message this user right now.');
+      return;
+    }
     if (!_acceptedFriendIds.contains(otherUserId)) {
       SnackbarUtils.showError('You can only message friends.');
       return;
@@ -324,6 +361,10 @@ class HomeController extends GetxController {
   }
 
   Future<void> openChatWithFriend(UserModel otherUser) async {
+    if (blockedUserIds.contains(otherUser.uid)) {
+      SnackbarUtils.showError('You cannot message this user right now.');
+      return;
+    }
     if (!_acceptedFriendIds.contains(otherUser.uid)) {
       SnackbarUtils.showError('You can only message friends.');
       return;
@@ -489,6 +530,81 @@ class HomeController extends GetxController {
     Get.offAllNamed(AppRoutes.login);
   }
 
+  Future<void> toggleBlockUser(UserModel user) async {
+    final blocked = isUserBlocked(user.uid);
+    if (blocked) {
+      await unblockUser(user);
+      return;
+    }
+    await blockUser(user);
+  }
+
+  Future<void> blockUser(UserModel user) async {
+    final confirmed = await Get.dialog<bool>(
+      SkeuomorphicDialog(
+        title: 'Block user',
+        content:
+            'You will stop receiving direct messages from ${getDisplayName(user)}. '
+            'You can unblock later in contact details.',
+        actions: [
+          SkeuomorphicDialogAction(
+            text: 'Cancel',
+            onPressed: () => Get.back(result: false),
+          ),
+          SkeuomorphicDialogAction(
+            text: 'Block',
+            onPressed: () => Get.back(result: true),
+            isDestructive: true,
+          ),
+        ],
+      ),
+    );
+
+    if (confirmed != true) {
+      return;
+    }
+
+    await _runAction('block:${user.uid}', () async {
+      await _blockService.blockUser(
+        ownerUid: _currentUserId,
+        targetUid: user.uid,
+        reason: 'manual_block',
+      );
+      SnackbarUtils.showSuccess('User blocked.');
+    });
+  }
+
+  Future<void> unblockUser(UserModel user) async {
+    await _runAction('unblock:${user.uid}', () async {
+      await _blockService.unblockUser(
+        ownerUid: _currentUserId,
+        targetUid: user.uid,
+      );
+      SnackbarUtils.showInfo('User unblocked.');
+    });
+  }
+
+  Future<void> reportUser(UserModel user, {String? chatId}) async {
+    final payload = await ReportDialogUtils.promptReport(
+      title: 'Report user',
+      subtitle: 'Select a reason for reporting ${getDisplayName(user)}.',
+    );
+    if (payload == null) {
+      return;
+    }
+
+    await _runAction('report:${user.uid}', () async {
+      final reportId = await _reportService.submitReport(
+        reporterUid: _currentUserId,
+        targetUid: user.uid,
+        chatId: chatId,
+        reasonCode: payload.reasonCode,
+        detail: payload.detail,
+      );
+      await ReportDialogUtils.showReportSubmitted(reportId);
+    });
+  }
+
   Future<void> _runAction(String key, Future<void> Function() action) async {
     if (actionLoadingKeys.contains(key)) {
       return;
@@ -524,6 +640,29 @@ class HomeController extends GetxController {
         );
   }
 
+  void _listenBlockedUsers() {
+    final user = currentUser;
+    if (user == null) {
+      return;
+    }
+
+    _blockedUsersSubscription?.cancel();
+    _blockedUsersSubscription = _blockService
+        .streamBlockedEitherWayUserIds(user.uid)
+        .listen(
+          (blockedIds) {
+            blockedUserIds
+              ..clear()
+              ..addAll(blockedIds);
+            _filterVisibleSearchResults();
+            _applyChatFilter();
+          },
+          onError: (_) {
+            SnackbarUtils.showError('Unable to load blocked users.');
+          },
+        );
+  }
+
   void _listenRelations() {
     final user = currentUser;
     if (user == null) {
@@ -553,7 +692,7 @@ class HomeController extends GetxController {
     return relations
         .where((relation) => relation.isAccepted)
         .map((relation) => relation.getOtherUserId(_currentUserId))
-        .where((uid) => uid.isNotEmpty)
+        .where((uid) => uid.isNotEmpty && !blockedUserIds.contains(uid))
         .toSet();
   }
 
@@ -562,7 +701,7 @@ class HomeController extends GetxController {
   ) async {
     final otherIds = relationList
         .map((relation) => relation.getOtherUserId(_currentUserId))
-        .where((uid) => uid.isNotEmpty)
+        .where((uid) => uid.isNotEmpty && !blockedUserIds.contains(uid))
         .toSet()
         .toList();
 
@@ -587,6 +726,9 @@ class HomeController extends GetxController {
         return true;
       }
       final otherUserId = chat.getOtherUserId(_currentUserId);
+      if (blockedUserIds.contains(otherUserId)) {
+        return false;
+      }
       return friendIds.contains(otherUserId);
     }).toList();
 
@@ -731,10 +873,20 @@ class HomeController extends GetxController {
     return message;
   }
 
+  void _filterVisibleSearchResults() {
+    if (searchResults.isEmpty) {
+      return;
+    }
+    searchResults.value = searchResults
+        .where((user) => !blockedUserIds.contains(user.uid))
+        .toList();
+  }
+
   @override
   void onClose() {
     _chatSubscription?.cancel();
     _relationSubscription?.cancel();
+    _blockedUsersSubscription?.cancel();
     addFriendPhoneController.dispose();
     searchController.dispose();
     super.onClose();

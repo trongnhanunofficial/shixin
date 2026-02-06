@@ -10,4 +10,5 @@ abstract class AppRoutes {
   static const groupInfo = '/group-info';
   static const profile = '/profile';
   static const settings = '/settings';
+  static const safetyCenter = '/safety-center';
 }

@@ -5,6 +5,8 @@ class FirebaseConstants {
   static const String chatsCollection = 'chats';
   static const String messagesCollection = 'messages';
   static const String friendRelationsCollection = 'friend_relations';
+  static const String userBlocksCollection = 'user_blocks';
+  static const String reportsCollection = 'reports';
 
   // User fields
   static const String fieldUid = 'uid';
@@ -51,4 +53,15 @@ class FirebaseConstants {
   static const String fieldTimestamp = 'timestamp';
   static const String fieldIsRead = 'isRead';
   static const String fieldType = 'type';
+
+  // Safety fields
+  static const String fieldOwnerUid = 'ownerUid';
+  static const String fieldTargetUid = 'targetUid';
+  static const String fieldReason = 'reason';
+  static const String fieldReporterUid = 'reporterUid';
+  static const String fieldChatId = 'chatId';
+  static const String fieldMessageId = 'messageId';
+  static const String fieldReasonCode = 'reasonCode';
+  static const String fieldDetail = 'detail';
+  static const String fieldStatus = 'status';
 }

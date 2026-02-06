@@ -232,6 +232,12 @@ class SettingsView extends GetView<SettingsController> {
               'https://www.shixinari.com/privacy.html',
             ),
           ),
+          _buildDivider(),
+          _buildActionTile(
+            icon: FluentIcons.flag_24_regular,
+            title: 'Safety Center',
+            onTap: controller.openSafetyCenter,
+          ),
         ],
       ),
     );

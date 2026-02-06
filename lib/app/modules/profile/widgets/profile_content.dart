@@ -338,7 +338,7 @@ class ProfileContent extends StatelessWidget {
                   children: [
                     const Expanded(
                       child: Text(
-                        'Appearance, About, Privacy',
+                        'Appearance, About, Privacy, Safety',
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w500,

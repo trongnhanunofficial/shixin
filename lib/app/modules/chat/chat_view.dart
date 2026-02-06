@@ -385,6 +385,16 @@ class ChatView extends GetView<ChatController> {
                               ? controller.senderAvatar(message.senderId)
                               : null,
                           showReadStatus: !controller.isGroup,
+                          isFlagged: controller.isMessageFlagged(message),
+                          hideFlagged: controller.hideFlaggedContentEnabled,
+                          isFlaggedRevealed: !controller.shouldHideMessage(
+                            message,
+                          ),
+                          onToggleRevealFlagged: () =>
+                              controller.toggleRevealFlaggedMessage(message.id),
+                          onLongPress: isMe
+                              ? null
+                              : () => controller.reportMessage(message),
                         ),
                       ],
                     );

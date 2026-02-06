@@ -1,0 +1,8 @@
+# Basic blocked words list
+fuck
+shit
+bitch
+asshole
+nigger
+rape
+kill yourself

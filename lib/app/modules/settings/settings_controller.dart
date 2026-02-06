@@ -64,6 +64,10 @@ class SettingsController extends GetxController {
     }
   }
 
+  void openSafetyCenter() {
+    Get.toNamed(AppRoutes.safetyCenter);
+  }
+
   Future<void> clearCache() async {
     final confirmed = await Get.dialog<bool>(
       SkeuomorphicDialog(

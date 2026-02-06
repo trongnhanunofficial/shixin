@@ -132,6 +132,8 @@ class ChatInfoView extends GetView<ChatInfoController> {
                 final isPinned = chat.isPinned(currentUserId);
                 final isLocked = chat.isLocked(currentUserId);
                 final isProcessing = controller.isProcessing.value;
+                final isBlockedByMe = controller.isBlockedByMe.value;
+                final isBlockedEitherWay = controller.isBlockedEitherWay.value;
 
                 return ListView(
                   padding: const EdgeInsets.symmetric(vertical: 16),
@@ -145,6 +147,29 @@ class ChatInfoView extends GetView<ChatInfoController> {
                       title: 'Search',
                       onTap: controller.openSearch,
                     ),
+                    const SizedBox(height: 16),
+                    _buildActionTile(
+                      icon: isBlockedByMe ? Icons.lock_open : Icons.block,
+                      title: isBlockedByMe ? 'Unblock User' : 'Block User',
+                      onTap: isProcessing ? () {} : controller.toggleBlockUser,
+                    ),
+                    const SizedBox(height: 12),
+                    _buildActionTile(
+                      icon: FluentIcons.flag_24_regular,
+                      title: 'Report User',
+                      onTap: isProcessing ? () {} : controller.reportUser,
+                    ),
+                    if (isBlockedEitherWay)
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
+                        child: Text(
+                          'Direct messages are limited because one side has blocked the other.',
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.grey[700],
+                          ),
+                        ),
+                      ),
                     const SizedBox(height: 16),
 
                     // Settings section

@@ -42,7 +42,11 @@ class UserService extends GetxService {
   Future<List<UserModel>> searchUsers(
     String query,
     String currentUserId,
+    {
+      Set<String>? excludedUserIds,
+    }
   ) async {
+    final excluded = excludedUserIds ?? const <String>{};
     final queryLower = query.toLowerCase();
     final snapshot = await _usersRef.get();
 
@@ -51,6 +55,7 @@ class UserService extends GetxService {
         .where(
           (user) =>
               user.uid != currentUserId &&
+              !excluded.contains(user.uid) &&
               (user.name.toLowerCase().contains(queryLower) ||
                   user.phoneNumber.toLowerCase().contains(queryLower)),
         )
@@ -84,7 +89,11 @@ class UserService extends GetxService {
   Future<List<UserModel>> searchByLocalPhone(
     String localDigits,
     String currentUserId,
+    {
+      Set<String>? excludedUserIds,
+    }
   ) async {
+    final excluded = excludedUserIds ?? const <String>{};
     final normalizedInput = PhoneUtils.normalizeLocalInput(localDigits);
     final comparableInput = PhoneUtils.normalizeForComparison(normalizedInput);
 
@@ -95,7 +104,7 @@ class UserService extends GetxService {
         .get();
     for (final doc in directMatches.docs) {
       final user = UserModel.fromJson(doc.data());
-      if (user.uid != currentUserId) {
+      if (user.uid != currentUserId && !excluded.contains(user.uid)) {
         matched[user.uid] = user;
       }
     }
@@ -111,7 +120,7 @@ class UserService extends GetxService {
           .get();
       for (final doc in altMatches.docs) {
         final user = UserModel.fromJson(doc.data());
-        if (user.uid != currentUserId) {
+        if (user.uid != currentUserId && !excluded.contains(user.uid)) {
           matched[user.uid] = user;
         }
       }
@@ -120,7 +129,7 @@ class UserService extends GetxService {
     final snapshot = await _usersRef.get();
     for (final doc in snapshot.docs) {
       final user = UserModel.fromJson(doc.data());
-      if (user.uid == currentUserId) {
+      if (user.uid == currentUserId || excluded.contains(user.uid)) {
         continue;
       }
 

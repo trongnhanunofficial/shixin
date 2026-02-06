@@ -5,21 +5,28 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../../core/utils/report_dialog_utils.dart';
 import '../../core/utils/snackbar_utils.dart';
 import '../../data/models/friend_relation_model.dart';
 import '../../data/models/chat_model.dart';
 import '../../data/models/message_model.dart';
 import '../../data/models/user_model.dart';
 import '../../data/services/auth_service.dart';
+import '../../data/services/block_service.dart';
 import '../../data/services/chat_service.dart';
 import '../../data/services/cloudinary_service.dart';
 import '../../data/services/friend_service.dart';
+import '../../data/services/moderation_service.dart';
+import '../../data/services/report_service.dart';
 import '../../data/services/user_service.dart';
 
 class ChatController extends GetxController {
   final AuthService _authService = Get.find<AuthService>();
   final ChatService _chatService = Get.find<ChatService>();
   final FriendService _friendService = Get.find<FriendService>();
+  final BlockService _blockService = Get.find<BlockService>();
+  final ReportService _reportService = Get.find<ReportService>();
+  final ModerationService _moderationService = Get.find<ModerationService>();
   final CloudinaryService _cloudinaryService = Get.find<CloudinaryService>();
   final UserService _userService = Get.find<UserService>();
 
@@ -36,11 +43,13 @@ class ChatController extends GetxController {
   final displayName = ''.obs;
   final chat = Rxn<ChatModel>();
   final participantUsers = <String, UserModel>{}.obs;
+  final revealedFlaggedMessageIds = <String>{}.obs;
 
   late String chatId;
   UserModel? otherUser;
   StreamSubscription<FriendRelationModel?>? _relationSubscription;
   StreamSubscription<ChatModel?>? _chatSubscription;
+  StreamSubscription<List<MessageModel>>? _messageSubscription;
 
   String get currentUserId => _authService.currentUser.value!.uid;
 
@@ -129,7 +138,10 @@ class ChatController extends GetxController {
   }
 
   void _loadMessages() {
-    _chatService.getChatMessages(chatId).listen((messageList) {
+    _messageSubscription?.cancel();
+    _messageSubscription = _chatService.getChatMessages(chatId).listen((
+      messageList,
+    ) {
       messages.value = messageList;
       _markMessagesAsRead();
     });
@@ -140,6 +152,13 @@ class ChatController extends GetxController {
     if (content.isEmpty) return;
 
     if (!await _ensureCanMessage()) {
+      return;
+    }
+
+    if (_moderationService.containsBlockedWord(content)) {
+      SnackbarUtils.showError(
+        'This message contains blocked words and cannot be sent.',
+      );
       return;
     }
 
@@ -241,6 +260,15 @@ class ChatController extends GetxController {
       SnackbarUtils.showError('You can only message friends.');
       return false;
     }
+
+    final blocked = await _blockService.isBlockedEitherWay(
+      currentUserId,
+      target.uid,
+    );
+    if (blocked) {
+      SnackbarUtils.showError('You cannot message this user right now.');
+      return false;
+    }
     return true;
   }
 
@@ -271,10 +299,66 @@ class ChatController extends GetxController {
     return participantUsers[senderId]?.avatar;
   }
 
+  bool get hideFlaggedContentEnabled => _moderationService.hideFlaggedContent.value;
+
+  bool isMessageFlagged(MessageModel message) {
+    if (message.type != MessageType.text) {
+      return false;
+    }
+    return _moderationService.containsBlockedWord(message.content);
+  }
+
+  bool shouldHideMessage(MessageModel message) {
+    if (!hideFlaggedContentEnabled) {
+      return false;
+    }
+    if (!isMessageFlagged(message)) {
+      return false;
+    }
+    return !revealedFlaggedMessageIds.contains(message.id);
+  }
+
+  void toggleRevealFlaggedMessage(String messageId) {
+    if (revealedFlaggedMessageIds.contains(messageId)) {
+      revealedFlaggedMessageIds.remove(messageId);
+      return;
+    }
+    revealedFlaggedMessageIds.add(messageId);
+  }
+
+  Future<void> reportMessage(MessageModel message) async {
+    if (message.senderId == currentUserId) {
+      return;
+    }
+
+    final payload = await ReportDialogUtils.promptReport(
+      title: 'Report message',
+      subtitle: 'Select a reason for reporting this message.',
+    );
+    if (payload == null) {
+      return;
+    }
+
+    try {
+      final reportId = await _reportService.submitReport(
+        reporterUid: currentUserId,
+        targetUid: message.senderId,
+        chatId: chatId,
+        messageId: message.id,
+        reasonCode: payload.reasonCode,
+        detail: payload.detail,
+      );
+      await ReportDialogUtils.showReportSubmitted(reportId);
+    } catch (error) {
+      SnackbarUtils.showError('Unable to submit report.');
+    }
+  }
+
   @override
   void onClose() {
     _relationSubscription?.cancel();
     _chatSubscription?.cancel();
+    _messageSubscription?.cancel();
     messageController.dispose();
     messageFocusNode.dispose();
     scrollController.dispose();

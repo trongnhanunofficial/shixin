@@ -4,11 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
+import '../../core/utils/report_dialog_utils.dart';
 import '../../core/utils/snackbar_utils.dart';
 import '../../data/models/chat_model.dart';
 import '../../data/models/user_model.dart';
 import '../../data/services/auth_service.dart';
+import '../../data/services/block_service.dart';
 import '../../data/services/chat_service.dart';
+import '../../data/services/report_service.dart';
 import '../../routes/app_routes.dart';
 import '../../widgets/skeuomorphic_dialog.dart';
 import '../../widgets/skeuomorphic_input_dialog.dart';
@@ -16,9 +19,13 @@ import '../../widgets/skeuomorphic_input_dialog.dart';
 class ChatInfoController extends GetxController {
   final ChatService _chatService = Get.find<ChatService>();
   final AuthService _authService = Get.find<AuthService>();
+  final BlockService _blockService = Get.find<BlockService>();
+  final ReportService _reportService = Get.find<ReportService>();
 
   final chat = Rxn<ChatModel>();
   final isProcessing = false.obs;
+  final isBlockedByMe = false.obs;
+  final isBlockedEitherWay = false.obs;
 
   late String chatId;
   late UserModel otherUser;
@@ -37,6 +44,7 @@ class ChatInfoController extends GetxController {
     final nameArg = (args['displayName'] as String?)?.trim();
     displayName = nameArg?.isNotEmpty == true ? nameArg! : otherUser.name;
     _listenChat();
+    _refreshBlockState();
   }
 
   void _listenChat() {
@@ -116,6 +124,88 @@ class ChatInfoController extends GetxController {
       await _chatService.clearChatLock(chatId, currentUserId);
     });
     SnackbarUtils.showInfo('Chat unlocked.');
+  }
+
+  Future<void> toggleBlockUser() async {
+    final blockedByMe = isBlockedByMe.value;
+    if (blockedByMe) {
+      await _runAction(() async {
+        await _blockService.unblockUser(
+          ownerUid: currentUserId,
+          targetUid: otherUser.uid,
+        );
+        await _refreshBlockState();
+      });
+      SnackbarUtils.showInfo('User unblocked.');
+      return;
+    }
+
+    final confirmed = await Get.dialog<bool>(
+      SkeuomorphicDialog(
+        title: 'Block user',
+        content:
+            'You will stop receiving direct messages from this user. '
+            'You can unblock later.',
+        actions: [
+          SkeuomorphicDialogAction(
+            text: 'Cancel',
+            onPressed: () => Get.back(result: false),
+          ),
+          SkeuomorphicDialogAction(
+            text: 'Block',
+            onPressed: () => Get.back(result: true),
+            isDestructive: true,
+          ),
+        ],
+      ),
+    );
+    if (confirmed != true) {
+      return;
+    }
+
+    await _runAction(() async {
+      await _blockService.blockUser(
+        ownerUid: currentUserId,
+        targetUid: otherUser.uid,
+        reason: 'manual_block',
+      );
+      await _refreshBlockState();
+    });
+    SnackbarUtils.showSuccess('User blocked.');
+  }
+
+  Future<void> reportUser() async {
+    final payload = await ReportDialogUtils.promptReport(
+      title: 'Report user',
+      subtitle: 'Select a reason for reporting this user.',
+    );
+    if (payload == null) {
+      return;
+    }
+
+    await _runAction(() async {
+      final reportId = await _reportService.submitReport(
+        reporterUid: currentUserId,
+        targetUid: otherUser.uid,
+        chatId: chatId,
+        reasonCode: payload.reasonCode,
+        detail: payload.detail,
+      );
+      await ReportDialogUtils.showReportSubmitted(reportId);
+    });
+  }
+
+  Future<void> _refreshBlockState() async {
+    final byMe = await _blockService.isBlockedByMe(
+      ownerUid: currentUserId,
+      targetUid: otherUser.uid,
+    );
+    final eitherWay = await _blockService.isBlockedEitherWay(
+      currentUserId,
+      otherUser.uid,
+    );
+    isBlockedByMe.value = byMe;
+    isBlockedEitherWay.value = eitherWay;
   }
 
   Future<void> _runAction(Future<void> Function() action) async {

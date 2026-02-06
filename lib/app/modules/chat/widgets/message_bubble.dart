@@ -9,6 +9,11 @@ class MessageBubble extends StatelessWidget {
   final String? senderAvatar;
   final bool showReadStatus;
   final bool showTail;
+  final bool isFlagged;
+  final bool hideFlagged;
+  final bool isFlaggedRevealed;
+  final VoidCallback? onToggleRevealFlagged;
+  final VoidCallback? onLongPress;
 
   // iMessage colors
   static const Color _iMessageBlue = Color(0xFF007AFF);
@@ -21,12 +26,19 @@ class MessageBubble extends StatelessWidget {
     this.senderAvatar,
     this.showReadStatus = true,
     this.showTail = true,
+    this.isFlagged = false,
+    this.hideFlagged = true,
+    this.isFlaggedRevealed = true,
+    this.onToggleRevealFlagged,
+    this.onLongPress,
   });
 
   @override
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
     final isImageMessage = message.type == MessageType.image;
+    final shouldHideFlaggedText =
+        !isImageMessage && isFlagged && hideFlagged && !isFlaggedRevealed;
     final showSenderHeader = !isMe && senderName != null;
 
     // Skeuomorphism iOS 6 style colors with gradient
@@ -149,144 +161,178 @@ class MessageBubble extends StatelessWidget {
                     ),
                   ),
                 // Message bubble with iMessage style
-                CustomPaint(
-                  painter: showTail
-                      ? _BubbleTailPainter(gradient: bubbleGradient, isMe: isMe)
-                      : null,
-                  child: Container(
-                    margin: EdgeInsets.only(
-                      left: isMe ? 0 : (showTail ? 8 : 0),
-                      right: isMe ? (showTail ? 8 : 0) : 0,
-                    ),
-                    constraints: BoxConstraints(
-                      maxWidth: MediaQuery.of(context).size.width * 0.7,
-                    ),
-                    padding: isImageMessage
-                        ? const EdgeInsets.all(3)
-                        : const EdgeInsets.symmetric(
-                            horizontal: 14,
-                            vertical: 8,
-                          ),
-                    decoration: BoxDecoration(
-                      gradient: bubbleGradient,
-                      borderRadius: _getBorderRadius(),
-                      border: Border.all(
-                        color: isMe
-                            ? const Color(0xFF38006B)
-                            : (isDark
-                                  ? const Color(0xFF505050)
-                                  : const Color(0xFFB0B0B0)),
-                        width: isMe ? 1.5 : 1,
+                GestureDetector(
+                  onLongPress: onLongPress,
+                  child: CustomPaint(
+                    painter: showTail
+                        ? _BubbleTailPainter(gradient: bubbleGradient, isMe: isMe)
+                        : null,
+                    child: Container(
+                      margin: EdgeInsets.only(
+                        left: isMe ? 0 : (showTail ? 8 : 0),
+                        right: isMe ? (showTail ? 8 : 0) : 0,
                       ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(isMe ? 0.4 : 0.25),
-                          offset: const Offset(0, 3),
-                          blurRadius: 6,
+                      constraints: BoxConstraints(
+                        maxWidth: MediaQuery.of(context).size.width * 0.7,
+                      ),
+                      padding: isImageMessage
+                          ? const EdgeInsets.all(3)
+                          : const EdgeInsets.symmetric(
+                              horizontal: 14,
+                              vertical: 8,
+                            ),
+                      decoration: BoxDecoration(
+                        gradient: bubbleGradient,
+                        borderRadius: _getBorderRadius(),
+                        border: Border.all(
+                          color: isMe
+                              ? const Color(0xFF38006B)
+                              : (isDark
+                                    ? const Color(0xFF505050)
+                                    : const Color(0xFFB0B0B0)),
+                          width: isMe ? 1.5 : 1,
                         ),
-                        if (isMe)
+                        boxShadow: [
                           BoxShadow(
-                            color: const Color(0xFFBA68C8).withOpacity(0.3),
-                            offset: const Offset(0, -1),
-                            blurRadius: 0,
+                            color: Colors.black.withOpacity(isMe ? 0.4 : 0.25),
+                            offset: const Offset(0, 3),
+                            blurRadius: 6,
                           ),
-                      ],
-                    ),
-                    child: Column(
-                      crossAxisAlignment: isMe
-                          ? CrossAxisAlignment.end
-                          : CrossAxisAlignment.start,
-                      children: [
-                        // Image message
-                        if (isImageMessage)
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(16),
-                            child: ConstrainedBox(
-                              constraints: const BoxConstraints(
-                                maxWidth: 240,
-                                maxHeight: 320,
-                              ),
-                              child: Image.network(
-                                message.content,
-                                fit: BoxFit.cover,
-                                loadingBuilder: (context, child, progress) {
-                                  if (progress == null) return child;
-                                  return Container(
-                                    width: 200,
-                                    height: 150,
-                                    decoration: BoxDecoration(
-                                      color: isDark
-                                          ? Colors.grey[800]
-                                          : Colors.grey[200],
-                                      borderRadius: BorderRadius.circular(16),
-                                    ),
-                                    child: Center(
-                                      child: CircularProgressIndicator(
-                                        value:
-                                            progress.expectedTotalBytes != null
-                                            ? progress.cumulativeBytesLoaded /
-                                                  progress.expectedTotalBytes!
-                                            : null,
-                                        strokeWidth: 2,
-                                        color: _iMessageBlue,
+                          if (isMe)
+                            BoxShadow(
+                              color: const Color(0xFFBA68C8).withOpacity(0.3),
+                              offset: const Offset(0, -1),
+                              blurRadius: 0,
+                            ),
+                        ],
+                      ),
+                      child: Column(
+                        crossAxisAlignment: isMe
+                            ? CrossAxisAlignment.end
+                            : CrossAxisAlignment.start,
+                        children: [
+                          // Image message
+                          if (isImageMessage)
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(16),
+                              child: ConstrainedBox(
+                                constraints: const BoxConstraints(
+                                  maxWidth: 240,
+                                  maxHeight: 320,
+                                ),
+                                child: Image.network(
+                                  message.content,
+                                  fit: BoxFit.cover,
+                                  loadingBuilder: (context, child, progress) {
+                                    if (progress == null) return child;
+                                    return Container(
+                                      width: 200,
+                                      height: 150,
+                                      decoration: BoxDecoration(
+                                        color: isDark
+                                            ? Colors.grey[800]
+                                            : Colors.grey[200],
+                                        borderRadius: BorderRadius.circular(16),
                                       ),
-                                    ),
-                                  );
-                                },
-                                errorBuilder: (context, error, stackTrace) {
-                                  return Container(
-                                    width: 200,
-                                    height: 120,
-                                    decoration: BoxDecoration(
-                                      color: isDark
-                                          ? Colors.grey[800]
-                                          : Colors.grey[300],
-                                      borderRadius: BorderRadius.circular(16),
-                                    ),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Icon(
-                                          Icons.broken_image_rounded,
-                                          color: Colors.grey[500],
-                                          size: 32,
+                                      child: Center(
+                                        child: CircularProgressIndicator(
+                                          value:
+                                              progress.expectedTotalBytes != null
+                                              ? progress.cumulativeBytesLoaded /
+                                                    progress.expectedTotalBytes!
+                                              : null,
+                                          strokeWidth: 2,
+                                          color: _iMessageBlue,
                                         ),
-                                        const SizedBox(height: 4),
-                                        Text(
-                                          'Unable to load',
-                                          style: TextStyle(
-                                            fontSize: 11,
+                                      ),
+                                    );
+                                  },
+                                  errorBuilder: (context, error, stackTrace) {
+                                    return Container(
+                                      width: 200,
+                                      height: 120,
+                                      decoration: BoxDecoration(
+                                        color: isDark
+                                            ? Colors.grey[800]
+                                            : Colors.grey[300],
+                                        borderRadius: BorderRadius.circular(16),
+                                      ),
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Icon(
+                                            Icons.broken_image_rounded,
                                             color: Colors.grey[500],
+                                            size: 32,
                                           ),
-                                        ),
-                                      ],
-                                    ),
-                                  );
-                                },
+                                          const SizedBox(height: 4),
+                                          Text(
+                                            'Unable to load',
+                                            style: TextStyle(
+                                              fontSize: 11,
+                                              color: Colors.grey[500],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  },
+                                ),
                               ),
                             ),
-                          ),
-                        // Text message
-                        if (!isImageMessage)
-                          Text(
-                            message.content,
-                            style: TextStyle(
-                              color: textColor,
-                              fontSize: 16,
-                              height: 1.3,
-                              shadows: isMe
-                                  ? [
-                                      const Shadow(
-                                        offset: Offset(0, 1),
-                                        blurRadius: 2,
-                                        color: Colors.black26,
+                          if (!isImageMessage && shouldHideFlaggedText)
+                            GestureDetector(
+                              onTap: onToggleRevealFlagged,
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 2,
+                                  vertical: 2,
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Hidden potentially abusive content',
+                                      style: TextStyle(
+                                        color: textColor,
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w600,
                                       ),
-                                    ]
-                                  : null,
+                                    ),
+                                    const SizedBox(height: 4),
+                                    Text(
+                                      'Tap to view',
+                                      style: TextStyle(
+                                        color: textColor.withValues(alpha: 0.85),
+                                        fontSize: 12,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
                             ),
-                          ),
-                      ],
+                          // Text message
+                          if (!isImageMessage && !shouldHideFlaggedText)
+                            Text(
+                              message.content,
+                              style: TextStyle(
+                                color: textColor,
+                                fontSize: 16,
+                                height: 1.3,
+                                shadows: isMe
+                                    ? [
+                                        const Shadow(
+                                          offset: Offset(0, 1),
+                                          blurRadius: 2,
+                                          color: Colors.black26,
+                                        ),
+                                      ]
+                                    : null,
+                              ),
+                            ),
+                        ],
+                      ),
                     ),
                   ),
                 ),

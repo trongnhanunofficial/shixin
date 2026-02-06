@@ -225,6 +225,8 @@ class AuthService extends GetxService {
     final phoneKey = _createPhoneKey(user.phoneNumber);
 
     await _deleteFriendRelations(uid);
+    await _deleteBlockRelations(uid);
+    await _deleteReports(uid);
     await _deleteChats(uid);
     await _usersRef.doc(uid).delete();
     await _authAccountsRef.doc(phoneKey).delete();
@@ -327,6 +329,48 @@ class AuthService extends GetxService {
     for (final doc in chatsSnapshot.docs) {
       await _deleteMessages(doc.reference);
       await doc.reference.delete();
+    }
+  }
+
+  Future<void> _deleteBlockRelations(String uid) async {
+    final blocksByMe = await _firestore
+        .collection(FirebaseConstants.userBlocksCollection)
+        .where(FirebaseConstants.fieldOwnerUid, isEqualTo: uid)
+        .get();
+
+    final blocksAgainstMe = await _firestore
+        .collection(FirebaseConstants.userBlocksCollection)
+        .where(FirebaseConstants.fieldTargetUid, isEqualTo: uid)
+        .get();
+
+    final references = <DocumentReference<Map<String, dynamic>>>{
+      ...blocksByMe.docs.map((doc) => doc.reference),
+      ...blocksAgainstMe.docs.map((doc) => doc.reference),
+    };
+
+    for (final ref in references) {
+      await ref.delete();
+    }
+  }
+
+  Future<void> _deleteReports(String uid) async {
+    final reportedByMe = await _firestore
+        .collection(FirebaseConstants.reportsCollection)
+        .where(FirebaseConstants.fieldReporterUid, isEqualTo: uid)
+        .get();
+
+    final reportsAgainstMe = await _firestore
+        .collection(FirebaseConstants.reportsCollection)
+        .where(FirebaseConstants.fieldTargetUid, isEqualTo: uid)
+        .get();
+
+    final references = <DocumentReference<Map<String, dynamic>>>{
+      ...reportedByMe.docs.map((doc) => doc.reference),
+      ...reportsAgainstMe.docs.map((doc) => doc.reference),
+    };
+
+    for (final ref in references) {
+      await ref.delete();
     }
   }
 
