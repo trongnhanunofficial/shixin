@@ -1,7 +1,7 @@
 name: shixin
 description: "A new Flutter project."
 publish_to: 'none'
-version: 0.1.0
+version: 1.0.0+2
 
 environment:
   sdk: ^3.8.1
@@ -34,6 +34,7 @@ flutter:
   assets:
     - assets/images/captcha_bg.jpg
     - assets/moderation/bad_words.txt
+    - assets/images/logo.png
 
 flutter_launcher_icons:
   android: true
