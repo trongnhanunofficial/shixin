@@ -22,6 +22,8 @@ dependencies:
   slider_captcha: ^1.0.2
   fluentui_system_icons: ^1.1.255
   app_tracking_transparency: ^2.0.6+1
+  wukongimfluttersdk:
+    path: local/WuKongIMFlutterSDK
 
 dev_dependencies:
   flutter_test:

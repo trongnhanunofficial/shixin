@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:wukongimfluttersdk/common/options.dart';
+import 'package:wukongimfluttersdk/wkim.dart';
 
 import 'app/routes/app_pages.dart';
 import 'app/routes/app_routes.dart';
@@ -10,10 +12,25 @@ import 'app/data/services/settings_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  _initWuKongIM();
   await Firebase.initializeApp();
   final settingsService = Get.put(SettingsService(), permanent: true);
   await settingsService.load();
   runApp(const MyApp());
+}
+
+Future<void> _initWuKongIM() async {
+  try {
+    final initialized = await WKIM.shared.setup(
+      Options.newDefault('bootstrap', ''),
+    );
+    if (!initialized) {
+      debugPrint('WuKongIMFlutterSDK setup returned false.');
+    }
+  } catch (error, stackTrace) {
+    debugPrint('Failed to initialize WuKongIMFlutterSDK: $error');
+    debugPrintStack(stackTrace: stackTrace);
+  }
 }
 
 class MyApp extends StatelessWidget {
