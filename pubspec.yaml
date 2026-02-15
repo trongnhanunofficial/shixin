@@ -17,13 +17,67 @@ dependencies:
   image_picker: ^1.2.1
   http: ^1.6.0
   emoji_picker_flutter: ^4.4.0
-  flutter_slidable: ^3.1.1
   url_launcher: ^6.3.2
   slider_captcha: ^1.0.2
   fluentui_system_icons: ^1.1.255
   app_tracking_transparency: ^2.0.6+1
   wukongimfluttersdk:
     path: local/WuKongIMFlutterSDK
+  intl: ^0.20.2
+  flutter_staggered_animations: ^1.1.1
+  provider: ^6.1.5
+  dio: ^5.9.0
+  encrypt: ^5.0.3
+  chatview_utils:
+    path: ./local/chatview_utils
+  device_info_plus: ^12.3.0
+  qr_flutter: ^4.1.0
+  webview_flutter: ^4.13.0
+  package_info_plus: ^9.0.0
+  audio_waveforms: ^2.0.0
+  any_link_preview: ^3.0.3
+  chat_bottom_container: ^0.3.2
+  cached_network_image: ^3.4.1
+  flutter_slidable: ^4.0.3
+  flutter_screenutil: ^5.9.3
+  flutter_mentions: ^2.0.1
+  flutter_typeahead: ^5.2.0
+  flutter_parsed_text: ^2.2.1
+  flutter_cache_manager: ^3.4.1
+  path_provider: ^2.1.5
+  path: ^1.9.0
+  flutter_local_notifications: ^19.5.0
+  vibration: ^3.1.4
+  mobile_scanner: ^7.1.3
+  ffmpeg_kit_flutter_new: ^4.1.0
+  flutter_webrtc: ^1.2.1
+  just_audio: ^0.10.5
+  photo_view: ^0.15.0
+  dismissible_page: ^1.0.2
+  pull_down_button: ^0.10.2
+  connectivity_plus: ^6.1.5
+  bot_toast: ^4.1.3
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  file_picker: ^10.3.7
+  open_filex: ^4.4.0
+  permission_handler: ^12.0.1
+  flutter_windowmanager_plus: ^1.0.1
+  image_gallery_saver_plus: ^4.0.1
+  video_player: ^2.10.1
+  share_plus: ^12.0.1
+  lottie: ^3.3.1 
+  sqflite: ^2.4.1 
+  flutter_inappwebview: ^6.1.5
+  screen_protector: ^1.4.4
+  video_thumbnail: ^0.5.6
+  lpinyin: ^2.0.3
+  pro_image_editor: ^11.3.0
+  google_generative_ai: ^0.4.7
+  uuid: ^4.5.1
+  flutter_list_view: ^1.1.29
+  flutter_image_compress: ^2.4.0
+  animate_do: ^4.2.0
 
 dev_dependencies:
   flutter_test:
@@ -35,8 +89,12 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/captcha_bg.jpg
+    - assets/images/1.webp
+    - assets/images/2.webp
+    - assets/images/3.webp
     - assets/moderation/bad_words.txt
     - assets/images/logo.png
+    - assets/mp3/
 
 flutter_launcher_icons:
   android: true
