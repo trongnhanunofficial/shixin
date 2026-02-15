@@ -49,6 +49,8 @@
 	<string>This app requires access to the photo library to update your profile avatar.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>This app requires access to the camera to update your profile avatar.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>This app uses the microphone only when users choose to record voice messages or join audio/video calls. Audio is not captured in the background without user action.</string>
 	<key>NSUserTrackingUsageDescription</key>
 	<string>Allow us to track your activity to measure performance and improve app reliability, including crash diagnostics.</string>
 </dict>
