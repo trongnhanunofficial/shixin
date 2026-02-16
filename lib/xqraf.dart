@@ -9,7 +9,7 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get igb5q1pkc0qi1ilr => '时信';
+  String get igb5q1pkc0qi1ilr => '时信IM';
 
   @override
   String get teifo2ecgyq1vol0f => 'Connect anytime. Connect anywhere.';

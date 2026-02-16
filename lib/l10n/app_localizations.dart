@@ -101,7 +101,7 @@ abstract class AppLocalizations {
   /// No description provided for @igb5q1pkc0qi1ilr.
   ///
   /// In en, this message translates to:
-  /// **'时信'**
+  /// **'时信IM'**
   String get igb5q1pkc0qi1ilr;
 
   /// No description provided for @teifo2ecgyq1vol0f.

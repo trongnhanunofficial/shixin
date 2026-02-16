@@ -9,7 +9,7 @@ class AppLocalizationsZh extends AppLocalizations {
   AppLocalizationsZh([String locale = 'zh']) : super(locale);
 
   @override
-  String get igb5q1pkc0qi1ilr => '时信';
+  String get igb5q1pkc0qi1ilr => '时信IM';
 
   @override
   String get teifo2ecgyq1vol0f => '随时连线，沟通无界';
@@ -41,13 +41,13 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get i75rzqyh6xd8duck => '时信是稳定、安全的企业级即时通讯平台，助力团队高效协同。';
+  String get i75rzqyh6xd8duck => '时信IM是稳定、安全的企业级即时通讯平台，助力团队高效协同。';
 
   @override
   String get g3c7k9orpd => 'gideonswebe79@gmail.com';
 
   @override
-  String get tt6m4z4gb0spak => '时信运营组';
+  String get tt6m4z4gb0spak => '时信IM运营组';
 
   @override
   String get t92z0xay96h9a5 => '商务合作与建议请致信';
@@ -1570,7 +1570,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get k8gt9elflqmeayba => '注册新账号';
 
   @override
-  String get l5yfanf79hatoowc0 => '加入时信，连接团队。';
+  String get l5yfanf79hatoowc0 => '加入时信IM，连接团队。';
 
   @override
   String get zia4wy5lmju0r9 => '填写手机号';
@@ -4767,13 +4767,13 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get nyougz7yhyjrmm4 =>
-      '为呵护未成年人健康成长，时信推出未成年人模式。\n该模式下部分功能将受限制使用，请监护人主动设置。';
+      '为呵护未成年人健康成长，时信IM推出未成年人模式。\n该模式下部分功能将受限制使用，请监护人主动设置。';
 
   @override
   String get sykz19uixh4 => '我已阅读并同意';
 
   @override
-  String get arn2txyk0imq => '《时信未成年人模式功能使用条款》';
+  String get arn2txyk0imq => '《时信IM未成年人模式功能使用条款》';
 
   @override
   String get qzqld2prhltr => '开启';
