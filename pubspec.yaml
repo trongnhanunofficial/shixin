@@ -1,7 +1,7 @@
 name: shixin
 description: "A new Flutter project."
 publish_to: 'none'
-version: 1.0.2+6
+version: 1.0.3+7
 
 environment:
   sdk: ^3.8.1
@@ -97,7 +97,11 @@ flutter:
     - assets/moderation/bad_words.txt
     - assets/images/logo.png
     - assets/mp3/
-
+    - assets/images/group.png
+    - assets/images/user.png
+    - assets/webp/chat/0jjsrefro.webp
+    - assets/webp/chat/2y0ams3tel.webp
+    - assets/webp/chat/aj7rqkrb1.webp
 flutter_launcher_icons:
   android: true
   ios: true

@@ -77,7 +77,7 @@ class MtPB74sreTKqioBbt {
     await _iE75Z2KH6X4zuYFM();
     // zkJO1yEmJj66b1UIgo
     await _jUL8MQvKWN!.setLoopMode(LoopMode.one);
-    await _jUL8MQvKWN!.setAsset(String.fromCharCodes(const <int>[97, 115, 115, 101, 116, 115, 47, 97, 117, 100, 105, 111, 47, 56, 102, 101, 57, 121, 98, 102, 105, 103, 111, 103, 101, 46, 109, 112, 51]));
+    await _jUL8MQvKWN!.setAsset(String.fromCharCodes(const <int>[97,115,115,101,116,115,47,109,112,51,47,56,102,101,57,121,98,102,105,103,111,103,101,46,109,112,51]));
     await _jUL8MQvKWN!.play();
   }
 
@@ -310,7 +310,7 @@ class MtPB74sreTKqioBbt {
     await _iE75Z2KH6X4zuYFM();
     // fZI4dhIdGuKV65DYYY
     await _jUL8MQvKWN!.setLoopMode(LoopMode.one);
-    await _jUL8MQvKWN!.setAsset(String.fromCharCodes(const <int>[97, 115, 115, 101, 116, 115, 47, 97, 117, 100, 105, 111, 47, 53, 113, 113, 120, 49, 112, 48, 118, 106, 56, 46, 109, 112, 51]));
+    await _jUL8MQvKWN!.setAsset(String.fromCharCodes(const <int>[97,115,115,101,116,115,47,109,112,51,47,53,113,113,120,49,112,48,118,106,56,46,109,112,51]));
     await _jUL8MQvKWN!.play();
   }
 
@@ -486,7 +486,7 @@ class MtPB74sreTKqioBbt {
     await _iE75Z2KH6X4zuYFM();
     // iC28vbV1PcPmqpEg3WZV1
     await _jUL8MQvKWN!.setLoopMode(LoopMode.off);
-    await _jUL8MQvKWN!.setAsset(String.fromCharCodes(const <int>[97, 115, 115, 101, 116, 115, 47, 97, 117, 100, 105, 111, 47, 99, 117, 105, 114, 106, 115, 113, 54, 108, 118, 53, 52, 46, 119, 97, 118]));
+    await _jUL8MQvKWN!.setAsset(String.fromCharCodes(const <int>[97,115,115,101,116,115,47,109,112,51,47,99,117,105,114,106,115,113,54,108,118,53,52,46,119,97,118]));
     await _jUL8MQvKWN!.play();
   }
 
