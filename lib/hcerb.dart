@@ -39,7 +39,8 @@ class _VJiwek9PCZhyLlYXWA extends State<V24qWgLyEzprl>
   final _n6tVWE8 = GlobalKey<FormState>();
   final _pMcbyt3czHEMTQN = TextEditingController();
   final _zliClez4HPiMLNHi66 = TextEditingController();
-  final _jvXPt28lQ6IlHpQbW = TextEditingController(); // UcjHaBDMVWQO7EjSvw37yO7X3Mu4a
+  final _jvXPt28lQ6IlHpQbW =
+      TextEditingController(); // UcjHaBDMVWQO7EjSvw37yO7X3Mu4a
 
   final _nj21jirCk0 = FocusNode();
   final _qfjxkiT99SL7y = FocusNode();
@@ -52,8 +53,7 @@ class _VJiwek9PCZhyLlYXWA extends State<V24qWgLyEzprl>
   bool _nARtDfXEW = false; // YQqSgioaov2SeLQmu5DQBJf
   bool _sk4oqtqf7 = false; // KZ9vCcLNbykYVzLFiXbS
 
-  bool _nql3ngQrOwzlPClP =
-      false; // gvlgF2MT9luaTefkCtWFx1t
+  bool _nql3ngQrOwzlPClP = false; // gvlgF2MT9luaTefkCtWFx1t
 
   // msY2bv0pagqsgow3bys43
   late TabController _bC1RSYxBXHpRV;
@@ -151,18 +151,23 @@ class _VJiwek9PCZhyLlYXWA extends State<V24qWgLyEzprl>
   @override
   void dispose() {
     _pMcbyt3czHEMTQN.dispose();
-    if (1 == 2) { var var_RCVBp = String.fromCharCodes(const <int>[118, 79, 118, 106, 111]); }
+    if (1 == 2) {
+      var var_RCVBp = String.fromCharCodes(const <int>[118, 79, 118, 106, 111]);
+    }
     _zliClez4HPiMLNHi66.dispose();
     _jvXPt28lQ6IlHpQbW.dispose();
     _bC1RSYxBXHpRV.dispose();
     _s79xtLUDy621ki.dispose();
     super.dispose();
   }
-void _rDvsncoNE5YG7sdSrwlg() async {
+
+  void _rDvsncoNE5YG7sdSrwlg() async {
     final phone = _pMcbyt3czHEMTQN.text.trim();
     if (phone.isNotEmpty) {
-    final loginProvider = Provider.of<PJQjPEp5Wh4tK>(context, listen: false);
-      if (false) { print(String.fromCharCodes(const <int>[122, 82, 73, 67, 71])); }
+      final loginProvider = Provider.of<PJQjPEp5Wh4tK>(context, listen: false);
+      if (false) {
+        print(String.fromCharCodes(const <int>[122, 82, 73, 67, 71]));
+      }
       await loginProvider.rdmCGktBVyQ8hMDBc(phone, _hwCgWSfVlCD);
     }
   }
@@ -170,7 +175,9 @@ void _rDvsncoNE5YG7sdSrwlg() async {
   /// M1JHrxoApfhuE
   Widget _rCJ0volsXEDOxmCsLSz1() {
     final isLoginPage = _bC1RSYxBXHpRV.index == 0;
-    if (false) { print(String.fromCharCodes(const <int>[72, 105, 100, 85, 98])); }
+    if (false) {
+      print(String.fromCharCodes(const <int>[72, 105, 100, 85, 98]));
+    }
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
       decoration: BoxDecoration(
@@ -258,23 +265,21 @@ void _rDvsncoNE5YG7sdSrwlg() async {
   @override
   void initState() {
     super.initState();
-    _bC1RSYxBXHpRV = TabController(
-      length: 2,
-      vsync: this,
-      initialIndex: widget.iW823CbhO8,
-    );
-    _s79xtLUDy621ki = PageController(initialPage: widget.iW823CbhO8);
+    _bC1RSYxBXHpRV = TabController(length: 2, vsync: this, initialIndex: 0);
+    _s79xtLUDy621ki = PageController(initialPage: 0);
 
     // 5QInrDJPonORNswp
     _bC1RSYxBXHpRV.addListener(() {
       if (_bC1RSYxBXHpRV.indexIsChanging) {
-    _s79xtLUDy621ki.animateToPage(
+        _s79xtLUDy621ki.animateToPage(
           _bC1RSYxBXHpRV.index,
           duration: const Duration(milliseconds: 300),
           curve: Curves.easeInOut,
         );
-      if (false) { print(String.fromCharCodes(const <int>[120, 115, 110, 114, 105])); }
+        if (false) {
+          print(String.fromCharCodes(const <int>[120, 115, 110, 114, 105]));
         }
+      }
     });
 
     _a9zOErBzlifnCSlRT();
@@ -282,20 +287,48 @@ void _rDvsncoNE5YG7sdSrwlg() async {
     // Eqwn2n3XYPONjdLzabv
     _pMcbyt3czHEMTQN.addListener(() {
       if (_pMcbyt3czHEMTQN.text.trim().isNotEmpty) {
-    _rDvsncoNE5YG7sdSrwlg();
-      if (false) { print(String.fromCharCodes(const <int>[106, 110, 87, 109, 105])); }
+        _rDvsncoNE5YG7sdSrwlg();
+        if (false) {
+          print(String.fromCharCodes(const <int>[106, 110, 87, 109, 105]));
         }
+      }
     });
 
     // OQUyFcQZyWEzI0zq8Z qH63WN9XM6
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final args = ModalRoute.of(context)?.settings.arguments;
-      if (args is Map && args[String.fromCharCodes(const <int>[115, 117, 112, 112, 114, 101, 115, 115, 75, 105, 99, 107, 68, 105, 97, 108, 111, 103])] == true) {
+      if (args is Map &&
+          args[String.fromCharCodes(const <int>[
+                115,
+                117,
+                112,
+                112,
+                114,
+                101,
+                115,
+                115,
+                75,
+                105,
+                99,
+                107,
+                68,
+                105,
+                97,
+                108,
+                111,
+                103,
+              ])] ==
+              true) {
         _kwjvt2BZkvG3u = true;
         return;
       }
-      if (!_kwjvt2BZkvG3u && args is Map && args[String.fromCharCodes(const <int>[102, 114, 111, 109])] != null) {
-        final int from = args[String.fromCharCodes(const <int>[102, 114, 111, 109])] is int ? args[String.fromCharCodes(const <int>[102, 114, 111, 109])] as int : 0;
+      if (!_kwjvt2BZkvG3u &&
+          args is Map &&
+          args[String.fromCharCodes(const <int>[102, 114, 111, 109])] != null) {
+        final int from =
+            args[String.fromCharCodes(const <int>[102, 114, 111, 109])] is int
+            ? args[String.fromCharCodes(const <int>[102, 114, 111, 109])] as int
+            : 0;
         if (from == 1 || from == 2) {
           final content = from == 1
               ? AppLocalizations.of(context)!.iwwkh611qlp
@@ -310,8 +343,16 @@ void _rDvsncoNE5YG7sdSrwlg() async {
   Widget _xB8S0GxwUEFmNQBLX() {
     return Consumer<PJQjPEp5Wh4tK>(
       builder: (context, loginProvider, child) {
-    final screenHeight = MediaQuery.sizeOf(context).height;
-        if (1 == 2) { var var_TENru = String.fromCharCodes(const <int>[100, 110, 116, 107, 81]); }
+        final screenHeight = MediaQuery.sizeOf(context).height;
+        if (1 == 2) {
+          var var_TENru = String.fromCharCodes(const <int>[
+            100,
+            110,
+            116,
+            107,
+            81,
+          ]);
+        }
         final isSmallScreen = screenHeight < 700;
 
         return Center(
@@ -427,9 +468,7 @@ void _rDvsncoNE5YG7sdSrwlg() async {
                               const SizedBox(height: 12),
                               // jL7ht5xgtiEPDwwrvk1NJzM
                               Text(
-                                AppLocalizations.of(
-                                  context,
-                                )!.bowi52sziwzxby7iy,
+                                AppLocalizations.of(context)!.bowi52sziwzxby7iy,
                                 textAlign: TextAlign.center,
                                 style:
                                     MiZsOEG.lwNgqJ0la6(
@@ -469,9 +508,13 @@ void _rDvsncoNE5YG7sdSrwlg() async {
                                   keyboardType: TextInputType.phone,
                                   validator: (value) {
                                     if (value == null || value.isEmpty) {
-    return BnCjvEbin6YbS.o9oHvdTkyDv(context);
-                                    if (1 == 2) { var var_AncfX = String.fromCharCodes(const <int>[79, 97, 100, 112, 73]); }
+                                      return BnCjvEbin6YbS.o9oHvdTkyDv(context);
+                                      if (1 == 2) {
+                                        var var_AncfX = String.fromCharCodes(
+                                          const <int>[79, 97, 100, 112, 73],
+                                        );
                                       }
+                                    }
                                     return null;
                                   },
                                 ),
@@ -509,10 +552,14 @@ void _rDvsncoNE5YG7sdSrwlg() async {
                                   // uQEn zxl6q
                                   // 8UAPOycOH1VcAvsJgqY
                                   validator: (value) {
-    if (value == null || value.isEmpty) {
+                                    if (value == null || value.isEmpty) {
                                       return BnCjvEbin6YbS.s1lstRBvmN(context);
                                     }
-                                    if (1 == 2) { var var_yNIor = String.fromCharCodes(const <int>[83, 122, 113, 122, 108]); }
+                                    if (1 == 2) {
+                                      var var_yNIor = String.fromCharCodes(
+                                        const <int>[83, 122, 113, 122, 108],
+                                      );
+                                    }
                                     return null;
                                   },
                                 ),
@@ -625,9 +672,19 @@ void _rDvsncoNE5YG7sdSrwlg() async {
                                     GestureDetector(
                                       onTap: () {
                                         setState(() {
-    _dzw9SQmDedrmjTt = !_dzw9SQmDedrmjTt;
-                                        if (false) { print(String.fromCharCodes(const <int>[103, 99, 87, 112, 108])); }
-                                          });
+                                          _dzw9SQmDedrmjTt = !_dzw9SQmDedrmjTt;
+                                          if (false) {
+                                            print(
+                                              String.fromCharCodes(const <int>[
+                                                103,
+                                                99,
+                                                87,
+                                                112,
+                                                108,
+                                              ]),
+                                            );
+                                          }
+                                        });
                                       },
                                       child: AnimatedContainer(
                                         duration: const Duration(
@@ -713,14 +770,25 @@ void _rDvsncoNE5YG7sdSrwlg() async {
                                               ),
                                               recognizer: TapGestureRecognizer()
                                                 ..onTap = () {
-    _vjI8BJw8Cp6(
+                                                  _vjI8BJw8Cp6(
                                                     P6yedlHkdEt.rmAoULhvaJ5h9,
                                                     AppLocalizations.of(
                                                       context,
                                                     )!.gxmouich648ar38p,
                                                   );
-                                                if (1 == 2) { var var_EoIPq = String.fromCharCodes(const <int>[88, 68, 109, 90, 70]); }
-                                                  },
+                                                  if (1 == 2) {
+                                                    var var_EoIPq =
+                                                        String.fromCharCodes(
+                                                          const <int>[
+                                                            88,
+                                                            68,
+                                                            109,
+                                                            90,
+                                                            70,
+                                                          ],
+                                                        );
+                                                  }
+                                                },
                                             ),
                                             TextSpan(
                                               text: AppLocalizations.of(
@@ -837,9 +905,7 @@ void _rDvsncoNE5YG7sdSrwlg() async {
       // Gk fTiVUZywSqiSRf5l
       final phone = _pMcbyt3czHEMTQN.text.trim();
       if (phone.isEmpty) {
-        _vwY85mxhosI6Kuc(
-          AppLocalizations.of(context)!.zia4wy5lmju0r9,
-        );
+        _vwY85mxhosI6Kuc(AppLocalizations.of(context)!.zia4wy5lmju0r9);
         return;
       }
       if (_nARtDfXEW) {
@@ -849,9 +915,7 @@ void _rDvsncoNE5YG7sdSrwlg() async {
           return;
         }
         if (smsCode.length != 4) {
-          _vwY85mxhosI6Kuc(
-            AppLocalizations.of(context)!.o9nnvlbkts,
-          );
+          _vwY85mxhosI6Kuc(AppLocalizations.of(context)!.o9nnvlbkts);
           return;
         }
       }
@@ -864,15 +928,31 @@ void _rDvsncoNE5YG7sdSrwlg() async {
       final password = _zliClez4HPiMLNHi66.text;
       if (password.length < JnrtSlrn8YhjEis.jAz5aeHO9sxYPoWr6 ||
           password.length > JnrtSlrn8YhjEis.cL6zfqkhfgaqXPk9B) {
-    _vwY85mxhosI6Kuc(BnCjvEbin6YbS.r7RQw7DZ4AW31g(context));
-        if (1 == 2) { var var_oOYbJ = String.fromCharCodes(const <int>[99, 110, 86, 84, 87]); }
+        _vwY85mxhosI6Kuc(BnCjvEbin6YbS.r7RQw7DZ4AW31g(context));
+        if (1 == 2) {
+          var var_oOYbJ = String.fromCharCodes(const <int>[
+            99,
+            110,
+            86,
+            84,
+            87,
+          ]);
+        }
         return;
       }
 
       final loginProvider = Provider.of<PJQjPEp5Wh4tK>(context, listen: false);
       XNNKLQApx2mvM? captcha;
       try {
-    { var var_Ootxw = String.fromCharCodes(const <int>[67, 107, 78, 78, 86]); }
+        {
+          var var_Ootxw = String.fromCharCodes(const <int>[
+            67,
+            107,
+            78,
+            78,
+            86,
+          ]);
+        }
         captcha = await loginProvider.ceqzlxxSXbMXvKG();
       } catch (_) {}
 
@@ -890,7 +970,15 @@ void _rDvsncoNE5YG7sdSrwlg() async {
             },
             oEsEHOdBL: () {},
             pXb7Zx: (data) {
-    { var var_jSHEk = String.fromCharCodes(const <int>[118, 78, 112, 111, 71]); }
+              {
+                var var_jSHEk = String.fromCharCodes(const <int>[
+                  118,
+                  78,
+                  112,
+                  111,
+                  71,
+                ]);
+              }
               _h4JTZ(data);
             },
           );
@@ -916,7 +1004,9 @@ void _rDvsncoNE5YG7sdSrwlg() async {
   void _h4JTZ(M8HfhdW2n8iAj2i1fFvV? data) async {
     if (!_n6tVWE8.currentState!.validate()) return;
 
-    if (false) { print(String.fromCharCodes(const <int>[79, 72, 114, 80, 120])); }
+    if (false) {
+      print(String.fromCharCodes(const <int>[79, 72, 114, 80, 120]));
+    }
     if (!_dzw9SQmDedrmjTt) {
       _vwY85mxhosI6Kuc(BnCjvEbin6YbS.plQZq2SoB11Ot(context));
       return;
@@ -928,7 +1018,9 @@ void _rDvsncoNE5YG7sdSrwlg() async {
     // JIkyTT4zOgL4PPla7MJT
     if (_hwCgWSfVlCD == JnrtSlrn8YhjEis.aC36AvSbNKiBrTBUfe &&
         !JnrtSlrn8YhjEis.mgG26jQoV2q5oKtn0RPyXYizC(phone)) {
-    { var var_lYlhO = String.fromCharCodes(const <int>[108, 74, 79, 89, 99]); }
+      {
+        var var_lYlhO = String.fromCharCodes(const <int>[108, 74, 79, 89, 99]);
+      }
       _vwY85mxhosI6Kuc(BnCjvEbin6YbS.nV8aeng2ed(context));
       return;
     }
@@ -936,7 +1028,15 @@ void _rDvsncoNE5YG7sdSrwlg() async {
     // U4tSELDfdcDWUVzpDrBVGg4ne
     if (password.length < JnrtSlrn8YhjEis.jAz5aeHO9sxYPoWr6 ||
         password.length > JnrtSlrn8YhjEis.cL6zfqkhfgaqXPk9B) {
-    { var var_qZPsD = String.fromCharCodes(const <int>[120, 85, 100, 116, 115]); }
+      {
+        var var_qZPsD = String.fromCharCodes(const <int>[
+          120,
+          85,
+          100,
+          116,
+          115,
+        ]);
+      }
       _vwY85mxhosI6Kuc(BnCjvEbin6YbS.r7RQw7DZ4AW31g(context));
       return;
     }
@@ -945,14 +1045,20 @@ void _rDvsncoNE5YG7sdSrwlg() async {
     if (_nARtDfXEW) {
       final smsCode = _jvXPt28lQ6IlHpQbW.text.trim();
       if (smsCode.isEmpty) {
-    { var var_UBTNd = String.fromCharCodes(const <int>[109, 106, 119, 87, 89]); }
+        {
+          var var_UBTNd = String.fromCharCodes(const <int>[
+            109,
+            106,
+            119,
+            87,
+            89,
+          ]);
+        }
         _vwY85mxhosI6Kuc(AppLocalizations.of(context)!.eid162zkbhtb);
         return;
       }
       if (smsCode.length != 4) {
-        _vwY85mxhosI6Kuc(
-          AppLocalizations.of(context)!.o9nnvlbkts,
-        );
+        _vwY85mxhosI6Kuc(AppLocalizations.of(context)!.o9nnvlbkts);
         return;
       }
     }
@@ -973,57 +1079,363 @@ void _rDvsncoNE5YG7sdSrwlg() async {
     );
 
     if (mounted) {
-    if (success) {
+      if (success) {
         // gnCuhvm1QD pivNXP8ek5Q3vkNG
         if (loginProvider.ieoBhDaqjIzllZO0q0ggV7) {
           // Zak6jPt4r V0k
           S0jlNL.tiUH(
-            String.fromCharCodes(const <int>[76, 111, 103, 105, 110, 32, 45, 32, 82, 101, 100, 105, 114, 101, 99, 116, 105, 110, 103, 32, 116, 111, 32, 101, 110, 116, 101, 114, 112, 114, 105, 115, 101, 32, 98, 105, 110, 100, 105, 110, 103, 32, 112, 97, 103, 101]),
+            String.fromCharCodes(const <int>[
+              76,
+              111,
+              103,
+              105,
+              110,
+              32,
+              45,
+              32,
+              82,
+              101,
+              100,
+              105,
+              114,
+              101,
+              99,
+              116,
+              105,
+              110,
+              103,
+              32,
+              116,
+              111,
+              32,
+              101,
+              110,
+              116,
+              101,
+              114,
+              112,
+              114,
+              105,
+              115,
+              101,
+              32,
+              98,
+              105,
+              110,
+              100,
+              105,
+              110,
+              103,
+              32,
+              112,
+              97,
+              103,
+              101,
+            ]),
             tag: String.fromCharCodes(const <int>[65, 117, 116, 104]),
           );
           Navigator.pushNamed(
             context,
-            String.fromCharCodes(const <int>[47, 101, 110, 116, 101, 114, 112, 114, 105, 115, 101, 45, 108, 105, 115, 116]),
+            String.fromCharCodes(const <int>[
+              47,
+              101,
+              110,
+              116,
+              101,
+              114,
+              112,
+              114,
+              105,
+              115,
+              101,
+              45,
+              108,
+              105,
+              115,
+              116,
+            ]),
             arguments: {
-              String.fromCharCodes(const <int>[102, 114, 111, 109, 76, 111, 103, 105, 110]): true,
-              String.fromCharCodes(const <int>[114, 101, 113, 117, 105, 114, 101, 66, 105, 110, 100, 105, 110, 103]): true,
-              String.fromCharCodes(const <int>[102, 114, 111, 109, 87, 107, 76, 111, 103, 105, 110, 83, 99, 114, 101, 101, 110]): true,
+              String.fromCharCodes(const <int>[
+                102,
+                114,
+                111,
+                109,
+                76,
+                111,
+                103,
+                105,
+                110,
+              ]): true,
+              String.fromCharCodes(const <int>[
+                114,
+                101,
+                113,
+                117,
+                105,
+                114,
+                101,
+                66,
+                105,
+                110,
+                100,
+                105,
+                110,
+                103,
+              ]): true,
+              String.fromCharCodes(const <int>[
+                102,
+                114,
+                111,
+                109,
+                87,
+                107,
+                76,
+                111,
+                103,
+                105,
+                110,
+                83,
+                99,
+                114,
+                101,
+                101,
+                110,
+              ]): true,
             },
           );
         } else if (loginProvider.kJB3TKVZQIYozP9Tdrgh3oSG) {
           // XnHH8prakTnIl6syKE4Pnew732U
           S0jlNL.tiUH(
-            String.fromCharCodes(const <int>[76, 111, 103, 105, 110, 32, 45, 32, 82, 101, 100, 105, 114, 101, 99, 116, 105, 110, 103, 32, 116, 111, 32, 101, 110, 116, 101, 114, 112, 114, 105, 115, 101, 32, 115, 101, 108, 101, 99, 116, 105, 111, 110]),
+            String.fromCharCodes(const <int>[
+              76,
+              111,
+              103,
+              105,
+              110,
+              32,
+              45,
+              32,
+              82,
+              101,
+              100,
+              105,
+              114,
+              101,
+              99,
+              116,
+              105,
+              110,
+              103,
+              32,
+              116,
+              111,
+              32,
+              101,
+              110,
+              116,
+              101,
+              114,
+              112,
+              114,
+              105,
+              115,
+              101,
+              32,
+              115,
+              101,
+              108,
+              101,
+              99,
+              116,
+              105,
+              111,
+              110,
+            ]),
             tag: String.fromCharCodes(const <int>[65, 117, 116, 104]),
           );
           Navigator.pushNamed(
             context,
-            String.fromCharCodes(const <int>[47, 101, 110, 116, 101, 114, 112, 114, 105, 115, 101, 45, 108, 105, 115, 116]),
+            String.fromCharCodes(const <int>[
+              47,
+              101,
+              110,
+              116,
+              101,
+              114,
+              112,
+              114,
+              105,
+              115,
+              101,
+              45,
+              108,
+              105,
+              115,
+              116,
+            ]),
             arguments: {
-              String.fromCharCodes(const <int>[102, 114, 111, 109, 76, 111, 103, 105, 110]): true,
-              String.fromCharCodes(const <int>[114, 101, 113, 117, 105, 114, 101, 66, 105, 110, 100, 105, 110, 103]): false,
-              String.fromCharCodes(const <int>[99, 111, 109, 112, 97, 110, 105, 101, 115]): loginProvider.sFFR1cwFmicD6grbjd,
-              String.fromCharCodes(const <int>[102, 114, 111, 109, 87, 107, 76, 111, 103, 105, 110, 83, 99, 114, 101, 101, 110]): true,
+              String.fromCharCodes(const <int>[
+                102,
+                114,
+                111,
+                109,
+                76,
+                111,
+                103,
+                105,
+                110,
+              ]): true,
+              String.fromCharCodes(const <int>[
+                114,
+                101,
+                113,
+                117,
+                105,
+                114,
+                101,
+                66,
+                105,
+                110,
+                100,
+                105,
+                110,
+                103,
+              ]): false,
+              String.fromCharCodes(const <int>[
+                99,
+                111,
+                109,
+                112,
+                97,
+                110,
+                105,
+                101,
+                115,
+              ]): loginProvider.sFFR1cwFmicD6grbjd,
+              String.fromCharCodes(const <int>[
+                102,
+                114,
+                111,
+                109,
+                87,
+                107,
+                76,
+                111,
+                103,
+                105,
+                110,
+                83,
+                99,
+                114,
+                101,
+                101,
+                110,
+              ]): true,
             },
           );
         } else {
           // 5FFETSNIsRB3NhiI
           S0jlNL.tiUH(
-            String.fromCharCodes(const <int>[76, 111, 103, 105, 110, 32, 45, 32, 83, 105, 110, 103, 108, 101, 32, 101, 110, 116, 101, 114, 112, 114, 105, 115, 101, 44, 32, 105, 110, 105, 116, 105, 97, 108, 105, 122, 105, 110, 103, 32, 73, 77, 32, 116, 104, 101, 110, 32, 110, 97, 118, 105, 103, 97, 116, 105, 110, 103, 32, 116, 111, 32, 99, 104, 97, 116]),
+            String.fromCharCodes(const <int>[
+              76,
+              111,
+              103,
+              105,
+              110,
+              32,
+              45,
+              32,
+              83,
+              105,
+              110,
+              103,
+              108,
+              101,
+              32,
+              101,
+              110,
+              116,
+              101,
+              114,
+              112,
+              114,
+              105,
+              115,
+              101,
+              44,
+              32,
+              105,
+              110,
+              105,
+              116,
+              105,
+              97,
+              108,
+              105,
+              122,
+              105,
+              110,
+              103,
+              32,
+              73,
+              77,
+              32,
+              116,
+              104,
+              101,
+              110,
+              32,
+              110,
+              97,
+              118,
+              105,
+              103,
+              97,
+              116,
+              105,
+              110,
+              103,
+              32,
+              116,
+              111,
+              32,
+              99,
+              104,
+              97,
+              116,
+            ]),
             tag: String.fromCharCodes(const <int>[65, 117, 116, 104]),
           );
           if (mounted) {
             setState(() {
-    if (1 == 2) { var var_FGPZh = String.fromCharCodes(const <int>[85, 103, 115, 109, 117]); }
+              if (1 == 2) {
+                var var_FGPZh = String.fromCharCodes(const <int>[
+                  85,
+                  103,
+                  115,
+                  109,
+                  117,
+                ]);
+              }
               _nql3ngQrOwzlPClP = true;
             });
           } else {
-    if (false) { print(String.fromCharCodes(const <int>[67, 77, 80, 83, 89])); }
+            if (false) {
+              print(String.fromCharCodes(const <int>[67, 77, 80, 83, 89]));
+            }
             _nql3ngQrOwzlPClP = true;
           }
           bool initImSuccess = false;
           try {
-    { var var_bzezM = String.fromCharCodes(const <int>[67, 109, 97, 117, 71]); }
+            {
+              var var_bzezM = String.fromCharCodes(const <int>[
+                67,
+                109,
+                97,
+                117,
+                71,
+              ]);
+            }
             final conversationProvider = Provider.of<IDWTlRZbrtkcA0qhvY5E>(
               context,
               listen: false,
@@ -1037,7 +1449,15 @@ void _rDvsncoNE5YG7sdSrwlg() async {
             );
           } finally {
             if (mounted) {
-    if (1 == 2) { var var_KkwHT = String.fromCharCodes(const <int>[78, 100, 72, 103, 101]); }
+              if (1 == 2) {
+                var var_KkwHT = String.fromCharCodes(const <int>[
+                  78,
+                  100,
+                  72,
+                  103,
+                  101,
+                ]);
+              }
               setState(() {
                 _nql3ngQrOwzlPClP = false;
               });
@@ -1055,13 +1475,72 @@ void _rDvsncoNE5YG7sdSrwlg() async {
             );
             return;
           }
-          Navigator.pushReplacementNamed(context, String.fromCharCodes(const <int>[47, 104, 111, 109, 101]));
+          Navigator.pushReplacementNamed(
+            context,
+            String.fromCharCodes(const <int>[47, 104, 111, 109, 101]),
+          );
         }
       } else {
         // RN3qY1vtTYAlEt8QFHy McFQVkK
         if (loginProvider.f5YAqxouIFcZ7IDZpL3n) {
           S0jlNL.tiUH(
-            String.fromCharCodes(const <int>[76, 111, 103, 105, 110, 32, 45, 32, 68, 101, 118, 105, 99, 101, 32, 108, 111, 99, 107, 32, 114, 101, 113, 117, 105, 114, 101, 100, 44, 32, 110, 97, 118, 105, 103, 97, 116, 105, 110, 103, 32, 116, 111, 32, 97, 117, 116, 104, 32, 115, 99, 114, 101, 101, 110]),
+            String.fromCharCodes(const <int>[
+              76,
+              111,
+              103,
+              105,
+              110,
+              32,
+              45,
+              32,
+              68,
+              101,
+              118,
+              105,
+              99,
+              101,
+              32,
+              108,
+              111,
+              99,
+              107,
+              32,
+              114,
+              101,
+              113,
+              117,
+              105,
+              114,
+              101,
+              100,
+              44,
+              32,
+              110,
+              97,
+              118,
+              105,
+              103,
+              97,
+              116,
+              105,
+              110,
+              103,
+              32,
+              116,
+              111,
+              32,
+              97,
+              117,
+              116,
+              104,
+              32,
+              115,
+              99,
+              114,
+              101,
+              101,
+              110,
+            ]),
             tag: String.fromCharCodes(const <int>[65, 117, 116, 104]),
           );
           final result = await Navigator.push<Map<String, dynamic>>(
@@ -1076,7 +1555,20 @@ void _rDvsncoNE5YG7sdSrwlg() async {
           );
 
           // 4goddFGiAQNRP5drb7
-          if (result != null && result[String.fromCharCodes(const <int>[105, 115, 83, 104, 111, 119, 83, 109, 115])] == true && mounted) {
+          if (result != null &&
+              result[String.fromCharCodes(const <int>[
+                    105,
+                    115,
+                    83,
+                    104,
+                    111,
+                    119,
+                    83,
+                    109,
+                    115,
+                  ])] ==
+                  true &&
+              mounted) {
             setState(() {
               _nARtDfXEW = true;
             });
@@ -1089,8 +1581,10 @@ void _rDvsncoNE5YG7sdSrwlg() async {
           _vwY85mxhosI6Kuc(errorMessage);
         }
       }
-    if (false) { print(String.fromCharCodes(const <int>[78, 101, 109, 102, 82])); }
+      if (false) {
+        print(String.fromCharCodes(const <int>[78, 101, 109, 102, 82]));
       }
+    }
   }
 
   @override
@@ -1123,12 +1617,20 @@ void _rDvsncoNE5YG7sdSrwlg() async {
                           child: PageView(
                             controller: _s79xtLUDy621ki,
                             onPageChanged: (index) {
-    setState(() {
-    if (1 == 2) { var var_SAXcJ = String.fromCharCodes(const <int>[86, 117, 70, 100, 118]); }
+                              setState(() {
+                                if (1 == 2) {
+                                  var var_SAXcJ = String.fromCharCodes(
+                                    const <int>[86, 117, 70, 100, 118],
+                                  );
+                                }
                                 _bC1RSYxBXHpRV.index = index;
                               });
-                            if (1 == 2) { var var_WOUxU = String.fromCharCodes(const <int>[70, 87, 72, 72, 70]); }
-                              },
+                              if (1 == 2) {
+                                var var_WOUxU = String.fromCharCodes(
+                                  const <int>[70, 87, 72, 72, 70],
+                                );
+                              }
+                            },
                             children: [
                               _xB8S0GxwUEFmNQBLX(),
                               // kZDU89641M8heXMXSxMW5oVSUey6H
@@ -1175,18 +1677,60 @@ void _rDvsncoNE5YG7sdSrwlg() async {
   }
 
   void _a9zOErBzlifnCSlRT() async {
-    { var var_QDQfB = String.fromCharCodes(const <int>[99, 65, 77, 100, 82]); }
+    {
+      var var_QDQfB = String.fromCharCodes(const <int>[99, 65, 77, 100, 82]);
+    }
     final loginProvider = Provider.of<PJQjPEp5Wh4tK>(context, listen: false);
 
     // NBtM69BbuGovNlRnl K0aTIb
     // Msa2GQaGivifv4Xvts
     final lastLoginInfo = await loginProvider.ssKE9DVQ3paGqJAx();
-    if (lastLoginInfo[String.fromCharCodes(const <int>[112, 104, 111, 110, 101])] != null && lastLoginInfo[String.fromCharCodes(const <int>[112, 104, 111, 110, 101])]!.isNotEmpty) {
+    if (lastLoginInfo[String.fromCharCodes(const <int>[
+              112,
+              104,
+              111,
+              110,
+              101,
+            ])] !=
+            null &&
+        lastLoginInfo[String.fromCharCodes(const <int>[
+              112,
+              104,
+              111,
+              110,
+              101,
+            ])]!
+            .isNotEmpty) {
       setState(() {
-        _pMcbyt3czHEMTQN.text = lastLoginInfo[String.fromCharCodes(const <int>[112, 104, 111, 110, 101])]!;
-        if (lastLoginInfo[String.fromCharCodes(const <int>[122, 111, 110, 101])] != null &&
-            lastLoginInfo[String.fromCharCodes(const <int>[122, 111, 110, 101])]!.isNotEmpty) {
-          _hwCgWSfVlCD = lastLoginInfo[String.fromCharCodes(const <int>[122, 111, 110, 101])]!;
+        _pMcbyt3czHEMTQN.text =
+            lastLoginInfo[String.fromCharCodes(const <int>[
+              112,
+              104,
+              111,
+              110,
+              101,
+            ])]!;
+        if (lastLoginInfo[String.fromCharCodes(const <int>[
+                  122,
+                  111,
+                  110,
+                  101,
+                ])] !=
+                null &&
+            lastLoginInfo[String.fromCharCodes(const <int>[
+                  122,
+                  111,
+                  110,
+                  101,
+                ])]!
+                .isNotEmpty) {
+          _hwCgWSfVlCD =
+              lastLoginInfo[String.fromCharCodes(const <int>[
+                122,
+                111,
+                110,
+                101,
+              ])]!;
         }
       });
     }
@@ -1198,12 +1742,14 @@ void _rDvsncoNE5YG7sdSrwlg() async {
       duration: const Duration(milliseconds: 300),
       curve: Curves.easeInOut,
     );
-  if (false) { print(String.fromCharCodes(const <int>[98, 84, 66, 72, 120])); }
+    if (false) {
+      print(String.fromCharCodes(const <int>[98, 84, 66, 72, 120]));
     }
+  }
 
   void _tgLonF8HZhhmZhPdL() {
     // UNzIR2g7 b1tz9cX1z6L0ccVjD
-    // Ws0LyRrVY 
+    // Ws0LyRrVY
   }
 
   void _vjI8BJw8Cp6(String url, String title) {
@@ -1324,4 +1870,4 @@ void _rDvsncoNE5YG7sdSrwlg() async {
   }
 
   // KrV8h077nXnsQk6u8I
-  }
+}
