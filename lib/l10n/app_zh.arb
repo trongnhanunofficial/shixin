@@ -1,0 +1,2377 @@
+{
+  "igb5q1pkc0qi1ilr": "时信",
+  "teifo2ecgyq1vol0f": "随时连线，沟通无界",
+  "t0yze5sjhzz4didm6": "正在载入...",
+  "okru0c6xfhr99v": "系统设定",
+  "ioi0syqubo3ycy0k": "多语言",
+  "dcomb6l5py7hw": "English",
+  "jnepkc6bsf551": "简体中文",
+  "fls37qfh4xmklnb58": "字号大小",
+  "ir0fxt1xghlt": "关于我们",
+  "z44128mlrcei47a": "当前版本：{version}",
+  "@z44128mlrcei47a": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "i75rzqyh6xd8duck": "时信是稳定、安全的企业级即时通讯平台，助力团队高效协同。",
+  "g3c7k9orpd": "gideonswebe79@gmail.com",
+  "tt6m4z4gb0spak": "时信运营组",
+  "t92z0xay96h9a5": "商务合作与建议请致信",
+  "j06iqkecey": "鄂ICP备2026001205号-2A",
+  "zyrj4r0bdxtkyefm": "版权所有 © 武汉舫泽道生物有限公司",
+  "hswashn9iwh": "版权所有 © 武汉舫泽道生物有限公司",
+  "lbprzhr7zhb": "版本号 {version}",
+  "@lbprzhr7zhb": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "chf78r6iwz2z": "清理图片暂存",
+  "projiecw30hhc3": "正在计算...",
+  "i8zr1ks8r8r": "注销账号",
+  "uatqcvqhvfqpo": "确认退出",
+  "nj4gtp97o1lxrl9f": "即将上线",
+  "o6edrlq583n7ibn6": "我的",
+  "bwpcy7so76h2hhm": "用户名",
+  "skxpr8fx3xn23d50s": "PC端登录",
+  "v0b4weulksow5ydk": "所属企业",
+  "ltdxkhabdb11": "消息提醒",
+  "qiszh1azi26p": "通用设置",
+  "t9snht8sfwyr": "黑名单",
+  "upyq3cn0i6v3": "隐私与安全",
+  "qaug462qdujy9grp": "青少年模式",
+  "hzbu5uynq1psf": "PC端登录",
+  "yf9uzykb5tmpv7apv": "{appName} 网页版",
+  "@yf9uzykb5tmpv7apv": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "c686m1dpzwv569tk9": "请在浏览器访问 {url} 并扫描二维码登录。推荐使用 Chrome 浏览器。",
+  "@c686m1dpzwv569tk9": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "ticxwhtn1p9f": "网页链接",
+  "ml9tsvd5mc9vy9b": "扫码认证",
+  "ynl1okyki2wku93e": "确认登录 {appName} 网页版",
+  "@ynl1okyki2wku93e": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "ayuoeoerd6l": "为了您的账号安全，请确认是否允许网页端登录。",
+  "vyrrws6j6u": "允许登录",
+  "utpkzg3ziaj": "取消",
+  "k21dsl5tnk": "屏幕锁定",
+  "bmsp6cdpw1o4okkg": "自动锁定间隔",
+  "x1isb296ns": "立刻锁定",
+  "xf0cg78vou03": "1分钟后",
+  "yx49n27reiyci9i": "5分钟后",
+  "by4qnqcjnj1f": "30分钟后",
+  "oeqc1t7ood51of8": "1小时后",
+  "jn1ai0nkb18my9a": "重设密码",
+  "hafii2ki18yr": "关闭锁屏密码",
+  "lvdrmtkxqxiuy5s": "关闭锁屏保护",
+  "o28k5m4mu0qxr": "移除密码后将取消锁屏保护，确认操作吗？",
+  "bxwcw0nrp8k0lyw": "移除",
+  "dg79getpum0kt": "暂不",
+  "tyzt4zmfr6y0": "锁定时间已更新",
+  "axnlzaltwue4dim": "更新失败",
+  "xly01wi0zozs8gf": "已移除锁屏密码",
+  "egrmtgr7muy": "移除失败",
+  "ddhib3l4692xhrx": "企业目录",
+  "qufv3f7gy1zkyl1pv": "加入新企业",
+  "u6qmqykg5n": "填写邀请码",
+  "xhn7mlem1t30scpkl": "查找",
+  "tubwgvg64j1r": "申请加入",
+  "aylptc74oih4": "使用邀请码查找组织",
+  "xy11cany3c9ew": "暂无相关企业",
+  "sb97glz1stjsfw": "邀请码可能有误，请核对",
+  "wpl9zexmiavbp42": "查找企业",
+  "f597zupg1uq64li": "填写邀请码以发现团队",
+  "ragu85i6ezwq7xy0": "企业邀请码",
+  "onkwzqa6g17": "填写邀请码",
+  "hzngy9qs2z5kize": "身份验证",
+  "epq0yqcsyhq7": "设备安全验证",
+  "dd35tbykd8r9qc": "检测到新设备，需验证身份。验证码将发送至您的手机。",
+  "h1bo9eqhzb54f": "手机号",
+  "wrdjh3tpb2l": "获取验证码",
+  "jbcsszz8dc8": "未收到？请检查手机号或咨询客服。",
+  "i36uvwkrls6pll": "取消",
+  "xh6xmitpfrlkrd": "填写验证码",
+  "l6lpaibqzh7fhi": "已发送验证码至 {phone}",
+  "nuq8mang433i": "------",
+  "tejaaxjgszk65l": "请填写验证码",
+  "oeyfqcy03udopah": "验证码不完整",
+  "xbnxykiax2osrtyh2": "立即验证",
+  "n1za2hile4xfc7gr": "重发验证码",
+  "mkmarvc4qeqoak": "异常",
+  "gbanvx2h8emcczca": "好的",
+  "k8clnqbegc": "提示",
+  "qkdu0q0ktd": "重试",
+  "a73xed7bke02pyv22": "发起聊天",
+  "fyazdrn3kyf4": "暂无会话",
+  "s8qhdzef4it": "开始新对话",
+  "y2fes406xrr": "出错了，请稍后重试",
+  "xqno8g42wm85boj": "通讯录加载中...",
+  "c1wpdlcf4zcwqm": "会话加载中...",
+  "o1bmdx361uuj1": "正在加载更多...",
+  "njrefrwmo94u5x": "通讯录",
+  "prgchl0whv": "群组",
+  "aqz5lfui4ad0": "拷贝",
+  "y1xrk7lsoxqgxj4": "转发",
+  "v3b6rkb0dp": "刷新",
+  "yjos197w6d": "复制链接",
+  "ma7suw9hdduhglt": "链接已复制",
+  "cv8e3sxzes": "链接已转发",
+  "x78rruieytarlc8": "浏览器打开",
+  "rkv3m18w5mm74kxy": "链接无法访问",
+  "b1uiij7we119i3ah": "删除",
+  "zcse8yw4tt0dakyd3": "删除此条",
+  "q6tr8u6cagc6z": "确定删除这条信息吗？",
+  "emyh6t0vaic1dmi": "对所有人删除",
+  "squ1uwu3nc0hqzm9z": "双向删除",
+  "jssxnhykfi": "已撤回并删除",
+  "sizyjbvt6uc": "操作失败",
+  "arvq2atpg3rl18v": "发送失败：{error}",
+  "s500n5ffhjpek": "不支持转发此类消息",
+  "jle763ah71vhhl": "图片无法转发",
+  "wdutgqhvt6krqbl9": "已转发图片",
+  "gqfg0yrzluihmw": "没有保存的群组",
+  "cq25n81ptl8opl": "请先建立群组",
+  "iwwkh611qlp": "账号在其他设备登录，您已被强制下线",
+  "d05xp2svixidnj": "账号已被冻结",
+  "qpzevbus7kc60fy47": "官方认证",
+  "qzfsebm3rmmwntdpm": "智能助手",
+  "mve2cekv9l1vs1q3": "在线客服",
+  "pndi015wjnaw": "登录 {appName}",
+  "vhb7wdkni5shkzn": "手机号",
+  "s2p9nx3utviyak2": "登录密码",
+  "s9fu66qz5p": "我已阅读并同意服务条款及隐私政策",
+  "tmgflvgv23pob6p": "立即登录",
+  "e2uc1ny433": "注册账号",
+  "bztee7fq3ah8": "找回密码？",
+  "sbf0zdd0qmjy": "API 配置",
+  "bowi52sziwzxby7iy": "欢迎归来，请登录。",
+  "d3eas3tdtfiq4wn": "还没有账号？",
+  "cg3xh0ylc6lgswmzq": "路径不存在！",
+  "uvmcfhwd6r5": "好友功能测试",
+  "cmcnnlnfs2ihy7gi": "模拟添加好友",
+  "g6ao379qlqp": "进入新朋友页",
+  "xx39jc9pcqld1qw": "清空所有请求",
+  "et4e0uoowg": "加载状态：{value}",
+  "wpds9wlf4839en": "已添加测试请求！",
+  "fodygo5aghf015xt": "发生错误：{message}",
+  "utb633wkyq7kw": "跳转错误：{message}",
+  "wnaylo1sr0g9r8": "好友请求已清空！",
+  "ls7zysxn7o7bcilbs": "角标调试",
+  "lbis1aq0hnu": "好友请求角标数：{count}",
+  "vtbhgjjoxf3z": "新朋友Provider数：{count}",
+  "wzqf8o0yihsn0hq1": "待处理数：{count}",
+  "q0osz8sbsoivttnu": "通讯录角标：{count}",
+  "jkdwz3vrgazdig": "特别关注角标：{count}",
+  "twx1xy305qgsfo0i": "🔔 测试更新角标",
+  "r8b9oyjm2y0eplmoz": "📧 模拟好友申请",
+  "hijbqvqaxqim5u2yr": "📂 测试读取请求",
+  "ls8dehle8ur": "🔄 重置角标",
+  "t1792ofnvd": "👥 跳转新朋友",
+  "uck4ite6njr": "🏠 跳转主页",
+  "hiv0olfdov1om": "✅ 角标更新完毕",
+  "w1z7qjydpaf": "❌ 角标更新失败：{message}",
+  "fl5vf2qzsvkble7": "✅ 模拟申请成功",
+  "vu5ahyvcrlrk2m": "❌ 读取请求失败：{message}",
+  "uhz8uesa1kz6": "❌ 异常信息：{message}",
+  "mx84cvfqhvyi": "❌ 错误信息：{message}",
+  "u6384zr7h2y": "输入手机号或ID",
+  "c45is0fqyyx53z": "查找",
+  "iydd0rgwrgozaong8": "加为好友",
+  "lltzbvjxp9dpojtm": "请填写手机号或APP ID",
+  "ho4iivcydjc4qe": "不能查找自己",
+  "a7o8mvseo7z3": "申请添加 {name} 为好友？",
+  "l6swycnfmkg7zvxvb": "填写验证信息...",
+  "g1a7gw1bm01": "发送申请",
+  "g8rv4obwxpeb19": "正在发送请求...",
+  "vj9jdbsyhc0b": "已向 {name} 发送邀请",
+  "jn2r4vxai3gkjf6jx": "请求发送失败",
+  "j57e141xf4": "发送请求时出错",
+  "k2u0w4zh6o78": "修改备注",
+  "pho88jq454nwprd": "填写昵称",
+  "yq813lb1qs": "保存",
+  "goudpr602i": "备注已修改",
+  "vr8gj9hhjekmgcvx7": "修改备注失败：{message}",
+  "tuy1h6hd53c1ffxi": "请求已发出",
+  "szhleayit4laki": "删除好友",
+  "ea41c8lxq2m6ryf": "确认将 {name} 从好友名单中移除？\n删除后将同时清除聊天记录。",
+  "h3vibwd1o1": "好友已删除",
+  "f53fvfb6mv8spucx": "查找好友",
+  "qmb5xij8twc5w": "查找功能即将开放。",
+  "q2v3j1g6rq683k": "我的名片",
+  "q7xtbkikzriuy": "二维码功能即将上线。",
+  "m7i2uz7m314o": "扫一扫",
+  "x0ryrwri57": "扫码功能开发中。",
+  "fwz2smal55": "实时请求测试",
+  "gkjyi4ltt7ll318": "申请人UID",
+  "tufn09v2p8q0qsxrb": "申请人名称",
+  "h7nzuy5x4yx": "验证信息",
+  "x509lgme2r6": "Token令牌",
+  "f66py3cg40ralwm": "UID：{uid}",
+  "xake3rhxoyz": "备注：{remark}",
+  "uwd7qquvkwb": "当前状态：{status}",
+  "tb0615ve2e6ux3fx4": "✅ 模拟成功！",
+  "nj4wyfvn0gqvzd5": "❌ 模拟失败：{message}",
+  "yiq2o0z2q5zy08wr7": "角标通知测试",
+  "i51codoxk6sppvn20": "📧 模拟好友申请",
+  "lwln5fnrwh98zs9": "🔔 角标+1",
+  "eqie99723ukq9ih8": "🔄 角标归零",
+  "nhua3q43dv2839g": "👥 打开新朋友",
+  "zquqc9qaxi": "✅ 已模拟，角标应更新。",
+  "mdcw3arcr7c2": "🔔 已手动增加角标",
+  "mccywp63sfx99oht1": "🔄 角标已清零",
+  "i3o5jooqss4fef21i": "添加联系人",
+  "zjyx9qj5ws": "正在获取请求...",
+  "krut8wmg95": "拒绝",
+  "b1vepa6oaritwv81s": "通过",
+  "o4bcrvdblc7sko": "❌ 操作失败",
+  "tx5tg39bldq": "已拒绝申请",
+  "xlgbp54om764455": "添加功能即将开放。",
+  "u48y6a8h8jk": "输入备注名...",
+  "xn05yjwsxf": "进入",
+  "oq26lv26f9zf": "更新失败",
+  "w1pe0la47mp": "填写群名称",
+  "stokdl3l4i3bub6": "语音通话",
+  "c2zvwsl5n30zhb6y": "视频通话",
+  "jlc1vdv170sei6": "多人语音",
+  "tsy79ghw71bfr": "多人视频",
+  "h83xgavz31och": "此功能未启用，请联系管理员。",
+  "t0sq9tmyp70": "无法通话",
+  "knsjrrtsmx": "用户已被拉黑，需解除后方可通话。",
+  "wtdwmk6iukhx2n": "对方拒收您的通话请求。",
+  "ohww0gpu1cjdaatq": "您已拉黑该用户，请先解除屏蔽。",
+  "kt5ha1w3gdz": "我知道了",
+  "qhr94pmzpz6n95ei": "通话功能受限",
+  "p9pj07fm1g": "您处于禁言状态，无法发起通话。",
+  "d2o8ss4srnperm0": "无法呼叫",
+  "amms94n7b2r": "非好友关系无法进行通话，请先添加好友。",
+  "r0avzcy1fgvr": "背景已更新",
+  "lvkgzb67tly6h": "清空聊天记录",
+  "kb53iqei24": "查找...",
+  "zgbmdmh985dvb0wgn": "未选择有效成员",
+  "zyhugx6k69tp35v": "无法删除自己",
+  "o67cqu0rrmixv": "无法移除群主",
+  "jnz33u5c09": "查找群成员...",
+  "hdffu94wdlr": "最多选择 50 个会话",
+  "k2qtazshhv4rhj9ls": "搜索聊天...",
+  "arybpa5v6obm7p": "说点什么...",
+  "ln0ex52cqxt34": "仅管理员可修改",
+  "kgdb0uvlbdol": "已更新",
+  "u468zc7ve31sgpjkh": "清空 {groupName} 的所有消息？",
+  "i104j8xoe2wq5tmfc": "清空并退出",
+  "qsievpmc65zq4uu": "确认退出该群组？",
+  "ij3rwfsvex43p": "保存图片",
+  "ig8075i6a7wwximvb": "二维码失效",
+  "kv390ruecf431tu": "发布群公告...",
+  "ux3xiy8r5tz682": "恢复默认背景",
+  "dqgm4n6vcfnwpn2a2": "恢复默认",
+  "b3wmq6xw2uyv7hs": "背景设置成功",
+  "tvc9s2gdqodb3a": "背景设置失败",
+  "ug0kb3rbin1jl": "图片保存失败",
+  "eb39xawc9kscaz": "我的背景库",
+  "kjlcwil7zwjjui3ns": "系统背景",
+  "sa493xenbmh1uakwl": "删除背景",
+  "kvykvvtizqy5u52w": "确认移除此背景图？",
+  "jrro1ndho7zyp": "背景已移除",
+  "w1pwn74bhh787": "删除失败",
+  "yahn2fathtxwz": "应用",
+  "u2hwl0gu6dk": "输入企业代码",
+  "d0je4h834tn5b2m": "设置头像",
+  "gvlko1cu36w": "更换头像功能即将上线！",
+  "fsapkt5qylc": "操作成功",
+  "bsb553iqx75pdbe": "验证码",
+  "a2gmadbgplnpuy": "通过 {provider} 登录",
+  "iwf8do8df6kj": "等待认证...",
+  "adiyd2cz3eh2cakkv": "API 配置即将开放！",
+  "sypihabzvdr5r": "查找国家/地区...",
+  "mucljn07h8qtpm47r": "未找到相关国家",
+  "z6f91l4ba0604": "新密码",
+  "ce2ozarmjexl9zq": "搜索联系人、群聊",
+  "r2mugjesdvxaeqyd": "群组已移除",
+  "budyoytuph": "移除失败",
+  "mmmuf4v96pi": "出现错误",
+  "qsxdepy02mxw9": "从通讯录删除",
+  "tqagk1rp53g0d": "不再保存“{group}”？",
+  "x7p146g656sq5b": "移除",
+  "sf9iqimu4a81lg1jv": "发消息",
+  "ev3h60r99j11i3s44": "申请加好友",
+  "mka0orruxpjxzyx": "已申请",
+  "hrwxkcrveuc0t": "申请未发送",
+  "wk6j9mhv31qof": "注销",
+  "fs6o1n1nm2n7ha": "确定要退出当前账号吗？",
+  "nomev7bp314w0uc": "确定",
+  "ni5twbouvs9cmu6": "日志转发即将支持",
+  "dxpsmx90sm": "已删除",
+  "b36ehcqh3s7pz": "无日志记录",
+  "qqdcahsz61": "已取消屏蔽",
+  "i8slhusdljp0kgm": "解除拉黑",
+  "gol8zutsoch8utm": "将 {name} 移出黑名单？",
+  "nbqdbuurqv1rjm": "请填写邀请码",
+  "ljff2eykggjbv4m0m": "加入成功！正在切换企业视角...",
+  "sjwn07v8abz0esl2e": "网络异常：{message}",
+  "orxonwf49pr": "已复制",
+  "mc4uea42a63siqczh": "{name} 变更为 {state}",
+  "vg5y26120hi2901pb": "此功能仅支持 Android。",
+  "bv920dz1zy1jrgh3i": "无法调起系统通知设置。",
+  "f92y30i0xvf": "打开设置页失败。",
+  "c1nfmzkt4b0euj4": "填写您的显示昵称",
+  "z05zryhkfv1oqxsiq": "昵称修改成功",
+  "j82whipugn84": "版本检测",
+  "hay1pom3dnqh72s": "当前已是最新版本。",
+  "u29shrl3uf01c6mue": "拍摄",
+  "ddf902np33": "从相册选取",
+  "hhl360d589bbxd3f": "头像更换成功",
+  "w7eqcy09yks3fzq": "性别已修改",
+  "zd6pnynkqi": "二维码加载错误：{message}",
+  "dnzltlypsor": "二维码已存入相册",
+  "zae8ytg27r3r69w": "照片已存入相册",
+  "y829mj1cssq": "分享功能开发中",
+  "z6z69hof3pq4qu": "需重启应用",
+  "xfl2y9onhwahr": "立即重启",
+  "pv7ih7u5uqp": "扫描无效：{message}",
+  "v83c3z4kjk": "扫描内容",
+  "bdvkn0gpini": "关闭",
+  "vwrec9lh9t2h1n": "闪光灯切换失败：{message}",
+  "ore2qyuzt7og3k": "相册扫码暂不支持",
+  "wvj8twptgbx1": "图片选择出错：{message}",
+  "nxwlmtwujst86cn": "图中未识别到二维码",
+  "uk5ki4kqed9f": "识别二维码失败：{message}",
+  "ubsuz5rsjw": "跨企业无法扫码",
+  "icbzh8em2tte": "加入失败：{message}",
+  "srk2up3b8ocb": "接听错误：{message}",
+  "rgq0j7l7g0py5gwrn": "挂断错误：{message}",
+  "bwi2lzlu93rpjfzl5": "转发成功",
+  "x6axmdlzmmd": "已复制到剪贴板",
+  "kwzs34qstvb71c": "发送名片",
+  "wr7o1k334i8yc": "选取",
+  "r3pd7605f5v2580": "回复",
+  "u50f0kwb4f3o11bd": "无内容可重发",
+  "c1xz49ptgej8j4yp": "此消息不可重发",
+  "z50zrfdri7lwinq": "重发失败：{message}",
+  "zpnuuj6564sptyd": "发送失败",
+  "kr415544zr": "发送未成功，是否重试？",
+  "akr9b8fgxtb44": "您已不在群组，发送失败，重试吗？",
+  "a7myt7bl8vvgvn3h": "非好友关系，消息发送失败，是否重试？",
+  "yw21qo4wdtgg8": "您已被本群屏蔽，发送失败，重发吗？",
+  "anrdnnv4x5jc87cbz": "对方拒收消息，发送失败，重发吗？",
+  "kz49kdaq0xlc": "重发",
+  "ycle8z1uanefpw2df": "已被禁言，无法发送",
+  "nt88on138jfssve55": "拍照失败：{message}",
+  "g15kacp1n007ri": "置顶失败",
+  "l24n15vzryk": "取消置顶失败",
+  "saqo3gg1bdvh": "操作未完成",
+  "y6zm4wzmu4y10ij": "设置静音失败",
+  "b2rl72ojum10r0": "取消静音失败",
+  "j97yz7ozau5fp48": "删除会话",
+  "gahcm19425bndd2": "清空消息并移除会话。",
+  "r64qu4i35r56nmj": "退出群组失败",
+  "mtzmdvfvqv3q4ix": "清空与 {name} 的聊天记录？",
+  "fc4hinzwsic4fb4fx": "来电邀请",
+  "bfp11ecv1l": "正在呼叫",
+  "r6hpayinfb0melv": "预览",
+  "wbucodstd039zlea": "通过手机号或APP ID查找",
+  "b8hxeczznjw4rpr": "查找用户",
+  "lfop9h8u85kh6q5d": "输入手机号/APP ID以添加",
+  "kb9ka679fq6daaf": "查无此人",
+  "gld9zouy6gs": "未检索到匹配用户",
+  "ic66my5ph2bn1": "请求已送达",
+  "o7pdmnfpzt": "留言：",
+  "mcu2y8w4u8z": "你好，我想加你为好友。",
+  "hh10g8mok8jt": "{appName}号：{appId}",
+  "@hh10g8mok8jt": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      },
+      "appId": {
+        "type": "String"
+      }
+    }
+  },
+  "i4gwwc6cu8mqef": "选填留言",
+  "yuh3i1assvg": "失败：{message}",
+  "not6k6cnos53": "群组通知",
+  "fdapx7il7mqsqmak": "查找聊天记录",
+  "csa5vp95o9h06": "我的群昵称",
+  "gv8o21sn564powl": "填写群内显示名称",
+  "etr6r65g9y": "当前设定：{value}",
+  "ygcmi060y10db": "未设置",
+  "g10pq66oggj": "群昵称仅在本群生效，成员可见。",
+  "k2a3hjbkpr4a5rtx": "本群开启邀请制\n需验证才能加入",
+  "klfbowsr2uj": "{day}（{expire}）前有效，新成员加入后将更新",
+  "uj5rgws7mzdq": "详细信息",
+  "w9d76p0s8xkl": "聊天背景",
+  "b703558ddz8so": "开启免打扰",
+  "spjg0vb7wdliz": "置顶会话",
+  "qsxcieewl6x1g": "投诉",
+  "u8rctzppy2": "群二维码",
+  "aru5diyxkg218nu": "邀请码（选填）",
+  "ktndkrbfade58dkq": "输入邀请码(可选)",
+  "kqhmzybf0a6cdfwdi": "请输入邀请码，如果没有请跳过",
+  "yr766l8liyyc7t7": "跳过",
+  "gpb499wyjl": "姓名",
+  "l17r9k9xcpst": "个人名片",
+  "thmis3rxv0q": "群名称",
+  "byp890cwtylia": "保存到通讯录",
+  "bzo6ucnaz8qp": "备注名",
+  "rvbptcgw5z3g": "拍照出错",
+  "n4d4r0xebu": "动画展示",
+  "wxs2qf8v2ib9": "点击按钮体验动画！",
+  "ni1vwx415tc7": "模拟对方消息",
+  "t3jrxrzmnj04xgc1w": "模拟我的消息",
+  "iwmbpjmlnsdomxj": "来源",
+  "zymvfgkwtrsq8rvv0": "入群途径",
+  "g3on37508ymg": "{time} 由 {inviter} 邀请",
+  "sx66fovbbg9j51": "未知途径",
+  "kgzk06v3saz": "移出黑名单",
+  "o1em6ekvfynf512w": "加入黑名单",
+  "pt9w7tnd6lpgh4r": "确认拉黑 {name}？\n对方将无法给您发送消息。",
+  "bfx3t13su16o3": "已拉黑",
+  "zszdrw5its": "用户信息加载失败",
+  "e00dubtte4f": "此名称对其他人可见",
+  "vp2icrjsluqeh": "名称必填",
+  "u2hqfjvv41ms7inv": "名称限制 50 字符以内",
+  "hdexv74jianngrp5i": "名称更新失败，请重试。",
+  "r74vx0ndgqrh8d": "回复 {name}",
+  "f4guxpyqwhep": "通用设置",
+  "tb9amj1wtwub3z": "通知管理",
+  "dw06jyhcop": "关闭后将不再接收新消息提醒",
+  "e70ixebxuh": "声音与振动",
+  "jichtg6i0a13nn368": "提示音",
+  "da5781lvkgzt1": "振动反馈",
+  "a43559scqegpxbgux": "应用运行时声音与振动配置",
+  "lytre0mqyss": "系统设置",
+  "npu493f1ax65nieq": "开启消息通知",
+  "n4o680i3x9da0": "启用新消息提醒",
+  "k73nq8qqz5okx5": "开启音视频通知",
+  "ssdrbu1tznxq2m13": "请在系统通知设置中找到“音视频邀请”，开启通知权限及声音振动",
+  "lk1hu5dsm1867": "加为好友",
+  "naopdooxn9rey": "拉黑",
+  "d02ywhps2d": "删除好友",
+  "dr675fnwazmbe": "移除群成员",
+  "btt1svm9s0gt": "将该成员踢出群组",
+  "ymq3fr9j8y": "移除",
+  "ul2znzg0you1h9w": "确定移除 {name} 吗？",
+  "cg2wln53sjg22ku": "成员已移除",
+  "i7vyzvsdqcvsqnhpc": "设为禁言",
+  "yfhlaltgugwafj": "解除禁言",
+  "jga7r37puxt4og9p": "限制该成员发言",
+  "ffpdexq3xp3m7": "正常发言",
+  "jkghm573s2gdmaa3m": "禁言已结束",
+  "awb31k5wb9023a": "禁言 {days} 天",
+  "t4her29whrtwlupi": "禁言 {hours} 小时",
+  "aqvu30haxzwgxbk5l": "禁言 {minutes} 分钟",
+  "ymj4h9hj8x": "设置禁言时间",
+  "llul1evisqtfgw": "允许 {name} 发言？",
+  "ng5vo2uyy65": "已禁言",
+  "fllvnuqfx9l4rzgak": "已解除",
+  "by6iqkt53hjd5peh": "设置失败",
+  "wmjm2bfe6n4m": "解除失败",
+  "s8e65f15mo": "点击解除",
+  "bnl4cl20iz8m22b": "移除失败",
+  "fghj4h847bq": "选项加载错误",
+  "r0iz1fccpn91jwnat": "请先登录",
+  "gwzedjcefdd7y": "您已被移出群聊",
+  "e9wtz8iq1zhoe1lx": "非群成员",
+  "tay7mkakni9s": "无权操作",
+  "ai9yw95jvum3": "禁止互加好友",
+  "k9vtoj03g8pxztz": "禁止群成员私自添加好友",
+  "pds60vmpqjxi": "我的消息 #{index}",
+  "rbfkmf6pgq8q": "对方消息 #{index}",
+  "og9sdgx0l8jr5brsk": "开启",
+  "x21sbj9czt4": "关闭",
+  "z177kzauimgzfslje": "昵称",
+  "ug30h08nm3c6": "长度 1-50 字符",
+  "zupi2cjj3azyotey": "请勿使用特殊符号",
+  "o36h30ljtqgfseo7": "使用辨识度高的名称",
+  "udxb8nzjwctv4": "名称同步可能有延迟",
+  "g8vlvm2c23vsb2r": "规范",
+  "qakyo5cbcp": "请在浏览器打开链接完成验证：",
+  "rv4fdknp9cj": "二维码登录",
+  "xeyaeeg79ry": "选择登录方式",
+  "g37xzv7szqnvmy": "登录方式：",
+  "k49l5yu5ve0": "长按标题切换普通登录",
+  "myphupsgjb00m7qh1": "扫码登录",
+  "z23c2fncbby": "生成二维码",
+  "ekup1d4n0egzp97": "选择地区",
+  "fyb9lty4933v86w3": "地区列表加载失败",
+  "b17ej8kun3t": "未知",
+  "e3rjw84a6qhe41a12": "删除成员",
+  "iq9oxkc3fvuhh23": "群主",
+  "icbymaz2905r": "二维码生成中...",
+  "wedezrjvqj50a065": "二维码加载失败",
+  "mr4r1q5on6gwu3a": "扫码加我",
+  "vcm1g0ggtru2": "二维码操作",
+  "wi7r7zyiidy": "分享",
+  "izh0ij4k3ii3z4l6": "验证码已发送",
+  "k8gt9elflqmeayba": "注册新账号",
+  "l5yfanf79hatoowc0": "加入时信，连接团队。",
+  "zia4wy5lmju0r9": "填写手机号",
+  "tdrsai6iv0qjp0j": "获取验证码",
+  "pk7aseqg0z9x329he": "设置密码",
+  "kwxglyr9289me1d6": "密码需 6-20 位",
+  "ph016o2nus": "我同意",
+  "gxmouich648ar38p": "隐私政策",
+  "qnuzuwfugndn3w": "与",
+  "y2map5gwe2": "服务条款",
+  "pp60j6l6vzd5": "已有账号？直接登录",
+  "wmci1jy7za90oc5pj": "已有账号？",
+  "v3995gspx8": "{count}秒",
+  "glogjxitds4": "重启后生效。",
+  "ookwvkc9rycr0o": "选择模块",
+  "srw3abli8oq0b4s": "切换失败",
+  "caqszyrsx1evew": "企业列表错误",
+  "tlcgcdzp7ybus": "请先绑定企业",
+  "mj64v71opofwu": "暂无企业",
+  "ziefue069rm4eeqd": "输入邀请码/企业码绑定",
+  "qdgoo8v7ts2c": "尚未加入任何组织",
+  "yvsxl68m81twgmuw7": "填写邀请码",
+  "gie9w7vdy3usuvpt": "加入企业",
+  "s51aim6kpsa2a": "未知企业",
+  "awywf879ss2fwnh7u": "权限：{value}",
+  "a1hhxjknmzo7pk": "企业码：{code}",
+  "rfe67n4ise70dw": "当前",
+  "g74e0px5b53": "新朋友",
+  "n2gtwezwkwgewopw": "群聊",
+  "gtzzlxosn9v": "暂无新请求",
+  "ooqygbee8o7ea": "新的好友申请将在此显示",
+  "nkw2ek67xf8d": "有 {count} 条待处理请求",
+  "smig9s8dowu2l": "所有请求已处理",
+  "x3jb988m14eunh": "已通过",
+  "x6xnxcdm5mq17": "已拒绝",
+  "v21z8sld9e": "已通过 {name} 的申请",
+  "nam2eiae29g": "确认拒绝 {name}？",
+  "ltkdl1lhiv": "已拒绝 {name}",
+  "cj2vb2b7vtugvk1y": "操作失败",
+  "xht0ukr14s8ovwfv3": "个人信息",
+  "eyf1z0bqqmw": "头像",
+  "x2ws8np6nlgnjtx": "头像上传失败",
+  "n53fmo4jznwq": "性别",
+  "ujnd3q9s4wskgv": "男",
+  "rtzs3u91ekb0x": "女",
+  "rn0y35l9j3k5wf4dm": "设置性别",
+  "wdfycsariro28t1": "性别修改失败",
+  "cvmwyg1k4z": "修改 {appName} ID",
+  "xo3qmsfcny": "完成",
+  "hy94yzrbxy02grnpx": "{appName} ID",
+  "wq65kd29lehxs": "仅查看",
+  "ckxmo90tyftjba2": "请输入...",
+  "sglkaltoqgoz": "不可更改",
+  "ruo7ca4pqo": "验证错误",
+  "cbinw6qb9nl5": "禁止修改",
+  "rkhxpq7bbdm7": "ID 仅能修改一次，需以字母开头，6-20位，支持字母、数字、下划线及连字符。",
+  "tnnqylydwtrz": "ID 不能为空",
+  "cj3skunf4b5k5hpq1": "ID 长度至少 6 位",
+  "vc7w42e9x0": "ID 长度不可超 20 位",
+  "n7fe6eoamfkgcn764": "ID 必须以字母开头",
+  "dwdlqrc9phm675ztx": "ID 仅支持字母/数字/下划线/连字符",
+  "u4giowre54ilu8": "ID 修改成功",
+  "yv1vvq552coals1": "加载失败：{message}",
+  "lyz9ns4h0g6xtn": "多人语音",
+  "r8ul6vinxrvy": "多人视频",
+  "fkq2lrvfda6lm4t": "发给",
+  "y3icycn729jmk": "发送",
+  "gmhabrele0jtfqv": "选择会话",
+  "jnut72eh6p53": "{count} 条信息：",
+  "xbhldgktddh8d": "已选 {count} 条",
+  "m04lq8fv20dk210": "... 等 {count} 条",
+  "ejm2szr0ytuj1tq": "发给：",
+  "kndi55azth": "留言（选填）：",
+  "pmjy7c1o0j88krl": "群组",
+  "m4kcer1nujclpz": "个人",
+  "dxi9wllar1u": "选择转发对象",
+  "qlrua2jkmy": "分别发送给 {count} 个对象",
+  "nbmrvcqczek4": "已转发至 {count} 个会话",
+  "i3pz0dcx0aex5": "{messages} 条信息已转发给 {chats} 个会话",
+  "mja1or4kqo4eh8qq": "重设密码",
+  "vjplbo22vzb": "返回登录页",
+  "e50wlog61z1l3": "想起密码了？",
+  "uu4f64vlqasmkiry": "验证手机号以重置密码。",
+  "vo9024c0m9": "开发日志",
+  "d0xutrl707tzzbg": "点击更换头像",
+  "t68ggyuj2klzju": "群聊",
+  "od9mnya05kr": "消息",
+  "etnoecc2hui30zex3": "内容",
+  "dz1ch0v8lvnt81rsg": "正在查找...",
+  "vzn9fy3bg5wp1n": "共 {count} 条结果",
+  "c64dhcv9r9s5h6": "全局搜索",
+  "ktocbg0qqog8k": "搜索联系人/群/记录\n点 + 添加好友",
+  "v6qhtbzfkqtmtu": "未找到结果",
+  "d1ct7lqhoi": "尝试不同的关键词",
+  "w639tc3w28v3b": "查找用户",
+  "vqm8r1wkrse": "全网搜 \"{keyword}\"",
+  "t25v265vbf0xr1kh0": "通过用户名或邮箱查找",
+  "t50mog87jtmrfo": "{count}天前",
+  "xqjyaxpun0": "{count}小时前",
+  "bwni8fe9ukoqvgqzz": "{count}分钟前",
+  "ow4peyaw5v3cfgeom": "刚刚",
+  "q6ktruhn61j29j9t": "找到 {count} 条记录",
+  "a4hd4zumuxq": "选择联系人",
+  "d05zt8hdsvz": "邀请成员",
+  "tsnx4furma0t1n": "建群失败",
+  "msr8vyym81": "群聊至少 4 人（含您），请再选 3 位。",
+  "d3ib52rlxi": "没有可添加的成员",
+  "bv8n560eh6f0bc9o": "邀请成功",
+  "rkesrnp0uvddsq1k5": "邀请失败",
+  "ojz8mzoan5g": "无法取消群内现有成员",
+  "jba55n4xr3xjzlkx3": "最多选择 {count} 人",
+  "p20y4ao9j283o8": "成员",
+  "qlzqajxmr3": "新建群聊",
+  "hftavoxjq64xtgb0": "添加",
+  "iwurunlbhgxs": "{appName}号",
+  "@iwurunlbhgxs": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "y9mophelrdj92t4": "ID 无法修改",
+  "@y9mophelrdj92t4": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "gtauts6fhwc8": "黑名单为空",
+  "g8fsqetvxu62l2": "小",
+  "jpvy143tvdk": "标准",
+  "h8jyesqrj2lg6zpp": "大",
+  "n4dij5y5pls": "加大",
+  "ssnfeor1hafa9l": "特大",
+  "f9dbnnnj5s": "预览效果",
+  "ramkw0maqwt3b3": "拖动滑块调整文字大小",
+  "rha4y2vhpdhx": "密码重置完毕，请使用新密码登录。",
+  "z5b27tpoyz8ia": "下载出错：{message}",
+  "cwe2gnqmo7j": "编辑内容",
+  "o5fhng8lxgomc18": "注销账号",
+  "btd8xnfi3s": "确定注销吗？账号将在7天后永久删除，期间登录可撤销注销。",
+  "qmaf2kidw2zs8ae": "账号已进入注销流程（7天）",
+  "i8h232hxdcvwvou5": "注销操作不可逆，请谨慎考虑。操作前请务必确认以下内容。",
+  "gad66ut4mw": "注销前须知:",
+  "pe8elqzwby": "账号安全：\n账号无被盗风险，且未处于封禁状态。",
+  "e682i4u9g5gsdi": "资产清算：\n账号内无未结清的资产或充值。",
+  "di800exwvn": "绑定手机可用：\n手机号能正常接收验证码。",
+  "vi6eprtf922npgv": "注销即视为放弃 {appName} 内的所有数据、资产、权益及记录。",
+  "@vi6eprtf922npgv": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "jk4b6lukzgqk": "注销后将无法登录。",
+  "bjcdnxxghmol": "注销后账号无法找回。",
+  "aagesn47obnc6k": "特别提示:",
+  "jnx7x0efdgmaj5p0": "点击“注销账号”即表示同意",
+  "l5r1br3v624vfqivy": "注销请求失败",
+  "j6vwa0spoyzp": "状态：",
+  "z6dm48mtwu": "当前角标数",
+  "k7ygrc1pbzx00": "模拟好友消息",
+  "twda8tor5ycqi3i0": "当前请求数：{count}",
+  "u8wcq0xcdhtp": "待办",
+  "ghad2jzvix0v1lbxf": "系统消息",
+  "mf02ntxs8bmewm3a": "涉及私下交易、转账等资金问题，谨慎对待，谨防上当受骗，点击标题栏头像可投诉！",
+  "duqs0rueg9": "文件助手",
+  "y7oi187ysn2pi": "不支持传输APK文件",
+  "k9eyfgmxwq3w6y": "文件大小限额 {limit}",
+  "@k9eyfgmxwq3w6y": {
+    "placeholders": {
+      "limit": {
+        "type": "String"
+      }
+    }
+  },
+  "hr1ba47hdg4bj1": "第三方分享",
+  "fldtozc77f38u7s8u": "用户协议",
+  "jfod9ihr8eijiwfbt": "ICP备案",
+  "rrdpi1esi244roo": "更新检测失败",
+  "v0ttblligohj9": "连接服务器...",
+  "l1ii60njv6ll": "扫码",
+  "z1siccvgjd8e": "扫码加好友",
+  "mjwzd87ndpj0eqk9": "将清空本地图片缓存。",
+  "bn3o0bnp9spr5r": "缓存占用：{value}",
+  "ixyyhxjq1jw7tftd6": "清理",
+  "ilgerqstgues": "清理中...",
+  "x5r11e8tkowtwul": "缓存已清理",
+  "fm4ojkx2feeua": "清理失败，请重试",
+  "malx0c9nqvlqr": "图片已捕获",
+  "eg9omu4jr5lbi": "个人信息",
+  "d41mpj0efa2o": "支付钱包",
+  "lbkvxhyaz5": "收藏夹",
+  "ya6bgzcqzk7orwypl": "合集",
+  "apq8ikflyz6vu3z": "朋友圈",
+  "l2gnrivcgg": "卡券",
+  "qx1kcqkwy25": "表情包",
+  "rxvz3mkh3qqtia": "ID：{id}",
+  "a4uet4znfqpxqg": "我的收藏",
+  "viiklgun8e3co": "相册导入",
+  "j5hna2x2obby19": "管理",
+  "zzdns21ipomw28f0d": "完成",
+  "nsq9uqjr1eubg3": "删除选中",
+  "e261owzn66f": "未选表情",
+  "waibyqdstjl7vw": "删除完毕",
+  "seja4x9gxlo": "上传中...",
+  "hwvvj6gql223k9": "新朋友测试",
+  "t8ivgkcf3uyh": "Android 端新朋友功能测试界面。",
+  "vf6mcpmrp53pqd2": "状态：",
+  "lc96c1k18m0h": "请求数：{count}",
+  "semoyirqsxplc": "修改后的群备注仅对你自己可见。",
+  "mfbzmte12ff5r258": "群名：",
+  "i5ben55fbth": "名片",
+  "r4x1znev99v": "正在呼叫...",
+  "qlxmkuaaymz": "版本更新",
+  "bn55t6ry1dwsz885": "更新日志",
+  "h19yg2bqrl1la51q": "最新版本：{version}",
+  "e273t5wdamm": "V {version}",
+  "vss8yk6lpp6jw33e9": "更新",
+  "ywijcs0puzoabm5": "下载中...",
+  "tc7vyclhsbc": "开始下载，请查看通知栏。",
+  "yevewfyjzboy4": "ICP备案号：鄂ICP备2026001205号-2A",
+  "ke33rl08rv": "Copyright © 2025\n武汉舫泽道生物有限公司",
+  "hpor0y3icjixh3flq": "切换组织",
+  "btb8dnqcxfup1": "没有可选企业",
+  "omoybl2jyha0vr": "加入其他企业",
+  "vhzfz1jkivae8": "账号激活",
+  "zi3ni91fi3g7o": "账号已恢复激活状态",
+  "y64u01nflw": "取消收藏",
+  "uu4chrz1msv": "企业码无效",
+  "onmrs1mr5f1yb69mq": "帮助中心",
+  "qgofgwhzcvc": "企业码说明",
+  "sv219jtcknpu1": "企业码是团队的唯一邀请标识，用于员工加入。",
+  "lda8ntv3hj": "如何获取企业码？",
+  "whzjpf7a6q5h6y": "请向您的管理员索取。",
+  "e56kby2x6vlqjo": "格式说明",
+  "qx326ez2o6up": "通常为6-12位数字/字母，区分大小写。",
+  "tl5hq5kqt6t6l": "反馈邮箱：gideonswebe79@gmail.com",
+  "sqatwng90k": "注册企业",
+  "xf4b1aj1i4b0": "查找企业",
+  "zxwtf7wqnslfxgq": "输入企业码以加入团队。",
+  "pvj074i052": "无企业码？请联系负责人",
+  "cwkmwiul1msm7gs": "© 2023 Enterprise App. All rights reserved.",
+  "t74h39zkb4r07pss7": "查找失败",
+  "pxj43og2d8xj": "规模：{value}",
+  "titlyqyqzbu2r": "已加入 {company}！\n请手动切换至该企业。",
+  "nsdoisvbxb73iueh": "加入失败",
+  "q1tterhcefzr": "全部消息",
+  "lro67d03dmd": "未读消息",
+  "l85hfpp3rh": "置顶会话",
+  "dl8og815etauyt": "所有消息",
+  "uvdzad3tz9": "昨天",
+  "gfnsg11cj2j2x2": "昨天",
+  "wecmefvvofc9": "周日",
+  "lzenogwej379": "周一",
+  "qw7qqp9g3h8wry": "周二",
+  "gph42r3gq2tsj": "周三",
+  "q8fwgfl8q7c": "周四",
+  "ho9dnlwvlrk4a": "周五",
+  "kpvaat9wuzqm2": "周六",
+  "ntfyue9f3pfevyaz": "私聊",
+  "wdu6dcnlpnay0": "群聊",
+  "mk4llnva8j": "未知类型",
+  "ydgrrvbc4n03d": "禁言",
+  "gdk3efemo6wy": "群组封禁",
+  "bs8otjgnautk1huxp": "全员禁言",
+  "qi1hti1vm4eldi": "解除禁言",
+  "ezzmxm32j1dqj0t": "群设置",
+  "isxg5zg5jq235": "聊天工具",
+  "cg9tt56h2qfce": "通知设定",
+  "wa9nua14w7uvdg7": "个人设置",
+  "d49sut13rz3": "敏感操作",
+  "p7clf0cst0x6n": "分享群码",
+  "oyc8o6ng75n7": "查找聊天内容",
+  "aqrg57vv7l0h7": "设置聊天背景",
+  "yqxu4s4afk7h9": "免打扰",
+  "oqnukkrsbe8y8se6u": "开启",
+  "u1zhoc2jy4bw2": "置顶",
+  "cn5qezaogtt2u": "未置顶",
+  "myu9fok62jhs1kz54": "已存",
+  "b2rmiuac02tee": "未存",
+  "gbgzurdg0zn": "清空记录",
+  "xht726i1nrryeyb": "查找记录",
+  "bcowl3q36o9": "举报群组",
+  "sdzog342jloioqrgm": "发送...",
+  "j5r34ujspoe2y": "禁言 {count} 天后解除",
+  "maffmuy0nn9o1": "禁言 {count} 小时后解除",
+  "gfbotj9plw": "禁言 {count} 分钟后解除",
+  "xnxc5u1bqrb208": "禁言 {count} 秒后解除",
+  "awwnnnaaloul": "以下为新消息",
+  "vgbuhwy5h7": "[图片]",
+  "suusssdg62qyq": "[语音]",
+  "wsdt9946a0colx9": "[未知消息]",
+  "jnsmsxhcy0eff6l80": "[有人@我]",
+  "i2p2s4llwld9r2p": "手机端",
+  "dkfzxa2b2mnvxnga": "网页端",
+  "gjb74qrekumperzau": "PC端",
+  "uwvdmp5f4ef": "{device}在线",
+  "h95xf869n1s": "上次在线：{time}",
+  "c39lo3f9awtal4px": "{count}人",
+  "wte8vnx11jz4nnnep": "隐私查找",
+  "dm1dp9e3777lsq3": "允许手机号查找",
+  "uyp62g3upj38ctxr": "允许ID查找",
+  "qfmdnw35yx9uq7t": "关闭后，别人无法通过该方式找到你",
+  "zsehvr4riqzzw6nq": "登录密码",
+  "c0u712z5qg3m": "聊天加密",
+  "g68q3tlay08p4": "屏幕防窥",
+  "m5db0j6ymxd": "应用锁",
+  "q35lokzbdese810on": "离线屏保",
+  "lwxbk9q0d4xzsy9u": "禁止截屏",
+  "jboaarxzwcpz": "应用内禁止截图/录屏",
+  "bezsh1bkob": "设备锁",
+  "tem32ufhpf4c1nlhk": "设置已保存",
+  "jkw1x5enpubi7": "保存失败",
+  "oc2rrtrjnl1cw2j": "网络异常：{error}",
+  "qn68ttz3cg6yg": "截屏设置失败：{error}",
+  "sqb5hsjocarmf": "重置密码",
+  "nnzf6slttt": "重设登录密码",
+  "grkjts7vld94pp89": "验证手机号以重置",
+  "gkpz8hhwqoj06rih": "验证码",
+  "qqvwgfr0yb7yga49": "填写6位验证码",
+  "ktgnsuq1fvip": "发送验证码",
+  "n0ewu9eggvmbiibq": "新密码",
+  "h96pnyvf0o51qdtu": "设置新密码（6-20位）",
+  "vxze94il4r0skw2xz": "请填写手机号",
+  "yvspkxozfvd9u7f0m": "请填写验证码",
+  "ig0vtc8dp0apx4wm": "验证码需6位数字",
+  "y2apw9xvozofwom": "请填写新密码",
+  "ki549ywgal9r": "密码长度需 6-20 位",
+  "vdufthd5xh1t8": "验证码已发送",
+  "iytbyfoxhtz6a": "发送失败",
+  "aqlgotigxpo787x": "重置成功",
+  "snx6pw73w1": "重置失败",
+  "ayialn6xs0fiz": "登录异常，请重试",
+  "p05im3sdi7v0": "群组管理",
+  "h48uy2cz4ri32n": "设置群组及成员",
+  "eu2ayl1v3ye5wgu": "查找成员…",
+  "vktiqvzl9o9r29": "全体成员",
+  "cann2q4ff4i": "无成员",
+  "gv91bcw2zxsm4mcg4": "管理员",
+  "h91tnqgrfl": "管理功能",
+  "cjh950s2jyk1dk1tn": "群主",
+  "aa39r22tml3e": "管理员",
+  "igjxrppayqq2e4": "新增管理员",
+  "e68gs0mb6kr9pkn": "添加管理员",
+  "y9fa6tn7t1s": "添加",
+  "jw3yqxsftl": "撤销管理员权限？",
+  "il28mxq1h3e": "已撤销权限",
+  "g21qjqgbyf6ljol": "撤销失败",
+  "qrp1qe5cp5v8f": "已添加管理员",
+  "b9mx9k3w32930z": "添加失败",
+  "efcmbc6ywj348mfyd": "转让群主",
+  "vsono0ta8w": "将群主权限移交他人",
+  "sgk0kh157x3xf2ujj": "转让",
+  "clzvd7r9zt": "已转让群主",
+  "xdr9ywuejhx3": "转让失败",
+  "pyr0a76m78gbgflvf": "邀请验证",
+  "d2aqkpc84c6xg3fo": "入群需审批",
+  "hd29dbldcw4lyr": "全员禁言",
+  "olxkf599l4wqe0": "禁止群内所有成员发言",
+  "kmcuxqak2d740of": "公开历史消息",
+  "ml5wkz61l2": "新成员可见历史记录",
+  "g8tlflwvjqec7r0": "黑名单",
+  "r4vo8dixvq68hms": "管理被拉黑成员",
+  "lyjzx5kfxsg7i9q": "群黑名单",
+  "xenyyn5qw27": "黑名单为空",
+  "ou3yhde2eruzdaypu": "已移除黑名单",
+  "jve06zcga2dp": "已拉黑",
+  "wpllxlmbrroh72n": "解散该群",
+  "f4wjtjc2e8fxm05": "确定解散群组？操作不可恢复。",
+  "v5ljgimp1t9y": "确认解散",
+  "scifwgbtjbna4x2": "群组已解散",
+  "hhruzkcpds7ay7fk": "解散失败",
+  "zunz75qx40eyj76": "永久删除群组",
+  "n7zwi6tcrinlvdj": "设置已更新",
+  "d4b35tedbui": "聊天加密",
+  "ve5fa0q45l": "设置密码",
+  "hgfu4lw0o4": "使用6位密码保护会话",
+  "vd9ozyn3vjkhnbual": "验证登录密码",
+  "ems34nazryh2a8": "设置6位数字密码",
+  "hre2z1kehd": "再次输入以确认",
+  "uwucir6o9w9n": "确认密码",
+  "dibkqevkubgg9nodc": "需输入登录密码",
+  "tlz3lucuovec18eit": "至少6个字符",
+  "wibypo4ddpdvoc5k": "请填写聊天密码",
+  "cbs29bks66l28agoe": "需为6位数字",
+  "jjlmwozf2kth4": "请确认输入",
+  "l07ndxs2jpdgmcp": "密码不一致",
+  "kxay0crg6ibude3gd": "两次输入不一致",
+  "b3pmdndbxtgb": "设置成功",
+  "bpoc9fb72dk": "设置失败",
+  "z3iuz151cn62": "解锁聊天",
+  "ep8gjko7wbtjn0": "会话已加密，输入6位密码解锁。\n\n警告：多次错误将清除记录。",
+  "mgkb1zauiqozgo": "记录已清空",
+  "zsl9g0vtu5vn5r": "密码错误",
+  "qibmii72y6nbwz": "密码错误，剩余 {count} 次机会。",
+  "@qibmii72y6nbwz": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "weuhwdlqd5o74a6j1": "应用锁",
+  "jr1ob7vepkr": "验证当前密码",
+  "zsju7b9ixu3p": "设置新密码",
+  "bea2s719ndboc": "确认新密码",
+  "e531bexiyzu6ll": "输入现有6位密码",
+  "zk5csyy4oqtg": "新建6位解锁密码",
+  "dcfqhk58nq4": "再次输入以确认",
+  "zle9b1riughz": "当前密码错误",
+  "ulj01gv2cqd54rn": "密码不匹配",
+  "zlg8oxrh2lgn8pn": "设置成功",
+  "la32fomm1y4wh9vig": "设置失败",
+  "jvrlsc8aiewkmv1v": "忘记密码",
+  "ut981wyh29": "重置将清除当前密码，需重新设置。",
+  "ns6hg6eqe8msbib": "确定",
+  "ixtnb22sep": "设备管理",
+  "qrd3n382qtk6fyqx5": "设备锁",
+  "dqgrzhwqmtvr": "开启后仅限授权设备登录",
+  "kzk7w77axltlylu3": "在线设备",
+  "d6njham8mx": "本机",
+  "ysfhfcnkal5": "登录时间：{time}",
+  "ayykh8f429lo97": "删除",
+  "gn2ghr4fcn65ukcwf": "移除该设备？",
+  "d0f8h5sz4zb9idm": "移除本机将导致退出登录。",
+  "rjfwmfpvbry8e3yk": "设备锁已开",
+  "mp9yenk21l": "设备锁已关",
+  "g4ifrkq8mm83ap999": "更新失败",
+  "ppres79kur3t1l5": "本机已移除，请重新登录。",
+  "w4eb3vbj2qw2moa": "已删除",
+  "qss3jmb9qeaz4u": "删除失败",
+  "qyay8u152zo3e3h": "加载失败",
+  "xs825czigybzdla": "加载更多失败",
+  "z2mgr16xjohnzn6o9": "撤回",
+  "qr8fh4mh1bfhsuv2b": "您撤回了一条消息",
+  "qi7mk2otd25yh6v": "{name} 撤回了一条消息",
+  "a0xzoksz4wrpsk": "您撤回了成员消息",
+  "ct6bcahm3ntg3vpok": "{name} 撤回了消息",
+  "ofw8x51gg1bu29iy": "消息已撤回",
+  "yo0h7t20k814mwof": "中国",
+  "sz123xgsa8": "美国",
+  "gi15xmih48q": "中国香港",
+  "thjjiau9j8": "中国澳门",
+  "l4jmck1w6wp2ei": "中国台湾",
+  "jzrlak0vj42": "日本",
+  "ueoskkj6jnu4d28nt": "韩国",
+  "pl0sw7z25z": "新加坡",
+  "wndov14qh0h": "马来西亚",
+  "o44z80wywvg1c1g7": "泰国",
+  "mlxgd3d698ywa5rq": "越南",
+  "z73slbeeurtttujo": "菲律宾",
+  "s2hslb4vy1": "印尼",
+  "mawtx44uegdfiwd": "英国",
+  "h12s78avc3cdw3gb9": "法国",
+  "uypm9wtiay797q": "德国",
+  "m3qxoi9pn9a94d9": "意大利",
+  "j6gqd1ftvy1rtz": "西班牙",
+  "tvv9t5pphwyaygf": "俄罗斯",
+  "nnh9gumlzcafkc": "加拿大",
+  "c0ij4yfqb0u8": "澳大利亚",
+  "es5z14o05d2idvpxl": "新西兰",
+  "ugzpsho1l6fzehbgw": "印度",
+  "v58ka54i22sgwf": "巴西",
+  "j4uadgdmkxxwh": "墨西哥",
+  "a8g63374i4vvw70a2": "阿根廷",
+  "gxe8hgiooen": "荷兰",
+  "c00zi56q3j97wr": "比利时",
+  "q3nbgppwrzvs": "瑞士",
+  "mo8v77w025": "奥地利",
+  "u6q0zt9jnn4swo": "瑞典",
+  "gvh0f63fdv5zop": "挪威",
+  "m79zso1nhu9r1af5": "丹麦",
+  "pxodlzmtogbh6": "芬兰",
+  "oi98yh3qe91": "波兰",
+  "u4cvm8zniqr7l": "葡萄牙",
+  "b099ludsh5g": "希腊",
+  "x6uyzo8dmjh8": "土耳其",
+  "cx70h8x68h": "南非",
+  "na2dw58oz7": "埃及",
+  "v8bp7ud84q69x": "阿联酋",
+  "mn6x2g5p5muuqw9": "沙特",
+  "lgvs1xg442fw17uxz": "以色列",
+  "p3xv37ravvt5bhn": "巴基斯坦",
+  "y6w47e4gpigew0": "孟加拉",
+  "tq9dk3gfj401jxev": "斯里兰卡",
+  "j8tylis4ok": "缅甸",
+  "v68vpyzffzv": "柬埔寨",
+  "opclqhcvx8t5jagkt": "老挝",
+  "o6rzf8juqdgb0n76": "文莱",
+  "ala69hy4fclyen74": "东帝汶",
+  "fvt9e97hp2mk": "爱尔兰",
+  "nkqssj7ucpr0": "卢森堡",
+  "jf9v78szy61": "冰岛",
+  "tpghmflrgfr5o9z": "捷克",
+  "pkex1hpqwvjc": "匈牙利",
+  "dnodiunw1b": "罗马尼亚",
+  "bi87k6u4iww": "保加利亚",
+  "ffrkdzsfqnvw6g": "乌克兰",
+  "sjo3tz9uxy": "白俄罗斯",
+  "fqzfh9eejaetiway0": "爱沙尼亚",
+  "yh6lc4ek4jgvkxxeg": "拉脱维亚",
+  "p2gz2kwi9115q": "立陶宛",
+  "c161r8wqnlhej": "斯洛文尼亚",
+  "k5rjplff5w": "克罗地亚",
+  "x8pkcdqqjm": "塞尔维亚",
+  "qmttffkkio69z": "黑山",
+  "au9tv5p5ggb4": "北马其顿",
+  "ms3fotyq5y": "阿尔巴尼亚",
+  "vgm0grfsiid2": "波黑",
+  "b6mlbdh5ecin9v": "科索沃",
+  "xqi8spftjq8": "摩尔多瓦",
+  "wavrvlsq4p": "格鲁吉亚",
+  "fyjhflrxyrslxy": "亚美尼亚",
+  "rbtk4fvo6cylyfdn3": "阿塞拜疆",
+  "f1yqo5agi11": "哈萨克斯坦",
+  "mnb803jiynzk": "乌兹别克斯坦",
+  "zsa83stm6ld": "土库曼斯坦",
+  "ba3qv4whbbfi": "吉尔吉斯斯坦",
+  "g54nvtobwx": "塔吉克斯坦",
+  "d5d42vn1jfy": "蒙古",
+  "v9muso0vhzj": "尼泊尔",
+  "hpljvaxuoiq": "不丹",
+  "ctyfm7awjy5s8d": "马尔代夫",
+  "f67nuaitwg25pq1c": "阿富汗",
+  "ja7hntw34lf2bw2": "伊朗",
+  "yp8c5sqf3f0pcf2": "伊拉克",
+  "yzxa2q4udra30f0": "叙利亚",
+  "e37lkrvin6u": "黎巴嫩",
+  "v4r3t0imcn73r4qjd": "约旦",
+  "s1780nhhkw3": "科威特",
+  "z9tjymhn02lg": "巴林",
+  "n3c3qvh5iikw6981l": "卡塔尔",
+  "l4uc64o5bi4": "阿曼",
+  "nbyrayy50uzt9": "也门",
+  "ocgfrl4j16rdxd": "巴勒斯坦",
+  "di5pdq810e2wyhve": "塞浦路斯",
+  "kpibnbrhgwjxt": "马耳他",
+  "ik9qx39g7hpga2": "阿尔及利亚",
+  "vctbndoe3q": "摩洛哥",
+  "aofubktzol": "突尼斯",
+  "lptvtrbhqh24m": "利比亚",
+  "crrul9vhnhi8npjp": "苏丹",
+  "j3a2ikoecvc28": "埃塞俄比亚",
+  "xtdy7lecx9": "肯尼亚",
+  "peaaxvfrcy": "坦桑尼亚",
+  "oui5zvzlqntq": "乌干达",
+  "mbi51suykyokb3vyh": "卢旺达",
+  "xf98h9maws": "尼日利亚",
+  "if8s8wtkhwibs9l5": "加纳",
+  "g4zjnl4jax": "塞内加尔",
+  "hm4tz1zpz2v": "科特迪瓦",
+  "p4kvyu8tbqcwr": "喀麦隆",
+  "enmcjxjf9cdeok04": "智利",
+  "dmfu1aqjbey0800km": "哥伦比亚",
+  "gw691hf4cln": "秘鲁",
+  "lrgrmetisi5": "委内瑞拉",
+  "wn035v5c0jeokbtf": "厄瓜多尔",
+  "nayk0ya8m9ax7x": "玻利维亚",
+  "xyhace1nowxhc3": "巴拉圭",
+  "e0b11jk4inv01o24": "乌拉圭",
+  "kb6uuiyr7p": "古巴",
+  "jqmyi7jbnylssl": "牙买加",
+  "zk5fwpdj1iyk4n8n": "巴拿马",
+  "q1p4duh59qkfgo08": "哥斯达黎加",
+  "unmzcmlufjltej5rt": "危地马拉",
+  "bbtx4xo7iwqq": "洪都拉斯",
+  "ls1s6cyup4ghz": "萨尔瓦多",
+  "lrf80my4bj7qc62": "尼加拉瓜",
+  "i3m8x643qe1ys": "多米尼加",
+  "g1kdwu7p7mzmrqf6": "海地",
+  "dm97ymq826hokfm": "波多黎各",
+  "ljvo9q5iwzaub1b": "特立尼达和多巴哥",
+  "os7dxv1iogm368b": "巴哈马",
+  "mfk2p137f9lo2zzy": "巴巴多斯",
+  "xbitl8i5tbx3": "试听",
+  "o32bjfh27k4y5mqh": "暂停",
+  "ru4iu6pb5y47w2": "总长：",
+  "w41j3gvfvi8icndc": "需麦克风权限",
+  "ufrx7j561h1x80x3": "录音启动失败",
+  "vzn53koj53bbyf": "录音文件无效",
+  "v1zwbxhsi5skl": "播放准备失败",
+  "omyl3srvq4ujfa1": "已达时长限制 2:00",
+  "qem1fuj2su6u": "提醒设置",
+  "s4494z8fk2c9": "配置撤回提示",
+  "hcy9symgdh5ghp50": "隐私安全",
+  "g93m5m75rh3": "投诉",
+  "j1bbeckax0ojxo9": "聊天加密",
+  "vl8q8x7yjuwi1sq": "启用",
+  "cunv870b4r": "禁用",
+  "hc9d8o22fkys": "已读回执",
+  "yo26cklzznme": "显示已读/未读状态",
+  "b28ht8sbbxxzha": "隐藏已读状态",
+  "zv2nghw0x2": "{count}人已读",
+  "@zv2nghw0x2": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "n63o894bb7rnvou": "已读列表",
+  "f5xycr1fym": "暂无已读",
+  "n5p2w542wbb6jco": "允许",
+  "b5xu8gu1n2": "以后再说",
+  "uw1fektmytx": "去设置",
+  "qshxbba4rlgc25p": "取消",
+  "g86nixz2mr": "相机授权",
+  "w7ojvb8lyo1myd": "应用需要相机权限以进行拍照、扫码或视频。",
+  "m3y0rqrt5lm0tp": "需开启相机权限",
+  "z1qv4sxird4d": "请在设置中允许访问相机。",
+  "mwk20oouv5": "相册授权",
+  "rnic0dsor4xv2i": "应用需要访问相册以发送图片/视频。",
+  "x8no4n03dydv": "需开启相册权限",
+  "mrca0648nj1mo2mir": "请在设置中允许访问相册。",
+  "wbl1rdb0a6": "麦克风授权",
+  "m491s041rlkbre6le": "应用需要麦克风权限以发送语音或通话。",
+  "hrd3523zm9sk": "需开启麦克风权限",
+  "hvke9mxcpm9f": "请在设置中允许使用麦克风。",
+  "s6noye8x2lj09s2e7": "定位授权",
+  "j782497krl94yaj": "应用需要定位权限以分享位置信息。",
+  "tqf2330zwo5rx90": "需开启定位权限",
+  "vr4oyu2qbt7k": "请在设置中允许获取位置。",
+  "y5b5032h9nh2": "搜索关键词",
+  "lmo91dcij7uph5ttd": "无相关消息",
+  "c5jk6ocn66r6plij": "截屏提醒",
+  "ajkah2jvo2mqp": "截屏时通知对方",
+  "xqe8byfb69aog": "撤回提醒",
+  "jpdxuudu6u6y": "撤回消息时通知对方",
+  "auiotejd7of": "设置未保存",
+  "c3her3erwstnnfp79": "申请权限",
+  "mbeycrmjsfg2": "请授予拍摄/录音权限",
+  "akvzkzjrt90ap": "审核",
+  "wltnpn49cb540": "审核页加载失败",
+  "q0gzktzi4r24h6": "邀请已发出",
+  "x64zaumv1upqg5": "邀请未发送",
+  "qd3p28t0r1qa6eq": "对准二维码",
+  "xe8xutcjico5nbh2": "自动识别中",
+  "kjy2a3nss5vgni": "相册",
+  "e23n37baws9fg7": "关灯",
+  "uese6im9vfx": "开灯",
+  "qqcpumv18m6bz": "网络已恢复",
+  "py5sadljy82": "网络断开",
+  "b1gfzvt329": "通知",
+  "r9z7eet32abhcgo": "安全验证",
+  "fhez21gfyto": "验证中...",
+  "wtd57s32mem46zgj3": "验证通过",
+  "iupfa340d8it": "验证未通过",
+  "dp720olz137": "验证码错误，请重试",
+  "k73xb85db7y4k": "账号已存在",
+  "ldgt5g2sksi69": "验证码发送异常",
+  "gelkzjggo86xnpqkn": "拖动滑块",
+  "ew2d30m5i9k": "滑动验证",
+  "c548n5uz277ne7n2": "刷新",
+  "a7n1yaas7pytyfx": "标签",
+  "nr8ujzes0la31": "新建标签",
+  "asqch8wrvzhod4": "修改标签",
+  "d87bxnsyiy7i": "加载中...",
+  "srsq6ovo72z3sugq": "无标签",
+  "e0as38kntivftp": "创建标签管理联系人",
+  "lpy5yrll4c8ivfhh": "成员",
+  "kh5xqwnd2s59": "删除",
+  "nms5et3uhw2": "确认删除 \"{name}\"？",
+  "hqslpcmqlur6": "删除成功",
+  "pyz9sy2ogmigu7": "删除失败",
+  "dcstckyvc3muhrjaz": "名称",
+  "tl8pbsexvxr4sg": "移除标签",
+  "c8svq2zh2lgy4": "确认删除此标签？",
+  "k6jyuufqw0o34hi": "标签已移除",
+  "us5o5byymh19jw8": "删除错误：{message}",
+  "udx99l6cc8gkhqs6": "标签已修改",
+  "mcc0ukm1t9wz": "标签已创建",
+  "xc78k3c7gow83ldh": "清空记录",
+  "rjwk9w5gm3x": "您进行了截屏",
+  "bcmsidyw7g4lcqi": "{name} 进行了截屏",
+  "@bcmsidyw7g4lcqi": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "traf1i6m2kq": "通话：{duration}",
+  "@traf1i6m2kq": {
+    "placeholders": {
+      "duration": {
+        "type": "String"
+      }
+    }
+  },
+  "h4v267352cnh2": "已拒绝",
+  "po41nvm0zu": "已取消",
+  "rz9329py3w": "重连中...",
+  "l4rlb8m08nw": "重连中 ({current}/{max})",
+  "@l4rlb8m08nw": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "zz6lswo025k5k9": "需实名认证",
+  "l1vnuku5wtdawzo": "建群需实名，立即认证？",
+  "lsidkrst8kia46rgb": "去认证",
+  "mru50yopkty1c": "身份认证",
+  "i47oktgsuruq9w": "姓名",
+  "p417l41fcz0ma": "填写真实姓名",
+  "fyy34sx2hdbun7au": "请填写有效姓名",
+  "d6lw2xhwaz90": "身份证",
+  "gen6nl5w8n": "填写18位证件号",
+  "nctg1tjl29x3a": "证件号无效",
+  "edftgresl2eq9vn83": "手机号无效",
+  "hi9mo1o4zs7": "上传证件照（必填）",
+  "vd6buf0q7ory": "上传证件照（选填）",
+  "xjhfb2lx9x": "人像面",
+  "m21p872msh": "国徽面",
+  "zqd2ltahp4l2dq7c": "支持 JPG/PNG，限 5MB",
+  "sevdifmks6c": "请上传照片",
+  "vtrk8z4wlecity319": "提交中...",
+  "brnnqh9zqnn": "提交",
+  "tjuvq79r3s": "认证说明",
+  "gspw75dvuhog6rd": "依据法规，建群需实名。\n信息受严格加密保护。请如实填写。",
+  "f09pb6snoi": "点此上传",
+  "zfyppyau01g": "图片选择失败，重试",
+  "ig6ct9cer7dsmtqv": "网络异常，稍后再试",
+  "ak1tbdw2lgdm1c1": "与系统失去连接，请重试",
+  "dzofea22dh9x": "无法获取身份认证状态，请重试",
+  "j8xz3gimqtag6": "提交失败，稍后再试",
+  "sprnld8rn649xbrn6": "审核中",
+  "ngg6pgkjkbt67j": "申请处理中，请稍候",
+  "z2p4w09d63pio3ze": "审核约需 1-3 个工作日。结果将短信通知。如有疑问请联系客服。",
+  "rsowgrm13vait6v": "认证通过",
+  "oxyq8yf671nmd7fs": "实名认证已完成，谢谢。",
+  "bcpuvz0dl7szbsz": "认证失败",
+  "z520rpze9tuc5yyqg": "请修改后重新提交：",
+  "gb8d2dtkfkjvu0": "例如：信息不全或照片模糊",
+  "f6jg707pjvy": "重新提交",
+  "a29io4vw4bdj": "新建群聊",
+  "xqxyexp70ox": "提交时间",
+  "souhc0jb4rirrbmp9": "申请信息",
+  "sh63rno7te4eg": "认证时间",
+  "a292crwdhtscd": "认证详情",
+  "clascpsjplkn8ix": "认证已通过，如需修改请咨询客服。",
+  "isyzmcbdeyhhz": "审核中，约 1-3 工作日。结果将短信通知。",
+  "jvob4t2cgim": "实名已通过，变更请联系客服。",
+  "oyt039tsd3mxh3o": "检测到邀请码 \"{code}\"，是否注册并加入？",
+  "@oyt039tsd3mxh3o": {
+    "placeholders": {
+      "code": {
+        "type": "String"
+      }
+    }
+  },
+  "ard3jyf7i220dqn": "条款与隐私",
+  "sb1w0i3z2n32q": "欢迎使用！请了解我们如何保障您的权益：",
+  "g6f8apdcu62": "《用户协议》",
+  "ko9jevt9qa": "协议内容",
+  "hocctzexzymq4i7c": "及",
+  "ryfttvgl08jhkfq": "《隐私政策》",
+  "e0mpbh6xkodx6": "隐私条款",
+  "vglix78mavo5xta3": "\n核心提要：\n1. 经同意后收集必要信息。\n2. 使用 Cookie 维持服务。\n3. 您拥有信息管理权。\n4. 未经授权不分享信息。\n5. 详情请点链接。",
+  "q54defgbd8": "拒绝",
+  "bo2zbaghayn": "接受",
+  "vmwrxf2a2fhi5bc": "发现企业 \"{companyName}（{code}）\"，是否关联？",
+  "@vmwrxf2a2fhi5bc": {
+    "placeholders": {
+      "companyName": {
+        "type": "String"
+      },
+      "code": {
+        "type": "String"
+      }
+    }
+  },
+  "v5gsq75vzdghm": "关联",
+  "sttmhv8halz": "发现企业 \"{companyName}（{code}）\"，前往注册？",
+  "@sttmhv8halz": {
+    "placeholders": {
+      "companyName": {
+        "type": "String"
+      },
+      "code": {
+        "type": "String"
+      }
+    }
+  },
+  "rdupa4zs9jr": "跳转",
+  "iv18quhtry6": "未知组织",
+  "gtyod5pc5whgj1j": "所在位置",
+  "zo5x2bpnm4zg9": "定位",
+  "ap1v9qlkbnvpl7bp": "选取地点",
+  "jds1e2hsv630pc": "位置详情",
+  "rmnhl0kvirs": "定位中...",
+  "hrpi0scpv674vzpq": "定位失败: {error}",
+  "@hrpi0scpv674vzpq": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "afg0dyz89md": "发送",
+  "gf31bbr1q9v": "纬度: {lat}, 经度: {lng}",
+  "@gf31bbr1q9v": {
+    "placeholders": {
+      "lat": {
+        "type": "String"
+      },
+      "lng": {
+        "type": "String"
+      }
+    }
+  },
+  "bfpqf9vqhs8woi": "解析地址中...",
+  "av6vreutxg": "无地址信息",
+  "j06oocz82s8u7": "发送位置",
+  "sve5wl38kr3wt5r5c": "退群成员",
+  "ggt8sovizy24": "查看已退群用户",
+  "kk1x3gde6exjf1t": "无记录",
+  "ok0iwr9s7lp5": "已移除",
+  "gwgn8hunddmboo": "收到一条新消息",
+  "gcjlxyu8kdm": "发送频率过高，请稍候。",
+  "t3rmgntlw4fnrjvd": "新版本可用",
+  "xddb057wbtm": "全员禁言中",
+  "xyfkldb4i95lw": "{appName}ID",
+  "@xyfkldb4i95lw": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "ae8qu4jhd4": "图片",
+  "p4pidsfjii6suq36": "视频",
+  "trxa2517r7gtheaow": "文件",
+  "bwc6414vsob": "日期",
+  "iifrxgfhf4": "置顶",
+  "vaybwr4gham64ekmf": "取消置顶",
+  "zv7ofyk6cdc3vud": "静音",
+  "dn403rhx1q": "取消静音",
+  "gt7r4yoyqml0y81": "{appName}ID",
+  "@gt7r4yoyqml0y81": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "j5omtpjkk1": "登录保护",
+  "dzf3h5ab7o3": "新设备登录 {appName} 需验证，通过后可免验。",
+  "@dzf3h5ab7o3": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "vrfg039bo6r7v3": "开始验证",
+  "rtm95aokvwppyrbu": "验证码已发送至手机 {phone}",
+  "@rtm95aokvwppyrbu": {
+    "placeholders": {
+      "phone": {
+        "type": "String"
+      }
+    }
+  },
+  "og8z5jkezy02wlf": "验证中",
+  "i9t7gg3gre": "重获",
+  "kxkmcvo8dod": "获取验证码",
+  "zjeyzcnk8u4t7mh67": "输入验证码",
+  "gvtto4qjib8b": "短信验证码",
+  "s2hbeduqh8h0ie": "4位数字",
+  "eid162zkbhtb": "请填写验证码",
+  "o9nnvlbkts": "需为4位数字",
+  "omast4wctv": "Ver: {version}",
+  "@omast4wctv": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "vcquha0tsk": "获取版本失败",
+  "dw1cuxafei": "线路: {name} (点击切换)",
+  "@dw1cuxafei": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "dff97wyg9wdqh": "线路: 未知 (点击切换)",
+  "hrw2r3g3fo49k148l": "域名: {url} (点击切换)",
+  "@hrw2r3g3fo49k148l": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "jt7skw67ei4n": "切换至: {name}",
+  "@jt7skw67ei4n": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "yvwspxwdvys": "AI 助手",
+  "ixleheg4av26": "你好，我是智能助理，请问有什么可以帮您？",
+  "ho0iratiujshj": "信息缺失。",
+  "qyc7iqnc2qvpl": "出错了，请重试。",
+  "uddqbqnorzs0": "未找到 {name}。",
+  "@uddqbqnorzs0": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "yia1hk2r51xyng": "正向 {name} 发送消息...",
+  "@yia1hk2r51xyng": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "ezdo8ykcggj15": "联系人",
+  "g07voh64ytsgt6prh": "选择对象",
+  "b6ubkzl6qg6": "试一试：",
+  "awf8lzbfc45evdm4": "发消息",
+  "allv3pt5ycznkc": "发消息“你好”给 ",
+  "johjgo1igg": "找人",
+  "hay1hdwtg2g51c": "查找联系人 Test",
+  "cqpwq1entcac": "找群",
+  "zynuu78hldwy5q": "查找项目群",
+  "r7ktxj71mngqmt9m": "搜消息",
+  "q2wi37ge0hckcrz2": "搜索包含 hello 的记录",
+  "rv5ncsl3w672": "提问",
+  "ax62on8ywd": "你的功能是什么？",
+  "yuhvvd4nreh": "通讯录",
+  "eekvlk5dx79so": "我的群组",
+  "r4orit2wif723": "我的名片",
+  "fur55x33nzeui": "意见反馈",
+  "fub3uua63781qnd3": "PC端",
+  "tydlfb5vrwd60a7xr": "实名认证",
+  "xyp1pex98w": "拍摄",
+  "f8p4xd6b7qpryu05": "图片",
+  "geqwetpoqacs": "企业",
+  "qu5rnhh66fg9bk": "权限",
+  "c5gf39qrzs": "Lv {value}",
+  "@c5gf39qrzs": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "iagrgrhbheduo": "切换",
+  "lx4pnor9bvyb1xa9": "搜联系人...",
+  "kvh3mr514c1r3p6m": "未找到",
+  "hcsg7bp2lg0": "智能机器人",
+  "n0xnx2mmerbqlkw": "Gemini 提供支持",
+  "yq6vg73foz51ap": "开启会话",
+  "xht0dt66knpkuzw": "暂无法回复。",
+  "mii04cu9lls": "发生错误。",
+  "du7i6zmjsf": "思考中...",
+  "hrbgu1tdnu": "输入内容...",
+  "khiy7y3w7z": "设为已读",
+  "czkwn18g7sye6m": "已选 {count}",
+  "ut4r4hlqb4": "全选",
+  "ej1nipvseqefrkje": "取消全选",
+  "o3i1goxybahf": "名称必填",
+  "r2nri6bami5dny": "密码必填",
+  "bkm2hgb3x5izqq": "号码无效",
+  "negah3q96ekua": "密码需 6-20 位",
+  "ln1ohsicvhy2ypgb": "请先同意条款与政策",
+  "dlk3tctvwuo": "昵称必填",
+  "yhhdgqx9ndnbb3y": "登录失败",
+  "swsm3rg631m": "注册失败",
+  "xrhuzljapqyawvvgl": "网络异常",
+  "sky6yw7steby8": "未知错误",
+  "hh7o5htji2ryac": "验证未通过",
+  "pm22ll5bdaujplx9i": "转发中",
+  "pni1szj3qpf74gp6": "转发...",
+  "ql2t2ofkvdx2azhe": "已加入队列（第 {position} 个）",
+  "g6v46z3p29h4vqt9f": "队列中还有 {count} 个等待",
+  "yb5qya5adugie": "转发队列已满",
+  "aeexvf25uxwkfe": "发送至 {channelName}...",
+  "trz6i9z1a2o57u": "已将 {messageCount} 条转发给 {conversationCount} 个会话",
+  "gf7fizkoczwkol98b": "无法转发",
+  "kpz4y788kc": "已中断，发送了 {count} 条",
+  "kamklofl79bsi5": "转发已停止",
+  "jq344q9c700xeud": "新消息分割线",
+  "r84rw1q7io0vyje26": "加入团队",
+  "jmfcowogf65scagag": "立即加入企业？使用邀请码连接您的团队。",
+  "ygvzjxi7xt": "加入",
+  "swrb2b7kcvx": "稍后",
+  "j1vy3qno07qm1dt": "日志",
+  "w1mxgxue4ahk": "工作日志",
+  "anysa8ceg9i": "写第一篇日志",
+  "bnr7gjcc7hrd": "记录点滴",
+  "l3rym6q4m5v3wv3y": "无结果",
+  "lk20uhcys1zxn": "请调整筛选条件",
+  "m5jaft0svm9v6e23u": "查找日志...",
+  "cvyxxz8f5gn": "新建",
+  "zbm592mj21d": "编辑",
+  "k2r4zixcq3": "删除",
+  "ifuwcp3bi1rci8unu": "确认删除？",
+  "l86gziehsby3m": "已删除",
+  "j5ea0yncw14": "已新建",
+  "cz2talp71zv": "已保存",
+  "cvxh0ptb1ve": "保存失败",
+  "ym5rokmglu": "标题必填",
+  "ta3gzquridl": "心情",
+  "htrx7tu8s5rvxcl": "愉快",
+  "mftm48zdm0rm8k": "低落",
+  "fca4mg9zn9a4h4rd": "平淡",
+  "ofhmlx7ua8": "激动",
+  "d658j0lciq4ws5jqf": "愤怒",
+  "i7m1knh7w5djk": "轻松",
+  "fwi3m60rio": "天气",
+  "tzawlczs2i2gejk": "晴",
+  "wyc4fkce4e5": "阴",
+  "o797mtsvlo": "雨",
+  "v7a34kvkxct3f": "雪",
+  "eom3a44c1hio": "无",
+  "qo0w86mf9dddbj5z4": "标签",
+  "itu264pdnx4": "加标签",
+  "gw2l3itz0p": "标题",
+  "pmncmxvpp78": "正文内容...",
+  "nepglwb5rrb": "心情筛选",
+  "b713ijdtk49v": "收藏",
+  "dt5jalvqdvw8": "重置筛选",
+  "aqbgh7jonbm2v17": "选心情",
+  "jflxpgf3opm37h7p": "选天气",
+  "str22otzla83fn": "今天",
+  "zje8eqep3ky": "昨天",
+  "ptkijmy5r21": "OA管理",
+  "km8c1l2mj0qs8j7": "考勤打卡",
+  "sfe0nd1krz7x": "会议安排",
+  "qkpca8eufn2fea": "审批中心",
+  "nszti7ajz0zb": "企业通知",
+  "q9y7jwok5e": "今日",
+  "u9zx6tkpy3hdkez5j": "历史记录",
+  "a3s3huxfz5clss": "待办事项",
+  "nksn3cfsalj": "现在时间：",
+  "yxy9z9f1xgx94xje5": "上班打卡",
+  "noysglx4avh8ij94": "下班打卡",
+  "lf3skdztn16kxi": "迟到",
+  "dcvvgibhb2i": "早退",
+  "wt21rfltax6fk1": "上班时间",
+  "gyvh6ucr4u1zyc": "下班时间",
+  "lnxq95iob9eyylp": "今日概况",
+  "b6b25woxqxi9ko1": "正常",
+  "tyzfumqosk010": "迟到",
+  "g1w3c84up5": "在岗",
+  "jucc4tfx8309": "统计",
+  "p6hyvq7ywp3w2h": "出勤天数",
+  "qxjg7ki282uqm9xu": "请假天数",
+  "w0gegrpr2hilnei3z": "加班时长",
+  "vu8041i6yjay63z": "无考勤记录",
+  "co9sb5te7mlblgc53": "完成",
+  "gs2hy7f9o5loqfo5m": "旷工",
+  "teitihhgn0o4gxp": "进行中",
+  "kzs7ht4mk89re": "即将开始",
+  "ho8fjxdit4l": "部门",
+  "dftcs01ripmyuznw": "公司",
+  "s0o2h8oy6hcuprev": "客户",
+  "xwvxtyn6we": "面试",
+  "w55oc6n96udq": "参会人",
+  "wn7is9rrj8": "详情",
+  "stelxwxzf9iaqd": "发起人：",
+  "awi8cqpcyz7": "说明",
+  "wyxs8270al9equ3vj": "参会",
+  "jrm2zvn786hv": "我的申请",
+  "a0dr4o7hin7i0wumw": "待我审批",
+  "wxwlvgejahy": "请假",
+  "pyo4lvbdodyt": "加班",
+  "umatcyhxn0wa8": "报销",
+  "fnbi5pg2h7xk448": "差旅",
+  "fliflzw4r29nl": "申购",
+  "prgcsqh6v89t0rt9": "远程办公",
+  "b6sx018t1vk4ifr9g": "离职",
+  "wvd9m28t9eg": "薪酬",
+  "c0ai5fk27e2": "其他",
+  "iohohmnld0f0tbbb9": "审批中",
+  "w9sr0ddi12": "已通过",
+  "dkiw2ab391hvj9": "已驳回",
+  "erg8sv9qdmj4bk": "已撤销",
+  "lm7lupeylw": "流转中",
+  "h088tb9ybohm": "同意",
+  "m22mdvtcc9hasw": "驳回",
+  "nnb0hpk59b5": "无记录",
+  "s2j11omo0lcm": "无待审批项",
+  "sk20wjlib68lz7aa": "单据详情",
+  "wpl7510i0ocwck": "类型",
+  "gpyie5lzic95q": "申请人",
+  "fjm01k2q7cf7dggy6": "申请时间",
+  "wpoqr1x9j6kb3": "审批时间",
+  "dbfwjbkr4pv8g054a": "内容",
+  "g2ugtcp2d69bovei": "驳回理由",
+  "danmfzklzdktk6d": "审批流程",
+  "aya9snq6z5ob": "撤销",
+  "nfqzjau2si": "单据已撤销",
+  "m31vc27jgraahik0": "单据已通过",
+  "ud5bip0vt3n3a": "单据已驳回",
+  "y7c2m2tuo71": "驳回申请",
+  "s9i7uz0vxbrp": "填写理由",
+  "oo35kdi1zl3r7": "发起申请",
+  "wr45gg18kj": "提交",
+  "ohvsxaj1z81s": "标题",
+  "njk5901fge2": "正文...",
+  "hm5b1sp2ejz1re21p": "已提交",
+  "ttdtnsef2arj": "标题必填",
+  "x8gw6a8e9ugq3": "内容必填",
+  "ysh0pr82am7g": "{count} 通知",
+  "@ysh0pr82am7g": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "wg2zcjb0j987fee": "未读",
+  "l58zmvgmbd": "仅看未读",
+  "ilh9e3tnet7na4": "置顶",
+  "snvioo4oktqlz": "紧急",
+  "zpgioh7tns": "常规",
+  "spwdjr61jnh": "制度",
+  "fux1m8pjeer1s": "活动",
+  "eys0jhv1k646": "放假",
+  "bqu8r1rygpv73z": "生日",
+  "ju2ruy8npkecc3kk1": "公告",
+  "lne1fguf0ihv": "提醒",
+  "g6gxni38q1e": "紧急",
+  "o7yn5a03c6e6": "系统",
+  "x68bcx7qy1": "刚刚",
+  "xyl06gfqdt63": "{count}分前",
+  "@xyl06gfqdt63": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "eywpss2u47bdn2ps": "{count}小时前",
+  "@eywpss2u47bdn2ps": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "ldtcgqqvr7qkwtn": "{count}天前",
+  "@ldtcgqqvr7qkwtn": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "dj0fr1sh4hv": "无未读消息",
+  "wdevkblm55k": "暂无通知",
+  "t68lldaoowm053c": "详情",
+  "vmi2pvs3pa41ghe": "发布人：",
+  "ijx3y3dvr14yzp6o": "等级：紧急",
+  "i1s9cgdu3g34sh3i": "等级：重要",
+  "rlwdzyv33xki": "全部已读",
+  "fsu6qlgb24m5dm": "更新失败",
+  "ybnsrje41soq": "数据加载异常",
+  "vqe9771jiszfvkj": "通知加载异常",
+  "psdyp1yqa9bjft": "打卡成功！",
+  "pns1j75iwii": "打卡成功！",
+  "oafv2r6ew2piqsvr": "取消",
+  "f17m070wb4z7ig": "预约会议",
+  "lnim3mzechvwpei": "预约",
+  "ancytlwx1xy7t": "填写会议主题",
+  "gra0wnxo4or9": "会议室A1",
+  "zupkqxfs8l9p8odp": "预约成功",
+  "wx68t573srnyomvn": "主题",
+  "iqp71q127j8z": "线上会议",
+  "cstlqzv3tz5lpm": "地点（如：第一会议室）",
+  "nmtkerg14pka": "时间",
+  "gt8jje0laz4keuopb": "第 {step} 步：{name}",
+  "@gt8jje0laz4keuopb": {
+    "placeholders": {
+      "step": {
+        "type": "int"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "tginhi0s53j": "注：{comment}",
+  "@tginhi0s53j": {
+    "placeholders": {
+      "comment": {
+        "type": "String"
+      }
+    }
+  },
+  "bt07y1pdc1nnwkzq": "已同意",
+  "xgdd4kamt5bb": "操作失败",
+  "e1d7rfidimm": "操作失败",
+  "iblfnqwjvi4oc0": "条件未满足",
+  "udsp50ram4112n1u": "状态",
+  "e57mdlx6ue4tfg84": "今日无会议",
+  "ewetja5b86k40fyc5": "近期无会议",
+  "x8dygrufgp768": "祝工作愉快！🎉",
+  "q4rjbva0ye": "{month}报表",
+  "rgjoj3ctr9v94t9": "异常",
+  "itgnr8a5qv2tv5n": "成功",
+  "ug7ipf8x8kpjba8w": "今日打卡",
+  "nyn6h0h5k5bnx": "出勤率",
+  "fgtiwssd1ozb5qb": "日期",
+  "aj9d78xk8ao9nzed": "开始",
+  "heddvue4lqdj": "结束",
+  "w1fri22ftrgz8": "近期",
+  "i8uaskihekhm62xc": "优先级",
+  "mbgz2iu62ry": "返回",
+  "nrcimmo524n2": "设置4位密码",
+  "o6k61g0osb94879g": "创建一个4位密码来保护未成年人模式。",
+  "iefcvhzgny7qyxxq4": "输入密码",
+  "ljj0s82eewx": "确认密码",
+  "x4yr9ona60y30z": "输入4位密码",
+  "fj0m8lc1ij9y65": "密码不匹配",
+  "vqebtfv6ttwq": "保存密码",
+  "ai9c2cxcg00uk47ul": "输入4位密码",
+  "kzo1szv870wvaph": "启用未成年人模式需要验证。",
+  "sc9l0b6n5aqzqs0": "关闭未成年人模式需要验证。",
+  "e9xu0353gxu": "密码无效。",
+  "rlcuznm4at": "启用未成年人模式需要实名验证。",
+  "f6ok7d9feizi": "未成年人模式",
+  "nyougz7yhyjrmm4": "为呵护未成年人健康成长，时信推出未成年人模式。\n该模式下部分功能将受限制使用，请监护人主动设置。",
+  "sykz19uixh4": "我已阅读并同意",
+  "arn2txyk0imq": "《时信未成年人模式功能使用条款》",
+  "qzqld2prhltr": "开启",
+  "p38g6g05roxyb3v": "未成年人模式开启时聊天被隐藏。",
+  "j0kcsxe45c": "在\"我\"页面中关闭未成年人模式以访问聊天。",
+  "xc37snu4ftva3kkjt": "关闭未成年人模式",
+  "k3y4pzqnyvy0voy": "文件大小超过300MB限制",
+  "kpdhj8p958c": "快捷操作",
+  "rfw8f6y9wjmy1s": "沟通设置",
+  "xcii6r1g7d7kaez": "提醒",
+  "cq51x90c78k": "查看全部",
+  "gyfmv4tbjgnyayetv": "添加",
+  "cyamdonj67r57vm43": "更多",
+  "m5ou9rp5qx0nn1oxn": "保存到通讯录",
+  "wqmaaicmu8ngz9z": "修改群名称",
+  "utkn03ougz47": "群公告",
+  "ckurxkh1hx": "成员管理",
+  "qvcz2ev31hsxcs2": "设置群备注",
+  "w7dcf7s5u9jftzzc1": "我在本群的昵称",
+  "f9b5936nvvgisq4": "我的文档",
+  "l4b1equkncu91pj3p": "保存到我的文档",
+  "j5a87hcb9r7ip": "保存到我的文档",
+  "y0by7gm4g2": "无法保存此消息",
+  "zw6k0sx3p2mrwkb": "不支持保存此消息类型",
+  "bbbp091cniejr": "已保存到我的文档",
+  "i79nnjj4oqn9kj2": "保存失败：{error}",
+  "@i79nnjj4oqn9kj2": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "ucteej1xevz83x": "欢迎使用我的文档",
+  "pv6c407153": "从聊天中保存重要消息并在文件夹中整理它们以便快速访问",
+  "qy0rjx1cjbxd9uid": "保存消息",
+  "ukbn8b4m2z4o": "长按聊天中的任何消息并选择\\\"保存到我的文档\\\"",
+  "zo6ajec2e0lf0n": "文件夹整理",
+  "prqhssjrry": "创建自定义名称和颜色的文件夹以保持井然有序",
+  "pc89hfdjqyj1asihl": "永久保存",
+  "cq367tetfp6g": "即使从聊天中删除或撤回，保存的消息仍会保留在这里",
+  "i3gjbabi3n": "所有媒体类型",
+  "yq98a0rdg0qdwn": "保存文本、图片、视频、语音消息和文件",
+  "fj7kuj1hh53lyduh": "内容与媒体",
+  "dnpgokz6hcys7e": "前往聊天",
+  "efl6mvy1nj9i963r": "快速保存",
+  "jp8ulotdmjfiq": "保存而不整理到文件夹",
+  "zbk21s3vhwdc": "还没有文件夹",
+  "xkmfqt1yeehtn": "创建文件夹以整理您保存的消息",
+  "sxw0awsvjqqgdh0mo": "新建文件夹",
+  "sh84b5j9sjlws": "创建文件夹",
+  "ysi2hmh24dkwbpv8l": "编辑文件夹",
+  "s2apnzh9tfra9dnkq": "文件夹名称",
+  "jnmc5o72kfw2t1": "文件夹颜色",
+  "mnh8a25i60js66": "输入文件夹名称",
+  "fgne26ikjcm24fkca": "选择文档",
+  "hx33sct5l3zvae9v": "移动",
+  "uzk6soijrt6ck": "移动到文件夹",
+  "gzztobhr92": "已创建文件夹\\\"{name}\\\"",
+  "@gzztobhr92": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "hxv59nos39eh3": "文件未找到",
+  "b2l6kewnkrdadw8": "无法打开文件：{message}",
+  "@b2l6kewnkrdadw8": {
+    "placeholders": {
+      "message": {
+        "type": "String"
+      }
+    }
+  },
+  "ilwfldm3u97bgk": "语音文件未找到",
+  "zhrelqokzpviy": "无法加载语音：{error}",
+  "@zhrelqokzpviy": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "p9bfk31yjjby4i": "此文件夹为空",
+  "kx5mbh36vh": "从聊天中保存消息以将其添加到此处",
+  "ikr13ndr1i9b": "全部",
+  "phlvrudzk3": "项",
+  "nygw1652rp9b": "文本",
+  "crngf6napf": "文档",
+  "jqx86cmznhk5sf": "文件夹已删除",
+  "zy7lxhlkryrbz": "文档已删除",
+  "c8020knx85w6uu": "已移至\\\"{folderName}\\\"",
+  "f0b3a48i7r": "已保存 {count} 个文档",
+  "@f0b3a48i7r": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "s778xqb7dx3kvsw57": "搜索文档...",
+  "ewcr8xqxffkci3dv": "已选择 {count} 项",
+  "@ewcr8xqxffkci3dv": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "u9cj9vy4ryr": "所有文档",
+  "ooyngftj6pu0": "保存的文本",
+  "b06olw0704wwbrs8j": "删除文件夹",
+  "he125iqu7jmhcn": "删除文件夹？",
+  "mdvllherrds4qmr": "这将永久删除\\\"{folderName}\\\"以及其中的所有 {count} 个文档。此操作无法撤销。",
+  "@mdvllherrds4qmr": {
+    "placeholders": {
+      "folderName": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "wd9bp22e2zx": "删除 {count} 个文档？",
+  "@wd9bp22e2zx": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "rqukqq405ssh59": "此操作无法撤销。",
+  "ge8gfibkgk0ty9": "没有可用的文件夹。\n请先创建一个文件夹。",
+  "flo3n9a3kf55ivwsx": "移动到文件夹",
+  "x0gc12ueg5l85w5": "来自：{sender}",
+  "@x0gc12ueg5l85w5": {
+    "placeholders": {
+      "sender": {
+        "type": "String"
+      }
+    }
+  },
+  "kk6tgrbdkfdh3oa6": "活动中心",
+  "dx14fi3l1zhri": "全部",
+  "f0uqs2ows0kth": "即将开始",
+  "y4jfn94cn4umuu": "我的活动",
+  "u2nre8uwo58gs54": "创建活动",
+  "avb3keduk8cga7": "创建",
+  "z57ze16rchxe": "活动创建成功！🎉",
+  "ensz32v3cq": "错误：{error}",
+  "@ensz32v3cq": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "ajnfil7sp0obe0zy": "已更新：{status}",
+  "@ajnfil7sp0obe0zy": {
+    "placeholders": {
+      "status": {
+        "type": "String"
+      }
+    }
+  },
+  "c3vaqkypd6gcfvioy": "签到成功！🎉",
+  "mwkfufu3ni2mefss": "感谢您的评价！⭐",
+  "xqj6pxo3jsag": "分享功能开发中",
+  "gq7m1dhik3r8z3mg": "签到二维码",
+  "wykdna94xgijubccc": "将此二维码出示给活动组织者进行签到",
+  "ujty5z5lxn6udhs": "关闭",
+  "em7txcaj4j02lbl": "立即签到",
+  "gb2ctvvko7s847": "签到",
+  "kpn7zg8yq7ef1v": "已签到",
+  "guyj26dw3cxb78l": "评价活动",
+  "xedwx7f0kbd": "评价",
+  "c0on9psqnqn5v": "分享",
+  "qx6ludz9gs99hp1": "重试",
+  "ozvi0cj161kbsnw": "清除筛选",
+  "hi3h4nz3nsc6y5p3": "未找到活动",
+  "xp4qmp3v47p7g95": "返回",
+  "usemdyjlin95ofp": "发生错误：{error}",
+  "@usemdyjlin95ofp": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "cmpeawxyealt8": "组织者",
+  "y918cqjzfvldxkd": "时间",
+  "jdihohiuynmnjz": "地点",
+  "kxnr1f6jefistqlz": "容量",
+  "f0jgzxub4x9u9w": "查看全部 ({count})",
+  "@f0jgzxub4x9u9w": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "d53cjz0objuwb3u": "写评论...",
+  "z0ojwrrnfkg3p2": "参加",
+  "vihsu60i0p1": "缺席",
+  "i46ocggz8sb21to": "不参加",
+  "b2d2pc78rbm": "评论",
+  "gytvz5t222v6d2dm": "报名活动",
+  "nfhghvvx2ncqp6": "评价活动",
+  "nnfpfghcaq1": "您的评论（可选）",
+  "q39izykkrnwj5f": "取消",
+  "h4tt6z2w68c8qkv0": "提交",
+  "m45thbljg2": "应用",
+  "xwyec1wpglpru": "完全自定义您的活动",
+  "qrmzb2wc3vq5zivi": "例如：2026新春团建",
+  "gx475r4c57959q8q": "活动详情描述...",
+  "dwieov3cr7": "开始",
+  "g7esfq9c9u": "结束",
+  "hwir51pkqnplo": "例如：会议室A - 5楼",
+  "cs8pnjyfjai0pp9": "例如：北京市朝阳区xxx路123号",
+  "c324gp4oxhllp955h": "留空表示不限人数",
+  "ro6a18qdclqrd2rm": "需要审批",
+  "ar63ewvhsna": "没有即将开始的活动",
+  "zt1ntszsewpv2": "探索并报名新活动！",
+  "xf32cu1db8tf": "尚未参加任何活动",
+  "i6jvgy64zqecl": "您参加过的活动将显示在这里",
+  "ad7pnvvnfy35ibxdx": "没有已取消的活动",
+  "ho2mqc4yl1bqk": "您取消报名的活动将显示在这里",
+  "d7yr6ixo0hi": "筛选活动",
+  "l0yr2862vkjk9m": "会议",
+  "uv4lzlc1de": "培训",
+  "g28njntz3bs": "团建",
+  "ig4jhzo7b8fk6q": "庆典",
+  "ug7er9993r03": "工作坊",
+  "p5b1xwpjo6y": "研讨会",
+  "kr3nslh40p2r65mz": "社交",
+  "ht2z1atd61": "运动",
+  "ciokki94lnr7a17z3": "其他",
+  "ecu08uy9kh3yhg4n0": "即将开始",
+  "tin167uacuzu0ztos": "进行中",
+  "kyasmyz16xzp": "已结束",
+  "d4u0135iqj6": "已取消",
+  "ucuszthavbngct": "参加",
+  "m30xml3hnuakuj": "不参加",
+  "jqm6cebelmq33zylx": "结束时间必须在开始时间之后",
+  "vxb8yr4ig9jv54f": "选择活动模板",
+  "t88t2d7oy7uhb": "或从头创建新活动",
+  "xvn04mflfxwsz16": "从头创建",
+  "jfz2hmh51q": "活动类型",
+  "rz2fg11vs2a": "活动名称 *",
+  "ul1u82onzysw4": "请输入活动名称",
+  "ajw4chfuizb6l": "地点 *",
+  "ba8v79wmq7r7g1dxh": "更改",
+  "xyxbven45e9": "立即参加",
+  "xask3s4t8c": "筛选活动",
+  "bdql8eydkts4": "可用模板",
+  "q7dpaeife1u": "描述 *",
+  "qywl99hx6q": "请输入描述",
+  "no4gnatg00": "详细地址（可选）",
+  "gbcdxv9yjuem": "最大人数（可选）",
+  "slvoiutwii9": "部门（可选）",
+  "uf83cc23r5zv3": "留空表示所有部门均可参加",
+  "tl2nrdqx3y": "请输入地点",
+  "esh4b7ivbjer11re": "已报名",
+  "sqesr9pi2o": "报名需要您审批后才能参加",
+  "lwg8omngivs": "即将开始 ({count})",
+  "@lwg8omngivs": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "pgivdxyxnyjzihg6l": "已参加 ({count})",
+  "@pgivdxyxnyjzihg6l": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "j2ty3hhloq": "已取消 ({count})",
+  "@j2ty3hhloq": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "viwcygd6guhjrd": "进行中",
+  "pkro5pcnsivcmg": "还剩 {days} 天",
+  "@pkro5pcnsivcmg": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "omnpqz70h0f11f": "还剩 {hours} 小时",
+  "@omnpqz70h0f11f": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "efq9aj14pu": "还剩 {minutes} 分钟",
+  "@efq9aj14pu": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "y07y80e22pe2nj": "详情",
+  "oo7hufj6gc8": "参与者 ({count})",
+  "@oo7hufj6gc8": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "bbhqe1sxziy245m5": "{count}/{max} 人",
+  "@bbhqe1sxziy245m5": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "m58pikkgvgqc": "还剩 {spots} 个名额",
+  "@m58pikkgvgqc": {
+    "placeholders": {
+      "spots": {
+        "type": "int"
+      }
+    }
+  },
+  "wncqntp3thc1ud": "已满员",
+  "z9c2fgc70wa": "描述",
+  "kprlfwd7rvid2mey": "参与者",
+  "e76z1uwd5zwcc": "暂无参与者",
+  "b378gxw2uv3giay": "暂无评论",
+  "yx3hz27gur": "{days} 天前",
+  "@yx3hz27gur": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "cv5jrnbgk35nbhda": "{hours} 小时前",
+  "@cv5jrnbgk35nbhda": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "xpqpx6aoz4lij51": "{minutes} 分钟前",
+  "@xpqpx6aoz4lij51": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "u4myioe0r1fkdy81": "刚刚",
+  "bg1wst3o6l": "状态",
+  "p5oovcwdi43dvcat": "部门",
+  "ht3koz2vjj8lzet34": "查看更多",
+  "xsnkq6kssjiw": "动态",
+  "ak2f7mklhh5vgu6": "动态",
+  "zqsbkgpyj53d": "发布动态",
+  "sabtsn25i23gzdz9t": "文字",
+  "mgo7s24wyxwc": "照片",
+  "lsmqy2i96575udu6k": "视频",
+  "pdzl6x1i2whknebio": "拍摄",
+  "qttpxq89a08": "分享你的想法...",
+  "ao39ofmvcv7": "添加位置",
+  "ajav6a88qbt8lov": "添加音乐",
+  "ue1ilpl7fqu": "标记好友",
+  "t24f9ouvv9md71u": "发布",
+  "ttpvodonumcc3": "发布中...",
+  "rly9k6ultps6vyf": "发布成功！",
+  "qccz6w5amjdc": "发布失败",
+  "p2m22bckqstxql6": "删除",
+  "vvlv8z9iy5v7f1gfl": "确定删除这条动态？",
+  "w7v38r296nt": "已删除",
+  "pbwe1avldeycpd55j": "编辑",
+  "m95gidyjtvu1ay": "公开",
+  "v6qfedlfe9k8jnmwt": "仅自己可见",
+  "ct4f3yzesi508": "部分好友可见",
+  "r6x1d04yikg": "不给谁看",
+  "n590ibom6ermwcr2": "24小时后自动删除",
+  "z126yogjrujw": "永久保留",
+  "njsfs9sjergmdw": "可见时间",
+  "u115ffgy7w2ev": "谁可以看",
+  "og3zs3kg2shk": "选择好友",
+  "xkquuljsw1ch": "限时动态",
+  "aucqzq3jr70": "我的限时动态",
+  "yb3djvdvdx79e1ak": "添加到限时动态",
+  "guuyfovzk29pn": "{count}次浏览",
+  "@guuyfovzk29pn": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "px0pw41n8i8u6s4": "赞",
+  "jybbknb92b": "爱心",
+  "gu5f5iupux3313v": "哈哈",
+  "jbgc1wmnk2bza2nu": "哇",
+  "sgsz290pzco": "伤心",
+  "wlz3yhyd2z": "愤怒",
+  "g7b5ir5q66hbzgl2l": "{count}个表情",
+  "@g7b5ir5q66hbzgl2l": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "yp2h5ioz84z": "评论",
+  "pa3tol0bjvw5p": "{count}条评论",
+  "@pa3tol0bjvw5p": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "yuo4hdknhbcse": "分享",
+  "pu2twt0t3z34dl": "写评论...",
+  "r48ctiwsyqsqz7pq": "回复",
+  "u0bn8kwxlg3li2da": "回复 {name}",
+  "@u0bn8kwxlg3li2da": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "tl54xyf6yj4": "查看{count}条回复",
+  "@tl54xyf6yj4": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "kii2xexhmxzlxph2i": "暂无动态",
+  "d4d3na9ivs9b6q": "成为第一个分享动态的人！",
+  "t9gwh5wrbmc2b67v": "加载更多",
+  "yifb5s5gfly9": "刷新",
+  "eudxq1mxbmdo1": "刚刚",
+  "ezvu96m3g6nifv": "{minutes}分钟前",
+  "@ezvu96m3g6nifv": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "oqksx2h0mqso": "{hours}小时前",
+  "@oqksx2h0mqso": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "urw5knnrp8lokjn": "{days}天前",
+  "@urw5knnrp8lokjn": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "lb6muvqw6jeyd": "最多选择9张图片",
+  "bv8e4d2be8c87i23w": "视频时长不能超过60秒",
+  "djvvu83tky2e": "选择媒体",
+  "qfqgrxgy0yxft": "编辑图片",
+  "ncdg9w7l9a8y2l": "添加贴纸",
+  "ziwn931zp4zr": "添加文字",
+  "x6obvd8gz9lu3agd": "添加滤镜",
+  "yho4yghupxup157": "裁剪",
+  "c5f1xgyauglhbmmk": "完成",
+  "rg0h2days3qkxdj48": "取消",
+  "eapv3xc3mri8o": "{time}后消失",
+  "@eapv3xc3mri8o": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "wo9z7ar7w1xg": "我的动态",
+  "yellk6jqnhdp4b5w": "好友动态",
+  "syfodye1ee95r1p0x": "暂无评论",
+  "e2hcup695h": "成为第一个评论的人！",
+  "lo3khkvphzskgntq": "查看全部{count}条评论",
+  "@lo3khkvphzskgntq": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "swr0zwacy1onbh": "删除评论",
+  "la3kico58qydilrd": "确定要删除这条评论吗？",
+  "dab11l46jwx697g": "删除动态",
+  "d8a246y9yoq5ncna8": "确定要删除这条动态吗？此操作无法撤销。",
+  "ntmt8a4bre": "修改隐私设置",
+  "x5c94nhlyu7k6": "隐藏此动态",
+  "xkd0e29wiv85fo": "举报",
+  "adcvsgh2n8": "复制链接",
+  "gesvou2i4b": "发送消息...",
+  "ptk8o549e5e9ohpb": "{weeks}周前",
+  "@ptk8o549e5e9ohpb": {
+    "placeholders": {
+      "weeks": {
+        "type": "int"
+      }
+    }
+  },
+  "l3v25xx40x21k": "{months}个月前",
+  "@l3v25xx40x21k": {
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  },
+  "p5oxd6f6i2lxc1kc": "{years}年前",
+  "@p5oxd6f6i2lxc1kc": {
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
+  "lo99kt5btoah": "更改",
+  "bicoiaqb2aj": "回复了",
+  "h3d0jnfo87ves1sc": "发布动态",
+  "p53fnsf8wy1me": "此动态将在24小时后自动删除",
+  "m2jjolne6u0": "详情",
+  "pne4o14kims": "暂无限时动态",
+  "q8vq39kmrmuvf": "视频时长不能超过60秒",
+  "n6b9p88vadxpr": "发布成功！",
+  "mib5d08neilf6j": "发布失败，请重试",
+  "b46vc7dz3xh": "错误：{message}",
+  "@b46vc7dz3xh": {
+    "placeholders": {
+      "message": {
+        "type": "String"
+      }
+    }
+  },
+  "v2jgm8rq6r15h": "你",
+  "itb9am959elakeqlo": "照片/视频",
+  "b5hkuggoki88i": "音乐",
+  "n9x50k1hj0j": "位置",
+  "e7l6hw5n3xf": "功能即将上线",
+  "jidbwy4bs3yth": "文字",
+  "o9hxm011ylt05abva": "照片",
+  "tqije0j07g1": "谁可以看？",
+  "mglejxs6hss8ljksi": "可见时长",
+  "skz53aydirwoyl": "确认",
+  "m2wf9exosurf03": "隐私设置",
+  "vr4jiw6vp1t": "{hours}小时{minutes}分钟后消失",
+  "@vr4jiw6vp1t": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "ciem4182g6": "{minutes}分钟后消失",
+  "@ciem4182g6": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "zqz8ja94v2gzw": "回复 {name}",
+  "@zqz8ja94v2gzw": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "pnu8q43amgyubo": "回复...",
+  "i715e6u42mc7": "评论已发送",
+  "ncsltczzaqs7bl": "已点赞"
+}

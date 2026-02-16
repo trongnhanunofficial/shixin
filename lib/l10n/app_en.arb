@@ -1,0 +1,2464 @@
+{
+  "igb5q1pkc0qi1ilr": "时信",
+  "teifo2ecgyq1vol0f": "Connect anytime. Connect anywhere.",
+  "t0yze5sjhzz4didm6": "Loading...",
+  "okru0c6xfhr99v": "Settings",
+  "ioi0syqubo3ycy0k": "Language",
+  "dcomb6l5py7hw": "English",
+  "jnepkc6bsf551": "Chinese",
+  "fls37qfh4xmklnb58": "Font Size",
+  "ir0fxt1xghlt": "About",
+  "z44128mlrcei47a": "Version: {version}",
+  "@z44128mlrcei47a": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "i75rzqyh6xd8duck": "A reliable and secure enterprise messaging tool for efficient team collaboration.",
+  "g3c7k9orpd": "gideonswebe79@gmail.com",
+  "tt6m4z4gb0spak": "InstantChat Team",
+  "t92z0xay96h9a5": "For partnerships and feedback, please contact us.",
+  "j06iqkecey": "鄂ICP备2026001205号-2A",
+  "zyrj4r0bdxtkyefm": "武汉舫泽道生物有限公司版权所有",
+  "hswashn9iwh": "武汉舫泽道生物有限公司 All Rights Reserved",
+  "lbprzhr7zhb": "Version {version}",
+  "@lbprzhr7zhb": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "chf78r6iwz2z": "Clear Image Cache",
+  "projiecw30hhc3": "Calculating...",
+  "i8zr1ks8r8r": "Sign out",
+  "uatqcvqhvfqpo": "Sign out",
+  "nj4gtp97o1lxrl9f": "Coming shortly",
+  "o6edrlq583n7ibn6": "Profile",
+  "bwpcy7so76h2hhm": "User",
+  "skxpr8fx3xn23d50s": "Desktop Sign-in",
+  "v0b4weulksow5ydk": "Organization",
+  "ltdxkhabdb11": "Notifications",
+  "qiszh1azi26p": "Settings",
+  "t9snht8sfwyr": "Blocked List",
+  "upyq3cn0i6v3": "Security & Privacy",
+  "qaug462qdujy9grp": "Teen Mode",
+  "hzbu5uynq1psf": "Desktop Sign-in",
+  "yf9uzykb5tmpv7apv": "{appName} Web",
+  "@yf9uzykb5tmpv7apv": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "c686m1dpzwv569tk9": "Visit {url} in your browser and scan the QR code to sign in. Chrome is recommended.",
+  "@c686m1dpzwv569tk9": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "ticxwhtn1p9f": "Web URL",
+  "ml9tsvd5mc9vy9b": "Scan to Sign In",
+  "ynl1okyki2wku93e": "Confirm {appName} Web Login",
+  "@ynl1okyki2wku93e": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "ayuoeoerd6l": "For your security, please confirm this web login request.",
+  "vyrrws6j6u": "Approve Login",
+  "utpkzg3ziaj": "Cancel Login",
+  "k21dsl5tnk": "Lock Screen Options",
+  "bmsp6cdpw1o4okkg": "Auto-lock Timeout",
+  "x1isb296ns": "Immediately",
+  "xf0cg78vou03": "After 1 minute",
+  "yx49n27reiyci9i": "After 5 minutes",
+  "by4qnqcjnj1f": "After 30 minutes",
+  "oeqc1t7ood51of8": "After 1 hour",
+  "jn1ai0nkb18my9a": "Change Password",
+  "hafii2ki18yr": "Disable Lock Screen Password",
+  "lvdrmtkxqxiuy5s": "Disable Lock Screen Password",
+  "o28k5m4mu0qxr": "Disabling the password will remove lock screen protection. Continue?",
+  "bxwcw0nrp8k0lyw": "Disable",
+  "dg79getpum0kt": "Cancel",
+  "tyzt4zmfr6y0": "Timeout updated",
+  "axnlzaltwue4dim": "Failed to update timeout",
+  "xly01wi0zozs8gf": "Lock screen password removed",
+  "egrmtgr7muy": "Failed to remove password",
+  "ddhib3l4692xhrx": "Organizations",
+  "qufv3f7gy1zkyl1pv": "Add Organization",
+  "u6qmqykg5n": "Enter invite code",
+  "xhn7mlem1t30scpkl": "Find",
+  "tubwgvg64j1r": "Join",
+  "aylptc74oih4": "Find organizations using an invite code",
+  "xy11cany3c9ew": "No organizations found",
+  "sb97glz1stjsfw": "Check your code and try again",
+  "wpl9zexmiavbp42": "Find organization",
+  "f597zupg1uq64li": "Input an invitation code to join available organizations",
+  "ragu85i6ezwq7xy0": "Enterprise Code",
+  "onkwzqa6g17": "Enter invite code",
+  "hzngy9qs2z5kize": "Security Verification",
+  "epq0yqcsyhq7": "Device Verification Needed",
+  "dd35tbykd8r9qc": "To secure your account, we need to verify this device. A code will be sent to your number.",
+  "h1bo9eqhzb54f": "Mobile Number",
+  "wrdjh3tpb2l": "Get Code",
+  "jbcsszz8dc8": "No code received? Check your number or contact support.",
+  "i36uvwkrls6pll": "Cancel",
+  "xh6xmitpfrlkrd": "Enter Code",
+  "l6lpaibqzh7fhi": "Enter the code sent to {phone}",
+  "nuq8mang433i": "------",
+  "tejaaxjgszk65l": "Please input verification code",
+  "oeyfqcy03udopah": "Please input the full code",
+  "xbnxykiax2osrtyh2": "Verify",
+  "n1za2hile4xfc7gr": "Resend",
+  "mkmarvc4qeqoak": "Error",
+  "gbanvx2h8emcczca": "OK",
+  "k8clnqbegc": "Notice",
+  "qkdu0q0ktd": "Retry",
+  "a73xed7bke02pyv22": "New Message",
+  "fyazdrn3kyf4": "No messages yet",
+  "s8qhdzef4it": "Start a conversation",
+  "y2fes406xrr": "Something went wrong. Please try again.",
+  "xqno8g42wm85boj": "Loading contacts...",
+  "c1wpdlcf4zcwqm": "Loading chat...",
+  "o1bmdx361uuj1": "Loading more...",
+  "njrefrwmo94u5x": "Contacts",
+  "prgchl0whv": "Groups",
+  "aqz5lfui4ad0": "Copy",
+  "y1xrk7lsoxqgxj4": "Forward",
+  "v3b6rkb0dp": "Refresh",
+  "yjos197w6d": "Copy Link",
+  "ma7suw9hdduhglt": "Link copied to clipboard",
+  "cv8e3sxzes": "Link forwarded",
+  "x78rruieytarlc8": "Open in Browser",
+  "rkv3m18w5mm74kxy": "Unable to open Link",
+  "b1uiij7we119i3ah": "Remove",
+  "zcse8yw4tt0dakyd3": "Delete message",
+  "q6tr8u6cagc6z": "Delete this message?",
+  "emyh6t0vaic1dmi": "Delete for everyone",
+  "squ1uwu3nc0hqzm9z": "Delete for both",
+  "jssxnhykfi": "Deleted for everyone",
+  "sizyjbvt6uc": "Deletion failed",
+  "arvq2atpg3rl18v": "Send failed: {error}",
+  "s500n5ffhjpek": "Unable to forward message",
+  "jle763ah71vhhl": "Unable to forward image",
+  "wdutgqhvt6krqbl9": "Image forwarded",
+  "gqfg0yrzluihmw": "No saved groups",
+  "cq25n81ptl8opl": "Create a group to start.",
+  "iwwkh611qlp": "Logged in on another device",
+  "d05xp2svixidnj": "Account suspended",
+  "qpzevbus7kc60fy47": "Official",
+  "qzfsebm3rmmwntdpm": "Bot",
+  "mve2cekv9l1vs1q3": "Support",
+  "pndi015wjnaw": "Sign in to {appName}",
+  "vhb7wdkni5shkzn": "Mobile Number",
+  "s2p9nx3utviyak2": "Password",
+  "s9fu66qz5p": "I accept the Terms of Service and Privacy Policy",
+  "tmgflvgv23pob6p": "Sign In",
+  "e2uc1ny433": "Sign Up",
+  "bztee7fq3ah8": "Forgot Password?",
+  "sbf0zdd0qmjy": "API Configuration",
+  "bowi52sziwzxby7iy": "Welcome back! Please sign in.",
+  "d3eas3tdtfiq4wn": "No account?",
+  "cg3xh0ylc6lgswmzq": "Route not found!",
+  "uvmcfhwd6r5": "New Friends Test",
+  "cmcnnlnfs2ihy7gi": "Add Test Request",
+  "g6ao379qlqp": "Open New Friends Page",
+  "xx39jc9pcqld1qw": "Clear Requests",
+  "et4e0uoowg": "Loading: {value}",
+  "wpds9wlf4839en": "Request added!",
+  "fodygo5aghf015xt": "Error: {message}",
+  "utb633wkyq7kw": "Nav Error: {message}",
+  "wnaylo1sr0g9r8": "Requests cleared!",
+  "ls7zysxn7o7bcilbs": "Badge Debug",
+  "lbis1aq0hnu": "FriendRequestBadgeProvider: {count}",
+  "vtbhgjjoxf3z": "NewFriendsProvider requests: {count}",
+  "wzqf8o0yihsn0hq1": "Pending: {count}",
+  "q0osz8sbsoivttnu": "ContactsProvider badge: {count}",
+  "jkdwz3vrgazdig": "Special contacts badge: {count}",
+  "twx1xy305qgsfo0i": "🔔 Test Direct Badge Update",
+  "r8b9oyjm2y0eplmoz": "📧 Simulate Request",
+  "hijbqvqaxqim5u2yr": "📂 Load Requests",
+  "ls8dehle8ur": "🔄 Reset Badge",
+  "t1792ofnvd": "👥 Go to New Friends",
+  "uck4ite6njr": "🏠 Go to Home",
+  "hiv0olfdov1om": "✅ Badge updated",
+  "w1z7qjydpaf": "❌ Update failed: {message}",
+  "fl5vf2qzsvkble7": "✅ Request simulated",
+  "vu5ahyvcrlrk2m": "❌ Load failed: {message}",
+  "uhz8uesa1kz6": "❌ Exception: {message}",
+  "mx84cvfqhvyi": "❌ Error: {message}",
+  "u6384zr7h2y": "Input Mobile Number or App ID",
+  "c45is0fqyyx53z": "Search",
+  "iydd0rgwrgozaong8": "Add Contact",
+  "lltzbvjxp9dpojtm": "Input Mobile Number or App ID",
+  "ho4iivcydjc4qe": "You cannot search for yourself.",
+  "a7o8mvseo7z3": "Send request to {name}?",
+  "l6swycnfmkg7zvxvb": "Write a message...",
+  "g1a7gw1bm01": "Send Request",
+  "g8rv4obwxpeb19": "Sending request...",
+  "vj9jdbsyhc0b": "Request sent to {name}",
+  "jn2r4vxai3gkjf6jx": "Request failed",
+  "j57e141xf4": "Error sending request",
+  "k2u0w4zh6o78": "Set Alias",
+  "pho88jq454nwprd": "Enter Alias",
+  "yq813lb1qs": "Save",
+  "goudpr602i": "Alias updated",
+  "vr8gj9hhjekmgcvx7": "Failed to update alias: {message}",
+  "tuy1h6hd53c1ffxi": "Request sent",
+  "szhleayit4laki": "Remove Friend",
+  "ea41c8lxq2m6ryf": "Remove {name} from friends? Chat history will be deleted.",
+  "h3vibwd1o1": "Friend removed",
+  "f53fvfb6mv8spucx": "Find Friends",
+  "qmb5xij8twc5w": "Search coming soon.",
+  "q2v3j1g6rq683k": "My QR Code",
+  "q7xtbkikzriuy": "QR code coming soon.",
+  "m7i2uz7m314o": "Scan QR Code",
+  "x0ryrwri57": "Scanner coming soon.",
+  "fwz2smal55": "Test Real-time Requests",
+  "gkjyi4ltt7ll318": "Apply UID",
+  "tufn09v2p8q0qsxrb": "Apply Name",
+  "h7nzuy5x4yx": "Alias",
+  "x509lgme2r6": "Token",
+  "f66py3cg40ralwm": "UID: {uid}",
+  "xake3rhxoyz": "Alias: {remark}",
+  "uwd7qquvkwb": "Status: {status}",
+  "tb0615ve2e6ux3fx4": "✅ Request simulated!",
+  "nj4wyfvn0gqvzd5": "❌ Simulation failed: {message}",
+  "yiq2o0z2q5zy08wr7": "Test Badge Notifications",
+  "i51codoxk6sppvn20": "📧 Simulate Request",
+  "lwln5fnrwh98zs9": "🔔 Increment Badge",
+  "eqie99723ukq9ih8": "🔄 Reset Badge",
+  "nhua3q43dv2839g": "👥 Open New Friends",
+  "zquqc9qaxi": "✅ Request simulated! Badge should update.",
+  "mdcw3arcr7c2": "🔔 Badge incremented",
+  "mccywp63sfx99oht1": "🔄 Badge reset to 0",
+  "i3o5jooqss4fef21i": "Add Contacts",
+  "zjyx9qj5ws": "Loading requests...",
+  "krut8wmg95": "Decline",
+  "b1vepa6oaritwv81s": "Accept",
+  "o4bcrvdblc7sko": "❌ Failed to accept",
+  "tx5tg39bldq": "Decline Request",
+  "xlgbp54om764455": "Add friends coming soon.",
+  "u48y6a8h8jk": "Enter alias...",
+  "xn05yjwsxf": "Use",
+  "oq26lv26f9zf": "Update failed",
+  "w1pe0la47mp": "Enter group name",
+  "stokdl3l4i3bub6": "Voice call",
+  "c2zvwsl5n30zhb6y": "Video call",
+  "jlc1vdv170sei6": "Group voice call",
+  "tsy79ghw71bfr": "Group video call",
+  "h83xgavz31och": "Feature disabled. Contact admin.",
+  "t0sq9tmyp70": "Call Unavailable",
+  "knsjrrtsmx": "User is blocked. Unblock to call.",
+  "wtdwmk6iukhx2n": "User has blocked you.",
+  "ohww0gpu1cjdaatq": "You blocked this user. Unblock to call.",
+  "kt5ha1w3gdz": "Close",
+  "qhr94pmzpz6n95ei": "Calls Unavailable",
+  "p9pj07fm1g": "You are muted.",
+  "d2o8ss4srnperm0": "Call Unavailable",
+  "amms94n7b2r": "You must be friends to call.",
+  "r0avzcy1fgvr": "Background updated",
+  "lvkgzb67tly6h": "Clear Chat History",
+  "kb53iqei24": "Search...",
+  "zgbmdmh985dvb0wgn": "No members selected",
+  "zyhugx6k69tp35v": "Cannot remove yourself",
+  "o67cqu0rrmixv": "Cannot remove owner",
+  "jnz33u5c09": "Search members...",
+  "hdffu94wdlr": "Select up to 50 chats",
+  "k2qtazshhv4rhj9ls": "Search chats...",
+  "arybpa5v6obm7p": "Write a message...",
+  "ln0ex52cqxt34": "Only owner and managers can edit",
+  "kgdb0uvlbdol": "Updated",
+  "u468zc7ve31sgpjkh": "Clear messages in {groupName}?",
+  "i104j8xoe2wq5tmfc": "Delete & Leave",
+  "qsievpmc65zq4uu": "Leave this group?",
+  "ij3rwfsvex43p": "Save Image",
+  "ig8075i6a7wwximvb": "QR unavailable",
+  "kv390ruecf431tu": "Set notice...",
+  "ux3xiy8r5tz682": "Reset background",
+  "dqgm4n6vcfnwpn2a2": "Reset to default",
+  "b3wmq6xw2uyv7hs": "Wallpaper set",
+  "tvc9s2gdqodb3a": "Failed to set wallpaper",
+  "ug0kb3rbin1jl": "Failed to save image",
+  "eb39xawc9kscaz": "My Wallpapers",
+  "kjlcwil7zwjjui3ns": "Default Wallpapers",
+  "sa493xenbmh1uakwl": "Delete Wallpaper",
+  "kvykvvtizqy5u52w": "Delete this wallpaper?",
+  "jrro1ndho7zyp": "Wallpaper deleted",
+  "w1pwn74bhh787": "Failed to delete wallpaper",
+  "yahn2fathtxwz": "Apply",
+  "u2hwl0gu6dk": "Input organization code",
+  "d0je4h834tn5b2m": "Choose Profile Photo",
+  "gvlko1cu36w": "Feature coming soon!",
+  "fsapkt5qylc": "Success",
+  "bsb553iqx75pdbe": "Verification Code",
+  "a2gmadbgplnpuy": "Sign in with {provider}",
+  "iwf8do8df6kj": "Authenticating...",
+  "adiyd2cz3eh2cakkv": "API settings coming soon!",
+  "sypihabzvdr5r": "Find countries...",
+  "mucljn07h8qtpm47r": "No countries found",
+  "z6f91l4ba0604": "New Password",
+  "ce2ozarmjexl9zq": "Search people, groups",
+  "r2mugjesdvxaeqyd": "Group removed",
+  "budyoytuph": "Removal failed",
+  "mmmuf4v96pi": "Error occurred",
+  "qsxdepy02mxw9": "Remove from Contacts",
+  "tqagk1rp53g0d": "Remove \"{group}\" from saved?",
+  "x7p146g656sq5b": "Remove",
+  "sf9iqimu4a81lg1jv": "Send Message",
+  "ev3h60r99j11i3s44": "Request to Add",
+  "mka0orruxpjxzyx": "Requested",
+  "hrwxkcrveuc0t": "Request failed",
+  "wk6j9mhv31qof": "Sign out",
+  "fs6o1n1nm2n7ha": "Sign out now?",
+  "nomev7bp314w0uc": "Confirm",
+  "ni5twbouvs9cmu6": "Logs coming soon",
+  "dxpsmx90sm": "Deleted",
+  "b36ehcqh3s7pz": "No logs",
+  "qqdcahsz61": "Unblocked",
+  "i8slhusdljp0kgm": "Unblock",
+  "gol8zutsoch8utm": "Remove {name} from blocked list?",
+  "nbqdbuurqv1rjm": "Please enter invite code",
+  "ljff2eykggjbv4m0m": "Joined! Switching organization...",
+  "sjwn07v8abz0esl2e": "Network error: {message}",
+  "orxonwf49pr": "Copied",
+  "mc4uea42a63siqczh": "{name} set to {state}",
+  "vg5y26120hi2901pb": "Android only.",
+  "bv920dz1zy1jrgh3i": "Cannot open system notification settings.",
+  "f92y30i0xvf": "Failed to open settings.",
+  "c1nfmzkt4b0euj4": "Enter display name",
+  "z05zryhkfv1oqxsiq": "Name updated",
+  "j82whipugn84": "Check for Updates",
+  "hay1pom3dnqh72s": "App is up to date.",
+  "u29shrl3uf01c6mue": "Take Photo",
+  "ddf902np33": "Select from Gallery",
+  "hhl360d589bbxd3f": "Profile photo updated",
+  "w7eqcy09yks3fzq": "Gender updated",
+  "zd6pnynkqi": "QR code load failed: {message}",
+  "dnzltlypsor": "QR saved to gallery",
+  "zae8ytg27r3r69w": "Photo saved to gallery",
+  "y829mj1cssq": "Share QR coming soon",
+  "z6z69hof3pq4qu": "Restart needed",
+  "xfl2y9onhwahr": "Restart",
+  "pv7ih7u5uqp": "Scan failed: {message}",
+  "v83c3z4kjk": "Scan Result",
+  "bdvkn0gpini": "Close",
+  "vwrec9lh9t2h1n": "Flash toggle failed: {message}",
+  "ore2qyuzt7og3k": "Gallery scan not supported yet",
+  "wvj8twptgbx1": "Image pick failed: {message}",
+  "nxwlmtwujst86cn": "No QR code found",
+  "uk5ki4kqed9f": "Scan failed: {message}",
+  "ubsuz5rsjw": "Incompatible organization codes",
+  "icbzh8em2tte": "Join failed: {message}",
+  "srk2up3b8ocb": "Accept error: {message}",
+  "rgq0j7l7g0py5gwrn": "Decline error: {message}",
+  "bwi2lzlu93rpjfzl5": "Message forwarded",
+  "x6axmdlzmmd": "Message copied",
+  "kwzs34qstvb71c": "Share contact",
+  "wr7o1k334i8yc": "Select",
+  "r3pd7605f5v2580": "Reply",
+  "u50f0kwb4f3o11bd": "Nothing to resend",
+  "c1xz49ptgej8j4yp": "Cannot resend",
+  "z50zrfdri7lwinq": "Resend failed: {message}",
+  "zpnuuj6564sptyd": "Send failed",
+  "kr415544zr": "Message failed. Retry?",
+  "akr9b8fgxtb44": "Not a member. Retry?",
+  "a7myt7bl8vvgvn3h": "Not friends. Retry?",
+  "yw21qo4wdtgg8": "Blocked in group. Retry?",
+  "anrdnnv4x5jc87cbz": "User blocked you. Retry?",
+  "kz49kdaq0xlc": "Retry",
+  "ycle8z1uanefpw2df": "Muted. Cannot resend.",
+  "nt88on138jfssve55": "Capture failed: {message}",
+  "g15kacp1n007ri": "Pin failed",
+  "l24n15vzryk": "Unpin failed",
+  "saqo3gg1bdvh": "Action failed",
+  "y6zm4wzmu4y10ij": "Mute failed",
+  "b2rl72ojum10r0": "Unmute failed",
+  "j97yz7ozau5fp48": "Delete Conversation",
+  "gahcm19425bndd2": "Messages will be cleared and chat removed.",
+  "r64qu4i35r56nmj": "Failed to leave group",
+  "mtzmdvfvqv3q4ix": "Clear chat with {name}?",
+  "fc4hinzwsic4fb4fx": "Incoming Call",
+  "bfp11ecv1l": "Calling...",
+  "r6hpayinfb0melv": "Preview",
+  "wbucodstd039zlea": "Find by Number or App ID",
+  "b8hxeczznjw4rpr": "Find Friends",
+  "lfop9h8u85kh6q5d": "Input number or App ID",
+  "kb9ka679fq6daaf": "User not found",
+  "gld9zouy6gs": "No match found",
+  "ic66my5ph2bn1": "Request Sent",
+  "o7pdmnfpzt": "Message:",
+  "mcu2y8w4u8z": "Hi! Let's connect.",
+  "hh10g8mok8jt": "{appName} ID: {appId}",
+  "@hh10g8mok8jt": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      },
+      "appId": {
+        "type": "String"
+      }
+    }
+  },
+  "i4gwwc6cu8mqef": "Message (Optional)",
+  "yuh3i1assvg": "Failed: {message}",
+  "not6k6cnos53": "Announcements",
+  "fdapx7il7mqsqmak": "Search History",
+  "csa5vp95o9h06": "My Group Alias",
+  "gv8o21sn564powl": "Input alias",
+  "etr6r65g9y": "Current: {value}",
+  "ygcmi060y10db": "Not set",
+  "g10pq66oggj": "Alias is visible to group members only.",
+  "k2a3hjbkpr4a5rtx": "Invite only",
+  "klfbowsr2uj": "Expires {day}({expire}), renews on join",
+  "uj5rgws7mzdq": "Chat Details",
+  "w9d76p0s8xkl": "Background",
+  "b703558ddz8so": "Mute",
+  "spjg0vb7wdliz": "Pin to Top",
+  "qsxcieewl6x1g": "Report",
+  "u8rctzppy2": "Group QR",
+  "aru5diyxkg218nu": "Invite Code",
+  "ktndkrbfade58dkq": "Enter Invite Code (Optional)",
+  "kqhmzybf0a6cdfwdi": "Enter invite code, or tap Skip if you don't have one",
+  "yr766l8liyyc7t7": "Skip",
+  "gpb499wyjl": "Name",
+  "l17r9k9xcpst": "User Card",
+  "thmis3rxv0q": "Group Name",
+  "byp890cwtylia": "Save to Groups",
+  "bzo6ucnaz8qp": "Alias",
+  "rvbptcgw5z3g": "Capture failed",
+  "n4d4r0xebu": "Animation Test",
+  "wxs2qf8v2ib9": "Tap to test!",
+  "ni1vwx415tc7": "Add Received Msg",
+  "t3jrxrzmnj04xgc1w": "Add Sent Msg",
+  "iwmbpjmlnsdomxj": "Source",
+  "zymvfgkwtrsq8rvv0": "Join Method",
+  "g3on37508ymg": "{time} {inviter} invited you",
+  "sx66fovbbg9j51": "Unknown method",
+  "kgzk06v3saz": "Unblock",
+  "o1em6ekvfynf512w": "Block User",
+  "pt9w7tnd6lpgh4r": "Block {name}? They cannot message you.",
+  "bfx3t13su16o3": "Blocked",
+  "zszdrw5its": "Load info failed",
+  "e00dubtte4f": "Visible to others",
+  "vp2icrjsluqeh": "Name required",
+  "u2hqfjvv41ms7inv": "Max 50 chars",
+  "hdexv74jianngrp5i": "Update failed. Retry.",
+  "r74vx0ndgqrh8d": "Replying to {name}",
+  "f4guxpyqwhep": "Main Preferences",
+  "tb9amj1wtwub3z": "Notifications",
+  "dw06jyhcop": "Disable to stop message alerts",
+  "e70ixebxuh": "Sound & Vibration",
+  "jichtg6i0a13nn368": "Sound",
+  "da5781lvkgzt1": "Vibrate",
+  "a43559scqegpxbgux": "Set preferences while app runs",
+  "lytre0mqyss": "System Settings",
+  "npu493f1ax65nieq": "Enable Notifications",
+  "n4o680i3x9da0": "Allow alerts for new messages",
+  "k73nq8qqz5okx5": "Enable Call Alerts",
+  "ssdrbu1tznxq2m13": "Enable 'Audio and Video Invitation' in system settings",
+  "lk1hu5dsm1867": "Send request",
+  "naopdooxn9rey": "Block",
+  "d02ywhps2d": "Unfriend",
+  "dr675fnwazmbe": "Remove Member",
+  "btt1svm9s0gt": "Kick member from group",
+  "ymq3fr9j8y": "Remove Member",
+  "ul2znzg0you1h9w": "Remove {name} from group?",
+  "@ul2znzg0you1h9w": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "cg2wln53sjg22ku": "Member removed",
+  "i7vyzvsdqcvsqnhpc": "Mute",
+  "yfhlaltgugwafj": "Unmute",
+  "jga7r37puxt4og9p": "Prevent member from chatting",
+  "ffpdexq3xp3m7": "Active",
+  "jkghm573s2gdmaa3m": "Mute ended",
+  "awb31k5wb9023a": "Muted: {days} days",
+  "@awb31k5wb9023a": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "t4her29whrtwlupi": "Muted: {hours} hours",
+  "@t4her29whrtwlupi": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "aqvu30haxzwgxbk5l": "Muted: {minutes} mins",
+  "@aqvu30haxzwgxbk5l": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "ymj4h9hj8x": "Mute Duration",
+  "llul1evisqtfgw": "Unmute {name}?",
+  "@llul1evisqtfgw": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "ng5vo2uyy65": "Member muted",
+  "fllvnuqfx9l4rzgak": "Member unmuted",
+  "by6iqkt53hjd5peh": "Mute failed",
+  "wmjm2bfe6n4m": "Unmute failed",
+  "s8e65f15mo": "Tap to unmute",
+  "bnl4cl20iz8m22b": "Removal failed",
+  "fghj4h847bq": "Load options failed",
+  "r0iz1fccpn91jwnat": "Not signed in",
+  "gwzedjcefdd7y": "Removed from group",
+  "e9wtz8iq1zhoe1lx": "Not a member",
+  "tay7mkakni9s": "Permission denied",
+  "ai9yw95jvum3": "Block Friend Adds",
+  "k9vtoj03g8pxztz": "Stop members from adding friends",
+  "pds60vmpqjxi": "My msg {index}",
+  "rbfkmf6pgq8q": "Their msg {index}",
+  "og9sdgx0l8jr5brsk": "On",
+  "x21sbj9czt4": "Off",
+  "z177kzauimgzfslje": "Display Name",
+  "ug30h08nm3c6": "1–50 characters",
+  "zupi2cjj3azyotey": "No special characters",
+  "o36h30ljtqgfseo7": "Pick a recognizable name",
+  "udxb8nzjwctv4": "Updates may take a moment",
+  "g8vlvm2c23vsb2r": "Guidelines",
+  "qakyo5cbcp": "Open URL to finish sign-in:",
+  "rv4fdknp9cj": "QR Login",
+  "xeyaeeg79ry": "Select provider",
+  "g37xzv7szqnvmy": "Sign in with:",
+  "k49l5yu5ve0": "Hold title for standard login",
+  "myphupsgjb00m7qh1": "Scan to Sign In",
+  "z23c2fncbby": "Create QR Code",
+  "ekup1d4n0egzp97": "Select Region",
+  "fyb9lty4933v86w3": "Load regions failed",
+  "b17ej8kun3t": "Unknown",
+  "e3rjw84a6qhe41a12": "Remove Members",
+  "iq9oxkc3fvuhh23": "Owner",
+  "icbymaz2905r": "Creating QR...",
+  "wedezrjvqj50a065": "QR load failed",
+  "mr4r1q5on6gwu3a": "Scan to add me",
+  "vcm1g0ggtru2": "QR Options",
+  "wi7r7zyiidy": "Share",
+  "izh0ij4k3ii3z4l6": "Code sent",
+  "k8gt9elflqmeayba": "Create Account",
+  "l5yfanf79hatoowc0": "Join and connect with your team.",
+  "zia4wy5lmju0r9": "Input mobile number",
+  "tdrsai6iv0qjp0j": "Get Code",
+  "pk7aseqg0z9x329he": "Input password",
+  "kwxglyr9289me1d6": "Password: 6-20 chars",
+  "ph016o2nus": "I agree to ",
+  "gxmouich648ar38p": "Privacy Policy",
+  "qnuzuwfugndn3w": " & ",
+  "y2map5gwe2": "Terms of Service",
+  "pp60j6l6vzd5": "Have an account? Sign In",
+  "wmci1jy7za90oc5pj": "Have an account?",
+  "v3995gspx8": "{count}s",
+  "glogjxitds4": "Restart to apply changes.",
+  "ookwvkc9rycr0o": "Select Module",
+  "srw3abli8oq0b4s": "Switch failed",
+  "caqszyrsx1evew": "Load failed",
+  "tlcgcdzp7ybus": "Organization Binding Needed",
+  "mj64v71opofwu": "No organizations",
+  "ziefue069rm4eeqd": "Enter code to join organization",
+  "qdgoo8v7ts2c": "No organization membership",
+  "yvsxl68m81twgmuw7": "Input Invite Code",
+  "gie9w7vdy3usuvpt": "Join Organization",
+  "s51aim6kpsa2a": "Unknown Org",
+  "awywf879ss2fwnh7u": "Auth Level: {value}",
+  "a1hhxjknmzo7pk": "Code: {code}",
+  "rfe67n4ise70dw": "Current",
+  "g74e0px5b53": "New Connections",
+  "n2gtwezwkwgewopw": "Group Chats",
+  "gtzzlxosn9v": "No requests",
+  "ooqygbee8o7ea": "Friend requests will appear here",
+  "nkw2ek67xf8d": "{count} pending requests",
+  "smig9s8dowu2l": "All caught up!",
+  "x3jb988m14eunh": "Accepted",
+  "x6xnxcdm5mq17": "Declined",
+  "v21z8sld9e": "Accepted {name}",
+  "nam2eiae29g": "Decline request from {name}?",
+  "ltkdl1lhiv": "Declined {name}",
+  "cj2vb2b7vtugvk1y": "Decline failed",
+  "xht0ukr14s8ovwfv3": "My Info",
+  "eyf1z0bqqmw": "Profile Photo",
+  "x2ws8np6nlgnjtx": "Photo update failed",
+  "n53fmo4jznwq": "Gender",
+  "ujnd3q9s4wskgv": "Male",
+  "rtzs3u91ekb0x": "Female",
+  "rn0y35l9j3k5wf4dm": "Select Gender",
+  "wdfycsariro28t1": "Gender update failed",
+  "cvmwyg1k4z": "Change {appName} ID",
+  "xo3qmsfcny": "Done",
+  "hy94yzrbxy02grnpx": "{appName} ID",
+  "wq65kd29lehxs": "Read Only",
+  "ckxmo90tyftjba2": "Enter text...",
+  "sglkaltoqgoz": "Immutable",
+  "ruo7ca4pqo": "Validation Error",
+  "cbinw6qb9nl5": "Cannot Edit",
+  "rkhxpq7bbdm7": "ID is permanent. Must be 6-20 chars (letters, numbers, _, -) and start with a letter.",
+  "tnnqylydwtrz": "ID required",
+  "cj3skunf4b5k5hpq1": "Min 6 chars",
+  "vc7w42e9x0": "Max 20 chars",
+  "n7fe6eoamfkgcn764": "Start with a letter",
+  "dwdlqrc9phm675ztx": "Letters, numbers, _, - only",
+  "u4giowre54ilu8": "ID updated",
+  "yv1vvq552coals1": "Page load failed: {message}",
+  "lyz9ns4h0g6xtn": "Group Voice",
+  "r8ul6vinxrvy": "Group Video",
+  "fkq2lrvfda6lm4t": "Send to",
+  "y3icycn729jmk": "Send",
+  "gmhabrele0jtfqv": "Select Chat",
+  "jnut72eh6p53": "{count} Messages:",
+  "xbhldgktddh8d": "{count} selected",
+  "m04lq8fv20dk210": "... & {count} more",
+  "ejm2szr0ytuj1tq": "To:",
+  "kndi55azth": "Message (opt):",
+  "pmjy7c1o0j88krl": "Group",
+  "m4kcer1nujclpz": "Personal",
+  "dxi9wllar1u": "Select chats",
+  "qlrua2jkmy": "Send to {count} chats",
+  "nbmrvcqczek4": "Sent to {count} chats",
+  "i3pz0dcx0aex5": "{messages} msgs sent to {chats} chats",
+  "mja1or4kqo4eh8qq": "Reset Password",
+  "vjplbo22vzb": "Return to Sign In",
+  "e50wlog61z1l3": "Recall password?",
+  "uu4f64vlqasmkiry": "Enter number to get reset code.",
+  "vo9024c0m9": "Dev Logs",
+  "d0xutrl707tzzbg": "Tap to change photo",
+  "t68ggyuj2klzju": "Groups",
+  "od9mnya05kr": "Messages",
+  "etnoecc2hui30zex3": "Message",
+  "dz1ch0v8lvnt81rsg": "Searching...",
+  "vzn9fy3bg5wp1n": "{count} results",
+  "c64dhcv9r9s5h6": "Global Search",
+  "ktocbg0qqog8k": "Find people, groups, msgs",
+  "v6qhtbzfkqtmtu": "No results found",
+  "d1ct7lqhoi": "Try different keywords",
+  "w639tc3w28v3b": "Find Users",
+  "vqm8r1wkrse": "Search \"{keyword}\" in users",
+  "t25v265vbf0xr1kh0": "Find by username/email",
+  "t50mog87jtmrfo": "{count}d ago",
+  "xqjyaxpun0": "{count}h ago",
+  "bwni8fe9ukoqvgqzz": "{count}m ago",
+  "ow4peyaw5v3cfgeom": "Just now",
+  "q6ktruhn61j29j9t": "{count} messages found",
+  "a4hd4zumuxq": "Pick Contacts",
+  "d05zt8hdsvz": "Add Members",
+  "tsnx4furma0t1n": "Group creation failed",
+  "msr8vyym81": "Min 4 members (incl. you). Select 3+ people.",
+  "d3ib52rlxi": "No one to add",
+  "bv8n560eh6f0bc9o": "Members added",
+  "rkesrnp0uvddsq1k5": "Add failed",
+  "ojz8mzoan5g": "Cannot remove existing members",
+  "jba55n4xr3xjzlkx3": "Max {count} people",
+  "p20y4ao9j283o8": "Member",
+  "qlzqajxmr3": "Create Group",
+  "hftavoxjq64xtgb0": "Add",
+  "iwurunlbhgxs": "{appName} ID",
+  "@iwurunlbhgxs": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "y9mophelrdj92t4": "ID is permanent",
+  "@y9mophelrdj92t4": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "gtauts6fhwc8": "Empty blocked list",
+  "g8fsqetvxu62l2": "Small",
+  "jpvy143tvdk": "Normal",
+  "h8jyesqrj2lg6zpp": "Large",
+  "n4dij5y5pls": "Larger",
+  "ssnfeor1hafa9l": "Huge",
+  "f9dbnnnj5s": "Preview text",
+  "ramkw0maqwt3b3": "Drag slider to change size",
+  "rha4y2vhpdhx": "Password reset. Please sign in.",
+  "z5b27tpoyz8ia": "Download error: {message}",
+  "o5fhng8lxgomc18": "Delete Account",
+  "btd8xnfi3s": "Delete account? It will be removed in 7 days. Sign in to cancel.",
+  "qmaf2kidw2zs8ae": "Account deletion in 7 days",
+  "i8h232hxdcvwvou5": "Account deletion is permanent. Please proceed with caution.",
+  "gad66ut4mw": "Deletion Notice:",
+  "pe8elqzwby": "Account is secure.",
+  "e682i4u9g5gsdi": "Assets are settled.",
+  "di800exwvn": "Secure phone bound.",
+  "vi6eprtf922npgv": "You forfeit all data, assets, and rights in {appName}.",
+  "@vi6eprtf922npgv": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "jk4b6lukzgqk": "You cannot sign in after deletion.",
+  "bjcdnxxghmol": "Deleted accounts cannot be recovered.",
+  "aagesn47obnc6k": "Important:",
+  "jnx7x0efdgmaj5p0": "Tap \"Delete Account\" to agree to",
+  "l5r1br3v624vfqivy": "Deletion failed",
+  "j6vwa0spoyzp": "Status:",
+  "z6dm48mtwu": "Current Badge Count",
+  "k7ygrc1pbzx00": "Simulate Request Msg",
+  "twda8tor5ycqi3i0": "Requests: {count}",
+  "u8wcq0xcdhtp": "Pending",
+  "ghad2jzvix0v1lbxf": "System Alerts",
+  "mf02ntxs8bmewm3a": "For private transactions or transfers, be cautious and watch out for fraud. Tap the avatar in the title bar to report.",
+  "duqs0rueg9": "File Transfer",
+  "y7oi187ysn2pi": "APK files not supported.",
+  "k9eyfgmxwq3w6y": "Max file size: {limit}",
+  "@k9eyfgmxwq3w6y": {
+    "placeholders": {
+      "limit": {
+        "type": "String"
+      }
+    }
+  },
+  "hr1ba47hdg4bj1": "Third-party Sharing",
+  "fldtozc77f38u7s8u": "User Agreement",
+  "jfod9ihr8eijiwfbt": "ICP License",
+  "rrdpi1esi244roo": "Update check failed",
+  "v0ttblligohj9": "Connecting...",
+  "l1ii60njv6ll": "Scan",
+  "z1siccvgjd8e": "Scan to add friends",
+  "mjwzd87ndpj0eqk9": "Clear all cached images?",
+  "bn3o0bnp9spr5r": "Cache size: {value}",
+  "ixyyhxjq1jw7tftd6": "Clean",
+  "ilgerqstgues": "Cleaning...",
+  "x5r11e8tkowtwul": "Cache cleaned",
+  "fm4ojkx2feeua": "Clean failed. Retry.",
+  "malx0c9nqvlqr": "Image taken",
+  "eg9omu4jr5lbi": "Profile",
+  "d41mpj0efa2o": "Wallet",
+  "lbkvxhyaz5": "Favorites",
+  "y64u01nflw": "Unfavorite",
+  "ya6bgzcqzk7orwypl": "Saved",
+  "apq8ikflyz6vu3z": "Moments",
+  "l2gnrivcgg": "Cards",
+  "qx1kcqkwy25": "Stickers",
+  "rxvz3mkh3qqtia": "ID: {id}",
+  "a4uet4znfqpxqg": "Manage Favorites",
+  "viiklgun8e3co": "Upload from Gallery",
+  "j5hna2x2obby19": "Edit",
+  "zzdns21ipomw28f0d": "Done",
+  "nsq9uqjr1eubg3": "Remove Selected",
+  "e261owzn66f": "None selected",
+  "waibyqdstjl7vw": "Deleted",
+  "seja4x9gxlo": "Uploading...",
+  "hwvvj6gql223k9": "New Friends Test",
+  "t8ivgkcf3uyh": "Test functionality for New Friends.",
+  "vf6mcpmrp53pqd2": "Status:",
+  "lc96c1k18m0h": "Requests: {count}",
+  "semoyirqsxplc": "Group alias is private to you.",
+  "mfbzmte12ff5r258": "Group name:",
+  "i5ben55fbth": "Contact Card",
+  "r4x1znev99v": "Calling...",
+  "qlxmkuaaymz": "Update Available",
+  "bn55t6ry1dwsz885": "Release Notes",
+  "h19yg2bqrl1la51q": "New: {version}",
+  "e273t5wdamm": "Ver {version}",
+  "vss8yk6lpp6jw33e9": "Update",
+  "ywijcs0puzoabm5": "Downloading...",
+  "tc7vyclhsbc": "Download started.",
+  "yevewfyjzboy4": "鄂ICP备2026001205号-2A",
+  "ke33rl08rv": "Copyright © 2025\n武汉舫泽道生物有限公司",
+  "hpor0y3icjixh3flq": "Switch Organization",
+  "btb8dnqcxfup1": "No organizations",
+  "omoybl2jyha0vr": "Join Organization",
+  "vhzfz1jkivae8": "Account Restored",
+  "zi3ni91fi3g7o": "Your account is active again",
+  "uu4chrz1msv": "Enter valid code",
+  "onmrs1mr5f1yb69mq": "Help Center",
+  "qgofgwhzcvc": "What is this code?",
+  "sv219jtcknpu1": "It's an invite code from your admin.",
+  "lda8ntv3hj": "Where to find it?",
+  "whzjpf7a6q5h6y": "Ask your administrator.",
+  "e56kby2x6vlqjo": "Format requirements",
+  "qx326ez2o6up": "6-12 chars, letters/numbers, case-sensitive.",
+  "tl5hq5kqt6t6l": "Feedback: gideonswebe79@gmail.com",
+  "sqatwng90k": "Org Registration",
+  "xf4b1aj1i4b0": "Find Organization",
+  "zxwtf7wqnslfxgq": "Input code to register.",
+  "pvj074i052": "No code? Contact admin.",
+  "cwkmwiul1msm7gs": "© 2023 Enterprise App. All rights reserved",
+  "t74h39zkb4r07pss7": "Search failed",
+  "pxj43og2d8xj": "Scale: {value}",
+  "titlyqyqzbu2r": "Joined {company}! Switch manually.",
+  "nsdoisvbxb73iueh": "Join failed",
+  "q1tterhcefzr": "All",
+  "lro67d03dmd": "Unread",
+  "l85hfpp3rh": "Pinned",
+  "dl8og815etauyt": "All",
+  "uvdzad3tz9": "Yesterday",
+  "gfnsg11cj2j2x2": "Yesterday",
+  "wecmefvvofc9": "Sun",
+  "lzenogwej379": "Mon",
+  "qw7qqp9g3h8wry": "Tue",
+  "gph42r3gq2tsj": "Wed",
+  "q8fwgfl8q7c": "Thu",
+  "ho9dnlwvlrk4a": "Fri",
+  "kpvaat9wuzqm2": "Sat",
+  "ntfyue9f3pfevyaz": "Private",
+  "wdu6dcnlpnay0": "Group",
+  "mk4llnva8j": "Unknown",
+  "ydgrrvbc4n03d": "Silent",
+  "gdk3efemo6wy": "Group banned",
+  "bs8otjgnautk1huxp": "Group muted",
+  "qi1hti1vm4eldi": "Mute ended",
+  "ezzmxm32j1dqj0t": "Group Settings",
+  "isxg5zg5jq235": "Features",
+  "cg9tt56h2qfce": "Notification Options",
+  "wa9nua14w7uvdg7": "Personal Options",
+  "d49sut13rz3": "Danger Zone",
+  "p7clf0cst0x6n": "Share Group QR",
+  "oyc8o6ng75n7": "Search in group",
+  "aqrg57vv7l0h7": "Set Wallpaper",
+  "yqxu4s4afk7h9": "Muted",
+  "oqnukkrsbe8y8se6u": "On",
+  "u1zhoc2jy4bw2": "Pinned",
+  "cn5qezaogtt2u": "Unpinned",
+  "myu9fok62jhs1kz54": "Saved",
+  "b2rmiuac02tee": "Unsaved",
+  "gbgzurdg0zn": "Clear Chat",
+  "xht726i1nrryeyb": "Find in chat",
+  "bcowl3q36o9": "Report Group",
+  "sdzog342jloioqrgm": "Sending...",
+  "j5r34ujspoe2y": "Muted: {count}d left",
+  "maffmuy0nn9o1": "Muted: {count}h left",
+  "gfbotj9plw": "Muted: {count}m left",
+  "xnxc5u1bqrb208": "Muted: {count}s left",
+  "awwnnnaaloul": "New messages",
+  "vgbuhwy5h7": "[Photo]",
+  "suusssdg62qyq": "[Audio]",
+  "wsdt9946a0colx9": "Unknown msg",
+  "jnsmsxhcy0eff6l80": "[@You]",
+  "i2p2s4llwld9r2p": "Mobile",
+  "dkfzxa2b2mnvxnga": "Web",
+  "gjb74qrekumperzau": "PC",
+  "uwvdmp5f4ef": "{device} online",
+  "h95xf869n1s": "Last seen {time}",
+  "c39lo3f9awtal4px": "{count} members",
+  "wte8vnx11jz4nnnep": "Search Privacy",
+  "dm1dp9e3777lsq3": "Find by Mobile",
+  "uyp62g3upj38ctxr": "Find by ID",
+  "qfmdnw35yx9uq7t": "Others cannot find you via these methods if disabled",
+  "zsehvr4riqzzw6nq": "Sign-in Password",
+  "c0u712z5qg3m": "Chat Lock",
+  "g68q3tlay08p4": "Screen Shield",
+  "m5db0j6ymxd": "Screen Lock Pass",
+  "q35lokzbdese810on": "Offline Saver",
+  "lwxbk9q0d4xzsy9u": "Block Screenshots",
+  "jboaarxzwcpz": "Prevents screenshots/recording when enabled",
+  "bezsh1bkob": "Device Lock",
+  "tem32ufhpf4c1nlhk": "Settings saved",
+  "jkw1x5enpubi7": "Update failed",
+  "oc2rrtrjnl1cw2j": "Net Error: {error}",
+  "qn68ttz3cg6yg": "Update failed: {error}",
+  "sqb5hsjocarmf": "Reset Password",
+  "nnzf6slttt": "Reset Sign-in Password",
+  "grkjts7vld94pp89": "Verify phone to reset",
+  "gkpz8hhwqoj06rih": "Verification Code",
+  "qqvwgfr0yb7yga49": "Input 6-digit code",
+  "ktgnsuq1fvip": "Get Code",
+  "n0ewu9eggvmbiibq": "New Password",
+  "h96pnyvf0o51qdtu": "Input new password (6-20 chars)",
+  "vxze94il4r0skw2xz": "Input mobile number",
+  "yvspkxozfvd9u7f0m": "Input code",
+  "ig0vtc8dp0apx4wm": "Code must be 6 digits",
+  "y2apw9xvozofwom": "Input password",
+  "ki549ywgal9r": "Password length: 6-20",
+  "vdufthd5xh1t8": "Code sent",
+  "iytbyfoxhtz6a": "Send failed",
+  "aqlgotigxpo787x": "Reset successful",
+  "snx6pw73w1": "Reset failed",
+  "ayialn6xs0fiz": "Login error. Retry.",
+  "p05im3sdi7v0": "Group Management",
+  "h48uy2cz4ri32n": "Manage settings & people",
+  "eu2ayl1v3ye5wgu": "Find members…",
+  "vktiqvzl9o9r29": "All",
+  "cann2q4ff4i": "No members",
+  "gv91bcw2zxsm4mcg4": "Admins",
+  "h91tnqgrfl": "Actions",
+  "cjh950s2jyk1dk1tn": "Owner",
+  "aa39r22tml3e": "Admin",
+  "igjxrppayqq2e4": "Promote Admin",
+  "e68gs0mb6kr9pkn": "Promote Admins",
+  "y9fa6tn7t1s": "Add",
+  "jw3yqxsftl": "Demote to member?",
+  "il28mxq1h3e": "Demoted",
+  "g21qjqgbyf6ljol": "Demotion failed",
+  "qrp1qe5cp5v8f": "Promoted",
+  "b9mx9k3w32930z": "Promotion failed",
+  "efcmbc6ywj348mfyd": "Transfer Owner",
+  "vsono0ta8w": "Give ownership to another",
+  "sgk0kh157x3xf2ujj": "Transfer",
+  "clzvd7r9zt": "Transferred",
+  "xdr9ywuejhx3": "Transfer failed",
+  "pyr0a76m78gbgflvf": "Invite Approval",
+  "d2aqkpc84c6xg3fo": "Approve new members",
+  "hd29dbldcw4lyr": "Mute Group",
+  "olxkf599l4wqe0": "Silence everyone",
+  "kmcuxqak2d740of": "History Access",
+  "ml5wkz61l2": "New members see past messages",
+  "g8tlflwvjqec7r0": "Blocked List",
+  "r4vo8dixvq68hms": "Manage Blocked Users",
+  "lyjzx5kfxsg7i9q": "Group Block List",
+  "xenyyn5qw27": "No blocked members",
+  "ou3yhde2eruzdaypu": "Unblocked",
+  "jve06zcga2dp": "Blocked",
+  "wpllxlmbrroh72n": "Delete Group",
+  "f4wjtjc2e8fxm05": "Permanently delete this group?",
+  "v5ljgimp1t9y": "Delete",
+  "scifwgbtjbna4x2": "Group deleted",
+  "hhruzkcpds7ay7fk": "Delete failed",
+  "zunz75qx40eyj76": "Delete permanently",
+  "n7zwi6tcrinlvdj": "Settings saved",
+  "d4b35tedbui": "Chat Lock",
+  "ve5fa0q45l": "Set Lock Code",
+  "hgfu4lw0o4": "Secure chats with 6 digits",
+  "vd9ozyn3vjkhnbual": "Input sign-in password",
+  "ems34nazryh2a8": "Input 6-digit code",
+  "hre2z1kehd": "Confirm code",
+  "uwucir6o9w9n": "Confirm",
+  "dibkqevkubgg9nodc": "Input sign-in password",
+  "tlz3lucuovec18eit": "Min 6 chars",
+  "wibypo4ddpdvoc5k": "Input lock code",
+  "cbs29bks66l28agoe": "Exactly 6 digits",
+  "jjlmwozf2kth4": "Confirm code",
+  "l07ndxs2jpdgmcp": "Mismatch",
+  "kxay0crg6ibude3gd": "Codes do not match",
+  "b3pmdndbxtgb": "Code set",
+  "bpoc9fb72dk": "Setup failed",
+  "z3iuz151cn62": "Unlock Chat",
+  "ep8gjko7wbtjn0": "Protected chat. Input 6-digit code. \n\nWarning: Too many fails will delete history.",
+  "mgkb1zauiqozgo": "History wiped",
+  "zsl9g0vtu5vn5r": "Wrong Code",
+  "qibmii72y6nbwz": "Incorrect. {count} tries left.",
+  "@qibmii72y6nbwz": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "weuhwdlqd5o74a6j1": "Screen Lock",
+  "jr1ob7vepkr": "Current Code",
+  "zsju7b9ixu3p": "New Code",
+  "bea2s719ndboc": "Confirm Code",
+  "e531bexiyzu6ll": "Input current 6-digit code",
+  "zk5csyy4oqtg": "Set new 6-digit code",
+  "dcfqhk58nq4": "Retype to confirm",
+  "zle9b1riughz": "Wrong current code",
+  "ulj01gv2cqd54rn": "Codes mismatch",
+  "zlg8oxrh2lgn8pn": "Lock set",
+  "la32fomm1y4wh9vig": "Setup failed",
+  "jvrlsc8aiewkmv1v": "Forgot Code",
+  "ut981wyh29": "Unlock code will be reset. You can set a new one later.",
+  "ns6hg6eqe8msbib": "Yes",
+  "ixtnb22sep": "Devices",
+  "qrd3n382qtk6fyqx5": "Device Lock",
+  "dqgrzhwqmtvr": "Only allowed devices can access account",
+  "kzk7w77axltlylu3": "Active Sessions",
+  "d6njham8mx": "This Device",
+  "ysfhfcnkal5": "Login: {time}",
+  "ayykh8f429lo97": "Remove Device",
+  "gn2ghr4fcn65ukcwf": "Remove this device?",
+  "d0f8h5sz4zb9idm": "This is your current device. You will be signed out.",
+  "rjfwmfpvbry8e3yk": "Lock ON",
+  "mp9yenk21l": "Lock OFF",
+  "g4ifrkq8mm83ap999": "Update failed",
+  "ppres79kur3t1l5": "Device removed. Sign in again.",
+  "w4eb3vbj2qw2moa": "Device removed",
+  "qss3jmb9qeaz4u": "Removal failed",
+  "qyay8u152zo3e3h": "Load failed",
+  "xs825czigybzdla": "Load more failed",
+  "z2mgr16xjohnzn6o9": "Unsent",
+  "qr8fh4mh1bfhsuv2b": "You unsent a message",
+  "qi7mk2otd25yh6v": "{name} unsent a message",
+  "a0xzoksz4wrpsk": "You removed a message",
+  "ct6bcahm3ntg3vpok": "{name} removed a message",
+  "ofw8x51gg1bu29iy": "Message unsent",
+  "yo0h7t20k814mwof": "China",
+  "sz123xgsa8": "United States",
+  "gi15xmih48q": "Hong Kong",
+  "thjjiau9j8": "Macau",
+  "l4jmck1w6wp2ei": "Taiwan",
+  "jzrlak0vj42": "Japan",
+  "ueoskkj6jnu4d28nt": "South Korea",
+  "pl0sw7z25z": "Singapore",
+  "wndov14qh0h": "Malaysia",
+  "o44z80wywvg1c1g7": "Thailand",
+  "mlxgd3d698ywa5rq": "Vietnam",
+  "z73slbeeurtttujo": "Philippines",
+  "s2hslb4vy1": "Indonesia",
+  "mawtx44uegdfiwd": "UK",
+  "h12s78avc3cdw3gb9": "France",
+  "uypm9wtiay797q": "Germany",
+  "m3qxoi9pn9a94d9": "Italy",
+  "j6gqd1ftvy1rtz": "Spain",
+  "tvv9t5pphwyaygf": "Russia",
+  "nnh9gumlzcafkc": "Canada",
+  "c0ij4yfqb0u8": "Australia",
+  "es5z14o05d2idvpxl": "New Zealand",
+  "ugzpsho1l6fzehbgw": "India",
+  "v58ka54i22sgwf": "Brazil",
+  "j4uadgdmkxxwh": "Mexico",
+  "a8g63374i4vvw70a2": "Argentina",
+  "gxe8hgiooen": "Netherlands",
+  "c00zi56q3j97wr": "Belgium",
+  "q3nbgppwrzvs": "Switzerland",
+  "mo8v77w025": "Austria",
+  "u6q0zt9jnn4swo": "Sweden",
+  "gvh0f63fdv5zop": "Norway",
+  "m79zso1nhu9r1af5": "Denmark",
+  "pxodlzmtogbh6": "Finland",
+  "oi98yh3qe91": "Poland",
+  "u4cvm8zniqr7l": "Portugal",
+  "b099ludsh5g": "Greece",
+  "x6uyzo8dmjh8": "Turkey",
+  "cx70h8x68h": "South Africa",
+  "na2dw58oz7": "Egypt",
+  "v8bp7ud84q69x": "UAE",
+  "mn6x2g5p5muuqw9": "Saudi Arabia",
+  "lgvs1xg442fw17uxz": "Israel",
+  "p3xv37ravvt5bhn": "Pakistan",
+  "y6w47e4gpigew0": "Bangladesh",
+  "tq9dk3gfj401jxev": "Sri Lanka",
+  "j8tylis4ok": "Myanmar",
+  "v68vpyzffzv": "Cambodia",
+  "opclqhcvx8t5jagkt": "Laos",
+  "o6rzf8juqdgb0n76": "Brunei",
+  "ala69hy4fclyen74": "Timor-Leste",
+  "fvt9e97hp2mk": "Ireland",
+  "nkqssj7ucpr0": "Luxembourg",
+  "jf9v78szy61": "Iceland",
+  "tpghmflrgfr5o9z": "Czech Republic",
+  "pkex1hpqwvjc": "Hungary",
+  "dnodiunw1b": "Romania",
+  "bi87k6u4iww": "Bulgaria",
+  "ffrkdzsfqnvw6g": "Ukraine",
+  "sjo3tz9uxy": "Belarus",
+  "fqzfh9eejaetiway0": "Estonia",
+  "yh6lc4ek4jgvkxxeg": "Latvia",
+  "p2gz2kwi9115q": "Lithuania",
+  "c161r8wqnlhej": "Slovenia",
+  "k5rjplff5w": "Croatia",
+  "x8pkcdqqjm": "Serbia",
+  "qmttffkkio69z": "Montenegro",
+  "au9tv5p5ggb4": "North Macedonia",
+  "ms3fotyq5y": "Albania",
+  "vgm0grfsiid2": "Bosnia & Herzegovina",
+  "b6mlbdh5ecin9v": "Kosovo",
+  "xqi8spftjq8": "Moldova",
+  "wavrvlsq4p": "Georgia",
+  "fyjhflrxyrslxy": "Armenia",
+  "rbtk4fvo6cylyfdn3": "Azerbaijan",
+  "f1yqo5agi11": "Kazakhstan",
+  "mnb803jiynzk": "Uzbekistan",
+  "zsa83stm6ld": "Turkmenistan",
+  "ba3qv4whbbfi": "Kyrgyzstan",
+  "g54nvtobwx": "Tajikistan",
+  "d5d42vn1jfy": "Mongolia",
+  "v9muso0vhzj": "Nepal",
+  "hpljvaxuoiq": "Bhutan",
+  "ctyfm7awjy5s8d": "Maldives",
+  "f67nuaitwg25pq1c": "Afghanistan",
+  "ja7hntw34lf2bw2": "Iran",
+  "yp8c5sqf3f0pcf2": "Iraq",
+  "yzxa2q4udra30f0": "Syria",
+  "e37lkrvin6u": "Lebanon",
+  "v4r3t0imcn73r4qjd": "Jordan",
+  "s1780nhhkw3": "Kuwait",
+  "z9tjymhn02lg": "Bahrain",
+  "n3c3qvh5iikw6981l": "Qatar",
+  "l4uc64o5bi4": "Oman",
+  "nbyrayy50uzt9": "Yemen",
+  "ocgfrl4j16rdxd": "Palestine",
+  "di5pdq810e2wyhve": "Cyprus",
+  "kpibnbrhgwjxt": "Malta",
+  "ik9qx39g7hpga2": "Algeria",
+  "vctbndoe3q": "Morocco",
+  "aofubktzol": "Tunisia",
+  "lptvtrbhqh24m": "Libya",
+  "crrul9vhnhi8npjp": "Sudan",
+  "j3a2ikoecvc28": "Ethiopia",
+  "xtdy7lecx9": "Kenya",
+  "peaaxvfrcy": "Tanzania",
+  "oui5zvzlqntq": "Uganda",
+  "mbi51suykyokb3vyh": "Rwanda",
+  "xf98h9maws": "Nigeria",
+  "if8s8wtkhwibs9l5": "Ghana",
+  "g4zjnl4jax": "Senegal",
+  "hm4tz1zpz2v": "Côte d'Ivoire",
+  "p4kvyu8tbqcwr": "Cameroon",
+  "enmcjxjf9cdeok04": "Chile",
+  "dmfu1aqjbey0800km": "Colombia",
+  "gw691hf4cln": "Peru",
+  "lrgrmetisi5": "Venezuela",
+  "wn035v5c0jeokbtf": "Ecuador",
+  "nayk0ya8m9ax7x": "Bolivia",
+  "xyhace1nowxhc3": "Paraguay",
+  "e0b11jk4inv01o24": "Uruguay",
+  "kb6uuiyr7p": "Cuba",
+  "jqmyi7jbnylssl": "Jamaica",
+  "zk5fwpdj1iyk4n8n": "Panama",
+  "q1p4duh59qkfgo08": "Costa Rica",
+  "unmzcmlufjltej5rt": "Guatemala",
+  "bbtx4xo7iwqq": "Honduras",
+  "ls1s6cyup4ghz": "El Salvador",
+  "lrf80my4bj7qc62": "Nicaragua",
+  "i3m8x643qe1ys": "Dominican Republic",
+  "g1kdwu7p7mzmrqf6": "Haiti",
+  "dm97ymq826hokfm": "Puerto Rico",
+  "ljvo9q5iwzaub1b": "Trinidad & Tobago",
+  "os7dxv1iogm368b": "Bahamas",
+  "mfk2p137f9lo2zzy": "Barbados",
+  "xbitl8i5tbx3": "Play",
+  "o32bjfh27k4y5mqh": "Pause",
+  "ru4iu6pb5y47w2": "Total:",
+  "w41j3gvfvi8icndc": "Mic permission needed",
+  "ufrx7j561h1x80x3": "Start failed",
+  "vzn53koj53bbyf": "Bad recording",
+  "v1zwbxhsi5skl": "Playback error",
+  "omyl3srvq4ujfa1": "Max time (2:00) reached",
+  "qem1fuj2su6u": "Reminder settings",
+  "s4494z8fk2c9": "Unsend notice settings",
+  "hcy9symgdh5ghp50": "Privacy",
+  "g93m5m75rh3": "Report Chat",
+  "j1bbeckax0ojxo9": "Lock Code",
+  "vl8q8x7yjuwi1sq": "Enable",
+  "cunv870b4r": "Disable",
+  "hc9d8o22fkys": "Read Receipts",
+  "yo26cklzznme": "Show read/unread status",
+  "b28ht8sbbxxzha": "Don't show read receipts",
+  "zv2nghw0x2": "{count} Read",
+  "@zv2nghw0x2": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "n63o894bb7rnvou": "Read By",
+  "f5xycr1fym": "Not read yet.",
+  "y5b5032h9nh2": "Keyword search...",
+  "lmo91dcij7uph5ttd": "No messages",
+  "c5jk6ocn66r6plij": "Screenshot Alert",
+  "ajkah2jvo2mqp": "Notify when screenshot taken",
+  "xqe8byfb69aog": "Unsend Alert",
+  "jpdxuudu6u6y": "Notify when message unsent",
+  "auiotejd7of": "Update failed",
+  "c3her3erwstnnfp79": "Permission Request",
+  "mbeycrmjsfg2": "Grant camera & mic access.",
+  "n5p2w542wbb6jco": "Allow",
+  "b5xu8gu1n2": "Not Now",
+  "uw1fektmytx": "Settings",
+  "qshxbba4rlgc25p": "Cancel",
+  "g86nixz2mr": "Camera Access",
+  "w7ojvb8lyo1myd": "Needed for photos, QR scan, and video calls. Without it, these won't work.",
+  "m3y0rqrt5lm0tp": "Enable Camera",
+  "z1qv4sxird4d": "Enable Camera in Settings to continue.",
+  "mwk20oouv5": "Photo Access",
+  "rnic0dsor4xv2i": "Needed to share photos/videos. Without it, you can't pick media.",
+  "x8no4n03dydv": "Enable Photos",
+  "mrca0648nj1mo2mir": "Allow Photo access in Settings.",
+  "wbl1rdb0a6": "Microphone Access",
+  "m491s041rlkbre6le": "Needed for voice msgs and calls. Without it, audio won't work.",
+  "hrd3523zm9sk": "Enable Mic",
+  "hvke9mxcpm9f": "Enable Microphone in Settings.",
+  "s6noye8x2lj09s2e7": "Location Access",
+  "j782497krl94yaj": "Needed for sharing location. Only used while using app.",
+  "tqf2330zwo5rx90": "Enable Location",
+  "vr4oyu2qbt7k": "Allow Location in Settings.",
+  "akvzkzjrt90ap": "Approve",
+  "wltnpn49cb540": "Load failed",
+  "q0gzktzi4r24h6": "Sent",
+  "x64zaumv1upqg5": "Send failed",
+  "qd3p28t0r1qa6eq": "Align QR Code",
+  "xe8xutcjico5nbh2": "Scanning automatically...",
+  "kjy2a3nss5vgni": "Gallery",
+  "e23n37baws9fg7": "Flash Off",
+  "uese6im9vfx": "Flash On",
+  "qqcpumv18m6bz": "Online",
+  "py5sadljy82": "Offline",
+  "b1gfzvt329": "Alert",
+  "r9z7eet32abhcgo": "Security Check",
+  "fhez21gfyto": "Checking...",
+  "wtd57s32mem46zgj3": "Success",
+  "iupfa340d8it": "Failed",
+  "dp720olz137": "Captcha failed. Retry.",
+  "k73xb85db7y4k": "Account exists",
+  "ldgt5g2sksi69": "Code send failed",
+  "gelkzjggo86xnpqkn": "Slide to fit",
+  "ew2d30m5i9k": "Slide",
+  "c548n5uz277ne7n2": "Refresh",
+  "a7n1yaas7pytyfx": "Tags",
+  "nr8ujzes0la31": "New Tag",
+  "asqch8wrvzhod4": "Edit Tag",
+  "d87bxnsyiy7i": "Loading...",
+  "srsq6ovo72z3sugq": "No Tags",
+  "e0as38kntivftp": "Tag contacts to organize",
+  "kh5xqwnd2s59": "Remove Tag",
+  "nms5et3uhw2": "Delete \"{name}\"?",
+  "hqslpcmqlur6": "Tag deleted",
+  "pyz9sy2ogmigu7": "Delete failed",
+  "dcstckyvc3muhrjaz": "Tag Name",
+  "tl8pbsexvxr4sg": "Delete Tag",
+  "c8svq2zh2lgy4": "Delete this tag?",
+  "k6jyuufqw0o34hi": "Deleted",
+  "us5o5byymh19jw8": "Failed: {message}",
+  "udx99l6cc8gkhqs6": "Updated",
+  "mcc0ukm1t9wz": "Created",
+  "xc78k3c7gow83ldh": "Clear chat",
+  "rjwk9w5gm3x": "You took a screenshot",
+  "bcmsidyw7g4lcqi": "{name} took a screenshot",
+  "@bcmsidyw7g4lcqi": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "traf1i6m2kq": "Time: {duration}",
+  "@traf1i6m2kq": {
+    "placeholders": {
+      "duration": {
+        "type": "String"
+      }
+    }
+  },
+  "h4v267352cnh2": "Declined",
+  "po41nvm0zu": "Cancelled",
+  "rz9329py3w": "Reconnecting...",
+  "l4rlb8m08nw": "Reconnecting ({current}/{max})",
+  "@l4rlb8m08nw": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "zz6lswo025k5k9": "ID Verification Needed",
+  "l1vnuku5wtdawzo": "ID verification required for groups. Verify now?",
+  "lsidkrst8kia46rgb": "Verify Now",
+  "mru50yopkty1c": "ID Verification",
+  "i47oktgsuruq9w": "Full Name",
+  "p417l41fcz0ma": "Input full name",
+  "fyy34sx2hdbun7au": "Input valid name",
+  "d6lw2xhwaz90": "ID Number",
+  "gen6nl5w8n": "Input 18-digit ID",
+  "nctg1tjl29x3a": "Valid ID required",
+  "edftgresl2eq9vn83": "Valid number required",
+  "hi9mo1o4zs7": "ID Photos (Req)",
+  "vd6buf0q7ory": "ID Photos (Opt)",
+  "xjhfb2lx9x": "Portrait Side",
+  "m21p872msh": "Emblem Side",
+  "zqd2ltahp4l2dq7c": "JPG/PNG, Max 5MB",
+  "sevdifmks6c": "Upload ID photos",
+  "vtrk8z4wlecity319": "Submitting...",
+  "brnnqh9zqnn": "Submit",
+  "tjuvq79r3s": "Verification Details",
+  "gspw75dvuhog6rd": "Required by law. Your data is private. Provide accurate info.",
+  "f09pb6snoi": "Tap to upload",
+  "zfyppyau01g": "Selection failed. Retry.",
+  "ig6ct9cer7dsmtqv": "Net error. Retry later.",
+  "ak1tbdw2lgdm1c1": "Lost connection to system, please try again",
+  "dzofea22dh9x": "Unable to fetch ID Verification status. Please try again.",
+  "j8xz3gimqtag6": "Failed. Retry later.",
+  "sprnld8rn649xbrn6": "Reviewing",
+  "ngg6pgkjkbt67j": "Processing application...",
+  "z2p4w09d63pio3ze": "Review takes 1-3 days. You'll get an SMS.",
+  "rsowgrm13vait6v": "Verified",
+  "oxyq8yf671nmd7fs": "Verification complete. Thanks.",
+  "bcpuvz0dl7szbsz": "Failed",
+  "z520rpze9tuc5yyqg": "Fix and resubmit:",
+  "gb8d2dtkfkjvu0": "Ex: Blurry photo",
+  "f6jg707pjvy": "Resubmit",
+  "a29io4vw4bdj": "Create Group",
+  "xqxyexp70ox": "Time Submitted",
+  "souhc0jb4rirrbmp9": "Info Submitted",
+  "sh63rno7te4eg": "Time Verified",
+  "a292crwdhtscd": "Info Description",
+  "clascpsjplkn8ix": "Verification complete.",
+  "isyzmcbdeyhhz": "Processing (1-3 days).",
+  "jvob4t2cgim": "Approved.",
+  "oyt039tsd3mxh3o": "Found code \"{code}\". Register?",
+  "@oyt039tsd3mxh3o": {
+    "placeholders": {
+      "code": {
+        "type": "String"
+      }
+    }
+  },
+  "ard3jyf7i220dqn": "Terms & Privacy",
+  "sb1w0i3z2n32q": "Please review how we handle your data:",
+  "g6f8apdcu62": "《User Agreement》",
+  "ko9jevt9qa": "User Agreement",
+  "hocctzexzymq4i7c": "&",
+  "ryfttvgl08jhkfq": "《Privacy Policy》",
+  "e0mpbh6xkodx6": "Privacy Policy",
+  "vglix78mavo5xta3": "\nSummary:\n1. We collect minimal data (phone, device).\n2. We use cookies for performance.\n3. You control your data.\n4. No sharing without consent.",
+  "q54defgbd8": "Decline",
+  "bo2zbaghayn": "Accept",
+  "vmwrxf2a2fhi5bc": "Found \"{companyName} ({code})\". Associate?",
+  "@vmwrxf2a2fhi5bc": {
+    "placeholders": {
+      "companyName": {
+        "type": "String"
+      },
+      "code": {
+        "type": "String"
+      }
+    }
+  },
+  "v5gsq75vzdghm": "Link",
+  "sttmhv8halz": "Found \"{companyName} ({code})\". Register & Link?",
+  "@sttmhv8halz": {
+    "placeholders": {
+      "companyName": {
+        "type": "String"
+      },
+      "code": {
+        "type": "String"
+      }
+    }
+  },
+  "rdupa4zs9jr": "Go",
+  "iv18quhtry6": "Unknown",
+  "gtyod5pc5whgj1j": "Current Loc",
+  "zo5x2bpnm4zg9": "Map",
+  "ap1v9qlkbnvpl7bp": "Pick Location",
+  "jds1e2hsv630pc": "View Map",
+  "rmnhl0kvirs": "Getting GPS...",
+  "hrpi0scpv674vzpq": "GPS failed: {error}",
+  "@hrpi0scpv674vzpq": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "afg0dyz89md": "Send",
+  "gf31bbr1q9v": "Lat: {lat}, Lng: {lng}",
+  "@gf31bbr1q9v": {
+    "placeholders": {
+      "lat": {
+        "type": "String"
+      },
+      "lng": {
+        "type": "String"
+      }
+    }
+  },
+  "bfpqf9vqhs8woi": "Loading address...",
+  "av6vreutxg": "Address unknown",
+  "j06oocz82s8u7": "Share Location",
+  "cwe2gnqmo7j": "Edit Message",
+  "sve5wl38kr3wt5r5c": "Ex-Members",
+  "ggt8sovizy24": "View left members",
+  "kk1x3gde6exjf1t": "None",
+  "ok0iwr9s7lp5": "Removed",
+  "gwgn8hunddmboo": "New message received",
+  "gcjlxyu8kdm": "Too fast. Slow down.",
+  "t3rmgntlw4fnrjvd": "New version available",
+  "xddb057wbtm": "All muted",
+  "xyfkldb4i95lw": "{appName} ID",
+  "@xyfkldb4i95lw": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "ae8qu4jhd4": "Photo",
+  "p4pidsfjii6suq36": "Video",
+  "trxa2517r7gtheaow": "File",
+  "bwc6414vsob": "Date",
+  "lpy5yrll4c8ivfhh": "Members",
+  "iifrxgfhf4": "Pin",
+  "vaybwr4gham64ekmf": "Unpin",
+  "zv7ofyk6cdc3vud": "Mute",
+  "dn403rhx1q": "Unmute",
+  "gt7r4yoyqml0y81": "{appName} ID",
+  "@gt7r4yoyqml0y81": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "j5omtpjkk1": "Authentication",
+  "dzf3h5ab7o3": "New device detected. Verify security.",
+  "@dzf3h5ab7o3": {
+    "placeholders": {
+      "appName": {
+        "type": "String"
+      }
+    }
+  },
+  "vrfg039bo6r7v3": "Start",
+  "rtm95aokvwppyrbu": "Code sent to {phone}",
+  "@rtm95aokvwppyrbu": {
+    "placeholders": {
+      "phone": {
+        "type": "String"
+      }
+    }
+  },
+  "og8z5jkezy02wlf": "Verifying",
+  "i9t7gg3gre": "Retry in",
+  "kxkmcvo8dod": "Get Code",
+  "zjeyzcnk8u4t7mh67": "Input code",
+  "gvtto4qjib8b": "SMS Code",
+  "s2hbeduqh8h0ie": "4 digits",
+  "eid162zkbhtb": "Enter SMS code",
+  "o9nnvlbkts": "Must be 4 digits",
+  "omast4wctv": "Ver: {version}",
+  "@omast4wctv": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "vcquha0tsk": "Version check failed",
+  "dw1cuxafei": "Line: {name} (tap to change)",
+  "@dw1cuxafei": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "dff97wyg9wdqh": "Line: Unknown",
+  "hrw2r3g3fo49k148l": "Domain: {url}",
+  "@hrw2r3g3fo49k148l": {
+    "placeholders": {
+      "url": {
+        "type": "String"
+      }
+    }
+  },
+  "jt7skw67ei4n": "Switched: {name}",
+  "@jt7skw67ei4n": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "yvwspxwdvys": "AI Bot",
+  "ixleheg4av26": "Hi! How can I assist?",
+  "ho0iratiujshj": "Missing info.",
+  "qyc7iqnc2qvpl": "Error. Retry.",
+  "uddqbqnorzs0": "\"{name}\" not found.",
+  "@uddqbqnorzs0": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "yia1hk2r51xyng": "Messaging {name}...",
+  "@yia1hk2r51xyng": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "ezdo8ykcggj15": "Contact",
+  "g07voh64ytsgt6prh": "Pick Contact",
+  "b6ubkzl6qg6": "Try:",
+  "awf8lzbfc45evdm4": "Send msg",
+  "allv3pt5ycznkc": "Send \"Hi\" to...",
+  "johjgo1igg": "Find contact",
+  "hay1hdwtg2g51c": "Search Test",
+  "cqpwq1entcac": "Find group",
+  "zynuu78hldwy5q": "Search Project",
+  "r7ktxj71mngqmt9m": "Find msg",
+  "q2wi37ge0hckcrz2": "Search hello",
+  "rv5ncsl3w672": "Ask AI",
+  "ax62on8ywd": "Capabilities?",
+  "yuhvvd4nreh": "Contacts",
+  "eekvlk5dx79so": "Groups",
+  "r4orit2wif723": "My Card",
+  "fur55x33nzeui": "Feedback",
+  "fub3uua63781qnd3": "Desktop",
+  "tydlfb5vrwd60a7xr": "Identity",
+  "xyp1pex98w": "Camera",
+  "f8p4xd6b7qpryu05": "Gallery",
+  "geqwetpoqacs": "Orgs",
+  "qu5rnhh66fg9bk": "Auth Lvl",
+  "c5gf39qrzs": "Lvl {value}",
+  "@c5gf39qrzs": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      }
+    }
+  },
+  "iagrgrhbheduo": "Switch",
+  "lx4pnor9bvyb1xa9": "Search people...",
+  "kvh3mr514c1r3p6m": "None found",
+  "hcsg7bp2lg0": "AI Chat",
+  "n0xnx2mmerbqlkw": "Via Gemini",
+  "yq6vg73foz51ap": "Start chat",
+  "xht0dt66knpkuzw": "Cannot reply.",
+  "mii04cu9lls": "Error. Retry.",
+  "du7i6zmjsf": "Thinking...",
+  "hrbgu1tdnu": "Type msg...",
+  "khiy7y3w7z": "Mark Read",
+  "czkwn18g7sye6m": "{count} selected",
+  "@czkwn18g7sye6m": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "ut4r4hlqb4": "Select All",
+  "ej1nipvseqefrkje": "Deselect All",
+  "o3i1goxybahf": "Name required",
+  "r2nri6bami5dny": "Password required",
+  "bkm2hgb3x5izqq": "Bad number",
+  "negah3q96ekua": "Password: 6-20 chars",
+  "ln1ohsicvhy2ypgb": "Accept Terms & Privacy",
+  "dlk3tctvwuo": "Alias required",
+  "yhhdgqx9ndnbb3y": "Login failed",
+  "swsm3rg631m": "Sign up failed",
+  "xrhuzljapqyawvvgl": "Net error",
+  "sky6yw7steby8": "Unknown error",
+  "hh7o5htji2ryac": "Verify failed",
+  "pm22ll5bdaujplx9i": "Forwarding",
+  "pni1szj3qpf74gp6": "Forwarding...",
+  "ql2t2ofkvdx2azhe": "Added to queue (#{position})",
+  "@ql2t2ofkvdx2azhe": {
+    "placeholders": {
+      "position": {
+        "type": "String"
+      }
+    }
+  },
+  "g6v46z3p29h4vqt9f": "{count} waiting in queue",
+  "@g6v46z3p29h4vqt9f": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "yb5qya5adugie": "Forward queue is full",
+  "aeexvf25uxwkfe": "Sending to {channelName}...",
+  "@aeexvf25uxwkfe": {
+    "placeholders": {
+      "channelName": {
+        "type": "String"
+      }
+    }
+  },
+  "trz6i9z1a2o57u": "Sent {messageCount} msgs to {conversationCount} chats",
+  "@trz6i9z1a2o57u": {
+    "placeholders": {
+      "messageCount": {
+        "type": "String"
+      },
+      "conversationCount": {
+        "type": "String"
+      }
+    }
+  },
+  "gf7fizkoczwkol98b": "Fwd failed",
+  "kpz4y788kc": "Stopped. Sent {count}",
+  "@kpz4y788kc": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "kamklofl79bsi5": "Fwd stopped",
+  "jq344q9c700xeud": "New Messages",
+  "r84rw1q7io0vyje26": "Join Org",
+  "jmfcowogf65scagag": "Join now? Use invite code.",
+  "ygvzjxi7xt": "Join",
+  "swrb2b7kcvx": "Later",
+  "j1vy3qno07qm1dt": "Journal",
+  "w1mxgxue4ahk": "Journal",
+  "anysa8ceg9i": "New Entry",
+  "bnr7gjcc7hrd": "Log memories here",
+  "l3rym6q4m5v3wv3y": "No entries",
+  "lk20uhcys1zxn": "Change filter/keyword",
+  "m5jaft0svm9v6e23u": "Search journal...",
+  "cvyxxz8f5gn": "New Entry",
+  "zbm592mj21d": "Edit Entry",
+  "k2r4zixcq3": "Delete Entry",
+  "ifuwcp3bi1rci8unu": "Delete this entry?",
+  "l86gziehsby3m": "Deleted",
+  "j5ea0yncw14": "Created",
+  "cz2talp71zv": "Updated",
+  "cvxh0ptb1ve": "Save failed",
+  "ym5rokmglu": "Title required",
+  "ta3gzquridl": "Mood",
+  "htrx7tu8s5rvxcl": "Happy",
+  "mftm48zdm0rm8k": "Sad",
+  "fca4mg9zn9a4h4rd": "Okay",
+  "ofhmlx7ua8": "Excited",
+  "d658j0lciq4ws5jqf": "Angry",
+  "i7m1knh7w5djk": "Chill",
+  "fwi3m60rio": "Weather",
+  "tzawlczs2i2gejk": "Sunny",
+  "wyc4fkce4e5": "Cloudy",
+  "o797mtsvlo": "Rainy",
+  "v7a34kvkxct3f": "Snowy",
+  "eom3a44c1hio": "None",
+  "qo0w86mf9dddbj5z4": "Tags",
+  "itu264pdnx4": "Add Tag",
+  "gw2l3itz0p": "Title",
+  "pmncmxvpp78": "Write here...",
+  "nepglwb5rrb": "Mood Filter",
+  "b713ijdtk49v": "Favorites",
+  "dt5jalvqdvw8": "Reset Filters",
+  "aqbgh7jonbm2v17": "Pick Mood",
+  "jflxpgf3opm37h7p": "Pick Weather",
+  "str22otzla83fn": "Today",
+  "zje8eqep3ky": "Yesterday",
+  "ptkijmy5r21": "HR",
+  "km8c1l2mj0qs8j7": "Clock In/Out",
+  "sfe0nd1krz7x": "Schedule",
+  "qkpca8eufn2fea": "Approvals",
+  "nszti7ajz0zb": "Notices",
+  "q9y7jwok5e": "Today",
+  "u9zx6tkpy3hdkez5j": "History",
+  "a3s3huxfz5clss": "Upcoming",
+  "nksn3cfsalj": "Time:",
+  "yxy9z9f1xgx94xje5": "Clock In",
+  "noysglx4avh8ij94": "Clock Out",
+  "lf3skdztn16kxi": "Late",
+  "dcvvgibhb2i": "Early Out",
+  "wt21rfltax6fk1": "In Time",
+  "gyvh6ucr4u1zyc": "Out Time",
+  "lnxq95iob9eyylp": "Status",
+  "b6b25woxqxi9ko1": "Present",
+  "tyzfumqosk010": "Late",
+  "g1w3c84up5": "Working",
+  "jucc4tfx8309": "Summary",
+  "p6hyvq7ywp3w2h": "Days Worked",
+  "qxjg7ki282uqm9xu": "Days Off",
+  "w0gegrpr2hilnei3z": "OT Hours",
+  "vu8041i6yjay63z": "No Data",
+  "co9sb5te7mlblgc53": "Done",
+  "gs2hy7f9o5loqfo5m": "Absent",
+  "teitihhgn0o4gxp": "LIVE",
+  "kzs7ht4mk89re": "SOON",
+  "ho8fjxdit4l": "Dept",
+  "dftcs01ripmyuznw": "Org",
+  "s0o2h8oy6hcuprev": "Client",
+  "xwvxtyn6we": "Interview",
+  "w55oc6n96udq": "attendees",
+  "wn7is9rrj8": "Details",
+  "stelxwxzf9iaqd": "Host:",
+  "awi8cqpcyz7": "Desc",
+  "wyxs8270al9equ3vj": "Join",
+  "jrm2zvn786hv": "Requests",
+  "a0dr4o7hin7i0wumw": "Pending",
+  "wxwlvgejahy": "Leave",
+  "pyo4lvbdodyt": "Overtime",
+  "umatcyhxn0wa8": "Expense",
+  "fnbi5pg2h7xk448": "Trip",
+  "fliflzw4r29nl": "Buy",
+  "prgcsqh6v89t0rt9": "Remote",
+  "b6sx018t1vk4ifr9g": "Resign",
+  "wvd9m28t9eg": "Payroll",
+  "c0ai5fk27e2": "Misc",
+  "iohohmnld0f0tbbb9": "Pending",
+  "w9sr0ddi12": "Approved",
+  "dkiw2ab391hvj9": "Rejected",
+  "erg8sv9qdmj4bk": "Cancelled",
+  "lm7lupeylw": "Active",
+  "h088tb9ybohm": "Approve",
+  "m22mdvtcc9hasw": "Reject",
+  "nnb0hpk59b5": "Empty",
+  "s2j11omo0lcm": "All clear",
+  "sk20wjlib68lz7aa": "Details",
+  "wpl7510i0ocwck": "Type",
+  "gpyie5lzic95q": "From",
+  "fjm01k2q7cf7dggy6": "Date",
+  "wpoqr1x9j6kb3": "Approved On",
+  "dbfwjbkr4pv8g054a": "Body",
+  "g2ugtcp2d69bovei": "Reason",
+  "danmfzklzdktk6d": "Flow",
+  "aya9snq6z5ob": "Cancel",
+  "nfqzjau2si": "Cancelled",
+  "m31vc27jgraahik0": "Approved",
+  "ud5bip0vt3n3a": "Rejected",
+  "y7c2m2tuo71": "Reject",
+  "s9i7uz0vxbrp": "Why?",
+  "oo35kdi1zl3r7": "New Request",
+  "wr45gg18kj": "Submit",
+  "ohvsxaj1z81s": "Subject",
+  "njk5901fge2": "Content...",
+  "hm5b1sp2ejz1re21p": "Sent",
+  "ttdtnsef2arj": "Subject required",
+  "x8gw6a8e9ugq3": "Content required",
+  "ysh0pr82am7g": "{count} notices",
+  "@ysh0pr82am7g": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "wg2zcjb0j987fee": "unread",
+  "l58zmvgmbd": "Unread",
+  "ilh9e3tnet7na4": "Pinned",
+  "snvioo4oktqlz": "Urgent",
+  "zpgioh7tns": "General",
+  "spwdjr61jnh": "Policy",
+  "fux1m8pjeer1s": "Event",
+  "eys0jhv1k646": "Holiday",
+  "bqu8r1rygpv73z": "B-day",
+  "ju2ruy8npkecc3kk1": "Notice",
+  "lne1fguf0ihv": "Reminder",
+  "g6gxni38q1e": "Urgent",
+  "o7yn5a03c6e6": "System",
+  "x68bcx7qy1": "Now",
+  "xyl06gfqdt63": "{count}m ago",
+  "@xyl06gfqdt63": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "eywpss2u47bdn2ps": "{count}h ago",
+  "@eywpss2u47bdn2ps": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "ldtcgqqvr7qkwtn": "{count}d ago",
+  "@ldtcgqqvr7qkwtn": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "dj0fr1sh4hv": "No unread",
+  "wdevkblm55k": "Empty",
+  "t68lldaoowm053c": "Details",
+  "vmi2pvs3pa41ghe": "Sender:",
+  "ijx3y3dvr14yzp6o": "Urgent",
+  "i1s9cgdu3g34sh3i": "Important",
+  "rlwdzyv33xki": "Marked read",
+  "fsu6qlgb24m5dm": "Update failed",
+  "ybnsrje41soq": "Load failed",
+  "vqe9771jiszfvkj": "Notices load failed",
+  "psdyp1yqa9bjft": "Clocked In!",
+  "pns1j75iwii": "Clocked Out!",
+  "oafv2r6ew2piqsvr": "Cancel",
+  "f17m070wb4z7ig": "New Meeting",
+  "lnim3mzechvwpei": "Create",
+  "ancytlwx1xy7t": "Title required",
+  "gra0wnxo4or9": "Room A1",
+  "zupkqxfs8l9p8odp": "Created",
+  "wx68t573srnyomvn": "Title",
+  "iqp71q127j8z": "Virtual Mtg",
+  "cstlqzv3tz5lpm": "Loc (e.g. Room A1)",
+  "nmtkerg14pka": "Time",
+  "gt8jje0laz4keuopb": "Step {step}: {name}",
+  "@gt8jje0laz4keuopb": {
+    "placeholders": {
+      "step": {
+        "type": "int"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "tginhi0s53j": "Note: {comment}",
+  "@tginhi0s53j": {
+    "placeholders": {
+      "comment": {
+        "type": "String"
+      }
+    }
+  },
+  "bt07y1pdc1nnwkzq": "Agreed",
+  "xgdd4kamt5bb": "Approve failed",
+  "e1d7rfidimm": "Reject failed",
+  "iblfnqwjvi4oc0": "Cannot proceed",
+  "udsp50ram4112n1u": "Status",
+  "e57mdlx6ue4tfg84": "Empty schedule",
+  "ewetja5b86k40fyc5": "Nothing upcoming",
+  "x8dygrufgp768": "Have a great day! 🎉",
+  "q4rjbva0ye": "Summary {month}",
+  "rgjoj3ctr9v94t9": "Error",
+  "itgnr8a5qv2tv5n": "Success",
+  "ug7ipf8x8kpjba8w": "Today",
+  "nyn6h0h5k5bnx": "Rate",
+  "fgtiwssd1ozb5qb": "Date",
+  "aj9d78xk8ao9nzed": "Start",
+  "heddvue4lqdj": "End",
+  "w1fri22ftrgz8": "Recent",
+  "i8uaskihekhm62xc": "Priority",
+  "mbgz2iu62ry": "Back",
+  "nrcimmo524n2": "Set 4-digit Passcode",
+  "o6k61g0osb94879g": "Create a 4-digit passcode to protect Teen Mode.",
+  "iefcvhzgny7qyxxq4": "Enter passcode",
+  "ljj0s82eewx": "Confirm passcode",
+  "x4yr9ona60y30z": "Enter a 4-digit passcode",
+  "fj0m8lc1ij9y65": "Passcodes do not match",
+  "vqebtfv6ttwq": "Save Passcode",
+  "ai9c2cxcg00uk47ul": "Enter 4-digit passcode",
+  "kzo1szv870wvaph": "Required to enable Teen Mode.",
+  "sc9l0b6n5aqzqs0": "Required to disable Teen Mode.",
+  "e9xu0353gxu": "Invalid passcode.",
+  "rlcuznm4at": "Real name verification is required to enable Teen Mode.",
+  "f6ok7d9feizi": "Teen Mode",
+  "nyougz7yhyjrmm4": "To protect the healthy growth of minors, InstantChat has launched Teen Mode.\nSome features will be restricted in this mode. Guardians are encouraged to activate it.",
+  "sykz19uixh4": "I have read and agree to the ",
+  "arn2txyk0imq": "InstantChat Teen Mode Terms of Service",
+  "qzqld2prhltr": "Enable",
+  "p38g6g05roxyb3v": "Chat is hidden while Teen Mode is ON.",
+  "j0kcsxe45c": "Turn off Teen Mode in the Me drawer to access chats.",
+  "xc37snu4ftva3kkjt": "Turn Off Teen Mode",
+  "k3y4pzqnyvy0voy": "File size exceeds 300MB limit",
+  "kpdhj8p958c": "Quick Actions",
+  "rfw8f6y9wjmy1s": "Communication",
+  "xcii6r1g7d7kaez": "Reminder",
+  "cq51x90c78k": "View All",
+  "gyfmv4tbjgnyayetv": "Add",
+  "cyamdonj67r57vm43": "More",
+  "m5ou9rp5qx0nn1oxn": "Save to Contacts",
+  "wqmaaicmu8ngz9z": "Edit Group Name",
+  "utkn03ougz47": "Group Announcement",
+  "ckurxkh1hx": "Manage Members",
+  "qvcz2ev31hsxcs2": "Set Group Remark",
+  "w7dcf7s5u9jftzzc1": "My Alias in Group",
+  "f9b5936nvvgisq4": "My Documents",
+  "l4b1equkncu91pj3p": "Save to My Docs",
+  "j5a87hcb9r7ip": "Save to My Documents",
+  "y0by7gm4g2": "Unable to save this message",
+  "zw6k0sx3p2mrwkb": "This message type cannot be saved",
+  "bbbp091cniejr": "Saved to My Documents",
+  "i79nnjj4oqn9kj2": "Failed to save: {error}",
+  "@i79nnjj4oqn9kj2": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "ucteej1xevz83x": "Welcome to My Documents",
+  "pv6c407153": "Save important messages from chat and organize them in folders for easy access",
+  "qy0rjx1cjbxd9uid": "Save Messages",
+  "ukbn8b4m2z4o": "Long press any message in chat and select \"Save to My Documents\"",
+  "zo6ajec2e0lf0n": "Organize with Folders",
+  "prqhssjrry": "Create folders with custom names and colors to keep things organized",
+  "pc89hfdjqyj1asihl": "Keep Forever",
+  "cq367tetfp6g": "Saved messages stay here even if deleted or withdrawn from chat",
+  "i3gjbabi3n": "All Media Types",
+  "yq98a0rdg0qdwn": "Save text, images, videos, voice messages, and files",
+  "fj7kuj1hh53lyduh": "CONTENT & MEDIA",
+  "dnpgokz6hcys7e": "Go to Chat",
+  "efl6mvy1nj9i963r": "Quick Save",
+  "jp8ulotdmjfiq": "Save without organizing into folder",
+  "zbk21s3vhwdc": "No folders yet",
+  "xkmfqt1yeehtn": "Create a folder to organize your saved messages",
+  "sxw0awsvjqqgdh0mo": "New Folder",
+  "sh84b5j9sjlws": "Create Folder",
+  "ysi2hmh24dkwbpv8l": "Edit Folder",
+  "s2apnzh9tfra9dnkq": "Folder Name",
+  "jnmc5o72kfw2t1": "Folder Color",
+  "mnh8a25i60js66": "Enter folder name",
+  "fgne26ikjcm24fkca": "Select Documents",
+  "hx33sct5l3zvae9v": "Move",
+  "uzk6soijrt6ck": "Move to Folder",
+  "gzztobhr92": "Created folder \"{name}\"",
+  "@gzztobhr92": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "hxv59nos39eh3": "File not found",
+  "b2l6kewnkrdadw8": "Cannot open file: {message}",
+  "@b2l6kewnkrdadw8": {
+    "placeholders": {
+      "message": {
+        "type": "String"
+      }
+    }
+  },
+  "ilwfldm3u97bgk": "Voice file not found",
+  "zhrelqokzpviy": "Failed to load voice: {error}",
+  "@zhrelqokzpviy": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "p9bfk31yjjby4i": "This folder is empty",
+  "kx5mbh36vh": "Save messages from chat to add them here",
+  "ikr13ndr1i9b": "All",
+  "phlvrudzk3": "items",
+  "nygw1652rp9b": "Text",
+  "crngf6napf": "Documents",
+  "jqx86cmznhk5sf": "Folder deleted",
+  "zy7lxhlkryrbz": "Documents deleted",
+  "c8020knx85w6uu": "Moved to \"{folderName}\"",
+  "@c8020knx85w6uu": {
+    "placeholders": {
+      "folderName": {
+        "type": "String"
+      }
+    }
+  },
+  "f0b3a48i7r": "{count} documents saved",
+  "@f0b3a48i7r": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "s778xqb7dx3kvsw57": "Search documents...",
+  "ewcr8xqxffkci3dv": "{count} selected",
+  "@ewcr8xqxffkci3dv": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "u9cj9vy4ryr": "All Documents",
+  "ooyngftj6pu0": "Saved Text",
+  "b06olw0704wwbrs8j": "Delete Folder",
+  "he125iqu7jmhcn": "Delete Folder?",
+  "mdvllherrds4qmr": "This will permanently delete \"{folderName}\" and all {count} documents inside. This action cannot be undone.",
+  "@mdvllherrds4qmr": {
+    "placeholders": {
+      "folderName": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "wd9bp22e2zx": "Delete {count} documents?",
+  "@wd9bp22e2zx": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "rqukqq405ssh59": "This action cannot be undone.",
+  "ge8gfibkgk0ty9": "No folders available.\nCreate a folder first.",
+  "flo3n9a3kf55ivwsx": "Move to Folder",
+  "x0gc12ueg5l85w5": "From: {sender}",
+  "@x0gc12ueg5l85w5": {
+    "placeholders": {
+      "sender": {
+        "type": "String"
+      }
+    }
+  },
+  "kk6tgrbdkfdh3oa6": "EventHub",
+  "dx14fi3l1zhri": "All",
+  "f0uqs2ows0kth": "Upcoming",
+  "y4jfn94cn4umuu": "My Events",
+  "u2nre8uwo58gs54": "Create Event",
+  "avb3keduk8cga7": "Create",
+  "z57ze16rchxe": "Event created successfully! 🎉",
+  "ensz32v3cq": "Error: {error}",
+  "@ensz32v3cq": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "ajnfil7sp0obe0zy": "Updated: {status}",
+  "@ajnfil7sp0obe0zy": {
+    "placeholders": {
+      "status": {
+        "type": "String"
+      }
+    }
+  },
+  "c3vaqkypd6gcfvioy": "Check-in successful! 🎉",
+  "mwkfufu3ni2mefss": "Thank you for your rating! ⭐",
+  "xqj6pxo3jsag": "Share feature is under development",
+  "gq7m1dhik3r8z3mg": "QR Check-in",
+  "wykdna94xgijubccc": "Show this QR code to the organizer for check-in",
+  "ujty5z5lxn6udhs": "Close",
+  "em7txcaj4j02lbl": "Check-in Now",
+  "gb2ctvvko7s847": "Check-in",
+  "kpn7zg8yq7ef1v": "Checked in",
+  "guyj26dw3cxb78l": "Rate Event",
+  "xedwx7f0kbd": "Rating",
+  "c0on9psqnqn5v": "Share",
+  "qx6ludz9gs99hp1": "Retry",
+  "ozvi0cj161kbsnw": "Clear Filter",
+  "hi3h4nz3nsc6y5p3": "Event not found",
+  "xp4qmp3v47p7g95": "Go Back",
+  "usemdyjlin95ofp": "An error occurred: {error}",
+  "@usemdyjlin95ofp": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "cmpeawxyealt8": "Organizer",
+  "y918cqjzfvldxkd": "Time",
+  "jdihohiuynmnjz": "Location",
+  "kxnr1f6jefistqlz": "Capacity",
+  "f0jgzxub4x9u9w": "View All ({count})",
+  "@f0jgzxub4x9u9w": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "d53cjz0objuwb3u": "Write a comment...",
+  "z0ojwrrnfkg3p2": "Join",
+  "vihsu60i0p1": "Absent",
+  "i46ocggz8sb21to": "Not Joining",
+  "b2d2pc78rbm": "Comment",
+  "gytvz5t222v6d2dm": "Register for Event",
+  "nfhghvvx2ncqp6": "Rate Event",
+  "nnfpfghcaq1": "Your feedback (optional)",
+  "q39izykkrnwj5f": "Cancel",
+  "h4tt6z2w68c8qkv0": "Submit",
+  "m45thbljg2": "Apply",
+  "xwyec1wpglpru": "Fully customize your event",
+  "qrmzb2wc3vq5zivi": "E.g.: Spring Team Building 2026",
+  "gx475r4c57959q8q": "Event description details...",
+  "dwieov3cr7": "Start",
+  "g7esfq9c9u": "End",
+  "hwir51pkqnplo": "E.g.: Meeting Room A - Floor 5",
+  "cs8pnjyfjai0pp9": "E.g.: 123 Main Street, City",
+  "c324gp4oxhllp955h": "Leave empty for unlimited",
+  "ro6a18qdclqrd2rm": "Require Approval",
+  "ar63ewvhsna": "No upcoming events",
+  "zt1ntszsewpv2": "Explore and register for new events!",
+  "xf32cu1db8tf": "No attended events yet",
+  "i6jvgy64zqecl": "Events you've attended will appear here",
+  "ad7pnvvnfy35ibxdx": "No cancelled events",
+  "ho2mqc4yl1bqk": "Events you've cancelled will appear here",
+  "d7yr6ixo0hi": "Filter Events",
+  "l0yr2862vkjk9m": "Meeting",
+  "uv4lzlc1de": "Training",
+  "g28njntz3bs": "Team Building",
+  "ig4jhzo7b8fk6q": "Celebration",
+  "ug7er9993r03": "Workshop",
+  "p5b1xwpjo6y": "Seminar",
+  "kr3nslh40p2r65mz": "Social",
+  "ht2z1atd61": "Sports",
+  "ciokki94lnr7a17z3": "Other",
+  "ecu08uy9kh3yhg4n0": "Upcoming",
+  "tin167uacuzu0ztos": "Ongoing",
+  "kyasmyz16xzp": "Completed",
+  "d4u0135iqj6": "Cancelled",
+  "ucuszthavbngct": "Attending",
+  "m30xml3hnuakuj": "Not Attending",
+  "jqm6cebelmq33zylx": "End time must be after start time",
+  "vxb8yr4ig9jv54f": "Select Event Template",
+  "t88t2d7oy7uhb": "Or create a new event from scratch",
+  "xvn04mflfxwsz16": "Create from Scratch",
+  "jfz2hmh51q": "Event Type",
+  "rz2fg11vs2a": "Event Name *",
+  "ul1u82onzysw4": "Please enter event name",
+  "ajw4chfuizb6l": "Location *",
+  "ba8v79wmq7r7g1dxh": "Change",
+  "xyxbven45e9": "Join Now",
+  "xask3s4t8c": "Filter Events",
+  "bdql8eydkts4": "Available Templates",
+  "q7dpaeife1u": "Description *",
+  "qywl99hx6q": "Please enter description",
+  "no4gnatg00": "Detailed Address (optional)",
+  "gbcdxv9yjuem": "Max Participants (optional)",
+  "slvoiutwii9": "Departments (optional)",
+  "uf83cc23r5zv3": "Leave empty for all departments to join",
+  "tl2nrdqx3y": "Please enter location",
+  "esh4b7ivbjer11re": "Registered",
+  "sqesr9pi2o": "Registration requires your approval to join",
+  "lwg8omngivs": "Upcoming ({count})",
+  "@lwg8omngivs": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "pgivdxyxnyjzihg6l": "Attended ({count})",
+  "@pgivdxyxnyjzihg6l": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "j2ty3hhloq": "Cancelled ({count})",
+  "@j2ty3hhloq": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "viwcygd6guhjrd": "Ongoing",
+  "pkro5pcnsivcmg": "{days} days left",
+  "@pkro5pcnsivcmg": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "omnpqz70h0f11f": "{hours} hours left",
+  "@omnpqz70h0f11f": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "efq9aj14pu": "{minutes} minutes left",
+  "@efq9aj14pu": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "y07y80e22pe2nj": "Details",
+  "oo7hufj6gc8": "Participants ({count})",
+  "@oo7hufj6gc8": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "bbhqe1sxziy245m5": "{count}/{max} people",
+  "@bbhqe1sxziy245m5": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "m58pikkgvgqc": "{spots} spots left",
+  "@m58pikkgvgqc": {
+    "placeholders": {
+      "spots": {
+        "type": "int"
+      }
+    }
+  },
+  "wncqntp3thc1ud": "Full",
+  "z9c2fgc70wa": "Description",
+  "kprlfwd7rvid2mey": "Participants",
+  "e76z1uwd5zwcc": "No participants yet",
+  "b378gxw2uv3giay": "No comments yet",
+  "yx3hz27gur": "{days} days ago",
+  "@yx3hz27gur": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "cv5jrnbgk35nbhda": "{hours} hours ago",
+  "@cv5jrnbgk35nbhda": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "xpqpx6aoz4lij51": "{minutes} minutes ago",
+  "@xpqpx6aoz4lij51": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "u4myioe0r1fkdy81": "Just now",
+  "bg1wst3o6l": "Status",
+  "p5oovcwdi43dvcat": "Department",
+  "ht3koz2vjj8lzet34": "See more",
+  "xsnkq6kssjiw": "Moments",
+  "ak2f7mklhh5vgu6": "Moments",
+  "zqsbkgpyj53d": "Create Moment",
+  "sabtsn25i23gzdz9t": "Text",
+  "mgo7s24wyxwc": "Photo",
+  "lsmqy2i96575udu6k": "Video",
+  "pdzl6x1i2whknebio": "Camera",
+  "qttpxq89a08": "What's on your mind?",
+  "ao39ofmvcv7": "Add Location",
+  "ajav6a88qbt8lov": "Add Music",
+  "ue1ilpl7fqu": "Tag Friends",
+  "t24f9ouvv9md71u": "Post",
+  "ttpvodonumcc3": "Posting...",
+  "rly9k6ultps6vyf": "Moment posted successfully!",
+  "qccz6w5amjdc": "Failed to post moment",
+  "p2m22bckqstxql6": "Delete",
+  "vvlv8z9iy5v7f1gfl": "Delete this moment?",
+  "w7v38r296nt": "Moment deleted",
+  "pbwe1avldeycpd55j": "Edit",
+  "m95gidyjtvu1ay": "Public",
+  "v6qfedlfe9k8jnmwt": "Private",
+  "ct4f3yzesi508": "Selected Friends",
+  "r6x1d04yikg": "Hide from Selected",
+  "n590ibom6ermwcr2": "Auto-delete after 24h",
+  "z126yogjrujw": "Permanent",
+  "njsfs9sjergmdw": "Visibility Duration",
+  "u115ffgy7w2ev": "Who can see this?",
+  "og3zs3kg2shk": "Select Friends",
+  "xkquuljsw1ch": "Stories",
+  "aucqzq3jr70": "Your Story",
+  "yb3djvdvdx79e1ak": "Add to Story",
+  "guuyfovzk29pn": "{count} views",
+  "@guuyfovzk29pn": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "px0pw41n8i8u6s4": "Like",
+  "jybbknb92b": "Love",
+  "gu5f5iupux3313v": "Haha",
+  "jbgc1wmnk2bza2nu": "Wow",
+  "sgsz290pzco": "Sad",
+  "wlz3yhyd2z": "Angry",
+  "g7b5ir5q66hbzgl2l": "{count} reactions",
+  "@g7b5ir5q66hbzgl2l": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "yp2h5ioz84z": "Comment",
+  "pa3tol0bjvw5p": "{count} comments",
+  "@pa3tol0bjvw5p": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "yuo4hdknhbcse": "Share",
+  "pu2twt0t3z34dl": "Write a comment...",
+  "r48ctiwsyqsqz7pq": "Reply",
+  "u0bn8kwxlg3li2da": "Reply to {name}",
+  "@u0bn8kwxlg3li2da": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "tl54xyf6yj4": "View {count} replies",
+  "@tl54xyf6yj4": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "kii2xexhmxzlxph2i": "No moments yet",
+  "d4d3na9ivs9b6q": "Be the first to share a moment!",
+  "t9gwh5wrbmc2b67v": "Load more",
+  "yifb5s5gfly9": "Refresh",
+  "eudxq1mxbmdo1": "Just now",
+  "ezvu96m3g6nifv": "{minutes}m ago",
+  "@ezvu96m3g6nifv": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "oqksx2h0mqso": "{hours}h ago",
+  "@oqksx2h0mqso": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      }
+    }
+  },
+  "urw5knnrp8lokjn": "{days}d ago",
+  "@urw5knnrp8lokjn": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "lb6muvqw6jeyd": "Maximum 9 images allowed",
+  "bv8e4d2be8c87i23w": "Video must be under 60 seconds",
+  "djvvu83tky2e": "Select Media",
+  "qfqgrxgy0yxft": "Edit Image",
+  "ncdg9w7l9a8y2l": "Add Sticker",
+  "ziwn931zp4zr": "Add Text",
+  "x6obvd8gz9lu3agd": "Add Filter",
+  "yho4yghupxup157": "Crop",
+  "c5f1xgyauglhbmmk": "Done",
+  "rg0h2days3qkxdj48": "Cancel",
+  "eapv3xc3mri8o": "Expires in {time}",
+  "@eapv3xc3mri8o": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "wo9z7ar7w1xg": "My Moments",
+  "yellk6jqnhdp4b5w": "Friends' Moments",
+  "syfodye1ee95r1p0x": "No comments yet",
+  "e2hcup695h": "Be the first to comment!",
+  "lo3khkvphzskgntq": "View all {count} comments",
+  "@lo3khkvphzskgntq": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "swr0zwacy1onbh": "Delete comment",
+  "la3kico58qydilrd": "Are you sure you want to delete this comment?",
+  "dab11l46jwx697g": "Delete post",
+  "d8a246y9yoq5ncna8": "Are you sure you want to delete this post? This action cannot be undone.",
+  "ntmt8a4bre": "Edit privacy",
+  "x5c94nhlyu7k6": "Hide this post",
+  "xkd0e29wiv85fo": "Report",
+  "adcvsgh2n8": "Copy link",
+  "gesvou2i4b": "Send a message...",
+  "ptk8o549e5e9ohpb": "{weeks}w ago",
+  "@ptk8o549e5e9ohpb": {
+    "placeholders": {
+      "weeks": {
+        "type": "int"
+      }
+    }
+  },
+  "l3v25xx40x21k": "{months}mo ago",
+  "@l3v25xx40x21k": {
+    "placeholders": {
+      "months": {
+        "type": "int"
+      }
+    }
+  },
+  "p5oxd6f6i2lxc1kc": "{years}y ago",
+  "@p5oxd6f6i2lxc1kc": {
+    "placeholders": {
+      "years": {
+        "type": "int"
+      }
+    }
+  },
+  "lo99kt5btoah": "Change",
+  "bicoiaqb2aj": "replied to",
+  "h3d0jnfo87ves1sc": "Add Story",
+  "p53fnsf8wy1me": "This post will automatically disappear after 24 hours",
+  "m2jjolne6u0": "Details",
+  "pne4o14kims": "No stories available",
+  "q8vq39kmrmuvf": "Video must be under 60 seconds",
+  "n6b9p88vadxpr": "Moment posted successfully!",
+  "mib5d08neilf6j": "Failed to post. Please try again.",
+  "b46vc7dz3xh": "Error: {message}",
+  "@b46vc7dz3xh": {
+    "placeholders": {
+      "message": {
+        "type": "String"
+      }
+    }
+  },
+  "v2jgm8rq6r15h": "You",
+  "itb9am959elakeqlo": "Photo/Video",
+  "b5hkuggoki88i": "Music",
+  "n9x50k1hj0j": "Location",
+  "e7l6hw5n3xf": "Feature coming soon",
+  "jidbwy4bs3yth": "Text",
+  "o9hxm011ylt05abva": "Photo",
+  "tqije0j07g1": "Who can see this?",
+  "mglejxs6hss8ljksi": "Visibility Duration",
+  "skz53aydirwoyl": "Confirm",
+  "m2wf9exosurf03": "Privacy Settings",
+  "vr4jiw6vp1t": "{hours}h {minutes}m remaining",
+  "@vr4jiw6vp1t": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "ciem4182g6": "{minutes}m remaining",
+  "@ciem4182g6": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "zqz8ja94v2gzw": "Reply to {name}",
+  "@zqz8ja94v2gzw": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "pnu8q43amgyubo": "Reply...",
+  "i715e6u42mc7": "Comment sent",
+  "ncsltczzaqs7bl": "Liked"
+}
