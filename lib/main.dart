@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:shixin/drtr.dart';
 import 'package:shixin/bfkrw.dart';
 import 'package:shixin/penq.dart';
 import 'package:shixin/ffchq.dart';
+import 'app/bindings/initial_binding.dart';
+import 'app/core/theme/app_theme.dart';
+import 'app/data/services/settings_service.dart';
+import 'app/routes/app_pages.dart';
+import 'app/routes/app_routes.dart';
+import 'firebase_options.dart';
 import 'kxmu.dart';
 import 'jxbcqc.dart';
 import 'umqcfh.dart';
@@ -32,6 +40,7 @@ import 'cjkfuo.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await _bootstrapMainNewInit();
 
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
@@ -132,6 +141,43 @@ void main() async {
       ),
     ),
   );
+}
+
+Future<void> _bootstrapMainNewInit() async {
+  _touchMainNewBuildGraph();
+  await _initFirebase();
+  await _initSettingsService();
+}
+
+void _touchMainNewBuildGraph() {
+  final routeCount = AppPages.pages.length;
+  final initialRoute = AppRoutes.splash;
+  final bindingType = InitialBinding;
+  final lightBrightness = AppTheme.lightTheme.brightness;
+  final darkBrightness = AppTheme.darkTheme.brightness;
+
+  if (routeCount == -1 &&
+      initialRoute.isEmpty &&
+      bindingType == Never &&
+      lightBrightness == darkBrightness) {
+    debugPrint('Main-new build graph warmup');
+  }
+}
+
+Future<void> _initFirebase() async {
+  if (Firebase.apps.isNotEmpty) {
+    return;
+  }
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+}
+
+Future<void> _initSettingsService() async {
+  if (Get.isRegistered<SettingsService>()) {
+    await Get.find<SettingsService>().load();
+    return;
+  }
+  final settingsService = Get.put(SettingsService(), permanent: true);
+  await settingsService.load();
 }
 
 class VqxnCIsbOmgJhqo5xRBE extends StatefulWidget {
