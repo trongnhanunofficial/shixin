@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -24,8 +23,6 @@ import 'nuqo.dart';
 import 'cjkfuo.dart';
 import 'yezc.dart';
 import 'bvibeu.dart';
-import 'nhzzv.dart';
-import 'cnbiw.dart';
 import 'dtyi.dart';
 import 'laayzm.dart';
 
@@ -64,11 +61,6 @@ class _EwAWr8QrjQFRE extends State<WcmrVS8H> {
     46,
   ]);
   bool _hYkZGXIUMd8Sf = false;
-  int _aYnw5QPeaxFjhxj7z1CP3G9 = 0;
-  final Gga2CERQG _nPjUdJgfD = Gga2CERQG();
-  final XyBILJ54n0qqXSqTyEF4T _gXyz6LUHqs0R3GdtW3aFC = XyBILJ54n0qqXSqTyEF4T();
-  bool _rkOTlII3NDiJm = false;
-  bool _mmL2uEeUXFY2D2oab = false;
   bool _ewk00JxnVS28PV3qwl = false;
 
   void _kLfhfANcTF56Y2kbA() {
@@ -158,18 +150,6 @@ class _EwAWr8QrjQFRE extends State<WcmrVS8H> {
     }
     _b5WN409W3vsmZg0(false);
     _vkofzJ6AjerB();
-    _mSNpIWmQh8dSQQStYPDHxpCPUIq();
-    _smfQHwZhUcT6cz41T3();
-  }
-
-  Future<void> _smfQHwZhUcT6cz41T3() async {
-    await _gXyz6LUHqs0R3GdtW3aFC.sx8iR4VkY7();
-    if (mounted) {
-      setState(() {
-        _rkOTlII3NDiJm = _gXyz6LUHqs0R3GdtW3aFC.hF0J9qOwILR;
-        _mmL2uEeUXFY2D2oab = _gXyz6LUHqs0R3GdtW3aFC.zmU1doDUUKKKuRC;
-      });
-    }
   }
 
   void _rCiai4XgPUb3GsL(String message) {
@@ -723,22 +703,6 @@ class _EwAWr8QrjQFRE extends State<WcmrVS8H> {
     }
   }
 
-  Future<void> _mSNpIWmQh8dSQQStYPDHxpCPUIq() async {
-    try {
-      await _nPjUdJgfD.rHIErPOim0UMFmZJAl();
-      final count = await _nPjUdJgfD.s0uVepicBIvdMn5Lo10GWlKt59();
-      if (mounted) {
-        setState(() {
-          _aYnw5QPeaxFjhxj7z1CP3G9 = count;
-        });
-      }
-    } catch (_) {
-      if (false) {
-        print(String.fromCharCodes(const <int>[109, 110, 114, 109, 107]));
-      }
-    }
-  }
-
   Widget _axP5NhICgFArJBCjg({
     required String text,
     required VoidCallback onPressed,
@@ -958,372 +922,6 @@ class _EwAWr8QrjQFRE extends State<WcmrVS8H> {
     Eu9poMUsuHlM.b4ze58M8WF8();
   }
 
-  Widget _zcoH8RONRISnly() {
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
-            child: Text(
-              AppLocalizations.of(context)!.ptkijmy5r21,
-              style: MiZsOEG.zzVXfae79j(context, color: const Color(0xFF505050))
-                  .copyWith(
-                    letterSpacing: 1.2,
-                    fontWeight: FontWeight.w700,
-                    shadows: const [
-                      Shadow(
-                        offset: Offset(0, 1),
-                        blurRadius: 0,
-                        color: Colors.white,
-                      ),
-                    ],
-                  ),
-            ),
-          ),
-          Container(
-            decoration: BoxDecoration(
-              gradient: const LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [
-                  Color(0xFFFFFFFF),
-                  Color(0xFFF5F5F5),
-                  Color(0xFFE8E8E8),
-                ],
-              ),
-              borderRadius: BorderRadius.circular(12),
-              border: Border.all(color: const Color(0xFFC0C0C0), width: 1),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.2),
-                  offset: const Offset(0, 4),
-                  blurRadius: 8,
-                ),
-                const BoxShadow(
-                  color: Colors.white,
-                  offset: Offset(0, -1),
-                  blurRadius: 0,
-                ),
-              ],
-            ),
-            child: Column(
-              children: [
-                _utTJwaq3zg8Hc(
-                  title: AppLocalizations.of(context)!.km8c1l2mj0qs8j7,
-                  icon: FluentIcons.clock_24_filled,
-                  iconColor: const Color(0xFF1976D2),
-                  onTap: () => _oaOIqgpVUMmhDAz(N7mVVtSTH.vDuiRIZgpGRHEc),
-                ),
-                _vZ2wvwNR3Ltx(),
-                _utTJwaq3zg8Hc(
-                  title: AppLocalizations.of(context)!.sfe0nd1krz7x,
-                  icon: FluentIcons.calendar_24_filled,
-                  iconColor: const Color(0xFF6A1B9A),
-                  onTap: () => _oaOIqgpVUMmhDAz(N7mVVtSTH.uuDQBRlPIxBaJCc),
-                ),
-                _vZ2wvwNR3Ltx(),
-                _utTJwaq3zg8Hc(
-                  title: AppLocalizations.of(context)!.qkpca8eufn2fea,
-                  icon: FluentIcons.checkmark_circle_24_filled,
-                  iconColor: const Color(0xFFE65100),
-                  onTap: () => _oaOIqgpVUMmhDAz(N7mVVtSTH.tdX6TA0dDIQ4h5),
-                ),
-                _vZ2wvwNR3Ltx(),
-                _utTJwaq3zg8Hc(
-                  title: AppLocalizations.of(context)!.nszti7ajz0zb,
-                  icon: FluentIcons.alert_24_filled,
-                  iconColor: const Color(0xFFC62828),
-                  onTap: () =>
-                      _oaOIqgpVUMmhDAz(N7mVVtSTH.kOHdBVd4N10a8UvBjzFJG),
-                  trailing: _aYnw5QPeaxFjhxj7z1CP3G9 > 0
-                      ? Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Container(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 8,
-                                vertical: 2,
-                              ),
-                              decoration: BoxDecoration(
-                                gradient: const LinearGradient(
-                                  begin: Alignment.topCenter,
-                                  end: Alignment.bottomCenter,
-                                  colors: [
-                                    Color(0xFFEF5350),
-                                    Color(0xFFE53935),
-                                    Color(0xFFC62828),
-                                  ],
-                                ),
-                                borderRadius: BorderRadius.circular(10),
-                                border: Border.all(
-                                  color: const Color(0xFFB71C1C),
-                                  width: 1,
-                                ),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.black.withOpacity(0.3),
-                                    offset: const Offset(0, 2),
-                                    blurRadius: 4,
-                                  ),
-                                ],
-                              ),
-                              child: Text(
-                                _aYnw5QPeaxFjhxj7z1CP3G9 > 99
-                                    ? String.fromCharCodes(const <int>[
-                                        57,
-                                        57,
-                                        43,
-                                      ])
-                                    : '$_aYnw5QPeaxFjhxj7z1CP3G9',
-                                style: const TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 11,
-                                  fontWeight: FontWeight.bold,
-                                  shadows: [
-                                    Shadow(
-                                      offset: Offset(0, 1),
-                                      blurRadius: 2,
-                                      color: Colors.black45,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            const SizedBox(width: 6),
-                            Icon(
-                              FluentIcons.chevron_right_24_regular,
-                              color: const Color(0xFF909090),
-                              size: 16,
-                              shadows: const [
-                                Shadow(
-                                  offset: Offset(0, 1),
-                                  blurRadius: 0,
-                                  color: Colors.white,
-                                ),
-                              ],
-                            ),
-                          ],
-                        )
-                      : null,
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  void _q9qYaVVdMs01EZh9lgMM8() {
-    final locale = Localizations.localeOf(context).languageCode;
-    if (false) {
-      print(String.fromCharCodes(const <int>[71, 107, 117, 80, 77]));
-    }
-    showDialog(
-      context: context,
-      builder: (context) => Dialog(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        child: Container(
-          decoration: BoxDecoration(
-            gradient: const LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [Color(0xFFF5F5F5), Color(0xFFE8E8E8), Color(0xFFDCDCDC)],
-            ),
-            borderRadius: BorderRadius.circular(12),
-            border: Border.all(color: const Color(0xFFB0B0B0), width: 1.5),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.5),
-                offset: const Offset(0, 6),
-                blurRadius: 12,
-              ),
-            ],
-          ),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              // 4 WeiSSOkT70 agt0cIsjddI
-              Container(
-                padding: const EdgeInsets.all(16),
-                decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      Color(0xFFE65100),
-                      Color(0xFFD84315),
-                      Color(0xFFBF360C),
-                    ],
-                  ),
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(12),
-                    topRight: Radius.circular(12),
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black26,
-                      offset: Offset(0, 2),
-                      blurRadius: 4,
-                    ),
-                  ],
-                ),
-                child: Center(
-                  child: Text(
-                    locale == String.fromCharCodes(const <int>[122, 104])
-                        ? String.fromCharCodes(const <int>[25552, 31034])
-                        : String.fromCharCodes(const <int>[
-                            78,
-                            111,
-                            116,
-                            105,
-                            99,
-                            101,
-                          ]),
-                    style: const TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                      shadows: [
-                        Shadow(
-                          offset: Offset(0, 1),
-                          blurRadius: 3,
-                          color: Colors.black54,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              // bhp6Cll5uIfk6n
-              Padding(
-                padding: const EdgeInsets.all(20),
-                child: Text(
-                  locale == String.fromCharCodes(const <int>[122, 104])
-                      ? String.fromCharCodes(const <int>[
-                          21151,
-                          33021,
-                          27491,
-                          22312,
-                          32500,
-                          25252,
-                          20013,
-                          65292,
-                          35831,
-                          31245,
-                          21518,
-                          20877,
-                          35797,
-                          12290,
-                        ])
-                      : String.fromCharCodes(const <int>[
-                          84,
-                          104,
-                          101,
-                          32,
-                          102,
-                          101,
-                          97,
-                          116,
-                          117,
-                          114,
-                          101,
-                          32,
-                          105,
-                          115,
-                          32,
-                          117,
-                          110,
-                          100,
-                          101,
-                          114,
-                          32,
-                          109,
-                          97,
-                          105,
-                          110,
-                          116,
-                          101,
-                          110,
-                          97,
-                          110,
-                          99,
-                          101,
-                          44,
-                          32,
-                          112,
-                          108,
-                          101,
-                          97,
-                          115,
-                          101,
-                          32,
-                          116,
-                          114,
-                          121,
-                          32,
-                          97,
-                          103,
-                          97,
-                          105,
-                          110,
-                          32,
-                          108,
-                          97,
-                          116,
-                          101,
-                          114,
-                          46,
-                        ]),
-                  style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                    color: Color(0xFF505050),
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ),
-              // x75poFeLbwjvVAvYFsLyDVtNqO mS
-              Container(
-                decoration: const BoxDecoration(
-                  border: Border(
-                    top: BorderSide(color: Color(0xFFB0B0B0), width: 1),
-                  ),
-                ),
-                child: Material(
-                  color: Colors.transparent,
-                  child: InkWell(
-                    onTap: () => Navigator.of(context).pop(),
-                    borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(12),
-                      bottomRight: Radius.circular(12),
-                    ),
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(vertical: 14),
-                      child: Text(
-                        locale == String.fromCharCodes(const <int>[122, 104])
-                            ? String.fromCharCodes(const <int>[30830, 23450])
-                            : String.fromCharCodes(const <int>[79, 75]),
-                        style: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
-                          color: Color(0xFF4A148C),
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -1347,11 +945,6 @@ class _EwAWr8QrjQFRE extends State<WcmrVS8H> {
                 children: [
                   const SizedBox(height: 16),
                   _rlAlRKyTxBHe8pLXvyt(),
-                  // uWvVoOLB4wOo7ALdI8aJvqCeV
-                  if (!_rkOTlII3NDiJm && !Platform.isAndroid) ...[
-                    const SizedBox(height: 16),
-                    _zcoH8RONRISnly(),
-                  ],
                   const SizedBox(height: 16),
                   _aU4LsS9AGxjrcas3vIvD(),
                   const SizedBox(height: 16),
@@ -1667,14 +1260,6 @@ class _EwAWr8QrjQFRE extends State<WcmrVS8H> {
         // hyqzG9xAzsPUM5mJsHegf7
         await _vkofzJ6AjerB();
       }
-    }
-  }
-
-  void _oaOIqgpVUMmhDAz(String routeName) {
-    if (_mmL2uEeUXFY2D2oab) {
-      _q9qYaVVdMs01EZh9lgMM8();
-    } else {
-      Navigator.pushNamed(context, routeName);
     }
   }
 
